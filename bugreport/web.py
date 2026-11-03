@@ -69,7 +69,17 @@ class ReportHandler(BaseHTTPRequestHandler):
             mime = "text/css" if url.path.endswith(".css") else "text/javascript"
             self._send(200, (STATIC / url.path.rsplit("/", 1)[1]).read_bytes(), content_type=mime+"; charset=utf-8")
         elif url.path == "/":
-            self._send(200, views.report_list(store.list_reports(), store.counts()))
+            try:
+                query = parse_qs(url.query, keep_blank_values=True, max_num_fields=8)
+                if any(len(values) != 1 for values in query.values()):
+                    raise ValueError("Duplicate filters")
+                severity = query.get("severity", [""])[0]
+                status = query.get("status", [""])[0]
+                reports = store.list_reports(severity=severity, status=status)
+            except ValueError:
+                self._error(400, "Invalid report filter")
+                return
+            self._send(200, views.report_list(reports, store.counts(), severity=severity, status=status))
         elif url.path == "/reports/new":
             self._send(200, views.report_form(self.server.csrf_token, store.counts()["total"]))
         elif re.fullmatch(r"/reports/[0-9a-f-]{36}", url.path):

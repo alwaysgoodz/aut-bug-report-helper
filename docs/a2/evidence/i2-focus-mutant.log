@@ -1,0 +1,62 @@
+[WebServer] Bug Report Helper: http://127.0.0.1:8780
+
+Running 1 test using 1 worker
+
+Browser under test: 155.0.8059.86
+  x  1 tests\browser\workflow.spec.js:19:1 › C1: invalid submission retains input, inserts nothing and focuses linked summary (5.0s)
+
+
+  1) tests\browser\workflow.spec.js:19:1 › C1: invalid submission retains input, inserts nothing and focuses linked summary 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('#form-errors')
+    Expected: focused
+    Received: inactive
+    Timeout:  4000ms
+
+    Call log:
+      - Expect "toBeFocused" locator('#form-errors') with timeout 4000ms
+      - waiting for locator('#form-errors')
+        12 × locator resolved to <div role="alert" tabindex="-1" id="form-errors" class="error-summary">…</div>
+           - unexpected value "inactive"
+
+
+      25 |   await page.getByRole('button', { name: 'Create report', exact: true }).click();
+      26 |   await expect(page.locator('#form-errors')).toBeVisible();
+    > 27 |   await expect(page.locator('#form-errors')).toBeFocused();
+         |                                              ^
+      28 |   await expect(page.locator('#steps')).toHaveValue('Keep these reproduction steps');
+      29 |   await expect(page.locator('#form-errors a[href="#title"]')).toBeVisible();
+      30 |   await expect(page.locator('#title')).toHaveAttribute('aria-invalid', 'true');
+        at F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\browser\workflow.spec.js:27:46
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\workflow-C1-invalid-submis-3c929--and-focuses-linked-summary\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\workflow-C1-invalid-submis-3c929--and-focuses-linked-summary\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\workflow-C1-invalid-submis-3c929--and-focuses-linked-summary\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\workflow-C1-invalid-submis-3c929--and-focuses-linked-summary\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\browser\workflow.spec.js:19:1 › C1: invalid submission retains input, inserts nothing and focuses linked summary 
+
+[WebServer] 127.0.0.1 - - [04/Nov/2026 00:57:03] "GET /health HTTP/1.1" 200 -
+(node:56040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 127.0.0.1 - - [04/Nov/2026 00:57:04] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 00:57:04] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 00:57:04] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 00:57:04] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 00:57:04] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 00:57:04] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 00:57:04] "POST /reports HTTP/1.1" 422 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 00:57:04] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 00:57:04] "GET /static/app.js HTTP/1.1" 200 -

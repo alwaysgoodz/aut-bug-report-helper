@@ -1,0 +1,24 @@
+{
+  "experiment": "PI-01 identical missing-focus mutation",
+  "command": [
+    "node",
+    "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\node_modules\\@playwright\\test\\cli.js",
+    "test",
+    "--grep",
+    "C1:"
+  ],
+  "duration_seconds": 8.269,
+  "browser_exit_code": 1,
+  "caught_by_focus_assertion": true,
+  "original_restored": true,
+  "original_sha256": "74083bef89e037ecd6b7b68c673ccd63f5999a3e15db6b6443d7dfeed5e47bc7",
+  "stats": {
+    "startTime": "2026-11-03T16:57:02.613Z",
+    "duration": 7530.371999999999,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "interpretation": "One targeted controlled mutation; not a general defect-detection rate"
+}

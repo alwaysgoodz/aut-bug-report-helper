@@ -123,6 +123,29 @@ textarea { resize: vertical; }
 .error-page p { color: var(--muted); }
 footer { max-width: 1500px; margin: auto; padding: 20px 40px 25px; color: var(--muted); font-size: 10px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.filters { display: flex; align-items: flex-end; gap: 12px; padding: 18px 25px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.filters label { font-size: 11px; }
+.filters select { min-width: 145px; font-size: 12px; }
+.clear-filters { display: inline-flex; align-items: center; min-height: 44px; padding: 8px; color: var(--muted); font-size: 12px; }
+.list-score { font-size: 13px; font-weight: 600; color: var(--teal); }
+.completeness-card { padding: 24px; margin-bottom: 20px; }
+.completeness-card .eyebrow { font-size: 8px; letter-spacing: 1px; }
+.completeness-card h2 { font-size: 16px; }
+.score-line { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-top: 20px; }
+#completeness-score { font-size: 37px; font-weight: 550; letter-spacing: -1.5px; color: var(--teal); }
+#completeness-count { font-size: 11px; color: var(--muted); }
+progress { display: block; width: 100%; height: 7px; border: 0; border-radius: 5px; appearance: none; overflow: hidden; margin-top: 10px; background: #e4ece9; accent-color: var(--teal); }
+progress::-webkit-progress-bar { background: #e4ece9; }
+progress::-webkit-progress-value { background: var(--teal); border-radius: 5px; }
+progress::-moz-progress-bar { background: var(--teal); border-radius: 5px; }
+.score-disclaimer { color: var(--muted); font-size: 11px; line-height: 1.8; margin: 13px 0 22px; }
+.completeness-card h3 { font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+.guidance-list { list-style: none; padding: 0; margin: 0; }
+.guidance-list li { border-top: 1px solid var(--line); padding: 12px 0; }
+.guidance-list strong { display: block; font-size: 11px; font-weight: 600; }
+.guidance-list span { display: block; color: var(--muted); font-size: 11px; line-height: 1.7; margin-top: 3px; }
+#guidance-complete { color: var(--teal); font-size: 12px; line-height: 1.8; }
+.privacy-note { color: var(--muted); font-size: 11px; line-height: 1.8; padding: 0 8px; }
 @media (min-width: 1600px) { main { padding-top: 50px; } }
 @media (max-width: 1200px) { .sidebar { width: 190px; padding-left: 13px; padding-right: 13px; } .app { margin-left: 190px; } main { padding: 28px; } .topbar { padding: 20px 28px; } .stat { padding: 18px; } .stat small { font-size: 10px; } .editor-layout { grid-template-columns: minmax(0, 1fr) 245px; gap: 18px; } td, th { padding-left: 18px; padding-right: 18px; } }
 @media (max-width: 950px) { .editor-layout { grid-template-columns: 1fr; } .editor-aside { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; } .guidance-card { grid-column: 1 / -1; } .stats { grid-template-columns: 1fr 1fr; } .date-cell { white-space: normal; min-width: 105px; } }

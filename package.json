@@ -1,0 +1,12 @@
+{
+  "name": "aut-bug-report-helper-checks",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser-only development checks; the application itself uses Python standard library",
+  "scripts": {
+    "test:browser": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1"
+  }
+}
