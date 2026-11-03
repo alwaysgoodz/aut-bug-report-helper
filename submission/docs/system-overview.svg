@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="475" height="180" preserveAspectRatio="xMinYMin meet" viewBox="0 0 475 180" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="475" height="180"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-180)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="3" y="3" width="469" height="147" rx="5" ry="0" style="stroke: rgb(73%,79%,82%); stroke-linecap: butt; stroke-width: 1; fill: none; fill-rule: evenodd;"/>
+			<text x="12" y="12" style="font-family: Body-Italic; font-size: 9px;fill: rgb(32%,38%,44%); stroke:none;" transform="translate(0,24) scale(1,-1)">Local application boundary</text>
+			<text x="12" y="165" style="font-family: Body-Bold; font-size: 10px;fill: rgb(9%,16%,22%); stroke:none;" transform="translate(0,330) scale(1,-1)">Reporter / developer / QA</text>
+			<rect x="12" y="93" width="142" height="45" rx="4" ry="0" style="stroke: rgb(32%,38%,44%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd; stroke-dasharray: 4, 3;"/>
+			<text x="38.538330078125" y="118.5" style="font-family: Body-Bold; font-size: 9.5px;fill: rgb(9%,16%,22%); stroke:none;" transform="translate(0,237) scale(1,-1)">Browser forms and list</text>
+			<text x="48.880664062499996" y="104.5" style="font-family: Body; font-size: 8.8px;fill: rgb(32%,38%,44%); stroke:none;" transform="translate(0,209) scale(1,-1)">I1 browser adapter</text>
+			<rect x="181" y="93" width="146" height="45" rx="4" ry="0" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<text x="211.4912109375" y="118.5" style="font-family: Body-Bold; font-size: 9.5px;fill: rgb(9%,16%,22%); stroke:none;" transform="translate(0,237) scale(1,-1)">Python report service</text>
+			<text x="212.0001953125" y="104.5" style="font-family: Body; font-size: 8.8px;fill: rgb(32%,38%,44%); stroke:none;" transform="translate(0,209) scale(1,-1)">Validation; create; read</text>
+			<rect x="351" y="93" width="109" height="45" rx="4" ry="0" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<text x="367.9429931640625" y="112.5" style="font-family: Body-Bold; font-size: 9.5px;fill: rgb(9%,16%,22%); stroke:none;" transform="translate(0,225) scale(1,-1)">SQLite report store</text>
+			<rect x="12" y="30" width="142" height="40" rx="4" ry="0" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<text x="66.0758056640625" y="47.0" style="font-family: Body-Bold; font-size: 9.5px;fill: rgb(9%,16%,22%); stroke:none;" transform="translate(0,94) scale(1,-1)">Local CLI</text>
+			<rect x="181" y="30" width="146" height="40" rx="4" ry="0" style="stroke: rgb(32%,38%,44%); stroke-linecap: butt; stroke-width: 0.9; fill: rgb(100%,100%,100%); fill-rule: evenodd; stroke-dasharray: 4, 3;"/>
+			<text x="215.429443359375" y="53.0" style="font-family: Body-Bold; font-size: 9.5px;fill: rgb(9%,16%,22%); stroke:none;" transform="translate(0,106) scale(1,-1)">Completeness rules</text>
+			<text x="233.4931640625" y="39.0" style="font-family: Body; font-size: 8.8px;fill: rgb(32%,38%,44%); stroke:none;" transform="translate(0,78) scale(1,-1)">I2 guidance</text>
+			<path d="M 83,160 L 83,138 Z" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 4, 3;"/>
+			<polygon points="83 138, 86 143, 80 143" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 1; fill: rgb(9%,39%,42%); fill-rule: evenodd;"/>
+			<path d="M 154,115 L 181,115 Z" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 4, 3;"/>
+			<polygon points="181 115, 176 118, 176 112" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 1; fill: rgb(9%,39%,42%); fill-rule: evenodd;"/>
+			<path d="M 327,115 L 351,115 Z" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="351 115, 346 118, 346 112" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 1; fill: rgb(9%,39%,42%); fill-rule: evenodd;"/>
+			<path d="M 154,50 L 181,93 Z" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="181 93, 175.8005 90.36085, 180.8818 87.17025" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 1; fill: rgb(9%,39%,42%); fill-rule: evenodd;"/>
+			<path d="M 254,93 L 254,70 Z" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 4, 3;"/>
+			<polygon points="254 70, 257 75, 251 75" style="stroke: rgb(9%,39%,42%); stroke-linecap: butt; stroke-width: 1; fill: rgb(9%,39%,42%); fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

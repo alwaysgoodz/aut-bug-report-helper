@@ -33,6 +33,8 @@ The second command opens a new process to read persisted data. A blank title or 
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [backlog](docs/backlog.md) and [evidence index](docs/evidence-index.md). Use Issues for requirements, short branches and pull requests with acceptance-test evidence. A non-author teammate must review before merging. Current access is private; the owner must invite the actual teammates and assessor through repository settings.
 
+The actual proposed change is [draft PR #7](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7). Research, the report draft, diagram and source files are in the [submission review package](submission/README.md). The independently tested implementation snapshot and its CI run are recorded in the evidence index; the final submission release remains pending real team review.
+
 ## Reuse and assistance
 
 No existing application codebase has been imported. Python's standard-library SQLite, argparse and unittest are used. The starting brief was supplied by the owner in `content.txt` outside this repository. Research sources and decisions are recorded in project documents. Codex generated the initial scaffold, trial implementation, tests and report materials at the owner's request; this is not evidence of four students' contributions. Confirm the course's permitted use and acknowledge actual assistance in the submission.
