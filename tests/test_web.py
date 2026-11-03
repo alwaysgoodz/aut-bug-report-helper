@@ -1,0 +1,136 @@
+"""BR-02/03 HTTP acceptance and local security boundaries; no browser dependency."""
+import http.client
+import re
+import tempfile
+import threading
+import unittest
+from pathlib import Path
+from urllib.parse import urlencode
+
+from bugreport.service import ReportStore
+from bugreport.web import MAX_BODY, ReportServer
+
+
+class WebTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.temp = tempfile.TemporaryDirectory()
+        cls.store = ReportStore(Path(cls.temp.name) / "web.db")
+        cls.server = ReportServer(("127.0.0.1", 0), cls.store)
+        cls.port = cls.server.server_address[1]
+        cls.worker = threading.Thread(target=cls.server.serve_forever, kwargs={"poll_interval": .02}, daemon=True)
+        cls.worker.start()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.server.shutdown()
+        cls.worker.join(timeout=2)
+        cls.server.server_close()
+        cls.temp.cleanup()
+
+    def request(self, method="GET", path="/", data=None, headers=None, raw=None):
+        connection = http.client.HTTPConnection("127.0.0.1", self.port, timeout=5)
+        self.addCleanup(connection.close)
+        request_headers = dict(headers or {})
+        body = raw
+        if data is not None:
+            body = urlencode(data).encode("utf-8")
+            request_headers.setdefault("Content-Type", "application/x-www-form-urlencoded")
+        connection.request(method, path, body, request_headers)
+        response = connection.getresponse()
+        return response.status, dict(response.getheaders()), response.read().decode("utf-8")
+
+    def form_data(self, **values):
+        return dict(_csrf=self.server.csrf_token, title="HTTP defect", severity="medium", **values)
+
+    def test_form_has_seven_visible_labels_and_empty_explicit_severity(self):
+        code, _, body = self.request(path="/reports/new")
+        self.assertEqual(code, 200)
+        for field in ("title", "description", "steps", "expected", "actual", "environment", "severity"):
+            self.assertIn(f'for="{field}"', body)
+        self.assertIn('<option value="">Select severity</option>', body)
+        self.assertNotIn('value="medium" selected', body)
+
+    def test_browser_create_redirect_reload_and_status_cycle(self):
+        code, headers, _ = self.request("POST", "/reports", self.form_data(steps="Open settings"))
+        self.assertEqual(code, 303)
+        location = headers["Location"]
+        report_id = location.split("/")[2].split("?")[0]
+        _, _, page = self.request(path=location)
+        self.assertIn("HTTP defect", page)
+        self.assertIn("Open settings", page)
+        count = self.store.counts()["total"]
+        self.request(path=location)
+        self.assertEqual(self.store.counts()["total"], count)
+        for old, new in (("Open", "In progress"), ("In progress", "Resolved"), ("Resolved", "Open")):
+            code, _, _ = self.request("POST", f"/reports/{report_id}/status",
+                                      dict(_csrf=self.server.csrf_token, status=new, expected_status=old))
+            self.assertEqual(code, 303)
+            self.assertEqual(self.store.get(report_id)["status"], new)
+
+    def test_invalid_form_retains_input_and_has_linked_inline_errors_without_insert(self):
+        before = self.store.counts()["total"]
+        data = self.form_data(steps="Keep this useful detail")
+        data["title"] = "  "
+        data["severity"] = ""
+        code, _, body = self.request("POST", "/reports", data)
+        self.assertEqual(code, 422)
+        self.assertIn("Keep this useful detail", body)
+        self.assertIn('href="#title"', body)
+        self.assertIn('id="title-error"', body)
+        self.assertIn('aria-describedby="title-help title-error"', body)
+        self.assertEqual(self.store.counts()["total"], before)
+
+    def test_report_markup_is_escaped_and_security_headers_present(self):
+        report = self.store.create(title='<script>alert("x")</script>', severity="high", actual='<img src=x onerror=alert(1)>')
+        code, headers, body = self.request(path=f"/reports/{report['id']}")
+        self.assertEqual(code, 200)
+        self.assertNotIn('<script>alert(', body)
+        self.assertNotIn('<img src=x', body)
+        self.assertIn('&lt;script&gt;', body)
+        self.assertIn("frame-ancestors 'none'", headers["Content-Security-Policy"])
+        self.assertEqual(headers["X-Content-Type-Options"], "nosniff")
+        self.assertEqual(headers["Cache-Control"], "no-store")
+
+    def test_missing_wrong_and_non_ascii_csrf_rejected_without_write(self):
+        before = self.store.counts()["total"]
+        for token in ("", "wrong", "伪造"):
+            data = self.form_data()
+            data["_csrf"] = token
+            with self.subTest(token=token):
+                self.assertEqual(self.request("POST", "/reports", data)[0], 403)
+        self.assertEqual(self.store.counts()["total"], before)
+
+    def test_foreign_origin_and_untrusted_host_are_rejected(self):
+        before = self.store.counts()["total"]
+        self.assertEqual(self.request("POST", "/reports", self.form_data(), headers={"Origin": "https://evil.example"})[0], 403)
+        self.assertEqual(self.request(headers={"Host": "evil.example"})[0], 400)
+        self.assertEqual(self.store.counts()["total"], before)
+
+    def test_form_body_limits_media_type_and_duplicate_fields(self):
+        self.assertEqual(self.request("POST", "/reports", raw=b"{}", headers={"Content-Type": "application/json"})[0], 415)
+        self.assertEqual(self.request("POST", "/reports", raw=b"x"*(MAX_BODY+1), headers={"Content-Type": "application/x-www-form-urlencoded"})[0], 413)
+        self.assertEqual(self.request("POST", "/reports", raw=b"title=a&title=b", headers={"Content-Type": "application/x-www-form-urlencoded"})[0], 400)
+
+    def test_status_conflict_and_invalid_transition_do_not_overwrite(self):
+        report = self.store.create(title="Concurrent", severity="low")
+        path = f"/reports/{report['id']}/status"
+        values = dict(_csrf=self.server.csrf_token, status="In progress", expected_status="Open")
+        self.assertEqual(self.request("POST", path, values)[0], 303)
+        self.assertEqual(self.request("POST", path, values)[0], 409)
+        values.update(status="Open", expected_status="In progress")
+        self.assertEqual(self.request("POST", path, values)[0], 422)
+        self.assertEqual(self.store.get(report["id"])["status"], "In progress")
+
+    def test_unknown_route_and_static_traversal_return_404(self):
+        for path in ("/reports/00000000-0000-0000-0000-000000000000", "/static/../service.py", "/missing"):
+            with self.subTest(path=path):
+                self.assertEqual(self.request(path=path)[0], 404)
+
+    def test_same_origin_post_succeeds(self):
+        headers = {"Origin": f"http://127.0.0.1:{self.port}"}
+        self.assertEqual(self.request("POST", "/reports", self.form_data(), headers=headers)[0], 303)
+
+    def test_server_refuses_public_bind(self):
+        with self.assertRaisesRegex(ValueError, "loopback"):
+            ReportServer(("0.0.0.0", 0), self.store)

@@ -1,0 +1,9 @@
+{
+  "experiment": "I1 controlled missing-focus mutation",
+  "automatedPythonChecks": "34 passing despite disabled browser focus",
+  "errorSummaryVisible": true,
+  "activeElementId": "",
+  "focusCriterionPasses": false,
+  "mode": "Ad-hoc browser observation; not a human review",
+  "observedAt": "2026-11-03T16:46:13.731Z"
+}

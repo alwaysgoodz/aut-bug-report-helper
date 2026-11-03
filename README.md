@@ -4,7 +4,7 @@ AUT Contemporary Methods in Software Engineering, Assignment 1. A small student-
 
 ## Current implementation
 
-The feature branch trials a working Python/SQLite creation service and CLI (BR-01). A browser UI, status editing, completeness guidance and filters are planned for the two Assignment 2 iterations. They are not implemented by this A1 trial. `main` retains the initial scaffold pending independent review.
+The A2 I1 branch implements a local browser application with structured report creation, list/detail pages, persistent state changes and guarded invalid/stale updates (BR-01/02/03). Completeness guidance and filters are selected for I2. `main` and A1's branch remain preserved pending independent review.
 
 ## Setup and tests
 
@@ -28,6 +28,15 @@ python -m bugreport --db reports.db show <id-from-create-output>
 ```
 
 The second command opens a new process to read persisted data. A blank title or invalid severity returns a nonzero exit and inserts no report. `reports.db` is local and ignored by Git. The example leaves description empty deliberately: completeness guidance is planned for I2; title and valid severity are required now.
+
+## Run the browser increment
+
+```powershell
+git switch feat/a2-iteration-1
+python -m bugreport --db reports.db serve --port 8765
+```
+
+Open http://127.0.0.1:8765 in your browser. Stop with Ctrl+C. SQLite data persists in the chosen file; do not delete it to restart. The application binds only to loopback and is scoped to a local single-instance course prototype, with no authentication or remote team database. [I1 record](docs/a2/iteration-1.md) and [prospective process-improvement plan](docs/a2/process-improvement-plan.md) distinguish implemented evidence from the real team activities still required.
 
 ## Collaboration and evidence
 

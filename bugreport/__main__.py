@@ -17,7 +17,13 @@ def main():
         create.add_argument("--" + field, default="")
     show = commands.add_parser("show")
     show.add_argument("id")
+    web = commands.add_parser("serve", help="Run the local browser application")
+    web.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
+    if args.command == "serve":
+        from .web import serve
+        serve(args.db, args.port)
+        return 0
     store = ReportStore(args.db)
     if args.command == "create":
         payload = {key: getattr(args, key) for key in

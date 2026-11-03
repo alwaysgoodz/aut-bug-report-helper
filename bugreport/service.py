@@ -5,6 +5,26 @@ from pathlib import Path
 from uuid import uuid4
 
 SEVERITIES = ("low", "medium", "high", "critical")
+STATUSES = ("Open", "In progress", "Resolved")
+TRANSITIONS = {"Open": ("In progress",), "In progress": ("Resolved",), "Resolved": ("Open",)}
+FIELDS = ("title", "description", "steps", "expected", "actual", "environment", "severity")
+LABELS = {"title": "Title", "description": "Description", "steps": "Steps to reproduce",
+          "expected": "Expected behaviour", "actual": "Actual behaviour",
+          "environment": "Environment", "severity": "Severity"}
+LIMITS = {field: 5000 for field in FIELDS}
+LIMITS.update(title=160, environment=240, severity=16)
+
+
+class ValidationError(ValueError):
+    """Field-specific feedback shared by the CLI and web adapter."""
+
+    def __init__(self, errors):
+        self.errors = errors
+        super().__init__("; ".join(f"{key}: {value}" for key, value in errors.items()))
+
+
+class StatusConflict(ValueError):
+    """The displayed report state is stale; no update has been applied."""
 
 
 class ReportStore:
@@ -35,11 +55,21 @@ class ReportStore:
     def create(self, *, title: str, severity: str = "", description: str = "",
                steps: str = "", expected: str = "", actual: str = "",
                environment: str = "") -> dict:
+        payload = dict(title=title, severity=severity, description=description, steps=steps,
+                       expected=expected, actual=actual, environment=environment)
+        errors = {}
+        for field, value in payload.items():
+            if not isinstance(value, str):
+                errors[field] = "Enter text."
+            elif len(value) > LIMITS[field]:
+                errors[field] = f"Use {LIMITS[field]} characters or fewer."
+        if isinstance(title, str) and not title.strip():
+            errors["title"] = "Enter a title that contains more than whitespace."
+        if not isinstance(severity, str) or severity not in SEVERITIES:
+            errors["severity"] = "Choose low, medium, high or critical severity."
+        if errors:
+            raise ValidationError(errors)
         title = title.strip()
-        if not title:
-            raise ValueError("title must contain non-whitespace text")
-        if severity not in SEVERITIES:
-            raise ValueError("severity must be low, medium, high or critical")
         report = dict(id=str(uuid4()), title=title, description=description, steps=steps,
                       expected=expected, actual=actual, environment=environment,
                       severity=severity, status="Open",
@@ -56,6 +86,51 @@ class ReportStore:
             connection.row_factory = sqlite3.Row
             row = connection.execute("SELECT * FROM reports WHERE id = ?", (report_id,)).fetchone()
             return dict(row) if row is not None else None
+
+    def list_reports(self, *, severity: str = "", status: str = "") -> list[dict]:
+        if severity and severity not in SEVERITIES:
+            raise ValueError("Invalid severity filter")
+        if status and status not in STATUSES:
+            raise ValueError("Invalid status filter")
+        conditions, values = [], []
+        for field, value in (("severity", severity), ("status", status)):
+            if value:
+                conditions.append(field + " = ?")
+                values.append(value)
+        query = "SELECT * FROM reports"
+        if conditions:
+            query += " WHERE " + " AND ".join(conditions)
+        query += " ORDER BY created_at DESC, id DESC"
+        with self._connect() as connection:
+            connection.row_factory = sqlite3.Row
+            return [dict(row) for row in connection.execute(query, values).fetchall()]
+
+    def counts(self) -> dict:
+        result = {status: 0 for status in STATUSES}
+        with self._connect() as connection:
+            for status, count in connection.execute("SELECT status, COUNT(*) FROM reports GROUP BY status"):
+                result[status] = count
+        result["total"] = sum(result.values())
+        return result
+
+    def update_status(self, report_id: str, status: str, *, expected_status: str | None = None) -> dict:
+        if status not in STATUSES:
+            raise ValueError("Invalid status")
+        report = self.get(report_id)
+        if report is None:
+            raise KeyError(report_id)
+        old_status = report["status"]
+        if expected_status is not None and old_status != expected_status:
+            raise StatusConflict("This report changed. Reload it before updating the status.")
+        if status != old_status and status not in TRANSITIONS[old_status]:
+            raise ValueError(f"Cannot change {old_status} directly to {status}")
+        with self._connect() as connection:
+            changed = connection.execute("UPDATE reports SET status = ? WHERE id = ? AND status = ?",
+                                         (status, report_id, old_status)).rowcount
+            if changed != 1:
+                raise StatusConflict("This report changed. Reload it before updating the status.")
+        report["status"] = status
+        return report
 
 
 class _Connection:
