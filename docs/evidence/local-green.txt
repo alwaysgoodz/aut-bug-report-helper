@@ -1,0 +1,21 @@
+test_all_supported_severities (test_creation.CreationTests.test_all_supported_severities) ... ok
+test_cli_create_then_read_from_separate_process (test_creation.CreationTests.test_cli_create_then_read_from_separate_process) ... ok
+test_cli_invalid_title_exits_nonzero_without_insert (test_creation.CreationTests.test_cli_invalid_title_exits_nonzero_without_insert) ... ok
+test_cli_unknown_id_has_explicit_error (test_creation.CreationTests.test_cli_unknown_id_has_explicit_error) ... ok
+test_empty_title_rejected_without_insert (test_creation.CreationTests.test_empty_title_rejected_without_insert) ... ok
+test_generated_metadata_is_unique_open_and_utc (test_creation.CreationTests.test_generated_metadata_is_unique_open_and_utc) ... ok
+test_invalid_severity_rejected_without_insert (test_creation.CreationTests.test_invalid_severity_rejected_without_insert) ... ok
+test_invalid_submission_preserves_existing_record (test_creation.CreationTests.test_invalid_submission_preserves_existing_record) ... ok
+test_missing_severity_rejected_without_insert (test_creation.CreationTests.test_missing_severity_rejected_without_insert) ... ok
+test_optional_fields_can_remain_blank (test_creation.CreationTests.test_optional_fields_can_remain_blank) ... ok
+test_persists_all_fields_across_new_connection (test_creation.CreationTests.test_persists_all_fields_across_new_connection) ... ok
+test_title_is_trimmed (test_creation.CreationTests.test_title_is_trimmed) ... ok
+test_unicode_multiline_and_sql_text_are_preserved_as_data (test_creation.CreationTests.test_unicode_multiline_and_sql_text_are_preserved_as_data) ... ok
+test_unknown_id_returns_no_record (test_creation.CreationTests.test_unknown_id_returns_no_record) ... ok
+test_whitespace_title_rejected_without_insert (test_creation.CreationTests.test_whitespace_title_rejected_without_insert) ... ok
+test_sqlite_transactions_are_available (test_runtime.RuntimeTest.test_sqlite_transactions_are_available) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.151s
+
+OK

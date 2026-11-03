@@ -1,0 +1,23 @@
+## 1. Identify Five Stakeholders
+
+The first stakeholder is the **bug reporter**, who may be a developer or tester who discovers a problem and needs an easy way to describe it clearly. The second stakeholder is the **developer responsible for fixing the bug**, who needs complete information such as reproduction steps, expected behaviour, actual behaviour, environment, and severity. The third stakeholder is the **team leader or project manager**, who needs to monitor reported bugs, priorities, and resolution progress. The fourth stakeholder is the **tester or QA team member**, who needs to verify whether a reported bug can be reproduced and whether it has been successfully fixed. The fifth stakeholder is the **project supervisor or course instructor**, who is interested in whether the team follows an organised software engineering process and whether the developed system improves bug-report quality.
+
+## 2. Define a Clear and Manageable Scope
+
+The scope of our project will focus only on creating and managing structured bug reports for small student software development teams. In the first iteration, users will be able to create a bug report containing a title, description, steps to reproduce, expected behaviour, actual behaviour, environment, and severity. Users will also be able to view existing reports and update their status. In the second iteration, we will add a completeness score, warnings for missing information, filtering by severity or status, and simple guidance for improving incomplete reports. To keep the project manageable, we will **not** develop AI-based bug diagnosis, automatic bug fixing, integration with large external issue-tracking systems, mobile applications, or advanced analytics.
+
+## 3. Issues / Problem
+
+The main problem is that bug reports in student software projects are often incomplete, inconsistent, or too vague. For example, a report such as “the login function does not work” does not tell the developer how to reproduce the bug, what result was expected, what actually happened, or which environment was used. As a result, developers may need to repeatedly contact the reporter before they can begin debugging. This creates unnecessary communication, delays bug resolution, and can cause important defects to remain unresolved. Our project addresses this problem by providing a structured reporting process that encourages users to include the information developers actually need.
+
+## 4. Compare Development Approaches
+
+A **plan-driven approach** would require us to define most requirements, system design, and documentation before implementation begins. This provides clear structure, but it is less suitable for our project because we expect user feedback to influence the second version.
+
+An **iterative-incremental approach** is more suitable because we can first develop a small but usable Version 1, evaluate it with users, and then use the findings to improve Version 2. This directly matches the requirement to develop two versions of the system.
+
+An **Agile approach** provides even more flexibility because the team can work in short development cycles, manage tasks through GitHub Issues, review progress frequently, and respond quickly to feedback. Agile also supports close collaboration between team members and continuous improvement throughout development.
+
+## 5. Make a Selection
+
+We will use an **Agile development approach combined with iterative and incremental development**. This approach is the best fit for our project because the requirements are relatively small but may change after users test the first version. In the first iteration, we will build the basic structured bug-reporting system. We will then collect feedback and evaluate the quality of the submitted bug reports. Based on the results, we will develop the second iteration by adding completeness scoring, missing-information warnings, filtering, and usability improvements. GitHub Issues will be used to manage tasks, and team members will review progress regularly during development.
