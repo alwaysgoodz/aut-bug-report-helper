@@ -1,0 +1,26 @@
+{
+  "iteration": "I1",
+  "mode": "Ad-hoc browser exercise via MCP, not a committed regression suite or human evaluation",
+  "startedAt": "2026-11-03T16:44:47.833Z",
+  "elapsedMs": 1081,
+  "results": [
+    {
+      "id": "C1",
+      "scenario": "Invalid form retains input and focuses error summary",
+      "result": "pass"
+    },
+    {
+      "id": "C2",
+      "scenario": "Create report and reload persisted detail",
+      "result": "pass"
+    },
+    {
+      "id": "C3",
+      "scenario": "Open to In progress to Resolved to Open",
+      "result": "pass"
+    }
+  ],
+  "reportUrl": "http://127.0.0.1:8765/reports/c16e6c90-49ea-4236-a9ed-9bab70d1ef21",
+  "browserVersion": "155.0.8059.86",
+  "viewport": null
+}
