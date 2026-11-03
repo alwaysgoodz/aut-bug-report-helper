@@ -21,6 +21,8 @@ python -m compileall -q bugreport tests tools
 
 On Windows, replace `python` with a verified Python executable if an alias opens Microsoft Store. To evaluate an open PR, check out its documented branch/commit before testing. `main` remains the scaffold until a teammate independently reviews the feature.
 
+For the fixed technical review package, use `git checkout a2-review-v0.1`. This candidate is preserved for review and reproducibility; the final assessment submission must follow real team approval. [A2 report, evidence and demonstration materials](submission-a2/README.md) are included.
+
 ## CLI commands (same service as the browser)
 
 ```powershell
@@ -71,6 +73,8 @@ The mutation experiment deliberately disables one error-focus statement, verifie
 See [CONTRIBUTING.md](CONTRIBUTING.md), [backlog](docs/backlog.md) and [evidence index](docs/evidence-index.md). Use Issues for requirements, short branches and pull requests with acceptance-test evidence. A non-author teammate must review before merging. Current access is private; the owner must invite the actual teammates and assessor through repository settings.
 
 The preparation uses stacked review proposals: [A1 PR #7](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7), [I1 PR #8](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/8), then I2. [A2 traceability](docs/a2/traceability.md) connects requirements, code and checks. [A1 report materials](submission/README.md) remain an archived draft. Named members, real independent reviews, actual team retrospectives, the four-peer product study and assessor access still require the team. Passing CI does not establish those activities.
+
+[I2 PR #10](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/10) and the [A2 evidence index](docs/a2/evidence-index.md) preserve the complete technical review path.
 
 ## Reuse and assistance
 
