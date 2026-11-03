@@ -4,7 +4,7 @@ AUT Contemporary Methods in Software Engineering, Assignment 1. A small student-
 
 ## Current implementation
 
-This repository starts with an Assignment 1 workflow scaffold. The linked feature PR trials a Python/SQLite creation service and CLI. A browser UI, status editing, completeness guidance and filters are planned for the two Assignment 2 iterations. They are not implemented by the scaffold.
+The feature branch trials a working Python/SQLite creation service and CLI (BR-01). A browser UI, status editing, completeness guidance and filters are planned for the two Assignment 2 iterations. They are not implemented by this A1 trial. `main` retains the initial scaffold pending independent review.
 
 ## Setup and tests
 
@@ -18,6 +18,16 @@ python -m unittest discover -s tests -v
 ```
 
 On Windows, replace `python` with a verified Python executable if an alias opens Microsoft Store. To evaluate an open PR, check out its documented branch/commit before testing. `main` remains the scaffold until a teammate independently reviews the feature.
+
+## Trial commands (feature branch)
+
+```powershell
+git switch feat/1-create-report
+python -m bugreport --db reports.db create --title 'Login fails' --severity high --steps 'Open login' --expected 'Dashboard' --actual 'Blank page' --environment 'Firefox / Windows'
+python -m bugreport --db reports.db show <id-from-create-output>
+```
+
+The second command opens a new process to read persisted data. A blank title or invalid severity returns a nonzero exit and inserts no report. `reports.db` is local and ignored by Git. The example leaves description empty deliberately: completeness guidance is planned for I2; title and valid severity are required now.
 
 ## Collaboration and evidence
 
