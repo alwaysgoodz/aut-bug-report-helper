@@ -134,3 +134,20 @@ class WebTests(unittest.TestCase):
     def test_server_refuses_public_bind(self):
         with self.assertRaisesRegex(ValueError, "loopback"):
             ReportServer(("0.0.0.0", 0), self.store)
+
+    def test_filters_have_clear_empty_state_and_reject_invalid_queries(self):
+        code, _, body = self.request(path="/?severity=critical&status=Resolved")
+        self.assertEqual(code, 200)
+        self.assertIn("No reports match these filters", body)
+        self.assertIn("Clear filters", body)
+        for path in ("/?severity=urgent", "/?status=Closed", "/?severity=low&severity=high"):
+            with self.subTest(path=path):
+                self.assertEqual(self.request(path=path)[0], 400)
+
+    def test_incomplete_report_is_saved_with_precise_server_guidance_without_js(self):
+        code, headers, _ = self.request("POST", "/reports", self.form_data())
+        self.assertEqual(code, 303)
+        _, _, body = self.request(path=headers["Location"])
+        self.assertIn('id="completeness-score">29%', body)
+        self.assertIn('data-field="steps" >', body)
+        self.assertIn("Information presence, not correctness", body)

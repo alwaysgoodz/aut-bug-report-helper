@@ -1,0 +1,210 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--grep",
+      "C1:"
+    ],
+    "configFile": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\playwright.config.cjs",
+    "rootDir": "F:/COMP/Contemporary Methods in Software Engineering/bug-report-helper/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 180000,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "F:/COMP/Contemporary Methods in Software Engineering/bug-report-helper/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "F:/COMP/Contemporary Methods in Software Engineering/bug-report-helper/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 15000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\tests\\browser",
+        "snapshotDir": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\tests\\browser",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 15000,
+        "use": {
+          "baseURL": "http://127.0.0.1:8780",
+          "browserName": "chromium",
+          "channel": "chrome",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/browser-results.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "\"D:\\anaconda\\python.exe\" -m tools.e2e_server",
+      "url": "http://127.0.0.1:8780/health",
+      "reuseExistingServer": false,
+      "timeout": 15000,
+      "stdout": "pipe",
+      "stderr": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "workflow.spec.js",
+      "file": "workflow.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "C1: invalid submission retains input, inserts nothing and focuses linked summary",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5043,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#form-errors')\nExpected: focused\nReceived: inactive\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" locator('#form-errors') with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('#form-errors')\u001b[22m\n\u001b[2m    12 × locator resolved to <div role=\"alert\" tabindex=\"-1\" id=\"form-errors\" class=\"error-summary\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#form-errors')\nExpected: focused\nReceived: inactive\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" locator('#form-errors') with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('#form-errors')\u001b[22m\n\u001b[2m    12 × locator resolved to <div role=\"alert\" tabindex=\"-1\" id=\"form-errors\" class=\"error-summary\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n\n    at F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\tests\\browser\\workflow.spec.js:27:46",
+                    "location": {
+                      "file": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\tests\\browser\\workflow.spec.js",
+                      "column": 46,
+                      "line": 27
+                    },
+                    "snippet": "  25 |   await page.getByRole('button', { name: 'Create report', exact: true }).click();\n  26 |   await expect(page.locator('#form-errors')).toBeVisible();\n> 27 |   await expect(page.locator('#form-errors')).toBeFocused();\n     |                                              ^\n  28 |   await expect(page.locator('#steps')).toHaveValue('Keep these reproduction steps');\n  29 |   await expect(page.locator('#form-errors a[href=\"#title\"]')).toBeVisible();\n  30 |   await expect(page.locator('#title')).toHaveAttribute('aria-invalid', 'true');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\tests\\browser\\workflow.spec.js",
+                        "column": 46,
+                        "line": 27
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#form-errors')\nExpected: focused\nReceived: inactive\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" locator('#form-errors') with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('#form-errors')\u001b[22m\n\u001b[2m    12 × locator resolved to <div role=\"alert\" tabindex=\"-1\" id=\"form-errors\" class=\"error-summary\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n\n\n  25 |   await page.getByRole('button', { name: 'Create report', exact: true }).click();\n  26 |   await expect(page.locator('#form-errors')).toBeVisible();\n> 27 |   await expect(page.locator('#form-errors')).toBeFocused();\n     |                                              ^\n  28 |   await expect(page.locator('#steps')).toHaveValue('Keep these reproduction steps');\n  29 |   await expect(page.locator('#form-errors a[href=\"#title\"]')).toBeVisible();\n  30 |   await expect(page.locator('#title')).toHaveAttribute('aria-invalid', 'true');\n    at F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\tests\\browser\\workflow.spec.js:27:46"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "Browser under test: 155.0.8059.86\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T16:57:03.575Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\test-results\\workflow-C1-invalid-submis-3c929--and-focuses-linked-summary\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\test-results\\workflow-C1-invalid-submis-3c929--and-focuses-linked-summary\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\test-results\\workflow-C1-invalid-submis-3c929--and-focuses-linked-summary\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\tests\\browser\\workflow.spec.js",
+                    "column": 46,
+                    "line": 27
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-72241df9135498e29d95",
+          "file": "workflow.spec.js",
+          "line": 19,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T16:57:02.613Z",
+    "duration": 7530.371999999999,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

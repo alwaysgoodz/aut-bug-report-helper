@@ -2,7 +2,8 @@
 from datetime import datetime
 from html import escape
 
-from .service import FIELDS, LABELS, LIMITS, SEVERITIES, TRANSITIONS
+from .service import FIELDS, LABELS, LIMITS, SEVERITIES, STATUSES, TRANSITIONS
+from .rules import GUIDANCE, completeness
 
 ICONS = {
     "reports": '<path d="M8 3h8l4 4v14H4V3h4m8 0v5h4M8 12h8M8 16h6"/>',
@@ -43,23 +44,29 @@ def date_label(value):
     return datetime.fromisoformat(value).strftime("%d %b %Y, %H:%M UTC")
 
 
-def report_list(reports, counts, *, message=""):
+def report_list(reports, counts, *, message="", severity="", status=""):
     notice = f'<div class="notice" role="status">{e(message)}</div>' if message else ""
     rows = "".join(f'''<tr><td><a class="report-title" href="/reports/{e(report['id'])}">{e(report['title'])}</a>
 <span class="row-subtitle">{e(report['environment'] or "Environment not provided")}</span></td>
-<td>{badge(report['severity'], 'severity')}</td><td>{badge(report['status'], 'status')}</td>
+<td>{badge(report['severity'], 'severity')}</td><td>{badge(report['status'], 'status')}</td><td><span class="list-score">{completeness(report)['score']}%</span><span class="row-subtitle">{completeness(report)['completed']} of 7 fields</span></td>
 <td class="date-cell">{date_label(report['created_at'])}</td><td><a class="view-link" href="/reports/{e(report['id'])}" aria-label="View {e(report['title'])}">{icon('arrow')}</a></td></tr>''' for report in reports)
     empty = f'''<div class="empty-state"><div class="empty-icon">{icon('reports')}</div><h2>Your next fix starts with a clear report</h2>
 <p>No reports yet. Capture what happened, what you expected,<br class="desktop-only"> and how someone else can reproduce it.</p>
 <a class="button primary" href="/reports/new">{icon('plus')}Create your first report</a></div>'''
-    listing = f'''<div class="table-scroll"><table><caption class="sr-only">Bug reports</caption><thead><tr><th scope="col">REPORT</th><th scope="col">SEVERITY</th><th scope="col">STATUS</th><th scope="col">CREATED</th><th scope="col"><span class="sr-only">Open report</span></th></tr></thead><tbody>{rows}</tbody></table></div>''' if reports else empty
+    filtered = bool(severity or status)
+    if filtered and not reports:
+        empty = '<div class="empty-state"><h2>No reports match these filters</h2><p>Try a different severity or status to find what you need.</p><a href="/" class="button secondary">Clear filters</a></div>'
+    listing = f'''<div class="table-scroll"><table><caption class="sr-only">Bug reports</caption><thead><tr><th scope="col">REPORT</th><th scope="col">SEVERITY</th><th scope="col">STATUS</th><th scope="col">COMPLETENESS</th><th scope="col">CREATED</th><th scope="col"><span class="sr-only">Open report</span></th></tr></thead><tbody>{rows}</tbody></table></div>''' if reports else empty
+    sev_options = '<option value="">All severities</option>' + ''.join(f'<option value="{x}" {"selected" if x == severity else ""}>{x.capitalize()}</option>' for x in SEVERITIES)
+    status_options = '<option value="">All statuses</option>' + ''.join(f'<option value="{e(x)}" {"selected" if x == status else ""}>{e(x)}</option>' for x in STATUSES)
+    filters = f'<form action="/" method="get" class="filters" aria-label="Filter reports"><div><label for="filter-severity">Severity</label><select id="filter-severity" name="severity">{sev_options}</select></div><div><label for="filter-status">Status</label><select id="filter-status" name="status">{status_options}</select></div><button class="button secondary" type="submit">Apply filters</button><a href="/" class="clear-filters">Clear</a></form>'
     content = f'''<div class="page-heading"><div><p class="eyebrow">YOUR PROJECT, IN FOCUS</p><h1>Reports</h1><p class="subtitle">Turn a vague problem into a clear next step.</p></div>
 <a class="button primary" href="/reports/new">{icon('plus')}New report</a></div>{notice}
 <section class="stats" aria-label="Report summary"><div class="stat"><span>Total reports</span><strong>{counts['total']:02}</strong><small>All captured reports</small></div>
 <div class="stat"><span>To investigate</span><strong>{counts['Open']:02}</strong><small>Open and ready for triage</small></div>
 <div class="stat"><span>In progress</span><strong>{counts['In progress']:02}</strong><small>Currently being worked on</small></div>
 <div class="stat"><span>Resolved</span><strong>{counts['Resolved']:02}</strong><small>Ready to verify or reopen</small></div></section>
-<section class="panel reports-panel"><div class="panel-heading"><div><h2>All reports <span class="count-pill">{len(reports)}</span></h2><p>One place for the context your team needs.</p></div></div>{listing}</section>'''
+<section class="panel reports-panel"><div class="panel-heading"><div><h2>{'Filtered reports' if filtered else 'All reports'} <span class="count-pill">{len(reports)}</span></h2><p>Showing {len(reports)} of {counts['total']} reports. Completeness measures information presence.</p></div></div>{filters}{listing}</section>'''
     return shell("Reports", content, counts["total"])
 
 
@@ -81,6 +88,16 @@ def error_summary(errors):
     return f'<div class="error-summary" id="form-errors" role="alert" tabindex="-1"><h2>There is a problem with your report</h2><ul>{links}</ul></div>'
 
 
+def completeness_card(values, *, live=False):
+    assessment = completeness(values)
+    suggestions = ''.join(f'<li data-field="{field}" {"hidden" if field not in assessment["missing"] else ""}><strong>{LABELS[field]}</strong><span>{GUIDANCE[field]}</span></li>' for field in FIELDS)
+    output = f'<output id="completeness-score" for="{" ".join(FIELDS)}" aria-live="polite">{assessment["score"]}%</output>' if live else f'<strong id="completeness-score">{assessment["score"]}%</strong>'
+    return f'''<section class="panel completeness-card" aria-labelledby="completeness-heading"><p class="eyebrow">A LITTLE CONTEXT GOES A LONG WAY</p><h2 id="completeness-heading">Report completeness</h2><div class="score-line">{output}<span id="completeness-count">{assessment['completed']} of 7 fields</span></div>
+<progress id="completeness-progress" max="100" value="{assessment['score']}" aria-label="Report completeness"></progress><p class="score-disclaimer">Information presence, not correctness. A complete report may still need clarification.</p>
+<h3>What to add</h3><ul class="guidance-list" id="missing-fields">{suggestions}</ul><p id="guidance-complete" {"hidden" if assessment['missing'] else ""}>All seven fields are present. Check that your steps reproduce the problem.</p>
+{'<p class="muted-note">Updates as you type. Optional information will not block submission.</p>' if live else ''}</section>'''
+
+
 def report_form(token, total, values=None, errors=None):
     values, errors = values or {}, errors or {}
     controls = []
@@ -89,7 +106,7 @@ def report_form(token, total, values=None, errors=None):
         help_id = f'{field}-help'
         error_id = f'{field}-error'
         describedby = help_id + (f' {error_id}' if field in errors else '')
-        attrs = f'id="{field}" name="{field}" aria-describedby="{describedby}"'
+        attrs = f'id="{field}" name="{field}" data-report-field aria-describedby="{describedby}"'
         attrs += ' required' if required else ''
         attrs += ' aria-invalid="true"' if field in errors else ''
         value = values.get(field, "")
@@ -104,9 +121,9 @@ def report_form(token, total, values=None, errors=None):
         controls.append(f'<div class="field field-{field}"><label for="{field}">{LABELS[field]}<span class="field-option">{"Required" if required else "Optional"}</span></label><p class="field-help" id="{help_id}">{HELP[field]}</p>{control}{inline_error}</div>')
     content = f'''<a class="back-link" href="/">← Back to reports</a><div class="page-heading"><div><p class="eyebrow">GIVE YOUR TEAM A HEAD START</p><h1>New report</h1><p class="subtitle">The details you add now make the next step easier.</p></div></div>
 <div class="editor-layout"><section class="panel form-panel"><div class="panel-heading"><h2>Describe the issue</h2><p>Only title and severity are required. You can still submit an incomplete report.</p></div>
-<form action="/reports" method="post" class="report-form" novalidate><input type="hidden" name="_csrf" value="{e(token)}">{error_summary(errors)}<div class="field-grid">{''.join(controls)}</div>
+<form action="/reports" method="post" class="report-form" data-completeness novalidate><input type="hidden" name="_csrf" value="{e(token)}">{error_summary(errors)}<div class="field-grid">{''.join(controls)}</div>
 <div class="form-actions"><a class="button secondary" href="/">Cancel</a><button type="submit" class="button primary">{icon('plus')}Create report</button></div></form></section>
-<aside class="editor-aside"><section class="panel guidance-card"><span class="small-mark">{icon('check')}</span><h2>Make it reproducible</h2><p>A useful report helps someone else see the same problem.</p><ol><li>Describe one issue at a time.</li><li>Start your steps from a known state.</li><li>Separate expected and actual results.</li><li>Include the environment you used.</li></ol><p class="muted-note">Use synthetic examples. Keep passwords and personal information out of your report.</p></section></aside></div>'''
+<aside class="editor-aside">{completeness_card(values, live=True)}<p class="privacy-note">Use synthetic examples. Keep passwords and personal information out of your report.</p></aside></div>'''
     return shell("New report", content, total, "new")
 
 
@@ -121,7 +138,7 @@ def report_detail(report, token, total, *, created=False, error=""):
 <div class="editor-layout"><article class="panel detail-panel">{blocks}</article><aside class="editor-aside"><section class="panel status-card"><h2>Move the work forward</h2><p>Update the status when your team has made progress.</p>
 <form action="/reports/{e(report['id'])}/status" method="post"><input type="hidden" name="_csrf" value="{e(token)}"><input type="hidden" name="expected_status" value="{e(report['status'])}">
 <label for="status">Status</label><select id="status" name="status">{options}</select><button type="submit" class="button primary full-width">Update status{icon('arrow')}</button></form>
-<p class="muted-note">Open → In progress → Resolved.<br>Resolved reports can be reopened.</p></section><section class="metadata"><h2>Report information</h2><dl><dt>Created</dt><dd>{date_label(report['created_at'])}</dd><dt>Reference</dt><dd class="reference">{e(report['id'])}</dd></dl></section></aside></div>'''
+<p class="muted-note">Open → In progress → Resolved.<br>Resolved reports can be reopened.</p></section>{completeness_card(report)}<section class="metadata"><h2>Report information</h2><dl><dt>Created</dt><dd>{date_label(report['created_at'])}</dd><dt>Reference</dt><dd class="reference">{e(report['id'])}</dd></dl></section></aside></div>'''
     return shell(report["title"], content, total)
 
 

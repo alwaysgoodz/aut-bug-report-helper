@@ -1,0 +1,64 @@
+Assignment 2: Collaborative Development and Evidence-Based Evaluation
+Group Assessment with Individual Contribution Assessment | Weighting: 50%
+Task Overview
+Continue the project established in Assignment 1 with the same team. Develop and test a working software increment through two short iterations. Apply appropriate software engineering methods and tools, evaluate their effectiveness, and demonstrate a process improvement using project evidence.
+
+Your software increment must address the agreed priority requirements and be runnable using the instructions provided. A complete production system is not required. Explain any changes to the original scope or development approach, and clearly identify incomplete features and known limitations.
+
+Your team must complete the following five tasks.
+1. Develop Through Two Collaborative Iterations
+Plan and complete two short development iterations. For each iteration, record its goal, selected backlog items, acceptance criteria, responsibilities, and outcomes. Apply requirements management, version control, testing, and automated checks or continuous integration.
+
+Maintain traceability from requirements to implementation, reviews, and tests. Record significant changes and explain their reasons. Review the software increment and conduct a brief retrospective at the end of each iteration.
+2. Test and Evaluate Software Quality
+Test the implemented functionality against its acceptance criteria. Evaluate at least one relevant quality scenario, such as performance or security. Provide sufficient information about the test environment, inputs, and procedure for the results to be understood and reproduced. 
+3. Implement and Evaluate a Process Improvement
+Use evidence from Iteration 1 to identify one development or collaboration problem. Implement a specific improvement in Iteration 2 and evaluate its effect using the measures planned in Assignment 1, or explain and justify any changes to those measures.
+
+Report the evidence collected in both iterations and explain differences in workload or conditions that may affect the comparison. Discuss whether the improvement helped, and what your team would change next. 
+4. Critically Evaluate Methods and Tools
+Revisit at least two development approaches considered in Assignment 1. Explain whether your original choice remains appropriate and compare selected practices or tools with credible alternatives. 
+5. Demonstrate the Software and Explain Individual Contributions
+Prepare a group demonstration showing a key user workflow, supporting tests or automated checks, and evidence of the process improvement. The proposed format is a 10-minute demonstration followed by 5 minutes of questions.
+
+Every member must explain a substantive technical or process contribution. Each student must also submit an individual contribution statement identifying their work, decisions, outcomes, and links to supporting evidence. 
+Submission Requirements
+Submit the following:
+1. One group evaluation report in PDF format: explain the project scope and changes, iteration outcomes, software quality results, process improvement, comparative evaluation, and limitations.
+2. A repository link and fixed submission commit or release: provide assessor access, runnable code, tests, dependency information, and a README with setup and execution instructions.
+3. An evidence index: link to requirements, reviewed changes, test or CI results, iteration records, retrospective findings, and reported measurements. Provide snapshots where necessary to preserve access to evidence.
+4. Group demonstration: attend the scheduled demonstration and submit any presentation materials requested in Canvas.
+Word limit: 2,500 words per team. The group report limit includes the main text, tables, and in-text citations. It excludes the title page, reference list, supporting appendices, and individual contribution statements.
+
+Keep assessed explanations and analysis in the main report. Place detailed logs and supporting records in appendices or the repository. Cross-reference Assignment 1 where needed rather than repeating the original plan.
+
+Use APA 7 referencing consistently. Present your analysis in connected paragraphs, use tables for comparisons and results, and ensure diagrams and screenshots are readable.
+Course Learning Outcomes Assessed
+- LO2: Select and justify appropriate methods or techniques for addressing collaborative software engineering issues.
+- LO3: Select and evaluate a range of contemporary software development paradigms.
+- LO4: Evaluate the relative merits of software engineering techniques, methods and tools for a range of contemporary contexts, based on evidence and peer-reviewed research.
+- LO5: Apply a range of contemporary methods, techniques and tools across the development lifecycle.
+Time Commitment
+Complete the two development iterations during Week 2 through scheduled tutorials and independent team work. Allocate time for implementation, review, testing, retrospectives, evidence collection, research, and demonstration preparation. Finalise the evaluation report by the deadline published in Canvas.
+Due Date and Submission
+Planned demonstration: End of Week 2. The report deadline will be confirmed in Canvas.
+
+One team member should submit the group report on behalf of the team. Include all group members’ names and student IDs on the title page.
+Suggested Procedure
+1. Review the Assignment 1 plan and incorporate available feedback.
+2. Complete Iteration 1 and collect implementation, review, and test evidence.
+3. Conduct a retrospective and select a specific process improvement.
+4. Complete Iteration 2, apply the improvement, and collect comparable evidence.
+5. Evaluate software quality, development approaches, and process outcomes using research.
+6. Prepare the demonstration, final report, evidence index.
+Use the lecture materials, tutorial activities, and supporting resources provided in Canvas.
+Marking and Feedback
+This assessment is marked out of 100 and contributes 50% to your overall course grade. Marks reward effective engineering practice, working software, traceable evidence, and critical evaluation. The number of features, tools, or commits does not by itself demonstrate quality.
+Assignment 2 Marking Criteria		
+Criterion	Marks	Assessment Focus
+Application of lifecycle methods and tools	25	Appropriate and traceable use of requirements management, version control, peer review, testing, and automated checks.
+Collaboration and process improvement	20	Iterative collaboration and process improvement.
+Working increment and quality evidence	20	Runnable priority functionality, acceptance testing, and measured quality results with clear conditions and limitations.
+Evidence-based comparative evaluation	25	Research-supported comparison of approaches, methods, and tools; critical interpretation of project evidence and applicability to another context.
+Communication and reproducibility	10	A clear report and demonstration, accurate referencing, organised evidence, and usable setup and test instructions.
+Total	100	50% of the course grade.

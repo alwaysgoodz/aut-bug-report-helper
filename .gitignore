@@ -5,3 +5,6 @@ __pycache__/
 .venv/
 tmp/
 submission/tmp/
+node_modules/
+test-results/
+playwright-report/

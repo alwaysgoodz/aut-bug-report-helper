@@ -2,6 +2,8 @@
 
 All estimates are team person-hours, not elapsed time. A/B/C/D are unassigned proposed roles. No feature is considered Done until its acceptance criteria, independent review and checks pass. GitHub Issues are the tracked requirements; this file is their readable summary.
 
+**A2 schedule correction:** the supplied A2 brief places both iterations in Week 2. Replace the tentative five-working-day duration per iteration below with two working days per iteration, followed by a final evaluation/demo preparation day. Keep the proposed 20 person-hour capacity per iteration subject to real member confirmation. Original A1 assumptions remain below for traceability; actual AI-assisted preparation increments are recorded separately and are not a two-week team history.
+
 | ID | Priority / iteration / hours | Requirement and testable acceptance criteria | Owner / reviewer | Dependencies |
 | --- | --- | --- | --- | --- |
 | BR-01 | Must / I1 / 4 | Create and persist title, description, steps, expected, actual, environment and severity. Trim title; reject empty/whitespace title and severity outside low/medium/high/critical; retain optional blanks; generate unique ID, UTC timestamp and Open status. Fresh connection returns identical saved content. Invalid submission inserts no row. A1 CLI/service slice precedes browser integration. | C / D | None |
