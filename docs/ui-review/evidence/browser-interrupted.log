@@ -1,0 +1,188 @@
+
+> aut-bug-report-helper-checks@0.1.0 test:browser
+> playwright test
+
+[WebServer] Bug Report Helper: http://127.0.0.1:8780
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:34] "GET /health HTTP/1.1" 200 -
+
+Running 15 tests using 1 worker
+
+(node:34448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Browser under test: 155.0.8059.86
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "POST /reports HTTP/1.1" 422 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:35] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:36] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:36] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:36] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:36] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok  1 tests\browser\workflow.spec.js:19:1 › C1: invalid submission retains input, inserts nothing and focuses linked summary (846ms)
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:36] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:36] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:36] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:36] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /reports/c4fb791f-3876-49f0-8b60-a6a0cd4eca64?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /reports/c4fb791f-3876-49f0-8b60-a6a0cd4eca64?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok  2 tests\browser\workflow.spec.js:35:1 › C2: create and reload a persisted report without duplicating it (1.3s)
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:37] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /reports/5f97b07e-a9a3-4380-bc46-42a6ff4b9dfb?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "POST /reports/5f97b07e-a9a3-4380-bc46-42a6ff4b9dfb/status HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /reports/5f97b07e-a9a3-4380-bc46-42a6ff4b9dfb?updated=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /reports/5f97b07e-a9a3-4380-bc46-42a6ff4b9dfb?updated=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "POST /reports/5f97b07e-a9a3-4380-bc46-42a6ff4b9dfb/status HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /reports/5f97b07e-a9a3-4380-bc46-42a6ff4b9dfb?updated=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /reports/5f97b07e-a9a3-4380-bc46-42a6ff4b9dfb?updated=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "POST /reports/5f97b07e-a9a3-4380-bc46-42a6ff4b9dfb/status HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /reports/5f97b07e-a9a3-4380-bc46-42a6ff4b9dfb?updated=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /reports/5f97b07e-a9a3-4380-bc46-42a6ff4b9dfb?updated=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:38] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok  3 tests\browser\workflow.spec.js:45:1 › C3: status cycle and reopening persist through navigation (1.5s)
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:39] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:39] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:39] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:39] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:40] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:40] "GET /reports/f650fa00-74ce-4129-8c4f-526280f6c85d?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:40] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:40] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:40] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok  4 tests\browser\workflow.spec.js:56:1 › BR-04: live guidance and saved score agree on zero, six and seven fields (1.4s)
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:40] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:40] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:40] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:40] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /reports/1b3668ba-5ba7-4b85-a188-78ac2acdc69d?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "POST /reports/1b3668ba-5ba7-4b85-a188-78ac2acdc69d/status HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /reports/1b3668ba-5ba7-4b85-a188-78ac2acdc69d?updated=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "POST /reports/1b3668ba-5ba7-4b85-a188-78ac2acdc69d/status HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /reports/1b3668ba-5ba7-4b85-a188-78ac2acdc69d?updated=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /reports/42793493-cd8f-4f37-97e8-24d3fabefaec?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:41] "GET /?severity=critical&status=Resolved HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /?severity=critical&status=In+progress HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok  5 tests\browser\workflow.spec.js:75:1 › BR-05: AND filters, no matches and clearing leave stored reports intact (2.0s)
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:42] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:43] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:43] "GET /reports/1dd59d5b-7de4-4de9-a451-59b401fa0db6?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:43] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:43] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:43] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok  6 tests\browser\workflow.spec.js:97:1 › BR-02: the form can be completed and submitted with the keyboard (1.4s)
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /reports/c4945347-f866-4fab-9ee0-058cf282c821?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok  7 tests\browser\workflow.spec.js:119:1 › Responsive layout and escaped HTML remain usable on a narrow screen (841ms)
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:44] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "POST /reports HTTP/1.1" 422 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /reports/4164f683-c0bb-44c7-815a-44f92a24af8c?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok  8 tests\browser\workflow.spec.js:130:1 › Shared Unicode whitespace gives consistent live validation and saved completeness (965ms)
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:45] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:53:46] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok  9 tests\browser\workflow.spec.js:146:1 › Missing-information guidance links move focus to the actual form control (639ms)
+Timed out waiting 180s for the test suite to run
+Timed out waiting 180s for the teardown for test suite to run
+
+  6 did not run
+  9 passed (1.3h)
+  2 errors were not a part of any test, see above for details

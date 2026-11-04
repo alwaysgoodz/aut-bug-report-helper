@@ -1,5 +1,7 @@
 # UI-02 defect fixes and assessment audit
 
+Review proposal: [draft PR #14](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/14). Tested implementation: [d736ec3544b40082e122c3510ac261f299512c21](https://github.com/alwaysgoodz/aut-bug-report-helper/commit/d736ec3544b40082e122c3510ac261f299512c21). Fixed package: `a2-review-v0.3` (later evidence-only commit; application source unchanged).
+
 Requirement: [Issue #13](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/13). Parent technical candidate: `a2-review-v0.2`. Original A1/I1/I2 and v0.2 snapshots are preserved. This is AI-assisted preparation, not another claimed four-person iteration or independent approval.
 
 The [Chinese requirement-by-requirement audit](../assessment-audit.zh-CN.md) covers product scope, each A1/A2 marking criterion, submission items, actual repository participation and remaining work. It separates official requirements from the project's own peer-study commitment and optional expansion.
@@ -21,10 +23,13 @@ Form guidance uses short linked labels instead of repeating long explanations. F
 | [Browser before fix](evidence/browser-before-fix.log), [HTTP before fix](evidence/http-before-fix.log) | Three added browser checks fail on v0.2 as intended; a legal maximum Unicode form returns 413 instead of 303. These are pre-fix failures. |
 | [Python/HTTP](evidence/python.log) | 53 functional tests pass; one CI-only bridge skipped locally (54 discovered). |
 | [Browser log](evidence/browser.log), [raw JSON](evidence/browser-results.json) | 15 checks pass locally using installed Chrome 155; Unicode JS/native, breakpoint headers, low-height guidance, keyboard, persistence, scoring and filters. |
+| [Remote CI 41771641810](https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41771641810), [snapshot](evidence/implementation-ci.json), [log](evidence/implementation-ci.log) | Python 3.11/3.12 pass on d736ec3. Chromium 156: expected=15, unexpected=0, skipped=0, flaky=0. |
+| [Environment and source hashes](evidence/environment.json) | Windows 11, Python 3.12.7, SQLite 3.51.0, Node 22.22.1; file hashes bind the current application to implementation d736ec3. |
+| [Interrupted rerun log](evidence/browser-interrupted.log), [JSON](evidence/browser-interrupted.json) | A subsequent local attempt recorded global timeout with 9 passed, 6 unexecuted and 4,605,127ms total elapsed; cause unconfirmed. Kept separately, not counted as passing. Fresh final local run: 15 passed in 21.2s. |
 | [Before form](evidence/form-before.png), [desktop](evidence/desktop.png), [form](evidence/form-desktop.png), [1120px form](evidence/form-tablet.png), [phone](evidence/mobile.png) | Actual browser captures with fictional demo data, not user evaluation. |
 | [GitHub participation snapshot](evidence/collaboration-snapshot.json) | Recorded owner only, no pending invites, no reviews on PR #7/#8/#10/#12. |
 
-Python compile, JS syntax and diff checks also pass. Remote CI and fixed source are linked in the follow-up evidence commit once they exist. Browser checks do not establish full accessibility certification. Only Chromium-family browsers have been tested.
+Python compile, JS syntax and diff checks also pass. Remote records above are linked to the tested source; the final evidence commit changes documentation/logs only. Browser checks do not establish full accessibility certification. Only Chromium-family browsers have been tested.
 
 ## Version and submission boundary
 

@@ -16,6 +16,8 @@
 
 跟踪项：[UI-02 #13](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/13)。本轮 53 项 Python/HTTP 功能检查通过；unittest 发现 54 项，额外一项是本地跳过的 CI-only browser bridge。15 项浏览器检查通过，包括 320、390、901、1050、1120、1280、1440、1920px 边界和 600px 高度场景。见[本轮证据](ui-review/README.md)。这些结果不等于完整无障碍认证或所有浏览器兼容性证明。
 
+实现提交 `d736ec3544b40082e122c3510ac261f299512c21` 的[远端 CI](https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41771641810)已通过：两种 Python 及 15 项 Chromium 测试，0 unexpected/skipped/flaky。修复提案为 [PR #14](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/14)，尚未获得真实非作者批准。一次后续本机复测整体超时的记录已单独保留；重新完整运行 15 项通过，未将超时结果算作通过。
+
 ## 2. content.txt 软件要求
 
 | 原始要求 / backlog | 状态 | 具体情况与剩余限制 |
