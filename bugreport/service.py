@@ -72,6 +72,8 @@ class ReportStore:
         for field, value in payload.items():
             if not isinstance(value, str):
                 errors[field] = "Enter text."
+            elif "\x00" in value:
+                errors[field] = "Remove null characters from this field."
             elif len(value) > LIMITS[field]:
                 errors[field] = f"Use {LIMITS[field]} characters or fewer."
         if isinstance(title, str) and not has_text(title):

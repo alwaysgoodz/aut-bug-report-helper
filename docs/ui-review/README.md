@@ -1,5 +1,7 @@
 # UI-02 defect fixes and assessment audit
 
+This preserves the v0.3 evidence. Subsequent history/context/null-input fixes and current checks are in the [UI-03 follow-up](../navigation-review/README.md).
+
 Review proposal: [draft PR #14](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/14). Tested implementation: [d736ec3544b40082e122c3510ac261f299512c21](https://github.com/alwaysgoodz/aut-bug-report-helper/commit/d736ec3544b40082e122c3510ac261f299512c21). Fixed package: `a2-review-v0.3` (later evidence-only commit; application source unchanged).
 
 Requirement: [Issue #13](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/13). Parent technical candidate: `a2-review-v0.2`. Original A1/I1/I2 and v0.2 snapshots are preserved. This is AI-assisted preparation, not another claimed four-person iteration or independent approval.

@@ -196,10 +196,39 @@ test('Pagination retains filters, exposes every inserted report and resets when 
   const second = await page.locator('tbody tr').evaluateAll(rows => rows.map(row => row.dataset.reportId));
   expect(new Set([...first, ...second]).size).toBe(first.length + second.length);
   expect(inserted.every(id => first.includes(id) || second.includes(id))).toBe(true);
+  const returnPath = new URL(page.url()).pathname + new URL(page.url()).search;
+  await page.locator('.report-title').first().click();
+  await expect(page.locator('.back-link')).toHaveAttribute('href', returnPath);
+  await page.locator('#status').selectOption('In progress');
+  await page.getByRole('button', { name: 'Update status', exact: true }).click();
+  await expect(page.locator('.notice')).toContainText('Status updated to In progress');
+  await expect(page.locator('.back-link')).toHaveAttribute('href', returnPath);
+  await page.locator('.back-link').click();
+  await expect(page).toHaveURL(new RegExp('severity=high&status=Open&page=2$'));
+  await expect(page.locator('#filter-severity')).toHaveValue('high');
+  await expect(page.locator('#filter-status')).toHaveValue('Open');
   await page.getByRole('link', { name: 'Remove severity filter: high', exact: true }).click();
   await expect(page).toHaveURL(/\/?status=Open$/);
   await expect(page.locator('#filter-severity')).toHaveValue('');
   await expect(page.locator('.pagination')).toContainText('Page 1');
+});
+
+test('Browser back restores guidance and character count from restored form values', async ({ page }) => {
+  const title = 'Retained 🔁 report';
+  await page.goto('/reports/new');
+  await page.locator('#title').fill(title);
+  await page.locator('#steps').fill('Keep the steps after navigation');
+  await page.locator('#severity').selectOption('high');
+  await expect(page.locator('#completeness-score')).toHaveText('43%');
+  await page.getByRole('link', { name: 'Cancel', exact: true }).click();
+  await page.goBack();
+  await expect(page.locator('#title')).toHaveValue(title);
+  await expect(page.locator('#severity')).toHaveValue('high');
+  await expect(page.locator('#completeness-score')).toHaveText('43%');
+  await expect(page.locator('#completeness-count')).toHaveText('3 of 7 fields');
+  await expect(page.locator('#completeness-progress')).toHaveAttribute('value', '43');
+  await expect(page.locator('#title-count')).toHaveText(`${Array.from(title).length} / 160`);
+  await expect(page.locator('#missing-fields li:visible')).toHaveCount(4);
 });
 
 test('Unicode title uses server character limits without silently truncating supplementary characters', async ({ page }) => {
@@ -258,9 +287,15 @@ test.describe('Native workflow', () => {
     await page.getByRole('button', { name: 'Create report', exact: true }).click();
     await expect(page.getByRole('heading', { name: 'Native form acceptance', exact: true })).toBeVisible();
     await expect(page.locator('#completeness-score')).toHaveText('29%');
+    const detailPath = new URL(page.url()).pathname;
+    await page.goto(detailPath + '?severity=high&status=Open');
     await page.locator('#status').selectOption('In progress');
     await page.getByRole('button', { name: 'Update status', exact: true }).click();
     await expect(page.locator('.notice')).toContainText('Status updated to In progress');
+    await expect(page.locator('.back-link')).toHaveAttribute('href', '/?severity=high&status=Open');
+    await page.locator('.back-link').click();
+    await expect(page.locator('#filter-severity')).toHaveValue('high');
+    await expect(page.locator('#filter-status')).toHaveValue('Open');
   });
   test('Native fields preserve a valid 160-character Unicode title', async ({ page }) => {
     const title = '🐛'.repeat(160);

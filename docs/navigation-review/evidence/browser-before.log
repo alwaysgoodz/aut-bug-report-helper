@@ -1,0 +1,188 @@
+
+> aut-bug-report-helper-checks@0.1.0 test:browser
+> playwright test --grep Browser back|Pagination retains
+
+[WebServer] Bug Report Helper: http://127.0.0.1:8780
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:51] "GET /health HTTP/1.1" 200 -
+
+Running 2 tests using 1 worker
+
+(node:64244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Browser under test: 155.0.8059.86
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:52] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:52] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:52] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/92720e0c-daac-4940-8334-8cb13200aa8b?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/d6af7673-894f-4eb7-b8a2-d0e6dcb87cc8?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/c953e72d-663f-4359-a77a-357d83e7a44a?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/ef243ba1-3093-42c8-a059-d0e5b4f1cb46?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/811066da-2831-4e31-905f-043b41f0db25?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/76afe46e-b1cd-4289-9f11-dfbaa371de98?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/60b6f081-51a6-40ce-8d9f-d5c7d4bad203?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/1d013a2e-9fb0-495d-9836-9b428fe84558?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/824dcd7b-f399-496b-bd0d-1e87e00994a8?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/88d1083d-6c16-4d5d-a2b1-fdd10eee3876?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/04ce29b2-d7d3-4335-80a8-e2eb24aea196?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/5d2587f9-f156-460b-b00c-8d775f297451?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/10500c28-2ae4-473e-9465-af1a5bbcaa33?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/874c8f2e-4eb5-430e-ba89-e5d4c20e8ca7?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/26115762-d5d6-4226-937c-2eaf93a39286?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/9822ea78-3504-45b3-9187-4eb5fa23e903?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/e98cdde7-f385-4e49-a7d3-df32f89b2579?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/39a1de62-f6a6-45de-9f6e-7f3e677ca754?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/4b9db641-0c5b-4b97-afb7-7f70630051eb?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/bb305646-c09c-4c0e-af9a-da3e101ed087?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/6f54e683-1714-4979-9744-88d92b2cc3a1?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/bc33835c-9aa1-490d-990a-fea679178d85?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/23433c8c-b7a8-42e8-9169-a66cb8a40038?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/c8d92f92-2bb3-4736-bb4a-1d1a0ffd8f7d?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/3b5549a0-43f1-4b5e-941a-caf7c55253f1?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/f87a327e-c2a1-4999-989d-b2ab687c8bed?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/8424b537-84a5-47d7-8879-26844803ecb7?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/0871fd15-88b5-47ce-8463-c2bac1ac29d6?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:53] "GET /reports/a596df0e-b258-4002-bd1a-dac8c190f78a?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /reports/23126ceb-f7ee-4b91-891c-a6cd0a2ffdcc?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /?severity=high&status=Open HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /?severity=high&status=Open&page=2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /reports/811066da-2831-4e31-905f-043b41f0db25 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:57:54] "GET /static/mark.svg HTTP/1.1" 200 -
+  x  1 tests\browser\workflow.spec.js:182:1 › Pagination retains filters, exposes every inserted report and resets when a filter is removed (5.9s)
+(node:40792) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Browser under test: 155.0.8059.86
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 22:58:00] "GET /static/mark.svg HTTP/1.1" 200 -
+  x  2 tests\browser\workflow.spec.js:216:1 › Browser back restores guidance and character count from restored form values (5.2s)
+
+
+  1) tests\browser\workflow.spec.js:182:1 › Pagination retains filters, exposes every inserted report and resets when a filter is removed 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('.back-link')
+    Expected: "/?severity=high&status=Open&page=2"
+    Received: "/"
+    Timeout:  4000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.back-link') with timeout 4000ms
+      - waiting for locator('.back-link')
+        12 × locator resolved to <a href="/" class="back-link">← Back to reports</a>
+           - unexpected value "/"
+
+
+      199 |   const returnPath = new URL(page.url()).pathname + new URL(page.url()).search;
+      200 |   await page.locator('.report-title').first().click();
+    > 201 |   await expect(page.locator('.back-link')).toHaveAttribute('href', returnPath);
+          |                                            ^
+      202 |   await page.locator('#status').selectOption('In progress');
+      203 |   await page.getByRole('button', { name: 'Update status', exact: true }).click();
+      204 |   await expect(page.locator('.notice')).toContainText('Status updated to In progress');
+        at F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\browser\workflow.spec.js:201:44
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\workflow-Pagination-retain-7f5f8-ts-when-a-filter-is-removed\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\workflow-Pagination-retain-7f5f8-ts-when-a-filter-is-removed\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\workflow-Pagination-retain-7f5f8-ts-when-a-filter-is-removed\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\workflow-Pagination-retain-7f5f8-ts-when-a-filter-is-removed\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests\browser\workflow.spec.js:216:1 › Browser back restores guidance and character count from restored form values 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('#completeness-score')
+    Expected: "43%"
+    Received: "0%"
+    Timeout:  4000ms
+
+    Call log:
+      - Expect "toHaveText" locator('#completeness-score') with timeout 4000ms
+      - waiting for locator('#completeness-score')
+        12 × locator resolved to <output aria-live="polite" id="completeness-score" for="title description steps expected actual environment severity">0%</output>
+           - unexpected value "0%"
+
+
+      225 |   await expect(page.locator('#title')).toHaveValue(title);
+      226 |   await expect(page.locator('#severity')).toHaveValue('high');
+    > 227 |   await expect(page.locator('#completeness-score')).toHaveText('43%');
+          |                                                     ^
+      228 |   await expect(page.locator('#completeness-count')).toHaveText('3 of 7 fields');
+      229 |   await expect(page.locator('#completeness-progress')).toHaveAttribute('value', '43');
+      230 |   await expect(page.locator('#title-count')).toHaveText(`${Array.from(title).length} / 160`);
+        at F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\browser\workflow.spec.js:227:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\workflow-Browser-back-rest-be22e-t-from-restored-form-values\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\workflow-Browser-back-rest-be22e-t-from-restored-form-values\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\workflow-Browser-back-rest-be22e-t-from-restored-form-values\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\workflow-Browser-back-rest-be22e-t-from-restored-form-values\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests\browser\workflow.spec.js:182:1 › Pagination retains filters, exposes every inserted report and resets when a filter is removed 
+    tests\browser\workflow.spec.js:216:1 › Browser back restores guidance and character count from restored form values 

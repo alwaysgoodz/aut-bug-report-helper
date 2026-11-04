@@ -191,3 +191,42 @@ class WebTests(unittest.TestCase):
         self.assertEqual(code, 303)
         _, _, body = self.request(path=headers["Location"])
         self.assertIn("Status updated to <strong>In progress</strong>", body)
+
+    def test_null_input_returns_validation_feedback_and_keeps_server_healthy(self):
+        before = self.store.counts()["total"]
+        data = self.form_data(steps="Keep these steps")
+        data["title"] = "\x00hidden title"
+        code, _, body = self.request("POST", "/reports", data)
+        self.assertEqual(code, 422)
+        self.assertIn('id="title-error"', body)
+        self.assertIn("Keep these steps", body)
+        self.assertEqual(self.store.counts()["total"], before)
+        self.assertEqual(self.request(path="/health")[0], 200)
+
+    def test_detail_navigation_context_survives_status_redirect_and_conflict(self):
+        report = self.store.create(title="Context detail", severity="high")
+        context = "severity=high&status=Open&page=2"
+        path = f"/reports/{report['id']}"
+        code, _, body = self.request(path=path+"?"+context)
+        self.assertEqual(code, 200)
+        self.assertIn('href="/?severity=high&amp;status=Open&amp;page=2"', body)
+        data = dict(_csrf=self.server.csrf_token, status="In progress", expected_status="Open")
+        code, headers, _ = self.request("POST", path+"/status?"+context, data)
+        self.assertEqual(code, 303)
+        self.assertEqual(headers["Location"], path+"?updated=1&"+context)
+        code, _, body = self.request("POST", path+"/status?"+context, data)
+        self.assertEqual(code, 409)
+        self.assertIn(f'href="{path}?severity=high&amp;status=Open&amp;page=2"', body)
+
+    def test_invalid_navigation_context_is_rejected_before_status_mutation(self):
+        report = self.store.create(title="Context validation", severity="low")
+        path = f"/reports/{report['id']}"
+        data = dict(_csrf=self.server.csrf_token, status="In progress", expected_status="Open")
+        for query in ("severity=urgent", "status=Closed", "page=0", "page=2&page=3"):
+            with self.subTest(query=query):
+                self.assertEqual(self.request(path=path+"?"+query)[0], 400)
+                self.assertEqual(self.request("POST", path+"/status?"+query, data)[0], 400)
+                self.assertEqual(self.store.get(report["id"])["status"], "Open")
+        code, headers, _ = self.request("POST", path+"/status?return_to=https%3A%2F%2Fevil.example", data)
+        self.assertEqual(code, 303)
+        self.assertEqual(headers["Location"], path+"?updated=1")

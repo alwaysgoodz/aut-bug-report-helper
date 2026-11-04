@@ -53,6 +53,11 @@ if (reportForm) {
   };
   reportForm.addEventListener("input", update);
   reportForm.addEventListener("change", update);
+  window.addEventListener("pageshow", () => {
+    update();
+    // History traversal may restore form values after pageshow dispatch.
+    setTimeout(update, 0);
+  });
   update();
 }
 

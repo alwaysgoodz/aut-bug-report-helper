@@ -49,25 +49,38 @@ def date_label(value):
     return datetime.fromisoformat(value).strftime("%d %b %Y, %H:%M UTC")
 
 
-def list_url(*, severity="", status="", page=1):
+def list_context(*, severity="", status="", page=1):
     query = {key: value for key, value in (("severity", severity), ("status", status)) if value}
     if page != 1:
         query["page"] = page
+    return query
+
+
+def list_url(*, severity="", status="", page=1):
+    query = list_context(severity=severity, status=status, page=page)
     return "/?"+urlencode(query) if query else "/"
+
+
+def context_url(path, context=None, *, notice=""):
+    query = {notice: "1"} if notice else {}
+    query.update(context or {})
+    return path + ("?"+urlencode(query) if query else "")
 
 
 def report_list(reports, counts, *, message="", severity="", status="", pagination=None):
     notice = f'<div class="notice" role="status">{e(message)}</div>' if message else ""
     pagination = pagination or dict(total=len(reports), page=1, pages=1, page_size=25)
+    context = list_context(severity=severity, status=status, page=pagination["page"])
     rows = []
     for report in reports:
         assessment = completeness(report)
-        rows.append(f'''<tr role="row" data-report-id="{e(report['id'])}"><td role="cell" class="report-name-cell"><a class="report-title" href="/reports/{e(report['id'])}">{e(report['title'])}</a>
+        detail_path = context_url(f"/reports/{report['id']}", context)
+        rows.append(f'''<tr role="row" data-report-id="{e(report['id'])}"><td role="cell" class="report-name-cell"><a class="report-title" href="{e(detail_path)}">{e(report['title'])}</a>
 <span class="row-subtitle">{e(report['environment']) if has_text(report['environment']) else "Environment not provided"}</span></td>
 <td role="cell" data-label="Severity">{badge(report['severity'], 'severity')}</td><td role="cell" data-label="Status">{badge(report['status'], 'status')}</td>
 <td role="cell" data-label="Completeness"><span class="list-score">{assessment['score']}%</span><progress class="list-progress" max="100" value="{assessment['score']}" aria-label="Completeness: {assessment['completed']} of 7 fields"></progress><span class="row-subtitle">{assessment['completed']} of 7 fields</span></td>
 <td role="cell" class="date-cell" data-label="Created"><time datetime="{e(report['created_at'])}">{date_label(report['created_at'])}</time></td>
-<td role="cell" class="row-action"><a class="view-link" href="/reports/{e(report['id'])}" aria-label="View {e(report['title'])}">{icon('arrow')}</a></td></tr>''')
+<td role="cell" class="row-action"><a class="view-link" href="{e(detail_path)}" aria-label="View {e(report['title'])}">{icon('arrow')}</a></td></tr>''')
     empty = f'''<div class="empty-state"><div class="empty-icon">{icon('reports')}</div><h2>Your next fix starts with a clear report</h2>
 <p>No reports yet. Capture what happened, what you expected,<br class="desktop-only"> and how someone else can reproduce it.</p>
 <a class="button primary" href="/reports/new">{icon('plus')}Create your first report</a></div>'''
@@ -164,18 +177,22 @@ def report_form(token, total, values=None, errors=None):
     return shell("New report", content, total, "new")
 
 
-def report_detail(report, token, total, *, created=False, updated=False, error=""):
+def report_detail(report, token, total, *, created=False, updated=False, error="", context=None):
+    context = context or {}
+    back_path = list_url(**context)
+    detail_path = context_url(f"/reports/{report['id']}", context)
+    status_path = context_url(f"/reports/{report['id']}/status", context)
     notice = '<div class="notice" role="status">Report created. Your team now has a place to start.</div>' if created else ''
     if updated:
         notice += f'<div class="notice" role="status">{icon("check")}Status updated to <strong>{e(report["status"])}</strong>.</div>'
     if error:
-        notice += f'<div class="error-summary" id="form-errors" tabindex="-1" role="alert">{e(error)} <a href="/reports/{e(report["id"])}">Reload report</a></div>'
+        notice += f'<div class="error-summary" id="form-errors" tabindex="-1" role="alert">{e(error)} <a href="{e(detail_path)}">Reload report</a></div>'
     blocks = ''.join(f'<section class="detail-field" id="detail-{field}" tabindex="-1"><h2>{LABELS[field]}</h2><p class="report-text {"not-provided" if not has_text(report[field]) else ""}">{e(report[field]) if has_text(report[field]) else "Not provided"}</p></section>' for field in ("description", "steps", "expected", "actual", "environment"))
     allowed = (report["status"], *TRANSITIONS[report["status"]])
     options = ''.join(f'<option value="{e(x)}">{e(x)}</option>' for x in allowed)
-    content = f'''<a class="back-link" href="/">← Back to reports</a><div class="page-heading"><div><p class="eyebrow">REPORT DETAILS</p><h1 class="detail-title">{e(report['title'])}</h1><div class="detail-badges">{badge(report['severity'], 'severity')}{badge(report['status'], 'status')}</div></div></div>{notice}
+    content = f'''<a class="back-link" href="{e(back_path)}">← Back to {'filtered reports' if context.get('severity') or context.get('status') else 'reports'}</a><div class="page-heading"><div><p class="eyebrow">REPORT DETAILS</p><h1 class="detail-title">{e(report['title'])}</h1><div class="detail-badges">{badge(report['severity'], 'severity')}{badge(report['status'], 'status')}</div></div></div>{notice}
 <div class="editor-layout"><article class="panel detail-panel">{blocks}</article><aside class="editor-aside"><section class="panel status-card"><h2>Move the work forward</h2><p>Update the status when your team has made progress.</p>
-<form action="/reports/{e(report['id'])}/status" method="post"><input type="hidden" name="_csrf" value="{e(token)}"><input type="hidden" name="expected_status" value="{e(report['status'])}">
+<form action="{e(status_path)}" method="post"><input type="hidden" name="_csrf" value="{e(token)}"><input type="hidden" name="expected_status" value="{e(report['status'])}">
 <label for="status">Status</label><p class="field-help" id="status-help">Choose a new status before updating.</p><select id="status" name="status" aria-describedby="status-help">{options}</select><button type="submit" class="button primary full-width">Update status{icon('arrow')}</button></form>
 <p class="muted-note">Open → In progress → Resolved.<br>Resolved reports can be reopened.</p></section>{completeness_card(report)}<section class="metadata"><h2>Report information</h2><dl><dt>Created</dt><dd>{date_label(report['created_at'])}</dd><dt>Reference</dt><dd class="reference">{e(report['id'])}</dd></dl></section></aside></div>'''
     return shell(report["title"], content, total)
