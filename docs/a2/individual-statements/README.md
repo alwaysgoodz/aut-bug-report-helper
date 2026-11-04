@@ -5,3 +5,5 @@ Each real student must submit their own statement as required by Canvas. These t
 For each substantive contribution, identify the work, decision, outcome and an accessible activity link: requirement clarification, implementation, meaningful review, reproduced test failure/fix, measured evaluation or an explained process decision. Commit totals do not establish contribution. Disclose actual AI assistance according to the course rules. The present preparation was generated/performed by Codex through the owner's account.
 
 Copy a template per member, replace placeholders with genuine evidence and remove instructions before submitting. Proposed A/B/C/D roles in the plan do not determine which activities a person may honestly claim.
+
+Named allocation drafts are ready: [Fengyi Zhan](fengyi-zhan.md), [Kaile Shao](kaile-shao.md), [jianqiao Fang](jianqiao-fang.md), [xin Li](xin-li.md). Each has a planned 25% share; IDs/accounts are intentionally blank. These drafts state intended work and do not claim completed activities.

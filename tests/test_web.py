@@ -123,6 +123,14 @@ class WebTests(unittest.TestCase):
         self.assertEqual(self.request("POST", "/reports", raw=b"x"*(MAX_BODY+1), headers={"Content-Type": "application/x-www-form-urlencoded"})[0], 413)
         self.assertEqual(self.request("POST", "/reports", raw=b"title=a&title=b", headers={"Content-Type": "application/x-www-form-urlencoded"})[0], 400)
 
+    def test_rejected_post_bodies_deliver_feedback_without_aborting_connections(self):
+        before = self.store.counts()["total"]
+        for attempt in range(30):
+            with self.subTest(attempt=attempt):
+                self.assertEqual(self.request("POST", "/reports", raw=b"{}", headers={"Content-Type": "application/json"})[0], 415)
+                self.assertEqual(self.request("POST", "/reports", self.form_data(), headers={"Origin": "https://foreign.example"})[0], 403)
+        self.assertEqual(self.store.counts()["total"], before)
+
     def test_status_conflict_and_invalid_transition_do_not_overwrite(self):
         report = self.store.create(title="Concurrent", severity="low")
         path = f"/reports/{report['id']}/status"

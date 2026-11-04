@@ -23,6 +23,7 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / "docs/report-content.json").read_text(encoding="utf-8"))
+TEAM = json.loads((ROOT.parent / "docs/team.json").read_text(encoding="utf-8"))["members"]
 OUT = ROOT / "output/pdf"
 QA = ROOT / "tmp/pdfs/report-render"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -152,18 +153,19 @@ def counted_text():
 
 
 def markdown_report(count):
+    team_table = "\n".join(["| Member | Name | Student ID | GitHub |", "| --- | --- | --- | --- |",
+                             *[f'| {m["role"]} | {m["name"]} | {m["student_id"]} | {m["github"]} |' for m in TEAM]])
     parts = ["# "+DATA["title"], DATA["subtitle"],
              "AUT Contemporary Methods in Software Engineering — Assignment 1",
-             "**Working draft: fill team identities and genuine contributions, obtain independent review and verify assessor access before submission.**",
-             "| Member | Name | Student ID | GitHub |", "| --- | --- | --- | --- |",
-             *[f"| {x} | Pending | Pending | Pending |" for x in "ABCD"],
+             "**Working draft: names supplied; IDs/accounts blank by request. Equal shares are planned, not verified contributions. Independent review and assessor access remain pending.**",
+             team_table,
              f"Conservative main-text count: {count['conservative_tokens']} (limit 1,500).", ""]
     for section in DATA["sections"]:
         parts += ["## "+section["heading"], *section.get("paragraphs", [])]
         if "table" in section:
             t = section["table"]
-            parts += [t["caption"], "| "+" | ".join(t["headers"])+" |", "| "+" | ".join(["---"]*len(t["headers"]))+" |"]
-            parts += ["| "+" | ".join(row)+" |" for row in t["rows"]]
+            parts += [t["caption"], "\n".join(["| "+" | ".join(t["headers"])+" |", "| "+" | ".join(["---"]*len(t["headers"]))+" |",
+                                              *["| "+" | ".join(row)+" |" for row in t["rows"]]])]
         parts += section.get("after", [])
         if "figure" in section:
             parts += [section["figure"]["caption"], "![System overview](system-overview.svg)"]
@@ -180,7 +182,7 @@ def appendix_markdown():
 | E2 | [Issue #1]({REPO}/issues/1), [Draft PR #7]({REPO}/pull/7) | Implementation exists; independent review and approved merge pending. |
 | E3 | [Implementation]({REPO}/commit/{SHA}), [CI run]({REPO}/actions/runs/41673631149) | Implementation SHA: {SHA}; both Python jobs passed. |
 | E4 | [Trial record]({REPO}/blob/feat/1-create-report/docs/trial-record.md), [logs]({REPO}/tree/feat/1-create-report/docs/evidence) | Actual test evidence and corrective lesson; no user evaluation results. |
-| E5 | [Contribution ledger]({REPO}/blob/feat/1-create-report/docs/contributions.md) | Four real identities and individual activity links pending. |
+| E5 | [Contribution ledger]({REPO}/blob/feat/team-study-preparation/docs/contributions.md) | Names supplied; IDs/accounts blank and actual activity links unverified. |
 | E6 | [Setup/test README]({REPO}/blob/feat/1-create-report/README.md), [workflow rules]({REPO}/blob/feat/1-create-report/CONTRIBUTING.md) | Reproducible feature instructions; manual review gate. |
 
 Repository access is private. Invite the real team and assessor and verify their access. The implementation SHA is a verified review snapshot, not a final submission release. Final release identity must follow independent approval and complete contribution records.
@@ -209,10 +211,10 @@ def build():
              para("AUT · Contemporary Methods in Software Engineering", "Main"),
              para("Prepared 4 November 2026 · Topic approval confirmed by the owner", "Small"),
              Spacer(1, 8*mm),
-             table(["Member", "Name / student ID / GitHub"], [[x, "Pending team input"] for x in "ABCD"], [65, 410]),
+             table(["Role", "Name", "Student ID", "GitHub"], [[m["role"], m["name"], m["student_id"], m["github"]] for m in TEAM], [40,180,105,150]),
              Spacer(1, 10*mm),
              para(f"Main text: {count['conservative_tokens']} conservative tokens / {count['whitespace_words']} whitespace words; limit 1,500. Includes tables, diagram labels, citations and contribution statements.", "Small"),
-             para("Working draft. Member identities, actual contributions, independent teammate review, final submission SHA and assessor access must be completed before submission.", "Main"),
+             para("Working draft. Names supplied; student IDs and GitHub accounts left blank by request. Workload is planned at 25% each; actual contributions, independent review, final reference and assessor access remain unverified.", "Main"),
              para(REPO, "Small"), PageBreak()]
     for section in DATA["sections"]:
         story.append(para(section["heading"], "Section"))
@@ -236,7 +238,7 @@ def build():
         ("E3", "Implementation SHA", REPO+"/commit/"+SHA, SHA),
         ("E3", "Remote checks", REPO+"/actions/runs/41673631149", "Passed: Python 3.11 and 3.12, 16 test methods per job plus compile check."),
         ("E4", "Trial and logs", REPO+"/blob/feat/1-create-report/docs/trial-record.md", "Execution findings, correction and preserved evidence."),
-        ("E5", "Individual contributions", REPO+"/blob/feat/1-create-report/docs/contributions.md", "Real identities and activity links pending."),
+        ("E5", "Individual contributions", REPO+"/blob/feat/team-study-preparation/docs/contributions.md", "Names supplied; IDs/accounts blank; actual activity links unverified."),
         ("E6", "Setup and tests", REPO+"/blob/feat/1-create-report/README.md", "Clone and check out the feature branch or exact SHA before running tests."),
     ]
     rows = [[para("ID", "Cell"), para("Evidence link", "Cell"), para("Verified meaning / limit", "Cell")]]
@@ -252,7 +254,7 @@ def build():
     pdf_path = OUT / "assignment-1-report-draft.pdf"
     doc = SimpleDocTemplate(str(pdf_path), pagesize=A4, rightMargin=20*mm, leftMargin=20*mm,
                             topMargin=23*mm, bottomMargin=20*mm,
-                            title=DATA["title"], author="Team identities pending; AI-assisted preparation",
+                            title=DATA["title"], author=", ".join(m["name"] for m in TEAM),
                             subject="AUT Assignment 1: structured bug-report helper")
     doc.build(story, onFirstPage=page_number, onLaterPages=page_number)
     pdf = fitz.open(pdf_path)

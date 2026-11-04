@@ -1,0 +1,10 @@
+{
+  "allocation_status": "proposed_equal_workload_not_verified_actual_contribution",
+  "iteration_hours_each": 5,
+  "members": [
+    {"role": "A", "name": "Fengyi Zhan", "student_id": "", "github": "", "planned_percent": 25, "area": "Requirements, research and product evaluation", "review_partner": "D"},
+    {"role": "B", "name": "Kaile Shao", "student_id": "", "github": "", "planned_percent": 25, "area": "Browser interaction and accessibility", "review_partner": "C"},
+    {"role": "C", "name": "jianqiao Fang", "student_id": "", "github": "", "planned_percent": 25, "area": "Service, persistence and integrity", "review_partner": "B"},
+    {"role": "D", "name": "xin Li", "student_id": "", "github": "", "planned_percent": 25, "area": "Acceptance checks, CI and release evidence", "review_partner": "A"}
+  ]
+}

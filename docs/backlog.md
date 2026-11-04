@@ -1,8 +1,8 @@
 # Prioritised backlog and two-iteration plan
 
-All estimates are team person-hours, not elapsed time. A/B/C/D are unassigned proposed roles. No feature is considered Done until its acceptance criteria, independent review and checks pass. GitHub Issues are the tracked requirements; this file is their readable summary.
+All estimates are team person-hours, not elapsed time. A/B/C/D map to Fengyi Zhan / Kaile Shao / jianqiao Fang / xin Li; see [25%-each planned allocation](team/work-allocation.zh-CN.md). Actual activities remain to be verified. No feature is Done until criteria, independent review and checks pass. GitHub Issues are the tracked requirements; this file is their readable summary.
 
-**A2 schedule correction:** the supplied A2 brief places both iterations in Week 2. Replace the tentative five-working-day duration per iteration below with two working days per iteration, followed by a final evaluation/demo preparation day. Keep the proposed 20 person-hour capacity per iteration subject to real member confirmation. Original A1 assumptions remain below for traceability; actual AI-assisted preparation increments are recorded separately and are not a two-week team history.
+**Current schedule:** A2 places both iterations in Week 2: two working days per iteration, followed by a final evaluation/demo preparation day. Proposed capacity is 20 person-hours per iteration, subject to member availability confirmation. The original five-day A1 assumption remains in Git history; actual AI-assisted preparation is not a completed human team schedule.
 
 | ID | Priority / iteration / hours | Requirement and testable acceptance criteria | Owner / reviewer | Dependencies |
 | --- | --- | --- | --- | --- |
@@ -15,9 +15,9 @@ All estimates are team person-hours, not elapsed time. A/B/C/D are unassigned pr
 
 ## Capacity and goals
 
-Assumption to confirm: four members each have five project hours per iteration, giving 20 person-hours per iteration (40 total). Each iteration is five working days scheduled by the team within the Assignment 2 timetable; Assignment 1's setup/trial/report take place in Week 1. These are proposed durations, not Canvas deadlines. I1 has 16 planned hours + 4 contingency; I2 has 12 planned hours + 8 contingency. BR-04 is a Must to preserve the source brief; drop BR-05 before core functions if capacity slips. A1's proven BR-01 work is reused rather than counted as a second implementation.
+Assumption to confirm: each named member has five project hours per iteration, giving 20 person-hours per iteration (40 total), distributed equally in the detailed allocation. Each iteration is two working days in Week 2; A1 setup/trial/report take place in Week 1. These are planned durations, not Canvas dates or completed work. I1 has 16 planned core hours + 4 review/contingency; I2 has 12 planned core hours + 8 evaluation/review/contingency. Drop BR-05 before core work if capacity slips. A1's proven BR-01 work is reused.
 
-I1 goal: usable browser create/list/status with persistent data and CI. Days 1-2: agree schema and BR-01/02; days 3-4: integrate BR-03 and review; day 5: run BR-06 checks, demo and retrospective. I2 goal: evaluate missing-information guidance and add filtering if time remains. Days 1-2: feedback reprioritisation and BR-04; days 3-4: BR-05/06 and regression; day 5: demonstration, evaluation and release evidence.
+I1 goal: usable browser create/list/status with persistence and CI. Week 2 day 1: agree contracts and BR-01/02; day 2: BR-03 integration, review, checks and retrospective. I2 goal: evaluate guidance and add filtering if time permits. Day 3: reprioritise and BR-04/PI-01; day 4: BR-05/06, regression, evaluation and retrospective. Day 5: final report, demonstration and release preparation. The team must choose actual dates and record real activity.
 
 ## Definition of Ready / Done
 

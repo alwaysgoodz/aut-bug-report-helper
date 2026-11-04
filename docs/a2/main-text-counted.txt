@@ -1,14 +1,14 @@
 1. Increment scope and changes
 
-The increment continues Assignment 1's lecturer-approved structured bug-report project. It now supports seven-field report creation, persistent list/detail views, guarded status changes and reopening, live completeness guidance, and severity/status filtering. The intended users remain small student teams. Completeness reports information presence, not correctness or independent reproducibility; the distinction follows the practical limits of report-element evidence (Soltani et al., 2020). AI diagnosis, automatic fixes, external tracker integration, mobile applications and advanced analytics remain excluded.
+The increment continues Assignment 1's lecturer-approved structured bug-report project. Seven-field creation, persistent list/detail views, guarded status changes/reopening, live completeness guidance and AND filters remain core. Later technical refinements add 25-report pages, responsive layouts, filtered detail return and history-state synchronisation. Completeness measures information presence, not correctness or independent reproducibility (Soltani et al., 2020). AI diagnosis, automatic fixes, external tracker integration, mobile applications and advanced analytics remain excluded.
 
-Three changes require explanation. A2 places both iterations in Week 2, so the proposed calendar changes from A1's tentative five days each to two working days each plus a final preparation day. The proposed capacity remains 20 team person-hours per iteration, awaiting member confirmation. Process measures are added because the original four-peer product study cannot evaluate a development-workflow change. Playwright is introduced as a locked test-only dependency; Python/SQLite application execution still needs no third-party package.
+Three changes require explanation. An earlier A1 draft assumed five days per iteration; A2 places both in Week 2, so the current plan uses two working days each plus a final preparation day. The proposed capacity remains 20 team person-hours per iteration, awaiting member confirmation. Process measures are added because the original four-peer product study cannot evaluate a development-workflow change. Playwright is introduced as a locked test-only dependency; Python/SQLite application execution still needs no third-party package.
 
-The two technical increments and experiments below were produced in one AI-assisted preparation session. They are not evidence of a completed four-person Week 2 collaboration. Actual member identities, substantive independent reviews, team retrospectives, individual statements and the planned peer study remain pending. No user-value improvement or human contribution is inferred from generated activity.
+The two technical increments and experiments below were produced in one AI-assisted preparation session. They are not evidence of completed four-person Week 2 collaboration. The supplied members are Fengyi Zhan, Kaile Shao, jianqiao Fang and xin Li; IDs/accounts remain blank by request. Equal 25% workloads, discussion drafts and a local peer-study tool are prepared. Actual activities, independent reviews, meetings, individual statements and peer outcomes remain unverified.
 
 2. Lifecycle application and iteration outcomes
 
-The repository preserves the A1 baseline and separate I1/I2 branches. Existing Issues #1–6 supply priorities and acceptance criteria; PI-01 (#9) records the process change after I1. Stacked draft PRs #7, #8 and #10 connect requirements to proposed changes. They remain unmerged pending non-author approval. Proposed roles are A requirements/evaluation, B interaction, C service/storage and D acceptance/CI; names and actual activities must replace these role labels.
+The repository preserves the A1 baseline and separate I1/I2 branches. Existing Issues #1–6 supply priorities and acceptance criteria; PI-01 (#9) records the process change after I1. Stacked draft PRs #7, #8 and #10 connect requirements to proposed changes. They remain unmerged pending non-author approval. Planned roles are Fengyi Zhan requirements/evaluation, Kaile Shao interaction, jianqiao Fang service/storage and xin Li acceptance/CI, each with equal target hours. Activity links must substantiate eventual contributions.
 
 Table 1. Technical increment goals, acceptance and outcomes
 
@@ -36,9 +36,9 @@ The browser adapter, validation/service, pure completeness rules and SQLite stor
 
 3. Quality results and reproducibility
 
-Functional checks exercise valid and rejected creation, separate-process persistence, field limits, status transitions/conflicts, exact omissions and non-mutating filters. Browser checks additionally execute JavaScript, keyboard form submission, narrow-screen layout and safe rendering. Local unittest discovers 44 methods: 43 functional checks pass and the CI-only bridge is skipped. Remote Python 3.12 executes that bridge and all seven browser cases; Python 3.11 skips it. Thus a local skip is not counted as browser evidence.
+Functional checks cover creation/rejection, separate-process persistence, field limits, status/conflicts, missing information and non-mutating filters. Browser checks execute JavaScript, keyboard submission, responsive layouts and safe rendering. Historical I2 passed 43 functional and seven browser checks. The later v0.4 application implementation 8a0f4bb passes 57 functional and 16 browser checks, including supplementary Unicode, maximum valid encoded reports, history restoration, filtered navigation and null rejection. Local discovery includes one skipped CI-only bridge; remote Python 3.12 executes it. Study-tool simulations are separate verification, not participant evidence.
 
-Local conditions were Windows 11, Anaconda Python 3.12.7, SQLite 3.51.0, Node 22.22.1 and Chrome 155.0.8059.86. Remote run 41680263474 passed on Ubuntu 24.04, Python 3.11.17/3.12.16, Node 22.23.4 and Chromium 156.0.8078.4. The local CDN download failed; installed Chrome was an explicit fallback. The CI log verifies seven passed cases, zero failures/skips/flakiness and the browser version. These environments provide useful diversity, not a full compatibility matrix.
+Local checks used Windows 11, Python 3.12.7, SQLite 3.51.0, Node 22.22.1 and installed Chrome 155.0.8059.86 after a browser-download failure. Remote v0.4 run 41854085423 passed Python 3.11/3.12 and all 16 Chromium 156.0.8078.4 cases, with zero unexpected, skipped or flaky browser outcomes. These recorded environments provide limited diversity, not a full compatibility matrix. Earlier I1/I2 logs remain bound to their historical commits.
 
 Table 2. Quality scenarios and measured results
 
@@ -48,21 +48,21 @@ Result
 
 Interpretation boundary
 
-Security/integrity: stored markup, CSRF tokens, foreign Origin/Host, bounded requests, duplicate fields, invalid filters and stale writes.
+Current security/integrity: stored markup, CSRF, Origin/Host, bounded/encoded input, stale writes, null rejection and validated navigation context.
 
 Selected HTTP assertions pass; browser displays injected markup as text, not an image. Rejected writes preserve stored records.
 
 Regression checks within the local threat model; no penetration-test or production-security claim.
 
-Performance: 500 synthetic reports, one loopback client, five warm-ups, 50 full-body list requests. Predeclared nearest-rank p95 target <250 ms.
+Historical I2 performance: 500 synthetic reports, one loopback client, five warm-ups, 50 full-body requests. Predeclared nearest-rank p95 <250 ms.
 
 Median 51.57 ms; p95 77.88 ms; maximum 80.20 ms. Each response 430,353 bytes; all HTTP 200. Target met.
 
 One machine, sequential requests and warm cache. No cold-start, concurrent-user or public-network conclusion.
 
-The performance helper creates its own temporary database and ephemeral server, records every duration, database size, environment and source hashes, and cleans up without touching user data. Measurement used clean implementation f36dfc7. README commands reproduce functional, browser, mutation and latency checks. The fixed technical review tag a2-review-v0.1 preserves the delivered package; the eventual assessed submission still needs team approval and verified assessor access.
+The historical latency helper used clean f36dfc7, a temporary database and an ephemeral server, preserving raw timings, environment and source hashes without user-data changes. Reproduce that workload at its exact commit. Later 25-row pagination changes response work, preventing a direct speedup claim; no fresh v0.4 latency is claimed. README and evidence indexes reproduce current checks and preserve the earlier process comparison. The final assessed reference still requires team approval and assessor access.
 
-Security choices follow token/origin defence guidance (OWASP Foundation, n.d.), but loopback binding does not create user authentication. Python's HTTP server documentation warns against production use (Python Software Foundation, n.d.); this limits the deployment claim. The prototype has no accounts, remote database, body editing, attachments or pagination. Only Chromium-family browsers were exercised. The four-peer completion-time/completeness/reproduction protocol remains unrun, so functionality and latency do not demonstrate usefulness to students.
+Token/origin choices follow OWASP Foundation (n.d.), but loopback binding is not authentication. Python's server documentation discourages production use (Python Software Foundation, n.d.). The prototype has no accounts, remote database, body editing or attachments; Chromium-family coverage is limited. The prepared four-peer tool supplies matched fixtures, counterbalanced order, timing and independent semantic/reproduction review. Real participants have not used it, so technical checks and historical latency do not demonstrate student usefulness.
 
 4. Process improvement and critical interpretation
 
@@ -148,4 +148,4 @@ For a distributed team, preserve increments but add asynchronous decisions, expl
 
 The prepared ten-minute runbook demonstrates incomplete/complete creation, invalid-input recovery, persistence, status/reopening, filters, actual CI and the before/after mutation evidence, followed by five minutes of questions. Proposed speaking slots require each member to explain a substantive requirement, design, testing or evaluation decision after performing real work. Individual statement templates request linked decisions and outcomes rather than commit totals.
 
-The software is runnable and its technical observations are reproducible. Before assessed submission, real members must review the latest changes, conduct and record their own iteration discussions, complete the peer evaluation or justify its omission, provide identities and authentic individual statements, verify assessor permissions and select the approved submission reference. The technical review tag is a fixed preparation candidate, not an assertion that these collaborative obligations have been met.
+The software is runnable and its technical observations are reproducible. Before assessed submission, real members must review the latest changes, conduct and record their own iteration discussions, complete the peer evaluation or justify its omission, complete student/account details and authentic individual statements, verify assessor permissions and select the approved submission reference. The technical review tag is a fixed preparation candidate, not an assertion that these collaborative obligations have been met.

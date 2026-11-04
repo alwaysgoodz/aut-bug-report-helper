@@ -1,6 +1,6 @@
 {
-  "whitespace_words": 1889,
-  "conservative_tokens": 2050,
+  "whitespace_words": 1921,
+  "conservative_tokens": 2081,
   "limit": 2500,
   "includes": "Main headings, paragraphs, table captions, headers/cells and in-text citations",
   "excludes": "Cover, references, supporting appendix and separate individual statements"

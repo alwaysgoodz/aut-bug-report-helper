@@ -44,7 +44,7 @@ For a distributed team, retain increments but add asynchronous decision records,
 
 3. Iterations, design and risk
 
-A/B/C/D denote proposed roles awaiting named members: A owns requirements and feedback, B browser interaction, C service/storage, and D testing/CI. Table 2 assigns author/reviewer pairs; estimates are person-hours. Dependencies follow the listed sequence.
+A/B/C/D map to the named members on the title page: A owns requirements and feedback, B browser interaction, C service/storage, and D testing/CI. Table 2 assigns author/reviewer pairs; estimates are person-hours. Dependencies follow the listed sequence.
 
 Table 2. Prioritised backlog and acceptance criteria
 
@@ -90,7 +90,7 @@ Clean checkout passes applicable acceptance checks; record exploratory feedback,
 
 I1 2h, I2 4h; D+A/C
 
-Assume five working days and 20 available person-hours per iteration, subject to team confirmation. I1 targets usable creation/list/status with 16 planned hours and four contingency hours. I2 targets evaluated guidance/filtering with 12 planned hours and eight contingency hours. Drop BR-05 first if capacity slips. A1 setup and the BR-01 trial occur in Week 1; proven work is reused in Assignment 2. Each increment ends with demonstration, reprioritisation and one retrospective improvement.
+Assume two working days and 20 available person-hours per iteration, subject to team confirmation. I1 targets usable creation/list/status with 16 planned hours and four contingency hours. I2 targets evaluated guidance/filtering with 12 planned hours and eight contingency hours. Drop BR-05 first if capacity slips. A1 setup and the BR-01 trial occur in Week 1; proven work is reused in Assignment 2. Each increment ends with demonstration, reprioritisation and one retrospective improvement.
 
 Figure 1 separates adapters, rules and persistence. Python/SQLite reduces setup for local use; parameterised transactions protect stored text. A pure scoring function supports isolated tests. Completeness measures information presence, not truth. No authentication or public hosting is assumed.
 
@@ -128,4 +128,4 @@ An initial missing-module failure established the absent feature. Execution then
 
 The intended workflow is Issue, short branch, tested PR, substantive non-author review, author response and approved merge. Limit implementation work in progress to two items. Done requires acceptance checks, latest-SHA approval and updated evidence. GitHub returned HTTP 403 for private-repository branch protection, so approval remains a manual rule. PR #7 currently has no independent review and remains unmerged. Consequently, the collaborative trial is incomplete; a teammate must review and rerun a check before finalisation. Assessor access and the final reviewed submission SHA also remain pending.
 
-Codex prepared research, code, tests and documents through the authorised owner account; those activities cannot establish four students' contributions. Member A: identity and actual requirements/feedback evidence pending. Member B: identity and actual implementation/review evidence pending. Member C: identity and actual implementation/review evidence pending. Member D: identity and actual testing/CI evidence pending. Replace these statements with linked activities and resulting decisions before submission; proposed roles and commit counts are insufficient.
+Codex prepared research, code, tests and documents through the owner's account; this cannot establish student contributions. Planned workload is 25% each: Fengyi Zhan (requirements/research/evaluation), Kaile Shao (interaction/accessibility), jianqiao Fang (service/persistence), and xin Li (acceptance/CI). Each has five planned hours per iteration. Student IDs and accounts are blank by request. Actual decisions, results and activity links remain to be verified; the meeting scripts are drafts, and peer evaluation is prepared but not run.

@@ -19,12 +19,19 @@ module.exports = defineConfig({
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
   },
-  webServer: {
+  webServer: [{
     command: `"${python}" -m tools.e2e_server`,
     url: 'http://127.0.0.1:8780/health',
     reuseExistingServer: false,
     timeout: 15000,
     stdout: 'pipe',
     stderr: 'pipe',
-  },
+  }, {
+    command: `"${python}" -m tools.study_e2e_server`,
+    url: 'http://127.0.0.1:8790/health',
+    reuseExistingServer: false,
+    timeout: 15000,
+    stdout: 'pipe',
+    stderr: 'pipe',
+  }],
 });
