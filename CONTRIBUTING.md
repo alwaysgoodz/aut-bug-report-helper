@@ -8,7 +8,7 @@
 6. Merge only after checks pass and that reviewer approves the latest revision. If branch protection is unavailable on the account's plan, record that limitation and enforce the same rule manually; do not claim a technical gate is active.
 7. Update evidence links, decision log and contribution ledger. At each iteration end, demonstrate the increment, record feedback and choose one process improvement.
 
-Members and GitHub handles have not yet been provided. A/B/C/D below are proposed roles, not identities or completed contributions. Rotate author and reviewer across work items.
+Member names are recorded in [team.json](docs/team.json); student IDs and GitHub accounts are blank at the owner's request. A/B/C/D map to Fengyi Zhan, Kaile Shao, jianqiao Fang and xin Li. [Equal workload allocation](docs/team/work-allocation.zh-CN.md) proposes 25% each; actual contributions still require linked activities. Rotate author and reviewer across work items.
 
 | Role | Accountable area | Review partner |
 | --- | --- | --- |

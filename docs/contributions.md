@@ -6,11 +6,13 @@ The repository owner's account is `alwaysgoodz`. Codex, acting through that auth
 
 ## Member statements to complete after real work
 
-| Member | Name / student ID / GitHub | Actual contribution and decision/outcome | Evidence link | Verification |
-| --- | --- | --- | --- | --- |
-| A | Pending | Pending; proposed backlog/feedback role is not a contribution | Pending | Pending |
-| B | Pending | Pending; proposed UI role is not a contribution | Pending | Pending |
-| C | Pending | Pending; proposed service role is not a contribution | Pending | Pending |
-| D | Pending | Pending; proposed QA role is not a contribution | Pending | Pending |
+| Role | Name | Student ID | GitHub | Planned share | Actual decision/outcome and evidence | Verification |
+| --- | --- | --- | --- | --- | --- | --- |
+| A | Fengyi Zhan | | | 25% | Not yet verified; requirements/research/evaluation allocation | |
+| B | Kaile Shao | | | 25% | Not yet verified; UI/accessibility allocation | |
+| C | jianqiao Fang | | | 25% | Not yet verified; service/persistence allocation | |
+| D | xin Li | | | 25% | Not yet verified; testing/CI/evidence allocation | |
+
+See [equal workload plan](team/work-allocation.zh-CN.md), two [discussion drafts](team/iteration-1-discussion-draft.zh-CN.md) and [prepared peer-study tool](peer-study/README.md). Names and planned shares are supplied; they do not convert generated material into completed student work.
 
 Use meaningful activities: requirement clarification with resulting acceptance change; reviewed PR with concrete finding and response; authored implementation with acceptance evidence; executed test revealing/fixing a defect; stakeholder evaluation and consequent prioritisation. Do not use commit totals as a substitute. Replace the pending report statements only with actual linked activities.

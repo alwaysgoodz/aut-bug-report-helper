@@ -15,6 +15,7 @@ from reportlab.platypus import KeepTogether, PageBreak, Paragraph, SimpleDocTemp
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT/"docs/a2/report-content.json").read_text(encoding="utf-8"))
+TEAM = json.loads((ROOT/"docs/team.json").read_text(encoding="utf-8"))["members"]
 OUT = ROOT/"submission-a2"
 QA = ROOT/"tmp/a2-report-render"
 OUT.mkdir(exist_ok=True)
@@ -65,15 +66,17 @@ def furniture(canvas, doc):
 
 def build():
     counted, md = [], ["# "+DATA["title"], DATA["subtitle"],
-                       "**Preparation draft. Real member identities, independent reviews, collaboration records and individual statements remain pending.**"]
+                       "**Preparation draft. Names supplied; IDs/accounts blank by request. Planned equal shares do not establish completed contributions, meetings or peer evaluation.**",
+                       "\n".join(["| Role | Name | Student ID | GitHub |", "| --- | --- | --- | --- |",
+                                    *[f'| {m["role"]} | {m["name"]} | {m["student_id"]} | {m["github"]} |' for m in TEAM]])]
     for section in DATA["sections"]:
         chunks = [section["heading"], *section.get("paragraphs", [])]
         md += ["## "+section["heading"], *section.get("paragraphs", [])]
         if "table" in section:
             t = section["table"]
             chunks += [t["caption"], *t["headers"], *sum(t["rows"], [])]
-            md += [t["caption"], "| "+" | ".join(t["headers"])+" |", "| "+" | ".join(["---"]*len(t["headers"]))+" |"]
-            md += ["| "+" | ".join(row)+" |" for row in t["rows"]]
+            md += [t["caption"], "\n".join(["| "+" | ".join(t["headers"])+" |", "| "+" | ".join(["---"]*len(t["headers"]))+" |",
+                                           *["| "+" | ".join(row)+" |" for row in t["rows"]]])]
         chunks += section.get("after", [])
         md += section.get("after", [])
         counted.extend(chunks)
@@ -93,11 +96,11 @@ def build():
     story = [Spacer(1, 28*mm), p("GROUP EVALUATION REPORT  ·  ASSIGNMENT 2", "caption"), Spacer(1,6*mm),
              p(DATA["title"], "title"), p(DATA["subtitle"], "subtitle"),
              p("AUT · Contemporary Methods in Software Engineering", "body"),
-             p("Prepared 4 November 2026 · Fixed technical review candidate: a2-review-v0.1", "small"),
-             Spacer(1,7*mm), tab(["Member", "Name / student ID / GitHub"], [[x,"Pending real team input"] for x in "ABCD"], [65,410]),
+             p("Software candidate: a2-review-v0.4. Historical I1/I2 snapshots and workload conditions remain explicit; team allocation and study preparation are unverified plans.", "small"),
+             Spacer(1,7*mm), tab(["Role", "Name", "Student ID", "GitHub"], [[m["role"],m["name"],m["student_id"],m["github"]] for m in TEAM], [40,180,105,150]),
              Spacer(1,9*mm), p(f"Main text: {words} whitespace words / {conservative} conservative tokens; limit 2,500. Tables and citations are included.", "small"),
-             p("Preparation draft. Software and technical experiments are implemented; real member identities, independent reviews, team collaboration records, product peer evaluation, individual statements and assessor access remain pending.", "body"),
-             p(REPO+"/tree/feat/a2-iteration-2", "small"), PageBreak()]
+             p("Preparation draft. Names supplied; IDs/accounts left blank by request. Planned workload is 25% each. Discussion drafts and a study tool are prepared; actual meetings, peer outcomes, contributions, reviews and assessor access remain unverified.", "body"),
+             p(REPO+"/tree/feat/team-study-preparation", "small"), PageBreak()]
     table_number = 0
     widths = [[65,185,225], [205,125,145], [205,130,140], [100,188,187]]
     for section in DATA["sections"]:
@@ -114,6 +117,10 @@ def build():
     story += [PageBreak(), p("Appendix A. Supporting evidence and review references", "heading"),
               p("Assessed analysis is in the main report. The following links preserve supporting activities and raw results; all repository links require assessor access.", "small")]
     evidence = [
+        ("Current application candidate v0.4", REPO+"/tree/a2-review-v0.4"),
+        ("Current application CI", REPO+"/actions/runs/41854085423"),
+        ("Team allocation and discussion drafts", REPO+"/tree/feat/team-study-preparation/docs/team"),
+        ("Prepared peer-study protocol (not results)", REPO+"/blob/feat/team-study-preparation/docs/peer-study/README.md"),
         ("Requirements and traceability", REPO+"/blob/a2-review-v0.1/docs/a2/traceability.md"),
         ("I1 draft PR #8", REPO+"/pull/8"), ("I2 draft PR #10", REPO+"/pull/10"),
         ("I1 checks and logs", REPO+"/actions/runs/41677785458"),
@@ -123,18 +130,18 @@ def build():
         ("Raw performance and fingerprints", REPO+"/blob/a2-review-v0.1/docs/a2/evidence/performance.json"),
         ("Original-resolution product screenshots", REPO+"/tree/a2-review-v0.1/docs/a2/evidence"),
         ("Demo and individual statement templates", REPO+"/blob/a2-review-v0.1/docs/a2/demo-runbook.md"),
-        ("Fixed technical review candidate", REPO+"/tree/a2-review-v0.1"),
+        ("Historical I2 review candidate", REPO+"/tree/a2-review-v0.1"),
     ]
     for label, url in evidence:
         story += [Paragraph(f'<link color="#17646D" href="{url}">{html.escape(label)}</link>',STYLES["body"])]
     story += [Spacer(1,10),p("Reproducible source snapshot", "heading"),
-              p("I1: cee24aaa908991a9ff38967bfc2a46f973493934. I2 implementation and performance measurement: f36dfc792c4467c0726598cce401629f7a9e7fe5. The later review tag adds the report and evidence archive; source hashes identify the measured application. Final assessed submission reference must follow the team's actual independent approval.","small"),
+              p("I1: cee24aaa908991a9ff38967bfc2a46f973493934. Historical I2 measurement: f36dfc792c4467c0726598cce401629f7a9e7fe5. Current application: 8a0f4bbc3bc28ee1925513b4d599a5e9dad54458 (v0.4 preserves that application with later evidence). Prepared study tools are separate from actual participant results. Final assessed submission requires real independent approval.","small"),
               p("Assistance and outstanding activities", "heading"),
-              p("Codex assisted with research synthesis, implementation, tests, technical experiments, documentation and this draft through the authorised owner's account. These materials do not establish four students' contributions or independent peer review. The team must verify the material, apply course rules for assistance, complete genuine activities and replace pending identities/statements before submission.","small")]
+              p("Codex assisted with research, implementation, checks, study-tool preparation, discussion drafts and reports through the authorised owner's account. Names and planned 25% allocations do not establish completed student work or meetings. IDs/accounts remain blank by request. Genuine activities, statements, peer study, reviews and access still require team action.","small")]
     output = OUT/"assignment-2-report-draft.pdf"
     doc = SimpleDocTemplate(str(output), pagesize=A4, leftMargin=20*mm, rightMargin=20*mm,
                             topMargin=23*mm,bottomMargin=20*mm,title=DATA["title"],
-                            author="Team identities pending; AI-assisted preparation")
+                            author=", ".join(m["name"] for m in TEAM))
     doc.build(story,onFirstPage=furniture,onLaterPages=furniture)
     pdf = fitz.open(output)
     summary = []

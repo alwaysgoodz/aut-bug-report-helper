@@ -8,3 +8,5 @@ submission/tmp/
 node_modules/
 test-results/
 playwright-report/
+study-data/
+study-export/

@@ -1,0 +1,35 @@
+[
+  {
+    "path": "submission/output/pdf/assignment-1-report-draft.pdf",
+    "sha256": "48206d29e24c2dde53cf8c1f2ecd198af4ef18b2da3aee2c88986a9a5bffefd8",
+    "pages": 6,
+    "word_count": {
+      "whitespace_words": 1269,
+      "conservative_tokens": 1325,
+      "includes": "All main headings, paragraphs, table captions/headers/cells, figure caption/labels, in-text citations and contribution statements",
+      "excludes": "Cover page, reference list and supporting appendix; recurring page furniture",
+      "limit": 1500,
+      "by_section": {
+        "1. Project definition and boundaries": 202,
+        "2. Comparison and justified selection": 345,
+        "3. Iterations, design and risk": 452,
+        "4. Workflow trial and individual contributions": 270
+      },
+      "reserve_under_conservative_count": 175
+    },
+    "visual_review": "All rendered pages inspected by Codex; no clipping or overlap observed. This is artifact QA, not teammate peer review."
+  },
+  {
+    "path": "submission-a2/assignment-2-report-draft.pdf",
+    "sha256": "109b97d82ef8c39d9dc049ec7634593951c14dbb85ece21987e471763aff492e",
+    "pages": 8,
+    "word_count": {
+      "whitespace_words": 1921,
+      "conservative_tokens": 2081,
+      "limit": 2500,
+      "includes": "Main headings, paragraphs, table captions, headers/cells and in-text citations",
+      "excludes": "Cover, references, supporting appendix and separate individual statements"
+    },
+    "visual_review": "All rendered pages inspected by Codex; no clipping or overlap observed. This is artifact QA, not teammate peer review."
+  }
+]
