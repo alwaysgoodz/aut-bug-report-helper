@@ -2,6 +2,8 @@
 
 Verified 2026-11-04 (Asia/Shanghai). Repository: [alwaysgoodz/aut-bug-report-helper](https://github.com/alwaysgoodz/aut-bug-report-helper), private. Owner must give the actual teammates and assessor access. A 404 to other viewers may mean missing permission.
 
+For the subsequent application and UI changes, see the [current refinement evidence index](optimization/README.md). This table preserves the original A1 workflow evidence.
+
 | Evidence | Link / identifier | Verified meaning and limits |
 | --- | --- | --- |
 | Prioritised backlog | [BR-01](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/1), [BR-02](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/2), [BR-03](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/3), [BR-04](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/4), [BR-05](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/5), [BR-06](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/6); [readable plan](backlog.md) | Actual Issues with criteria; roles are proposed, not confirmed members. |

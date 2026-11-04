@@ -2,6 +2,8 @@
 
 Repository is private. Evidence records AI-assisted technical preparation; real member approvals and collaboration are not inferred. The fixed technical review reference is `a2-review-v0.1` once published; it is not the final approved assessment submission.
 
+**Later software refinement:** [UI-01 / PR #12 and evidence](../optimization/README.md) adds responsive layouts, pagination and Unicode consistency after v0.1. The table below preserves the original report's historical evidence and benchmark workload.
+
 | Evidence | Fixed or activity link | What it establishes |
 | --- | --- | --- |
 | Requirements | [Issues #1–6](https://github.com/alwaysgoodz/aut-bug-report-helper/issues), [traceability](traceability.md), [backlog](../backlog.md) | Original priorities/criteria and implementation/test mapping. |

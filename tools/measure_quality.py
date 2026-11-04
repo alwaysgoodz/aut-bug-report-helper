@@ -9,6 +9,7 @@ import json
 import math
 from pathlib import Path
 import platform
+import re
 import sqlite3
 import statistics
 import subprocess
@@ -17,13 +18,13 @@ import tempfile
 import threading
 import time
 
-from bugreport.service import ReportStore, SEVERITIES
+from bugreport.service import PAGE_SIZE, ReportStore, SEVERITIES
 from bugreport.web import ReportServer
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", default="docs/a2/evidence/performance.json")
+    parser.add_argument("--output", default="docs/optimization/evidence/performance.json")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     source = {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
@@ -43,24 +44,43 @@ def main():
         server = ReportServer(("127.0.0.1", 0), store)
         worker = threading.Thread(target=server.serve_forever, kwargs={"poll_interval": .01}, daemon=True)
         worker.start()
-        durations, response_bytes = [], []
+        durations, response_bytes, sampled_pages, returned_rows = [], [], [], []
+        page_count = (500+PAGE_SIZE-1)//PAGE_SIZE
+        expected_ids = {report["id"] for report in store.list_reports()}
+        visited_ids = []
+
+        def request_page(number):
+            start = time.perf_counter()
+            connection = http.client.HTTPConnection("127.0.0.1", server.server_address[1], timeout=5)
+            try:
+                connection.request("GET", f"/?page={number}")
+                response = connection.getresponse()
+                body = response.read()
+                if response.status != 200:
+                    raise RuntimeError(f"Unexpected benchmark status {response.status}")
+            finally:
+                connection.close()
+            elapsed = (time.perf_counter()-start)*1000
+            ids = re.findall(rb'data-report-id="([^"]+)"', body)
+            return body, elapsed, [value.decode("ascii") for value in ids]
+
         try:
             with redirect_stderr(io.StringIO()):
+                for number in range(1, page_count+1):
+                    _, _, ids = request_page(number)
+                    visited_ids.extend(ids)
+                if len(visited_ids) != 500 or set(visited_ids) != expected_ids:
+                    raise RuntimeError("Pagination audit found missing or duplicated records")
                 for index in range(55):
-                    start = time.perf_counter()
-                    connection = http.client.HTTPConnection("127.0.0.1", server.server_address[1], timeout=5)
-                    try:
-                        connection.request("GET", "/")
-                        response = connection.getresponse()
-                        body = response.read()
-                        if response.status != 200:
-                            raise RuntimeError(f"Unexpected benchmark status {response.status}")
-                    finally:
-                        connection.close()
-                    elapsed = (time.perf_counter()-start)*1000
+                    number = index % page_count+1
+                    body, elapsed, ids = request_page(number)
+                    if len(ids) != PAGE_SIZE:
+                        raise RuntimeError("Unexpected benchmark page size")
                     if index >= 5:
                         durations.append(round(elapsed, 4))
                         response_bytes.append(len(body))
+                        sampled_pages.append(number)
+                        returned_rows.append(len(ids))
         finally:
             server.shutdown()
             worker.join(timeout=2)
@@ -72,14 +92,17 @@ def main():
                   environment=dict(python=sys.version, sqlite=sqlite3.sqlite_version,
                                    platform=platform.platform(), processor=platform.processor(), machine=platform.machine()),
                   scenario=dict(records=500, concurrent_clients=1, warmups=5, samples=50,
-                                method="HTTP GET / including connection, render and full-body read; warm local file cache"),
-                  target=dict(p95_ms_less_than=250, established_in="docs/a2/quality-plan.md"),
+                                page_size=PAGE_SIZE, page_count=page_count,
+                                method="Rotating HTTP GET pages including connection, render and full-body read; warm local file cache"),
+                  pagination_audit=dict(expected=500, visited=len(visited_ids), unique=len(set(visited_ids)), complete=True),
+                  target=dict(p95_ms_less_than=250, established_in="docs/optimization/plan.md"),
                   observations=dict(median_ms=round(statistics.median(durations), 4), p95_ms=p95,
                                     min_ms=min(durations), max_ms=max(durations),
                                     setup_seconds=round(setup_seconds, 4), database_bytes=db_bytes,
-                                    response_bytes=response_bytes, durations_ms=durations),
+                                    response_bytes=response_bytes, durations_ms=durations,
+                                    sampled_pages=sampled_pages, returned_rows=returned_rows),
                   target_met=p95 < 250, source_sha256=source,
-                  limits="Single local machine and client, warm cache, fixed synthetic data; no cold-start/concurrency/network generalisation")
+                  limits="25 rows per response versus the historical 500-row response; no direct speedup comparison. Single client, warm cache, synthetic data; no concurrency/network generalisation")
     output = root/args.output
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2)+"\n", encoding="utf-8")

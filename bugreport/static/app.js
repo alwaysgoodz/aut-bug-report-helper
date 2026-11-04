@@ -22,6 +22,9 @@ window.addEventListener("pageshow", () => {
 const reportForm = document.querySelector("form[data-completeness]");
 if (reportForm) {
   const fields = Array.from(reportForm.querySelectorAll("[data-report-field]"));
+  const blankPoints = new Set(reportForm.dataset.blankCodepoints.split(" ").map(Number));
+  const hasText = (value) => Array.from(value).some((char) => !blankPoints.has(char.codePointAt(0)));
+  const items = new Map(fields.map((field) => [field.name, document.querySelector(`#missing-fields [data-field='${field.name}']`)]));
   const score = document.getElementById("completeness-score");
   const count = document.getElementById("completeness-count");
   const progress = document.getElementById("completeness-progress");
@@ -31,17 +34,37 @@ if (reportForm) {
     fields.forEach((field) => {
       const valid = field.name === "severity"
         ? Array.from(field.options).some((option) => option.value && option.value === field.value)
-        : Boolean(field.value.trim());
+        : hasText(field.value);
       if (valid) completed++;
-      document.querySelector(`#missing-fields [data-field='${field.name}']`).hidden = valid;
+      items.get(field.name).hidden = valid;
     });
     const percent = Math.round(100 * completed / fields.length);
     if (score.textContent !== `${percent}%`) score.textContent = `${percent}%`;
     count.textContent = `${completed} of ${fields.length} fields`;
     progress.value = percent;
     completeMessage.hidden = completed !== fields.length;
+    document.getElementById("missing-count").textContent = completed === fields.length ? "Complete" : `${fields.length-completed} missing`;
+    document.getElementById("title-count").textContent = `${reportForm.elements.title.value.length} / ${reportForm.elements.title.maxLength}`;
   };
   reportForm.addEventListener("input", update);
   reportForm.addEventListener("change", update);
   update();
+}
+
+const guidance = document.querySelector(".form-page .guidance-details");
+if (guidance) {
+  const wide = window.matchMedia("(min-width: 1050px)");
+  const adapt = () => { guidance.open = wide.matches; };
+  wide.addEventListener("change", adapt);
+  adapt();
+}
+
+const statusSelect = document.getElementById("status");
+if (statusSelect) {
+  const statusForm = statusSelect.form;
+  const button = statusForm.querySelector("button[type='submit']");
+  const refresh = () => { button.disabled = statusSelect.value === statusForm.elements.expected_status.value; };
+  statusSelect.addEventListener("change", refresh);
+  window.addEventListener("pageshow", refresh);
+  refresh();
 }

@@ -4,7 +4,9 @@ AUT Contemporary Methods in Software Engineering, Assignments 1 and 2. A small s
 
 ## Current implementation
 
-The A2 I2 branch implements seven-field report creation, persistent list/detail pages, guarded status changes/reopening, live and server-computed completeness guidance, and severity/status AND filters (BR-01–05). Incomplete optional information remains savable. Completeness measures information presence, not factual quality. `main`, A1 and I1 snapshots are preserved pending independent teammate review; this is not yet a final reviewed submission.
+The latest review branch, `feat/ui-quality-refinement`, extends A2 I2 with a responsive dashboard, grouped form, mobile report cards, 25-report pages, filter-preserving navigation, shared Unicode whitespace rules and explicit status confirmation. Seven-field creation, persistence, guarded status changes/reopening, live completeness guidance and severity/status AND filters remain available (BR-01–05). Incomplete optional information remains savable. Completeness measures information presence, not factual quality. See the [refinement evidence](docs/optimization/README.md).
+
+`main`, A1, I1 and the original I2 snapshot remain preserved pending independent teammate review; this is not yet a final reviewed submission.
 
 ## Setup and tests
 
@@ -13,7 +15,7 @@ Application and Python tests require Python 3.11 or 3.12 with SQLite (standard l
 ```powershell
 git clone https://github.com/alwaysgoodz/aut-bug-report-helper.git
 cd aut-bug-report-helper
-git switch feat/a2-iteration-2
+git switch feat/ui-quality-refinement
 python --version
 python -m unittest discover -s tests -v
 python -m compileall -q bugreport tests tools
@@ -21,7 +23,7 @@ python -m compileall -q bugreport tests tools
 
 On Windows, replace `python` with a verified Python executable if an alias opens Microsoft Store. To evaluate an open PR, check out its documented branch/commit before testing. `main` remains the scaffold until a teammate independently reviews the feature.
 
-For the fixed technical review package, use `git checkout a2-review-v0.1`. This candidate is preserved for review and reproducibility; the final assessment submission must follow real team approval. [A2 report, evidence and demonstration materials](submission-a2/README.md) are included.
+For the latest fixed technical candidate use `git checkout a2-review-v0.2`. The original candidate, `a2-review-v0.1`, and its [A2 report, evidence and demonstration materials](submission-a2/README.md) describe the historical I2 implementation. The refinement evidence records subsequent changes and checks separately. The final assessment submission must follow real team approval.
 
 ## CLI commands (same service as the browser)
 
@@ -57,16 +59,16 @@ npx playwright install chromium
 npm run test:browser
 python -m tools.check_browser_mutation
 npm run test:browser
-python -m tools.measure_quality --output docs/a2/evidence/performance.json
+python -m tools.measure_quality --output tmp/performance-recheck.json
 ```
 
 For a Windows Python alias problem, set `$env:BUGREPORT_PYTHON='D:/anaconda/python.exe'` before the browser commands (replace with your verified executable). If a browser download fails and Google Chrome is installed, set `$env:BUGREPORT_BROWSER_CHANNEL='chrome'`; record that browser version. Default CI uses Playwright's downloaded Chromium, not this fallback. The app itself never needs a browser download.
 
-The browser runner uses a fresh temporary DB and port 8780, separate from your running app. Seven scenarios cover common C1/C2/C3, scoring, filters, keyboard form use and a narrow screen. HTML reports are in `playwright-report`, machine-readable results in `test-results/browser-results.json`.
+The browser runner uses a fresh temporary DB and port 8780, separate from your running app. Twelve scenarios cover C1/C2/C3, scoring, filters, keyboard use, Unicode boundaries, linked guidance, pagination, three viewport widths and native submission without JavaScript. Python discovery runs 52 functional checks and skips the CI-only browser bridge locally. HTML reports are in `playwright-report`, machine-readable results in `test-results/browser-results.json`.
 
-The existing Actions workflow runs Python 3.11 and 3.12. Its Python 3.12 job also invokes the seven browser checks through `tests/test_browser_ci.py`; the bridge is skipped in local unittest/3.11 runs. This preserves the shared workflow because the current OAuth token cannot modify workflow files. CI logs print browser version, individual results and `CI_BROWSER_SUMMARY`; snapshots are preserved in the evidence index. Node.js 22 or newer must be present on that Ubuntu runner. A separate browser job would be preferable when workflow-write permission is available.
+The existing Actions workflow runs Python 3.11 and 3.12. Its Python 3.12 job also invokes the twelve browser checks through `tests/test_browser_ci.py`; the bridge is skipped in local unittest/3.11 runs. This preserves the shared workflow because the current OAuth token cannot modify workflow files. CI logs print browser version, individual results and `CI_BROWSER_SUMMARY`; snapshots are preserved in the evidence index. Node.js 22 or newer must be present on that Ubuntu runner. A separate browser job would be preferable when workflow-write permission is available.
 
-The mutation experiment deliberately disables one error-focus statement, verifies C1 fails at the focus assertion, and restores the original bytes in `finally`. Its expected mutant failure is evidence, not a failing delivered build. The following full suite verifies restoration. The performance helper measures 50 full-body list requests after five warmups on 500 synthetic reports with a predeclared p95 target; conditions and raw timings are preserved. See [quality plan](docs/a2/quality-plan.md) and [prospective improvement plan](docs/a2/process-improvement-plan.md).
+The historical mutation experiment deliberately disables one error-focus statement, verifies C1 fails at the focus assertion, and restores the original bytes in `finally`. Its expected mutant failure is evidence, not a failing delivered build. The current performance helper measures 50 full-body requests rotating over 20 pages after five warmups on 500 synthetic reports, audits every ID and records source hashes. Each response contains 25 reports, so its latency is not directly comparable with the historical 500-row response. See the [refinement measurement plan](docs/optimization/plan.md), original [quality plan](docs/a2/quality-plan.md) and [process improvement plan](docs/a2/process-improvement-plan.md). Write rechecks to `tmp` to preserve archived evidence.
 
 ## Collaboration and evidence
 

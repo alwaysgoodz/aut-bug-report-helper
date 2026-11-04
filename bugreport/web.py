@@ -65,8 +65,8 @@ class ReportHandler(BaseHTTPRequestHandler):
         store = self.server.store
         if url.path == "/health":
             self._send(200, "ok", content_type="text/plain; charset=utf-8")
-        elif url.path in ("/static/app.css", "/static/app.js"):
-            mime = "text/css" if url.path.endswith(".css") else "text/javascript"
+        elif url.path in ("/static/app.css", "/static/app.js", "/static/mark.svg"):
+            mime = {"css": "text/css", "js": "text/javascript", "svg": "image/svg+xml"}[url.path.rsplit(".", 1)[1]]
             self._send(200, (STATIC / url.path.rsplit("/", 1)[1]).read_bytes(), content_type=mime+"; charset=utf-8")
         elif url.path == "/":
             try:
@@ -75,11 +75,13 @@ class ReportHandler(BaseHTTPRequestHandler):
                     raise ValueError("Duplicate filters")
                 severity = query.get("severity", [""])[0]
                 status = query.get("status", [""])[0]
-                reports = store.list_reports(severity=severity, status=status)
+                page = int(query.get("page", ["1"])[0])
+                listing = store.list_page(severity=severity, status=status, page=page)
             except ValueError:
-                self._error(400, "Invalid report filter")
+                self._error(400, "Invalid report filter or page")
                 return
-            self._send(200, views.report_list(reports, store.counts(), severity=severity, status=status))
+            self._send(200, views.report_list(listing["reports"], store.counts(), severity=severity,
+                                              status=status, pagination=listing))
         elif url.path == "/reports/new":
             self._send(200, views.report_form(self.server.csrf_token, store.counts()["total"]))
         elif re.fullmatch(r"/reports/[0-9a-f-]{36}", url.path):
@@ -87,7 +89,8 @@ class ReportHandler(BaseHTTPRequestHandler):
             if report is None:
                 self._error(404, "Report not found")
             else:
-                self._send(200, views.report_detail(report, self.server.csrf_token, store.counts()["total"], created=url.query == "created=1"))
+                self._send(200, views.report_detail(report, self.server.csrf_token, store.counts()["total"],
+                                                    created=url.query == "created=1", updated=url.query == "updated=1"))
         else:
             self._error(404, "Page not found")
 
@@ -160,7 +163,7 @@ class ReportHandler(BaseHTTPRequestHandler):
                 self._send(409 if isinstance(error, StatusConflict) else 422,
                            views.report_detail(report, self.server.csrf_token, store.counts()["total"], error=str(error)))
                 return
-            self._send(303, location=f"/reports/{report_id}")
+            self._send(303, location=f"/reports/{report_id}?updated=1")
         else:
             self._error(404, "Page not found")
 

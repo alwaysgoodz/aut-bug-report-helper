@@ -1,0 +1,97 @@
+test_committed_browser_acceptance (test_browser_ci.BrowserCIGate.test_committed_browser_acceptance) ... skipped 'Browser CI bridge runs once in the GitHub Python 3.12 job; use npm run test:browser locally'
+test_all_supported_severities (test_creation.CreationTests.test_all_supported_severities) ... ok
+test_cli_create_then_read_from_separate_process (test_creation.CreationTests.test_cli_create_then_read_from_separate_process) ... ok
+test_cli_invalid_title_exits_nonzero_without_insert (test_creation.CreationTests.test_cli_invalid_title_exits_nonzero_without_insert) ... ok
+test_cli_unknown_id_has_explicit_error (test_creation.CreationTests.test_cli_unknown_id_has_explicit_error) ... ok
+test_empty_title_rejected_without_insert (test_creation.CreationTests.test_empty_title_rejected_without_insert) ... ok
+test_generated_metadata_is_unique_open_and_utc (test_creation.CreationTests.test_generated_metadata_is_unique_open_and_utc) ... ok
+test_invalid_severity_rejected_without_insert (test_creation.CreationTests.test_invalid_severity_rejected_without_insert) ... ok
+test_invalid_submission_preserves_existing_record (test_creation.CreationTests.test_invalid_submission_preserves_existing_record) ... ok
+test_missing_severity_rejected_without_insert (test_creation.CreationTests.test_missing_severity_rejected_without_insert) ... ok
+test_optional_fields_can_remain_blank (test_creation.CreationTests.test_optional_fields_can_remain_blank) ... ok
+test_persists_all_fields_across_new_connection (test_creation.CreationTests.test_persists_all_fields_across_new_connection) ... ok
+test_title_is_trimmed (test_creation.CreationTests.test_title_is_trimmed) ... ok
+test_unicode_multiline_and_sql_text_are_preserved_as_data (test_creation.CreationTests.test_unicode_multiline_and_sql_text_are_preserved_as_data) ... ok
+test_unknown_id_returns_no_record (test_creation.CreationTests.test_unknown_id_returns_no_record) ... ok
+test_whitespace_title_rejected_without_insert (test_creation.CreationTests.test_whitespace_title_rejected_without_insert) ... ok
+test_combined_filters_use_and (test_guidance_filters.FilterTests.test_combined_filters_use_and) ... ok
+test_each_filter_empty_result_and_clear_preserve_data (test_guidance_filters.FilterTests.test_each_filter_empty_result_and_clear_preserve_data) ... ok
+test_invalid_filter_rejected_without_mutation (test_guidance_filters.FilterTests.test_invalid_filter_rejected_without_mutation) ... ok
+test_each_present_field_and_six_of_seven_rounding (test_guidance_filters.GuidanceTests.test_each_present_field_and_six_of_seven_rounding) ... ok
+test_empty_report_has_zero_and_all_seven_missing (test_guidance_filters.GuidanceTests.test_empty_report_has_zero_and_all_seven_missing) ... ok
+test_function_does_not_mutate_input_or_count_metadata (test_guidance_filters.GuidanceTests.test_function_does_not_mutate_input_or_count_metadata) ... ok
+test_invalid_severity_and_nontext_are_missing (test_guidance_filters.GuidanceTests.test_invalid_severity_and_nontext_are_missing) ... ok
+test_cannot_skip_in_progress (test_lifecycle.LifecycleTests.test_cannot_skip_in_progress) ... ok
+test_create_list_survives_reopen_and_newest_first (test_lifecycle.LifecycleTests.test_create_list_survives_reopen_and_newest_first) ... ok
+test_empty_list_and_counts (test_lifecycle.LifecycleTests.test_empty_list_and_counts) ... ok
+test_full_status_cycle_persists (test_lifecycle.LifecycleTests.test_full_status_cycle_persists) ... ok
+test_non_text_and_overlong_fields_are_rejected_before_insert (test_lifecycle.LifecycleTests.test_non_text_and_overlong_fields_are_rejected_before_insert) ... ok
+test_stale_update_is_rejected_without_lost_update (test_lifecycle.LifecycleTests.test_stale_update_is_rejected_without_lost_update) ... ok
+test_unknown_id_and_invalid_status_leave_existing_report_unchanged (test_lifecycle.LifecycleTests.test_unknown_id_and_invalid_status_leave_existing_report_unchanged) ... ok
+test_all_pages_are_stable_without_duplicates_or_omissions (test_pagination.PaginationTests.test_all_pages_are_stable_without_duplicates_or_omissions) ... ok
+test_empty_page_is_well_defined (test_pagination.PaginationTests.test_empty_page_is_well_defined) ... ok
+test_filtered_count_page_and_order_match_legacy_query (test_pagination.PaginationTests.test_filtered_count_page_and_order_match_legacy_query) ... ok
+test_invalid_pages_and_filters_are_rejected (test_pagination.PaginationTests.test_invalid_pages_and_filters_are_rejected) ... ok
+test_bom_and_nel_only_titles_cannot_be_persisted (test_pagination.WhitespaceContractTests.test_bom_and_nel_only_titles_cannot_be_persisted) ... ok
+test_every_shared_blank_character_has_identical_server_meaning (test_pagination.WhitespaceContractTests.test_every_shared_blank_character_has_identical_server_meaning) ... ok
+test_sqlite_transactions_are_available (test_runtime.RuntimeTest.test_sqlite_transactions_are_available) ... ok
+test_browser_create_redirect_reload_and_status_cycle (test_web.WebTests.test_browser_create_redirect_reload_and_status_cycle) ... 127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports HTTP/1.1" 303 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /reports/99cf8515-315a-4522-b3b3-4a4b4ac44d6f?created=1 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /reports/99cf8515-315a-4522-b3b3-4a4b4ac44d6f?created=1 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports/99cf8515-315a-4522-b3b3-4a4b4ac44d6f/status HTTP/1.1" 303 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports/99cf8515-315a-4522-b3b3-4a4b4ac44d6f/status HTTP/1.1" 303 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports/99cf8515-315a-4522-b3b3-4a4b4ac44d6f/status HTTP/1.1" 303 -
+ok
+test_filters_have_clear_empty_state_and_reject_invalid_queries (test_web.WebTests.test_filters_have_clear_empty_state_and_reject_invalid_queries) ... 127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /?severity=critical&status=Resolved HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /?severity=urgent HTTP/1.1" 400 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /?status=Closed HTTP/1.1" 400 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /?severity=low&severity=high HTTP/1.1" 400 -
+ok
+test_foreign_origin_and_untrusted_host_are_rejected (test_web.WebTests.test_foreign_origin_and_untrusted_host_are_rejected) ... 127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports HTTP/1.1" 403 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "GET / HTTP/1.1" 400 -
+ok
+test_form_body_limits_media_type_and_duplicate_fields (test_web.WebTests.test_form_body_limits_media_type_and_duplicate_fields) ... 127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports HTTP/1.1" 415 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports HTTP/1.1" 413 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports HTTP/1.1" 400 -
+ok
+test_form_has_seven_visible_labels_and_empty_explicit_severity (test_web.WebTests.test_form_has_seven_visible_labels_and_empty_explicit_severity) ... 127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /reports/new HTTP/1.1" 200 -
+ok
+test_incomplete_report_is_saved_with_precise_server_guidance_without_js (test_web.WebTests.test_incomplete_report_is_saved_with_precise_server_guidance_without_js) ... 127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports HTTP/1.1" 303 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /reports/7315c680-ba44-4aaa-bcf3-74adbbf1b793?created=1 HTTP/1.1" 200 -
+ok
+test_invalid_form_retains_input_and_has_linked_inline_errors_without_insert (test_web.WebTests.test_invalid_form_retains_input_and_has_linked_inline_errors_without_insert) ... 127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports HTTP/1.1" 422 -
+ok
+test_invalid_page_values_are_errors_and_out_of_range_is_clamped (test_web.WebTests.test_invalid_page_values_are_errors_and_out_of_range_is_clamped) ... 127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /?page=0 HTTP/1.1" 400 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /?page=-1 HTTP/1.1" 400 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /?page=word HTTP/1.1" 400 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /?page=1.5 HTTP/1.1" 400 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "GET /?page=99999 HTTP/1.1" 200 -
+ok
+test_missing_wrong_and_non_ascii_csrf_rejected_without_write (test_web.WebTests.test_missing_wrong_and_non_ascii_csrf_rejected_without_write) ... 127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports HTTP/1.1" 403 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports HTTP/1.1" 403 -
+127.0.0.1 - - [04/Nov/2026 09:59:48] "POST /reports HTTP/1.1" 403 -
+ok
+test_paginated_http_navigation_preserves_filters_and_reaches_all_records (test_web.WebTests.test_paginated_http_navigation_preserves_filters_and_reaches_all_records) ... 127.0.0.1 - - [04/Nov/2026 09:59:49] "GET /?severity=high&status=Open&page=1 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2026 09:59:49] "GET /?severity=high&status=Open&page=2 HTTP/1.1" 200 -
+ok
+test_report_markup_is_escaped_and_security_headers_present (test_web.WebTests.test_report_markup_is_escaped_and_security_headers_present) ... 127.0.0.1 - - [04/Nov/2026 09:59:49] "GET /reports/653709c5-9bbf-4665-b042-624c591152bb HTTP/1.1" 200 -
+ok
+test_same_origin_post_succeeds (test_web.WebTests.test_same_origin_post_succeeds) ... 127.0.0.1 - - [04/Nov/2026 09:59:49] "POST /reports HTTP/1.1" 303 -
+ok
+test_server_refuses_public_bind (test_web.WebTests.test_server_refuses_public_bind) ... ok
+test_status_conflict_and_invalid_transition_do_not_overwrite (test_web.WebTests.test_status_conflict_and_invalid_transition_do_not_overwrite) ... 127.0.0.1 - - [04/Nov/2026 09:59:49] "POST /reports/af0247de-6d62-4fd0-b6af-3ba2353ebdae/status HTTP/1.1" 303 -
+127.0.0.1 - - [04/Nov/2026 09:59:49] "POST /reports/af0247de-6d62-4fd0-b6af-3ba2353ebdae/status HTTP/1.1" 409 -
+127.0.0.1 - - [04/Nov/2026 09:59:49] "POST /reports/af0247de-6d62-4fd0-b6af-3ba2353ebdae/status HTTP/1.1" 422 -
+ok
+test_status_success_has_explicit_persisted_feedback (test_web.WebTests.test_status_success_has_explicit_persisted_feedback) ... 127.0.0.1 - - [04/Nov/2026 09:59:49] "POST /reports/d44301b4-b39a-444b-a9f3-278e5867099d/status HTTP/1.1" 303 -
+127.0.0.1 - - [04/Nov/2026 09:59:49] "GET /reports/d44301b4-b39a-444b-a9f3-278e5867099d?updated=1 HTTP/1.1" 200 -
+ok
+test_unknown_route_and_static_traversal_return_404 (test_web.WebTests.test_unknown_route_and_static_traversal_return_404) ... 127.0.0.1 - - [04/Nov/2026 09:59:49] "GET /reports/00000000-0000-0000-0000-000000000000 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Nov/2026 09:59:49] "GET /static/../service.py HTTP/1.1" 404 -
+127.0.0.1 - - [04/Nov/2026 09:59:49] "GET /missing HTTP/1.1" 404 -
+ok
+
+----------------------------------------------------------------------
+Ran 53 tests in 5.040s
+
+OK (skipped=1)
