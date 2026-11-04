@@ -201,7 +201,7 @@ class StudyStore:
                                  completeness=round(100*sum(marks.values())/7, 2), outcome=outcome,
                                  clarifications=clarifications,
                                  independent_success=outcome == "reproduced" and clarifications == 0,
-                                 notes=values.get("notes", "")[:3000])
+                                 notes=values.get("notes", ""))
             self.save()
 
     def withdraw(self, participant):

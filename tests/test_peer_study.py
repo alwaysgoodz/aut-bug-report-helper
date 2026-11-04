@@ -83,9 +83,10 @@ class PeerStudyTests(unittest.TestCase):
         del values["environment"]
         with self.assertRaises(ValueError):
             self.store.review(row["review_key"], values)
-        values = dict(self.marks(), clarifications="1")
+        values = dict(self.marks(), clarifications="1", notes="Observation "*400)
         self.store.review(row["review_key"], values)
         self.assertFalse(self.store.get(row["id"])["review"]["independent_success"])
+        self.assertEqual(self.store.get(row["id"])["review"]["notes"], values["notes"])
         with self.assertRaises(ValueError):
             self.store.review(row["review_key"], self.marks())
 
