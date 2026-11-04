@@ -41,7 +41,7 @@ def shell(title, content, total=0, active="reports"):
 <a href="/" class="nav-link {"active" if active == "reports" else ""}" {"aria-current=page" if active == "reports" else ""}>{icon("reports")}<span>Reports</span><span class="nav-count">{total}</span></a>
 <a href="/reports/new" class="nav-link {"active" if active == "new" else ""}" {"aria-current=page" if active == "new" else ""}>{icon("plus")}<span>New report</span></a></nav>
 <div class="sidebar-note"><span class="connection-dot" aria-hidden="true"></span>Local workspace<p>A little more context.<br>A better place to start.</p></div></aside>
-<div class="app"><header class="topbar"><span class="workspace-title"><span class="workspace-avatar" aria-hidden="true">ST</span>Student team workspace</span><span class="prototype-label"><span class="connection-dot" aria-hidden="true"></span>Local prototype</span></header>
+<div class="app"><header class="topbar"><span class="workspace-title"><span class="workspace-avatar" aria-hidden="true">ST</span>Student team workspace<span class="workspace-context">/ Bug reports</span></span><span class="prototype-label"><span class="connection-dot" aria-hidden="true"></span>Local prototype</span></header>
 <main id="main" tabindex="-1">{content}</main><footer>Structured reports. Shared understanding.</footer></div></body></html>'''
 
 
@@ -92,7 +92,7 @@ def report_list(reports, counts, *, message="", severity="", status="", paginati
                   ("In progress", "In progress", "In progress", "Currently being worked on", "progress"),
                   ("Resolved", "Resolved", "Resolved", "Ready to verify or reopen", "resolved"))
     stats = ''.join(f'<a class="stat {"selected" if status == value and not severity else ""}" href="{e(list_url(status=value))}"><div class="stat-top"><span>{label}</span><span class="stat-icon">{icon(mark)}</span></div><strong>{counts[key]}</strong><small>{hint}</small></a>' for value, label, key, hint, mark in stat_items)
-    content = f'''<div class="page-heading"><div><p class="eyebrow">YOUR PROJECT, IN FOCUS</p><h1>Reports</h1><p class="subtitle">Turn a vague problem into a clear next step.</p></div>
+    content = f'''<div class="page-heading"><div><p class="eyebrow">ISSUE TRACKING</p><h1>Reports</h1><p class="subtitle">Capture the context. Track the next step.</p></div>
 <a class="button primary" href="/reports/new">{icon('plus')}New report</a></div>{notice}
 <section class="stats" aria-label="Report summary">{stats}</section>
 <section class="panel reports-panel"><div class="panel-heading"><div><h2>{'Filtered reports' if filtered else 'All reports'} <span class="count-pill">{pagination['total']}</span></h2><p id="results-summary">Showing {first}–{last} of {pagination['total']} reports{f' ({counts["total"]} total)' if filtered else ''}. Newest first.</p></div><span class="panel-note">Completeness = information present</span></div>{filters}{active_filters}{listing}{navigation}</section>'''
@@ -100,7 +100,7 @@ def report_list(reports, counts, *, message="", severity="", status="", paginati
 
 
 HELP = {
-    "title": "A short, specific summary of the problem.",
+    "title": "A short, specific summary of the problem. Up to 160 characters.",
     "description": "What were you trying to do? Add any useful context.",
     "steps": "Use numbered steps so a teammate can try the same thing.",
     "expected": "What should have happened?",
@@ -143,18 +143,20 @@ def report_form(token, total, values=None, errors=None):
             options = '<option value="">Select severity</option>' + ''.join(f'<option value="{x}" {"selected" if value == x else ""}>{x.capitalize()}</option>' for x in SEVERITIES)
             control = f'<select {attrs}>{options}</select>'
         elif field in ("title", "environment"):
-            control = f'<input {attrs} type="text" maxlength="{LIMITS[field]}" value="{e(value)}">'
+            # Native maxlength counts UTF-16 units and can silently truncate valid
+            # Unicode. Keep the code-point limit authoritative at the server.
+            control = f'<input {attrs} type="text" data-character-limit="{LIMITS[field]}" value="{e(value)}">'
         else:
-            control = f'<textarea {attrs} rows="{4 if field == "steps" else 3}" maxlength="{LIMITS[field]}">{e(value)}</textarea>'
+            control = f'<textarea {attrs} rows="{4 if field == "steps" else 3}" data-character-limit="{LIMITS[field]}">{e(value)}</textarea>'
         inline_error = f'<p class="field-error" id="{error_id}">{e(errors[field])}</p>' if field in errors else ''
-        counter = f'<span class="field-count" id="title-count" aria-hidden="true">{len(value)} / {LIMITS[field]}</span>' if field == "title" else ''
+        counter = f'<span class="field-count {"over-limit" if len(value) > LIMITS[field] else ""}" id="title-count" aria-hidden="true">{len(value)} / {LIMITS[field]}</span>' if field == "title" else ''
         controls[field] = f'<div class="field field-{field}"><label for="{field}">{LABELS[field]}<span class="field-option {"is-required" if required else ""}">{"Required" if required else "Optional"}</span></label><p class="field-help" id="{help_id}">{HELP[field]}</p>{control}{counter}{inline_error}</div>'
     groups = (("01", "The issue", "Summarise what went wrong.", ("title", "description")),
               ("02", "Reproduce it", "Help someone else see the same problem.", ("steps", "expected", "actual")),
               ("03", "Add context", "Capture where it happened and its impact.", ("environment", "severity")))
     sections = ''.join(f'<section class="form-section" aria-labelledby="group-{number}"><div class="section-heading"><span class="section-number" aria-hidden="true">{number}</span><div><h3 id="group-{number}">{title}</h3><p>{hint}</p></div></div><div class="field-grid">{"".join(controls[field] for field in fields)}</div></section>' for number, title, hint, fields in groups)
     blanks = " ".join(str(point) for point in BLANK_CODEPOINTS)
-    content = f'''<a class="back-link" href="/">← Back to reports</a><div class="page-heading"><div><p class="eyebrow">GIVE YOUR TEAM A HEAD START</p><h1>New report</h1><p class="subtitle">The details you add now make the next step easier.</p></div></div>
+    content = f'''<a class="back-link" href="/">← Back to reports</a><div class="page-heading"><div><p class="eyebrow">CAPTURE AN ISSUE</p><h1>New report</h1><p class="subtitle">Give your team the details they need to reproduce it.</p></div></div>
 <div class="editor-layout form-page"><section class="panel form-panel"><div class="panel-heading"><h2>Describe the issue</h2><p>Only title and severity are required. You can still submit an incomplete report.</p></div>
 <form action="/reports" method="post" class="report-form" data-completeness data-blank-codepoints="{blanks}" novalidate><input type="hidden" name="_csrf" value="{e(token)}">{error_summary(errors)}{sections}
 <div class="form-actions"><a class="button secondary" href="/">Cancel</a><button type="submit" class="button primary">{icon('plus')}Create report</button></div></form></section>
@@ -174,7 +176,7 @@ def report_detail(report, token, total, *, created=False, updated=False, error="
     content = f'''<a class="back-link" href="/">← Back to reports</a><div class="page-heading"><div><p class="eyebrow">REPORT DETAILS</p><h1 class="detail-title">{e(report['title'])}</h1><div class="detail-badges">{badge(report['severity'], 'severity')}{badge(report['status'], 'status')}</div></div></div>{notice}
 <div class="editor-layout"><article class="panel detail-panel">{blocks}</article><aside class="editor-aside"><section class="panel status-card"><h2>Move the work forward</h2><p>Update the status when your team has made progress.</p>
 <form action="/reports/{e(report['id'])}/status" method="post"><input type="hidden" name="_csrf" value="{e(token)}"><input type="hidden" name="expected_status" value="{e(report['status'])}">
-<label for="status">Status</label><select id="status" name="status">{options}</select><button type="submit" class="button primary full-width">Update status{icon('arrow')}</button></form>
+<label for="status">Status</label><p class="field-help" id="status-help">Choose a new status before updating.</p><select id="status" name="status" aria-describedby="status-help">{options}</select><button type="submit" class="button primary full-width">Update status{icon('arrow')}</button></form>
 <p class="muted-note">Open → In progress → Resolved.<br>Resolved reports can be reopened.</p></section>{completeness_card(report)}<section class="metadata"><h2>Report information</h2><dl><dt>Created</dt><dd>{date_label(report['created_at'])}</dd><dt>Reference</dt><dd class="reference">{e(report['id'])}</dd></dl></section></aside></div>'''
     return shell(report["title"], content, total)
 

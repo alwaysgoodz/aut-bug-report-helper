@@ -51,6 +51,17 @@ class WebTests(unittest.TestCase):
         self.assertIn('<option value="">Select severity</option>', body)
         self.assertNotIn('value="medium" selected', body)
 
+    def test_full_valid_unicode_payload_fits_transport_and_preserves_all_fields(self):
+        values = dict(_csrf=self.server.csrf_token, title="\U0001f41b"*160,
+                      severity="critical", environment="\U0001f310"*240)
+        values.update({field: "\U0001f41b"*5000 for field in ("description", "steps", "expected", "actual")})
+        code, headers, _ = self.request("POST", "/reports", values)
+        self.assertEqual(code, 303)
+        saved = self.store.get(headers["Location"].split("/")[2].split("?")[0])
+        for field, value in values.items():
+            if field != "_csrf":
+                self.assertEqual(saved[field], value)
+
     def test_browser_create_redirect_reload_and_status_cycle(self):
         code, headers, _ = self.request("POST", "/reports", self.form_data(steps="Open settings"))
         self.assertEqual(code, 303)

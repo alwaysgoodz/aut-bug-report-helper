@@ -1,0 +1,176 @@
+
+> aut-bug-report-helper-checks@0.1.0 test:browser
+> playwright test --grep Unicode title uses|Boundary layouts|Native fields
+
+[WebServer] Bug Report Helper: http://127.0.0.1:8780
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:43:55] "GET /health HTTP/1.1" 200 -
+
+Running 3 tests using 1 worker
+
+(node:2496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Browser under test: 155.0.8059.86
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:43:56] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:43:56] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:43:56] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:43:56] "GET /static/mark.svg HTTP/1.1" 200 -
+  x  1 tests\browser\workflow.spec.js:205:1 › Unicode title uses server character limits without silently truncating supplementary characters (4.7s)
+(node:59940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Browser under test: 155.0.8059.86
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:02] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:02] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:02] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:02] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /reports/a6e34070-46c7-4336-a6a3-6a41ffc01280?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:03] "GET /static/mark.svg HTTP/1.1" 200 -
+  x  2 tests\browser\workflow.spec.js:225:1 › Boundary layouts keep table headers inside columns and guidance fully reachable (1.8s)
+(node:55560) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Browser under test: 155.0.8059.86
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:05] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:05] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:44:05] "GET /static/mark.svg HTTP/1.1" 200 -
+  x  3 tests\browser\workflow.spec.js:263:3 › Native workflow › Native fields preserve a valid 160-character Unicode title (5.2s)
+
+
+  1) tests\browser\workflow.spec.js:205:1 › Unicode title uses server character limits without silently truncating supplementary characters 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  locator('#title')
+    Expected: "🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛"
+    Received: "🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛"
+    Timeout:  4000ms
+
+    Call log:
+      - Expect "toHaveValue" locator('#title') with timeout 4000ms
+      - waiting for locator('#title')
+        12 × locator resolved to <input value="" id="title" required="" type="text" name="title" maxlength="160" data-report-field="" aria-describedby="title-help"/>
+           - unexpected value "🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛"
+
+
+      207 |   const title = '🐛'.repeat(160);
+      208 |   await page.locator('#title').fill(title);
+    > 209 |   await expect(page.locator('#title')).toHaveValue(title);
+          |                                        ^
+      210 |   await expect(page.locator('#title-count')).toHaveText('160 / 160');
+      211 |   await page.locator('#severity').selectOption('low');
+      212 |   await page.locator('#title').fill(title + 'x');
+        at F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\browser\workflow.spec.js:209:40
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\workflow-Unicode-title-use-f258f-ng-supplementary-characters\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\workflow-Unicode-title-use-f258f-ng-supplementary-characters\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\workflow-Unicode-title-use-f258f-ng-supplementary-characters\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\workflow-Unicode-title-use-f258f-ng-supplementary-characters\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests\browser\workflow.spec.js:225:1 › Boundary layouts keep table headers inside columns and guidance fully reachable 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Completeness",
+    + ]
+
+      235 |         return range.getBoundingClientRect().right > box.right - parseFloat(getComputedStyle(header).paddingRight) + 1;
+      236 |       }).map(header => header.textContent));
+    > 237 |       expect(clipped).toEqual([]);
+          |                       ^
+      238 |     }
+      239 |     await page.goto('/reports/new');
+      240 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+        at F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\browser\workflow.spec.js:237:23
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\workflow-Boundary-layouts--7d7e7-nd-guidance-fully-reachable\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\workflow-Boundary-layouts--7d7e7-nd-guidance-fully-reachable\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\workflow-Boundary-layouts--7d7e7-nd-guidance-fully-reachable\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\workflow-Boundary-layouts--7d7e7-nd-guidance-fully-reachable\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) tests\browser\workflow.spec.js:263:3 › Native workflow › Native fields preserve a valid 160-character Unicode title 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  locator('#title')
+    Expected: "🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛"
+    Received: "🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛"
+    Timeout:  4000ms
+
+    Call log:
+      - Expect "toHaveValue" locator('#title') with timeout 4000ms
+      - waiting for locator('#title')
+        12 × locator resolved to <input value="" id="title" required="" type="text" name="title" maxlength="160" data-report-field="" aria-describedby="title-help"/>
+           - unexpected value "🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛🐛"
+
+
+      265 |     await page.goto('/reports/new');
+      266 |     await page.locator('#title').fill(title);
+    > 267 |     await expect(page.locator('#title')).toHaveValue(title);
+          |                                          ^
+      268 |     await page.locator('#severity').selectOption('low');
+      269 |     await page.getByRole('button', { name: 'Create report', exact: true }).click();
+      270 |     await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible();
+        at F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\browser\workflow.spec.js:267:42
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\workflow-Native-workflow-N-2a2c4-160-character-Unicode-title\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\workflow-Native-workflow-N-2a2c4-160-character-Unicode-title\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\workflow-Native-workflow-N-2a2c4-160-character-Unicode-title\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\workflow-Native-workflow-N-2a2c4-160-character-Unicode-title\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    tests\browser\workflow.spec.js:205:1 › Unicode title uses server character limits without silently truncating supplementary characters 
+    tests\browser\workflow.spec.js:225:1 › Boundary layouts keep table headers inside columns and guidance fully reachable 
+    tests\browser\workflow.spec.js:263:3 › Native workflow › Native fields preserve a valid 160-character Unicode title 

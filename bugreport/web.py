@@ -6,9 +6,11 @@ import secrets
 from urllib.parse import parse_qs, urlsplit
 
 from . import views
-from .service import FIELDS, ReportStore, StatusConflict, ValidationError
+from .service import FIELDS, LIMITS, ReportStore, StatusConflict, ValidationError
 
-MAX_BODY = 65536
+# A Unicode scalar can occupy four UTF-8 bytes, each percent-encoded as %XX.
+# Allow every field's valid maximum plus form names/CSRF overhead, still bounded.
+MAX_BODY = 12*sum(LIMITS.values()) + 4096
 STATIC = Path(__file__).with_name("static")
 
 

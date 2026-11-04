@@ -44,7 +44,12 @@ if (reportForm) {
     progress.value = percent;
     completeMessage.hidden = completed !== fields.length;
     document.getElementById("missing-count").textContent = completed === fields.length ? "Complete" : `${fields.length-completed} missing`;
-    document.getElementById("title-count").textContent = `${reportForm.elements.title.value.length} / ${reportForm.elements.title.maxLength}`;
+    const title = reportForm.elements.title;
+    const titleLength = Array.from(title.value).length;
+    const titleLimit = Number(title.dataset.characterLimit);
+    const titleCounter = document.getElementById("title-count");
+    titleCounter.textContent = `${titleLength} / ${titleLimit}`;
+    titleCounter.classList.toggle("over-limit", titleLength > titleLimit);
   };
   reportForm.addEventListener("input", update);
   reportForm.addEventListener("change", update);
@@ -53,7 +58,7 @@ if (reportForm) {
 
 const guidance = document.querySelector(".form-page .guidance-details");
 if (guidance) {
-  const wide = window.matchMedia("(min-width: 1050px)");
+  const wide = window.matchMedia("(min-width: 1280px) and (min-height: 740px)");
   const adapt = () => { guidance.open = wide.matches; };
   wide.addEventListener("change", adapt);
   adapt();
