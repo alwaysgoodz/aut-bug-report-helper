@@ -23,7 +23,7 @@ python -m compileall -q bugreport tests tools
 
 On Windows, replace `python` with a verified Python executable if an alias opens Microsoft Store. To evaluate an open PR, check out its documented branch/commit before testing. `main` remains the scaffold until a teammate independently reviews the feature.
 
-The original technical candidate, `git checkout a2-review-v0.1`, and its [A2 report, evidence and demonstration materials](submission-a2/README.md) describe the historical I2 implementation. The refinement evidence records subsequent changes and checks separately. The final assessment submission must follow real team approval.
+For the latest fixed technical candidate use `git checkout a2-review-v0.2`. The original candidate, `a2-review-v0.1`, and its [A2 report, evidence and demonstration materials](submission-a2/README.md) describe the historical I2 implementation. The refinement evidence records subsequent changes and checks separately. The final assessment submission must follow real team approval.
 
 ## CLI commands (same service as the browser)
 
