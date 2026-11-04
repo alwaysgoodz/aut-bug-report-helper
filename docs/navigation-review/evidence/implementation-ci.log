@@ -1,0 +1,1162 @@
+test (3.12)	Set up job	﻿2026-11-04T15:05:22.3589007Z Current runner version: '2.338.2'
+test (3.12)	Set up job	2026-11-04T15:05:22.3629008Z ##[group]Runner Image Provisioner
+test (3.12)	Set up job	2026-11-04T15:05:22.3629812Z Hosted Compute Agent
+test (3.12)	Set up job	2026-11-04T15:05:22.3630452Z Version: 20261028.624
+test (3.12)	Set up job	2026-11-04T15:05:22.3630984Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+test (3.12)	Set up job	2026-11-04T15:05:22.3631711Z Build Date: 2026-10-28T21:51:42Z
+test (3.12)	Set up job	2026-11-04T15:05:22.3632569Z Worker ID: {f40d858f-e397-4c28-bf73-18ecc91e9665}
+test (3.12)	Set up job	2026-11-04T15:05:22.3633139Z Region: westus3
+test (3.12)	Set up job	2026-11-04T15:05:22.3633655Z Cloud: Azure
+test (3.12)	Set up job	2026-11-04T15:05:22.3634086Z ##[endgroup]
+test (3.12)	Set up job	2026-11-04T15:05:22.3635269Z ##[group]Operating System
+test (3.12)	Set up job	2026-11-04T15:05:22.3635876Z Ubuntu
+test (3.12)	Set up job	2026-11-04T15:05:22.3636323Z 24.04.5
+test (3.12)	Set up job	2026-11-04T15:05:22.3636794Z LTS
+test (3.12)	Set up job	2026-11-04T15:05:22.3637207Z ##[endgroup]
+test (3.12)	Set up job	2026-11-04T15:05:22.3637649Z ##[group]Runner Image
+test (3.12)	Set up job	2026-11-04T15:05:22.3638322Z Image: ubuntu-24.04
+test (3.12)	Set up job	2026-11-04T15:05:22.3638819Z Version: 20261101.360.1
+test (3.12)	Set up job	2026-11-04T15:05:22.3639724Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+test (3.12)	Set up job	2026-11-04T15:05:22.3641206Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+test (3.12)	Set up job	2026-11-04T15:05:22.3642056Z ##[endgroup]
+test (3.12)	Set up job	2026-11-04T15:05:22.3643364Z ##[group]GITHUB_TOKEN Permissions
+test (3.12)	Set up job	2026-11-04T15:05:22.3645992Z Contents: read
+test (3.12)	Set up job	2026-11-04T15:05:22.3646616Z Metadata: read
+test (3.12)	Set up job	2026-11-04T15:05:22.3647289Z ##[endgroup]
+test (3.12)	Set up job	2026-11-04T15:05:22.3649859Z Secret source: Actions
+test (3.12)	Set up job	2026-11-04T15:05:22.3650852Z Cache mode: write
+test (3.12)	Set up job	2026-11-04T15:05:22.3651973Z Prepare workflow directory
+test (3.12)	Set up job	2026-11-04T15:05:22.3963041Z Prepare all required actions
+test (3.12)	Set up job	2026-11-04T15:05:22.4007040Z Getting action download info
+test (3.12)	Set up job	2026-11-04T15:05:22.7421799Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+test (3.12)	Set up job	2026-11-04T15:05:22.8396736Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+test (3.12)	Set up job	2026-11-04T15:05:23.1980089Z Complete job name: test (3.12)
+test (3.12)	Run actions/checkout@v4	﻿2026-11-04T15:05:23.2484209Z ##[group]Run actions/checkout@v4
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2484678Z with:
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2484951Z   repository: alwaysgoodz/aut-bug-report-helper
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2487035Z   token: ***
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2487272Z   ssh-strict: true
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2487514Z   ssh-user: git
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2487760Z   persist-credentials: true
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2488028Z   clean: true
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2488271Z   sparse-checkout-cone-mode: true
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2488554Z   fetch-depth: 1
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2488791Z   fetch-tags: false
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2489033Z   show-progress: true
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2489276Z   lfs: false
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2489501Z   submodules: false
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2489745Z   set-safe-directory: true
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2490022Z   allow-unsafe-pr-checkout: false
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.2490369Z ##[endgroup]
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.4838483Z Syncing repository: alwaysgoodz/aut-bug-report-helper
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.4840716Z ##[group]Getting Git version info
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.4841547Z Working directory is '/home/runner/work/aut-bug-report-helper/aut-bug-report-helper'
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.4848756Z [command]/usr/bin/git version
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5030417Z git version 2.56.0
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5043249Z ##[endgroup]
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5069883Z Temporarily overriding HOME='/home/runner/work/_temp/d61710b2-5790-4c5b-b305-a9dea08af16e' before making global git config changes
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5071339Z Adding repository directory to the temporary git global config as a safe directory
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5073094Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/aut-bug-report-helper/aut-bug-report-helper
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5107742Z Deleting the contents of '/home/runner/work/aut-bug-report-helper/aut-bug-report-helper'
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5123915Z ##[group]Initializing the repository
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5153422Z [command]/usr/bin/git init /home/runner/work/aut-bug-report-helper/aut-bug-report-helper
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5280387Z hint: Using 'master' as the name for the initial branch. This default branch name
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5282605Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5296012Z hint: to use in all of your new repositories, which will suppress this warning,
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5300695Z hint: call:
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5301349Z hint:
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5302454Z hint: 	git config --global init.defaultBranch <name>
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5333379Z hint:
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5334232Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5335235Z hint: 'development'. The just-created branch can be renamed via this command:
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5339383Z hint:
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5340442Z hint: 	git branch -m <name>
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5340975Z hint:
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5341639Z hint: Disable this message with "git config set advice.defaultBranchName false"
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5354233Z Initialized empty Git repository in /home/runner/work/aut-bug-report-helper/aut-bug-report-helper/.git/
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5382982Z [command]/usr/bin/git remote add origin https://github.com/alwaysgoodz/aut-bug-report-helper
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5401096Z ##[endgroup]
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5403156Z ##[group]Disabling automatic garbage collection
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5903136Z [command]/usr/bin/git config --local gc.auto 0
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5905090Z ##[endgroup]
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5905740Z ##[group]Setting up auth
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5906380Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.5908398Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.6038042Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.6075068Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.6296570Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.6335457Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.6524922Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.6567028Z ##[endgroup]
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.6568181Z ##[group]Fetching the repository
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:23.6579181Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7ec32f1ed070c7ca42c9b4951f1533c755a2cdd3:refs/remotes/pull/14/merge
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8151850Z From https://github.com/alwaysgoodz/aut-bug-report-helper
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8154348Z  * [new ref]         7ec32f1ed070c7ca42c9b4951f1533c755a2cdd3 -> pull/14/merge
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8158016Z ##[endgroup]
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8159343Z ##[group]Determining the checkout info
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8160761Z ##[endgroup]
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8161691Z [command]/usr/bin/git sparse-checkout disable
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8226330Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8291472Z ##[group]Checking out the ref
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8293437Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/14/merge
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8467578Z Note: switching to 'refs/remotes/pull/14/merge'.
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8468495Z 
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8471649Z You are in 'detached HEAD' state. You can look around, make experimental
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8473551Z changes and commit them, and you can discard any commits you make in this
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8475577Z state without impacting any branches by switching back to a branch.
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8476695Z 
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8477877Z If you want to create a new branch to retain commits you create, you may
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8479642Z do so (now or later) by using -c with the switch command. Example:
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8481608Z 
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8483541Z   git switch -c <new-branch-name>
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8484322Z 
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8485114Z Or undo this operation with:
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8487293Z 
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8487702Z   git switch -
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8488229Z 
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8488997Z Turn off this advice by setting config variable advice.detachedHead to false
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8490090Z 
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8491354Z HEAD is now at 7ec32f1 Merge 8a0f4bbc3bc28ee1925513b4d599a5e9dad54458 into b6ed3fb04fe78f2220059212b02bf291f2b76676
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8495494Z ##[endgroup]
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8539207Z [command]/usr/bin/git log -1 --format=%H
+test (3.12)	Run actions/checkout@v4	2026-11-04T15:05:24.8558023Z 7ec32f1ed070c7ca42c9b4951f1533c755a2cdd3
+test (3.12)	Run actions/setup-python@v5	﻿2026-11-04T15:05:24.8838592Z ##[group]Run actions/setup-python@v5
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.8839295Z with:
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.8839804Z   python-version: 3.12
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.8840381Z   check-latest: false
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.8845697Z   token: ***
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.8846223Z   update-environment: true
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.8846846Z   allow-prereleases: false
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.8847478Z   freethreaded: false
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.8848033Z ##[endgroup]
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.9841364Z (node:1994) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.9844372Z ##[group]Installed versions
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.9847053Z (Use `node --trace-deprecation ...` to show where the warning was created)
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.9867447Z Successfully set up CPython (3.12.16)
+test (3.12)	Run actions/setup-python@v5	2026-11-04T15:05:24.9869349Z ##[endgroup]
+test (3.12)	Acceptance and integration tests	﻿2026-11-04T15:05:25.0239012Z ##[group]Run python -m unittest discover -s tests -v
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:25.0240061Z ^[[36;1mpython -m unittest discover -s tests -v^[[0m
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:25.0269552Z shell: /usr/bin/bash -e {0}
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:25.0270188Z env:
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:25.0270835Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:25.0271920Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:25.0273104Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:25.0274073Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:25.0275037Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:25.0276118Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:25.0277001Z ##[endgroup]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:26.1853837Z CI Node: v22.23.4
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:28.3496922Z 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:28.3497793Z added 3 packages, and audited 4 packages in 2s
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:28.3501991Z 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:28.3504700Z found 0 vulnerabilities
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:28.7585780Z Installing dependencies...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:28.7649629Z Switching to root user to install dependencies...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:28.8873964Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:28.9272764Z Get:3 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:28.9698853Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:28.9893326Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:29.0324686Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:29.0330564Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:29.0898934Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [652 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:29.1313879Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1408 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:29.2303841Z Get:17 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [721 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:29.3063280Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1707 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:29.4033348Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1155 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:29.4923455Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [233 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:29.5723457Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1224 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:30.1523986Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [247 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:30.2737199Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1721 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:30.4515144Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [394 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:30.4538807Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse Translation-en [12.4 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:32.8203235Z Fetched 9857 kB in 2s (5654 kB/s)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.4909904Z Reading package lists...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.5182534Z Reading package lists...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.6996612Z Building dependency tree...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.7003045Z Reading state information...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8137777Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8143073Z libasound2t64 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8143852Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8144306Z libatk-bridge2.0-0t64 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8144758Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8145200Z libatk1.0-0t64 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8145601Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8146075Z libatspi2.0-0t64 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8147139Z libcairo2 is already the newest version (1.18.0-3build1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8147541Z libcairo2 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8147951Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8148369Z libcups2t64 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8148770Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8152636Z libdbus-1-3 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8153074Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8153497Z libdrm2 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8153891Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.4).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8154286Z libgbm1 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8156408Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.10).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8156863Z libglib2.0-0t64 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8157262Z libnspr4 is already the newest version (2:4.35-1.1build1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8172495Z libnspr4 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8180857Z libnss3 is already the newest version (2:3.98-1ubuntu0.3).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8201941Z libnss3 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8212660Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8213105Z libpango-1.0-0 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8213553Z libx11-6 is already the newest version (2:1.8.7-1ubuntu0.1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8213960Z libx11-6 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8219434Z libxcb1 is already the newest version (1.15-1ubuntu2).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8219892Z libxcb1 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8220281Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8220690Z libxcomposite1 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8221092Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8221485Z libxdamage1 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8221868Z libxext6 is already the newest version (2:1.3.4-1build2).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8222389Z libxext6 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8222758Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8223138Z libxfixes3 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8223824Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8224216Z libxkbcommon0 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8224596Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8224974Z libxrandr2 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8225353Z xvfb is already the newest version (2:21.1.12-1ubuntu1.9).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8225819Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8226319Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8226727Z libfontconfig1 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8227131Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.2).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8227553Z libfreetype6 set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8227938Z fonts-liberation is already the newest version (1:2.1.5-3).
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8228333Z fonts-liberation set to manually installed.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8228710Z The following additional packages will be installed:
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8229089Z   xfonts-encodings xfonts-utils
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8229470Z Recommended packages:
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8229774Z   fonts-ipafont-mincho fonts-tlwg-loma
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8314253Z The following NEW packages will be installed:
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8320607Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8321160Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8321546Z   xfonts-utils
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8489870Z 0 upgraded, 9 newly installed, 0 to remove and 12 not upgraded.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8490426Z Need to get 21.1 MB of archives.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8491545Z After this operation, 79.5 MB of additional disk space will be used.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.8492031Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:33.9221901Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:35.9328382Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:38.8726208Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:38.9315757Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:40.4789099Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:44.3445340Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:44.6304256Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:44.6863795Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:44.8804484Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.1790147Z Fetched 21.1 MB in 11s (1892 kB/s)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2060460Z Selecting previously unselected package fonts-ipafont-gothic.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2301238Z (Reading database ... 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2301558Z (Reading database ... 5%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2302280Z (Reading database ... 10%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2302479Z (Reading database ... 15%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2302661Z (Reading database ... 20%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2302854Z (Reading database ... 25%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2303129Z (Reading database ... 30%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2303412Z (Reading database ... 35%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2303623Z (Reading database ... 40%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2303809Z (Reading database ... 45%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2303990Z (Reading database ... 50%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.2340484Z (Reading database ... 55%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.4165247Z (Reading database ... 60%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.5640785Z (Reading database ... 65%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.8097061Z (Reading database ... 70%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:45.9760375Z (Reading database ... 75%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:46.1552881Z (Reading database ... 80%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:46.3641612Z (Reading database ... 85%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:46.5796414Z (Reading database ... 90%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:46.7768485Z (Reading database ... 95%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:46.7769076Z (Reading database ... 100%
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:46.7769687Z (Reading database ... 215960 files and directories currently installed.)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:46.7807724Z Preparing to unpack .../0-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:46.7965585Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.0793410Z Selecting previously unselected package fonts-freefont-ttf.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.0883110Z Preparing to unpack .../1-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.0888969Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.2512399Z Selecting previously unselected package fonts-tlwg-loma-otf.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.2621199Z Preparing to unpack .../2-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.2628638Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.2842974Z Selecting previously unselected package fonts-unifont.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.2947494Z Preparing to unpack .../3-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.2954770Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.6530960Z Selecting previously unselected package fonts-wqy-zenhei.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.6638903Z Preparing to unpack .../4-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:47.6735106Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.1822535Z Selecting previously unselected package xfonts-encodings.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.1931456Z Preparing to unpack .../5-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.1938654Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.2256027Z Selecting previously unselected package xfonts-utils.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.2363633Z Preparing to unpack .../6-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.2384104Z Unpacking xfonts-utils (1:7.7+6build3) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.2703242Z Selecting previously unselected package xfonts-cyrillic.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.2800644Z Preparing to unpack .../7-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.2820937Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.3132986Z Selecting previously unselected package xfonts-scalable.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.3228690Z Preparing to unpack .../8-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.3235837Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.3667907Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.3770383Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.3789251Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.3808766Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.3856258Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.3908865Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.3926513Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.3952856Z Setting up xfonts-utils (1:7.7+6build3) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.4001394Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.4239471Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.4467943Z Processing triggers for man-db (2.12.0-4build2) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.4503698Z Not building database; man-db/auto-update is not 'true'.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.4518102Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.9917588Z test_committed_browser_acceptance (test_browser_ci.BrowserCIGate.test_committed_browser_acceptance) ... 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.9918064Z Running kernel seems to be up-to-date.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.9918479Z 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.9918564Z No services need to be restarted.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.9918728Z 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.9918813Z No containers need to be restarted.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.9918952Z 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.9919055Z No user sessions are running outdated binaries.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.9919220Z 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:48.9919376Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:49.7525729Z Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:50.1104493Z |                                                                                |   0% of 191.1 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:50.3155628Z |■■■■■■■■                                                                        |  10% of 191.1 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:50.4320510Z |■■■■■■■■■■■■■■■■                                                                |  20% of 191.1 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:50.5342499Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 191.1 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:50.6450211Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 191.1 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:50.7566300Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 191.1 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:50.8688917Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 191.1 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:50.9839817Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 191.1 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:51.1241985Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 191.1 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:51.2529719Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 191.1 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:51.3884567Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 191.1 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.2391505Z Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to /home/runner/.cache/ms-playwright/chromium-1248
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.2403634Z Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.5280217Z |                                                                                |   0% of 2.2 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.5470948Z |■■■■■■■■                                                                        |  10% of 2.2 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.5548495Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.5605477Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.5630077Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.5644928Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.5690274Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.5715410Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.5725098Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.5735784Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.5749389Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.6154544Z FFmpeg (playwright ffmpeg v1013) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1013
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.6157363Z Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:53.9908859Z |                                                                                |   0% of 120 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:54.1223216Z |■■■■■■■■                                                                        |  10% of 120 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:54.1694928Z |■■■■■■■■■■■■■■■■                                                                |  20% of 120 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:54.2401613Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 120 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:54.3056481Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 120 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:54.3687243Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 120 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:54.4364047Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 120 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:54.5006613Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 120 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:54.5654728Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 120 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:54.6276451Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 120 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:54.7134070Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 120 MiB
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:56.0189248Z Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1248
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:56.9693678Z [WebServer] Bug Report Helper: http://127.0.0.1:8780
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:57.0043246Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:57] "GET /health HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:57.1198731Z 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:57.1199653Z Running 16 tests using 1 worker
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:57.1200202Z 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.4149783Z Browser under test: 156.0.8078.4
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.5307041Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.5521523Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.5546548Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.6237000Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.6356865Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.6361368Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.7954286Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "POST /reports HTTP/1.1" 422 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.8154411Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.8162881Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.8951911Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.9081968Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:58.9123102Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:58] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.0309771Z   ✓   1 tests/browser/workflow.spec.js:19:1 › C1: invalid submission retains input, inserts nothing and focuses linked summary (566ms)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.0973746Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.1206948Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.1253128Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.4463354Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.4509002Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /reports/efebaaa2-d6df-4098-acb3-7393382fcb93?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.4653211Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.4682984Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.5022927Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /reports/efebaaa2-d6df-4098-acb3-7393382fcb93?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.5143269Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.5157990Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.5759205Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.5835843Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.5845935Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.6789661Z   ✓   2 tests/browser/workflow.spec.js:35:1 › C2: create and reload a persisted report without duplicating it (635ms)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.7416663Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.7649688Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:05:59.7694516Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:05:59] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.0479541Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.0550627Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /reports/c2e805ce-3e14-49a5-84f8-abfd52ab13a0?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.0660211Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.0750317Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.1786105Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "POST /reports/c2e805ce-3e14-49a5-84f8-abfd52ab13a0/status HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.1833722Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /reports/c2e805ce-3e14-49a5-84f8-abfd52ab13a0?updated=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.1985750Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.1986520Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.2365197Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /reports/c2e805ce-3e14-49a5-84f8-abfd52ab13a0?updated=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.2502676Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.2507883Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.3460209Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "POST /reports/c2e805ce-3e14-49a5-84f8-abfd52ab13a0/status HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.3517204Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /reports/c2e805ce-3e14-49a5-84f8-abfd52ab13a0?updated=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.3638622Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.3639664Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.4018849Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /reports/c2e805ce-3e14-49a5-84f8-abfd52ab13a0?updated=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.4156629Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.4157160Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.5943414Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "POST /reports/c2e805ce-3e14-49a5-84f8-abfd52ab13a0/status HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.5984211Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /reports/c2e805ce-3e14-49a5-84f8-abfd52ab13a0?updated=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.6129267Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.6140432Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.6514105Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /reports/c2e805ce-3e14-49a5-84f8-abfd52ab13a0?updated=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.6717420Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.6731517Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.7688341Z   ✓   3 tests/browser/workflow.spec.js:45:1 › C3: status cycle and reopening persist through navigation (1.1s)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.8343380Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.8444545Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:00.8445463Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:00] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:01.1466892Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:01] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:01.1498616Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:01] "GET /reports/f2e267c8-cfac-4116-a014-31b329baf981?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:01.1670336Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:01] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:01.1685240Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:01] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:01.2549309Z   ✓   4 tests/browser/workflow.spec.js:56:1 › BR-04: live guidance and saved score agree on zero, six and seven fields (481ms)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:01.3375446Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:01] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:01.3399728Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:01] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:01.3400479Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:01] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:02.4503217Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:02] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:02.4515887Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:02] "GET /reports/aa0236fc-fe0d-46e7-8437-e4364434233a?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:02.4637126Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:02] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:02.4637829Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:02] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:02.9178069Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:02] "POST /reports/aa0236fc-fe0d-46e7-8437-e4364434233a/status HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:02.9203877Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:02] "GET /reports/aa0236fc-fe0d-46e7-8437-e4364434233a?updated=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:02.9308554Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:02] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:02.9309350Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:02] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.0294915Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "POST /reports/aa0236fc-fe0d-46e7-8437-e4364434233a/status HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.0345653Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /reports/aa0236fc-fe0d-46e7-8437-e4364434233a?updated=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.0497091Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.0497896Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.0520374Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.0641390Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.0641943Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.3179859Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.3197005Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /reports/b1f67dcb-ea33-45c2-b132-366a7be5c646?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.3333984Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.3337215Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.3810328Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.3923254Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.3948940Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.5271618Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /?severity=critical&status=Resolved HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.5397037Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.5431125Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.6596283Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /?severity=critical&status=In+progress HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.6757999Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.6795203Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.7373766Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.7497227Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.7506304Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.8600006Z   ✓   5 tests/browser/workflow.spec.js:75:1 › BR-05: AND filters, no matches and clearing leave stored reports intact (2.6s)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.9367676Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.9565547Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:03.9589290Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:03] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.5131226Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.5168770Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /reports/24075bfc-1613-4e84-8957-79c6baf10645?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.5288257Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.5300339Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.6177802Z   ✓   6 tests/browser/workflow.spec.js:97:1 › BR-02: the form can be completed and submitted with the keyboard (743ms)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.6721633Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.6839609Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.6841834Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.8628315Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.8653314Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /reports/7deea614-cc9b-42ac-8b86-e3091534e5da?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.8756986Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.8775683Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.9200886Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.9276284Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:04.9285752Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:04] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.0123227Z   ✓   7 tests/browser/workflow.spec.js:119:1 › Responsive layout and escaped HTML remain usable on a narrow screen (383ms)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.0643450Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.0759671Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.0764714Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.2612471Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "POST /reports HTTP/1.1" 422 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.2791565Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.2855486Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.3967336Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.3994053Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /reports/17c53f94-dbad-442d-b4f8-5dcc15eb89bf?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.4129814Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.4159460Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.5167633Z   ✓   8 tests/browser/workflow.spec.js:130:1 › Shared Unicode whitespace gives consistent live validation and saved completeness (495ms)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.5668098Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.5786083Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.5787938Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.7973164Z   ✓   9 tests/browser/workflow.spec.js:146:1 › Missing-information guidance links move focus to the actual form control (271ms)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.8613427Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.9130510Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:05.9131387Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:05] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.1656274Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.1690845Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /reports/efc99f54-a2d0-4c37-aa75-eba844c67591?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.1798508Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.1799280Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.2467220Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.2535994Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.2536876Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.3640482Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /reports/efc99f54-a2d0-4c37-aa75-eba844c67591 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.3731428Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.3732647Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.4173332Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.4261284Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.4262078Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.5490040Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.5600279Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.5602719Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.6644346Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /reports/efc99f54-a2d0-4c37-aa75-eba844c67591 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.6770788Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.6771512Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.7199911Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.7299988Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.7308799Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.8307524Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.8384259Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.8385099Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.9476235Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /reports/efc99f54-a2d0-4c37-aa75-eba844c67591 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.9598930Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:06.9599829Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:06] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.0207010Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.0303991Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.0329531Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.1632920Z   ✓  10 tests/browser/workflow.spec.js:155:1 › List, detail and grouped form fit phone, tablet and desktop with readable labels (1.4s)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.2307105Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.2611802Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.2631959Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.3403609Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.3527936Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/e8fddbae-4876-43f3-a109-964771993bd8?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.3653531Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.3697328Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/3cdcea3b-a4d2-4224-a359-6c407379d571?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.3793168Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.3845597Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/64e8d481-4118-43c8-95ef-56e9c4221020?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.3963251Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4020891Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/f7d17f06-9014-4c5b-9db3-c1a8ffa34fef?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4121716Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4132418Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/3817c29e-090c-4e90-88d6-7984ea523ed7?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4227731Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4311467Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/7b4359ca-cb92-469b-a43a-2761e8b94a36?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4399722Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4435579Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/8bbcd08b-86ac-4d01-9951-8deb8e8a760e?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4490892Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4521846Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/84d304ea-815f-494c-8690-955eaafdd304?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4592652Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4616120Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/7b46032a-53fb-43a0-b824-35d7242b08e9?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4672665Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4739428Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/ec95f63a-1e1a-4558-9097-6a608148b1ca?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4813219Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4848039Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/1137cfef-4b44-4832-be23-755fa085f304?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4895827Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4918148Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/5fda43ee-d56b-4b14-b645-4bd414639506?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.4960441Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5008961Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/c8d63830-fc5b-4225-a06d-239afd19f5d3?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5038000Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5055784Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/74405d40-5c85-4acf-b4ab-8e2a41380e02?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5093515Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5108493Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/8e13aa36-d791-4c81-a29d-942cc231c39a?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5145135Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5159346Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/ae35d289-35c0-4cba-b152-6cb9cbdbfb7d?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5192931Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5206970Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/8b18aff0-56f2-4833-b545-16402ea1ec63?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5242969Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5257566Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/d49217be-5999-4079-a3db-15ed3e791702?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5289466Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5303323Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/360a4066-2f90-4ebb-9491-93613f479dc0?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5344431Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5359808Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/f8c781c5-1b75-47b8-bd34-6547f50e55f7?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5404246Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5417595Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/4d96ac23-7546-4a02-8f34-668871e5c97a?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5455331Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5470918Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/c9ae41cf-457a-43ad-9dbc-c09fa0c64840?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5505244Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5518344Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/0f6b2e86-ffd2-4566-8bb2-eb5105721844?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5553018Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5583555Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/842ad28b-d922-40f9-a69b-02c07cb80c48?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5628168Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5647006Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/9e566443-a557-4aa6-a5a5-c2a18e025725?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5680979Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5694193Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/32fef465-5c22-47f9-b378-cb2111a08d15?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5733304Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5749160Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/5a2c33fe-aa3c-4246-a8fe-46281941c328?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5807912Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5823889Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/ad23a320-fcbb-4cb9-8ffd-54ba33532401?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5856559Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5869204Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/2f6b1842-9f4e-47b2-8751-f323f1cab7a0?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5901577Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5916360Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/1ee0261b-fb2a-4b78-a2c8-af050a287ab4?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.5982618Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /?severity=high&status=Open HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.6075115Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.6102941Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.7333402Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /?severity=high&status=Open&page=2 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.7437996Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.7460873Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.8663583Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/3817c29e-090c-4e90-88d6-7984ea523ed7?severity=high&status=Open&page=2 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.8748484Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.8767932Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.9803759Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "POST /reports/3817c29e-090c-4e90-88d6-7984ea523ed7/status?severity=high&status=Open&page=2 HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.9834376Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /reports/3817c29e-090c-4e90-88d6-7984ea523ed7?updated=1&severity=high&status=Open&page=2 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.9950315Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:07.9982098Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:07] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.0669646Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /?severity=high&status=Open&page=2 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.0753135Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.0773281Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.1807538Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /?status=Open HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.1915525Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.1938842Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.3262767Z   ✓  11 tests/browser/workflow.spec.js:182:1 › Pagination retains filters, exposes every inserted report and resets when a filter is removed (1.2s)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.3867035Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.4107807Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.4160556Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.5806991Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.5899921Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.5900798Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.6292554Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.6425356Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.6456079Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.8242311Z   ✓  12 tests/browser/workflow.spec.js:216:1 › Browser back restores guidance and character count from restored form values (480ms)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.8814316Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.8983569Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:08.9013916Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:08] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.0600566Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "POST /reports HTTP/1.1" 422 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.0707806Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.0750596Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.1836122Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.1888175Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /reports/378c8814-2567-49c2-a74f-716916ddeab7?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.2004603Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.2021164Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.2479357Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /reports/378c8814-2567-49c2-a74f-716916ddeab7?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.2677945Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.2692332Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.3587398Z   ✓  13 tests/browser/workflow.spec.js:234:1 › Unicode title uses server character limits without silently truncating supplementary characters (519ms)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.4116117Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.4282653Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.4293020Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.6795235Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.6860430Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /reports/dde88260-bed8-4035-97d8-a7fe38aadf5d?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.6949462Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.6965611Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.7476105Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.7599264Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.7616669Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.8004429Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.8163682Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.8182907Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.8782789Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.8879982Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.8899475Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.9219032Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.9310735Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.9316180Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:09.9962521Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:09] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.0040084Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.0063944Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.0651537Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.0778394Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.0807140Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.1449722Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.1566228Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.1578620Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.2129980Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.2283623Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.2287931Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.3012016Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.3113762Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.3136803Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.3628581Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.3753989Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.3757524Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.4537973Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.4622937Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.4642484Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.5283320Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.5430599Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.5439487Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.6126049Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.6268632Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.6278239Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.6921310Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.7055692Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.7059505Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.7852294Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET / HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.7954323Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.7959743Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.8576778Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.8680597Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.8681372Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.9540206Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.9667502Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:10.9669935Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:10] "GET /static/app.js HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.1147635Z   ✓  14 tests/browser/workflow.spec.js:256:1 › Boundary layouts keep table headers inside columns and guidance fully reachable (1.7s)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.1817268Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.1973876Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.3117065Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.3148637Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /reports/7f885da0-e05c-48c3-b811-253b90b714f3?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.3272394Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.3867138Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /reports/7f885da0-e05c-48c3-b811-253b90b714f3?severity=high&status=Open HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.3934904Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.4781185Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "POST /reports/7f885da0-e05c-48c3-b811-253b90b714f3/status?severity=high&status=Open HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.4830858Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /reports/7f885da0-e05c-48c3-b811-253b90b714f3?updated=1&severity=high&status=Open HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.4920420Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.5664242Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /?severity=high&status=Open HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.5792461Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.6963083Z   ✓  15 tests/browser/workflow.spec.js:283:3 › Native workflow › Core creation, stored guidance and status confirmation work without JavaScript (572ms)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.7504024Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.7778855Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.9446244Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.9515678Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /reports/049949c6-a289-445a-81a9-02608ce51c13?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:11.9694354Z [WebServer] 127.0.0.1 - - [04/Nov/2026 15:06:11] "GET /static/app.css HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.0596658Z   ✓  16 tests/browser/workflow.spec.js:300:3 › Native workflow › Native fields preserve a valid 160-character Unicode title (353ms)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.1231197Z 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.1243327Z   16 passed (15.7s)
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.1730238Z CI_BROWSER_SUMMARY={"duration": 15698.92, "expected": 16, "flaky": 0, "skipped": 0, "startTime": "2026-11-04T15:05:56.424Z", "unexpected": 0}
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.1730902Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.1818732Z test_all_supported_severities (test_creation.CreationTests.test_all_supported_severities) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.2377836Z test_cli_create_then_read_from_separate_process (test_creation.CreationTests.test_cli_create_then_read_from_separate_process) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.2667441Z test_cli_invalid_title_exits_nonzero_without_insert (test_creation.CreationTests.test_cli_invalid_title_exits_nonzero_without_insert) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.2945427Z test_cli_unknown_id_has_explicit_error (test_creation.CreationTests.test_cli_unknown_id_has_explicit_error) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.2986165Z test_empty_title_rejected_without_insert (test_creation.CreationTests.test_empty_title_rejected_without_insert) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3054685Z test_generated_metadata_is_unique_open_and_utc (test_creation.CreationTests.test_generated_metadata_is_unique_open_and_utc) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3095825Z test_invalid_severity_rejected_without_insert (test_creation.CreationTests.test_invalid_severity_rejected_without_insert) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3144878Z test_invalid_submission_preserves_existing_record (test_creation.CreationTests.test_invalid_submission_preserves_existing_record) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3185198Z test_missing_severity_rejected_without_insert (test_creation.CreationTests.test_missing_severity_rejected_without_insert) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3232892Z test_optional_fields_can_remain_blank (test_creation.CreationTests.test_optional_fields_can_remain_blank) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3281682Z test_persists_all_fields_across_new_connection (test_creation.CreationTests.test_persists_all_fields_across_new_connection) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3378904Z test_title_is_trimmed (test_creation.CreationTests.test_title_is_trimmed) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3428783Z test_unicode_multiline_and_sql_text_are_preserved_as_data (test_creation.CreationTests.test_unicode_multiline_and_sql_text_are_preserved_as_data) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3467959Z test_unknown_id_returns_no_record (test_creation.CreationTests.test_unknown_id_returns_no_record) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3505170Z test_whitespace_title_rejected_without_insert (test_creation.CreationTests.test_whitespace_title_rejected_without_insert) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3592049Z test_combined_filters_use_and (test_guidance_filters.FilterTests.test_combined_filters_use_and) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3691198Z test_each_filter_empty_result_and_clear_preserve_data (test_guidance_filters.FilterTests.test_each_filter_empty_result_and_clear_preserve_data) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3778748Z test_invalid_filter_rejected_without_mutation (test_guidance_filters.FilterTests.test_invalid_filter_rejected_without_mutation) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3780057Z test_each_present_field_and_six_of_seven_rounding (test_guidance_filters.GuidanceTests.test_each_present_field_and_six_of_seven_rounding) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3781093Z test_empty_report_has_zero_and_all_seven_missing (test_guidance_filters.GuidanceTests.test_empty_report_has_zero_and_all_seven_missing) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3782474Z test_function_does_not_mutate_input_or_count_metadata (test_guidance_filters.GuidanceTests.test_function_does_not_mutate_input_or_count_metadata) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3783523Z test_invalid_severity_and_nontext_are_missing (test_guidance_filters.GuidanceTests.test_invalid_severity_and_nontext_are_missing) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3842514Z test_cannot_skip_in_progress (test_lifecycle.LifecycleTests.test_cannot_skip_in_progress) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3902908Z test_create_list_survives_reopen_and_newest_first (test_lifecycle.LifecycleTests.test_create_list_survives_reopen_and_newest_first) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.3943654Z test_empty_list_and_counts (test_lifecycle.LifecycleTests.test_empty_list_and_counts) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.4028463Z test_full_status_cycle_persists (test_lifecycle.LifecycleTests.test_full_status_cycle_persists) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.4067967Z test_non_text_and_overlong_fields_are_rejected_before_insert (test_lifecycle.LifecycleTests.test_non_text_and_overlong_fields_are_rejected_before_insert) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.4107166Z test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.4163176Z test_stale_update_is_rejected_without_lost_update (test_lifecycle.LifecycleTests.test_stale_update_is_rejected_without_lost_update) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.4208187Z test_unknown_id_and_invalid_status_leave_existing_report_unchanged (test_lifecycle.LifecycleTests.test_unknown_id_and_invalid_status_leave_existing_report_unchanged) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.4789786Z test_all_pages_are_stable_without_duplicates_or_omissions (test_pagination.PaginationTests.test_all_pages_are_stable_without_duplicates_or_omissions) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.4824489Z test_empty_page_is_well_defined (test_pagination.PaginationTests.test_empty_page_is_well_defined) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.5741880Z test_filtered_count_page_and_order_match_legacy_query (test_pagination.PaginationTests.test_filtered_count_page_and_order_match_legacy_query) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.5815962Z test_invalid_pages_and_filters_are_rejected (test_pagination.PaginationTests.test_invalid_pages_and_filters_are_rejected) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.5865141Z test_bom_and_nel_only_titles_cannot_be_persisted (test_pagination.WhitespaceContractTests.test_bom_and_nel_only_titles_cannot_be_persisted) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.5867569Z test_every_shared_blank_character_has_identical_server_meaning (test_pagination.WhitespaceContractTests.test_every_shared_blank_character_has_identical_server_meaning) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.5868717Z test_sqlite_transactions_are_available (test_runtime.RuntimeTest.test_sqlite_transactions_are_available) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.5933468Z test_browser_create_redirect_reload_and_status_cycle (test_web.WebTests.test_browser_create_redirect_reload_and_status_cycle) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.5944576Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/2035bfb2-0ff1-42de-b9d7-d72a9f8f95de?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.5954730Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/2035bfb2-0ff1-42de-b9d7-d72a9f8f95de?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.5973034Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/2035bfb2-0ff1-42de-b9d7-d72a9f8f95de/status HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.5991134Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/2035bfb2-0ff1-42de-b9d7-d72a9f8f95de/status HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6008994Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/2035bfb2-0ff1-42de-b9d7-d72a9f8f95de/status HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6013204Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6030266Z test_detail_navigation_context_survives_status_redirect_and_conflict (test_web.WebTests.test_detail_navigation_context_survives_status_redirect_and_conflict) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/1e127b3e-5674-428f-bb8b-edba4a1662af?severity=high&status=Open&page=2 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6045376Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/1e127b3e-5674-428f-bb8b-edba4a1662af/status?severity=high&status=Open&page=2 HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6055979Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/1e127b3e-5674-428f-bb8b-edba4a1662af/status?severity=high&status=Open&page=2 HTTP/1.1" 409 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6058250Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6065434Z test_filters_have_clear_empty_state_and_reject_invalid_queries (test_web.WebTests.test_filters_have_clear_empty_state_and_reject_invalid_queries) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /?severity=critical&status=Resolved HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6070714Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /?severity=urgent HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6076032Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /?status=Closed HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6081026Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /?severity=low&severity=high HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6082956Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6088994Z test_foreign_origin_and_untrusted_host_are_rejected (test_web.WebTests.test_foreign_origin_and_untrusted_host_are_rejected) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 403 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6093352Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET / HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6097433Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6101460Z test_form_body_limits_media_type_and_duplicate_fields (test_web.WebTests.test_form_body_limits_media_type_and_duplicate_fields) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 415 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6107359Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 413 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6113292Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6115747Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6120351Z test_form_has_seven_visible_labels_and_empty_explicit_severity (test_web.WebTests.test_form_has_seven_visible_labels_and_empty_explicit_severity) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/new HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6122798Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6253903Z test_full_valid_unicode_payload_fits_transport_and_preserves_all_fields (test_web.WebTests.test_full_valid_unicode_payload_fits_transport_and_preserves_all_fields) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6258730Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6273974Z test_incomplete_report_is_saved_with_precise_server_guidance_without_js (test_web.WebTests.test_incomplete_report_is_saved_with_precise_server_guidance_without_js) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6281917Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/afc8f57b-a961-4095-8d60-8a22ac0b717f?created=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6283543Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6293452Z test_invalid_form_retains_input_and_has_linked_inline_errors_without_insert (test_web.WebTests.test_invalid_form_retains_input_and_has_linked_inline_errors_without_insert) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 422 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6296794Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6313796Z test_invalid_navigation_context_is_rejected_before_status_mutation (test_web.WebTests.test_invalid_navigation_context_is_rejected_before_status_mutation) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/79d3be1b-983a-4183-8354-bbca9f88c2b6?severity=urgent HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6319692Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/79d3be1b-983a-4183-8354-bbca9f88c2b6/status?severity=urgent HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6326432Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/79d3be1b-983a-4183-8354-bbca9f88c2b6?status=Closed HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6332472Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/79d3be1b-983a-4183-8354-bbca9f88c2b6/status?status=Closed HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6339460Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/79d3be1b-983a-4183-8354-bbca9f88c2b6?page=0 HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6345212Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/79d3be1b-983a-4183-8354-bbca9f88c2b6/status?page=0 HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6351321Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/79d3be1b-983a-4183-8354-bbca9f88c2b6?page=2&page=3 HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6356819Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/79d3be1b-983a-4183-8354-bbca9f88c2b6/status?page=2&page=3 HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6375638Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/79d3be1b-983a-4183-8354-bbca9f88c2b6/status?return_to=https%3A%2F%2Fevil.example HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6377943Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6382454Z test_invalid_page_values_are_errors_and_out_of_range_is_clamped (test_web.WebTests.test_invalid_page_values_are_errors_and_out_of_range_is_clamped) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /?page=0 HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6387333Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /?page=-1 HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6393319Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /?page=word HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6397823Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /?page=1.5 HTTP/1.1" 400 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6407772Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /?page=99999 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6410227Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6416141Z test_missing_wrong_and_non_ascii_csrf_rejected_without_write (test_web.WebTests.test_missing_wrong_and_non_ascii_csrf_rejected_without_write) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 403 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6421190Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 403 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6427508Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 403 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6431250Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6438726Z test_null_input_returns_validation_feedback_and_keeps_server_healthy (test_web.WebTests.test_null_input_returns_validation_feedback_and_keeps_server_healthy) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 422 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6456705Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /health HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6457109Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6771653Z test_paginated_http_navigation_preserves_filters_and_reaches_all_records (test_web.WebTests.test_paginated_http_navigation_preserves_filters_and_reaches_all_records) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /?severity=high&status=Open&page=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6784422Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /?severity=high&status=Open&page=2 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6787261Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6804163Z test_report_markup_is_escaped_and_security_headers_present (test_web.WebTests.test_report_markup_is_escaped_and_security_headers_present) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/788e455c-8e87-4329-b8ba-dc1bc8cbb41e HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6805975Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6819995Z test_same_origin_post_succeeds (test_web.WebTests.test_same_origin_post_succeeds) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6822383Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6823475Z test_server_refuses_public_bind (test_web.WebTests.test_server_refuses_public_bind) ... ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6851349Z test_status_conflict_and_invalid_transition_do_not_overwrite (test_web.WebTests.test_status_conflict_and_invalid_transition_do_not_overwrite) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/10fd1d0b-dc91-420d-aa02-178b10a0ad45/status HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6860655Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/10fd1d0b-dc91-420d-aa02-178b10a0ad45/status HTTP/1.1" 409 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6869741Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/10fd1d0b-dc91-420d-aa02-178b10a0ad45/status HTTP/1.1" 422 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6874081Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6898227Z test_status_success_has_explicit_persisted_feedback (test_web.WebTests.test_status_success_has_explicit_persisted_feedback) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "POST /reports/144510a4-ab2b-44c4-8fa6-3a8d6591e570/status HTTP/1.1" 303 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6906186Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/144510a4-ab2b-44c4-8fa6-3a8d6591e570?updated=1 HTTP/1.1" 200 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6908239Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6913969Z test_unknown_route_and_static_traversal_return_404 (test_web.WebTests.test_unknown_route_and_static_traversal_return_404) ... 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /reports/00000000-0000-0000-0000-000000000000 HTTP/1.1" 404 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6919040Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /static/../service.py HTTP/1.1" 404 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6923995Z 127.0.0.1 - - [04/Nov/2026 15:06:12] "GET /missing HTTP/1.1" 404 -
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.6926329Z ok
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.7132562Z 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.7132960Z ----------------------------------------------------------------------
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.7133419Z Ran 58 tests in 46.591s
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.7133669Z 
+test (3.12)	Acceptance and integration tests	2026-11-04T15:06:12.7133880Z OK
+test (3.12)	Compile Python sources	﻿2026-11-04T15:06:12.7288165Z ##[group]Run python -m compileall -q bugreport tests
+test (3.12)	Compile Python sources	2026-11-04T15:06:12.7288419Z ^[[36;1mpython -m compileall -q bugreport tests^[[0m
+test (3.12)	Compile Python sources	2026-11-04T15:06:12.7305513Z shell: /usr/bin/bash -e {0}
+test (3.12)	Compile Python sources	2026-11-04T15:06:12.7305645Z env:
+test (3.12)	Compile Python sources	2026-11-04T15:06:12.7305816Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+test (3.12)	Compile Python sources	2026-11-04T15:06:12.7306054Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+test (3.12)	Compile Python sources	2026-11-04T15:06:12.7306275Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test (3.12)	Compile Python sources	2026-11-04T15:06:12.7306477Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test (3.12)	Compile Python sources	2026-11-04T15:06:12.7306678Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test (3.12)	Compile Python sources	2026-11-04T15:06:12.7306880Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+test (3.12)	Compile Python sources	2026-11-04T15:06:12.7307049Z ##[endgroup]
+test (3.12)	Post Run actions/setup-python@v5	﻿2026-11-04T15:06:12.7704232Z Post job cleanup.
+test (3.12)	Post Run actions/setup-python@v5	2026-11-04T15:06:12.8551683Z (node:3342) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+test (3.12)	Post Run actions/setup-python@v5	2026-11-04T15:06:12.8554415Z (Use `node --trace-deprecation ...` to show where the warning was created)
+test (3.12)	Post Run actions/checkout@v4	﻿2026-11-04T15:06:12.8776853Z Post job cleanup.
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:12.9499694Z [command]/usr/bin/git version
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:12.9623116Z git version 2.56.0
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:12.9702667Z Temporarily overriding HOME='/home/runner/work/_temp/d3db5468-26c3-470e-9b65-c95d8a07c91d' before making global git config changes
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:12.9742489Z Adding repository directory to the temporary git global config as a safe directory
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:12.9779305Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/aut-bug-report-helper/aut-bug-report-helper
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:12.9781031Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:12.9783059Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:13.0010861Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:13.0046450Z http.https://github.com/.extraheader
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:13.0048087Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:13.0187729Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:13.0564189Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+test (3.12)	Post Run actions/checkout@v4	2026-11-04T15:06:13.0653173Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+test (3.12)	Complete job	﻿2026-11-04T15:06:13.0980771Z Cleaning up orphan processes
+test (3.12)	Complete job	2026-11-04T15:06:13.1239751Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test (3.11)	Set up job	﻿2026-11-04T15:05:22.6261464Z Current runner version: '2.338.2'
+test (3.11)	Set up job	2026-11-04T15:05:22.6299809Z ##[group]Runner Image Provisioner
+test (3.11)	Set up job	2026-11-04T15:05:22.6301374Z Hosted Compute Agent
+test (3.11)	Set up job	2026-11-04T15:05:22.6302597Z Version: 20261028.624
+test (3.11)	Set up job	2026-11-04T15:05:22.6303740Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+test (3.11)	Set up job	2026-11-04T15:05:22.6305487Z Build Date: 2026-10-28T21:51:42Z
+test (3.11)	Set up job	2026-11-04T15:05:22.6306765Z Worker ID: {9b850712-2d62-4a64-b5b3-d6362ec4fadf}
+test (3.11)	Set up job	2026-11-04T15:05:22.6308207Z Region: westus
+test (3.11)	Set up job	2026-11-04T15:05:22.6309139Z Cloud: Azure
+test (3.11)	Set up job	2026-11-04T15:05:22.6310022Z ##[endgroup]
+test (3.11)	Set up job	2026-11-04T15:05:22.6312992Z ##[group]Operating System
+test (3.11)	Set up job	2026-11-04T15:05:22.6314088Z Ubuntu
+test (3.11)	Set up job	2026-11-04T15:05:22.6315336Z 24.04.5
+test (3.11)	Set up job	2026-11-04T15:05:22.6316378Z LTS
+test (3.11)	Set up job	2026-11-04T15:05:22.6317350Z ##[endgroup]
+test (3.11)	Set up job	2026-11-04T15:05:22.6318459Z ##[group]Runner Image
+test (3.11)	Set up job	2026-11-04T15:05:22.6319581Z Image: ubuntu-24.04
+test (3.11)	Set up job	2026-11-04T15:05:22.6320807Z Version: 20261101.360.1
+test (3.11)	Set up job	2026-11-04T15:05:22.6322774Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+test (3.11)	Set up job	2026-11-04T15:05:22.6326586Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+test (3.11)	Set up job	2026-11-04T15:05:22.6328313Z ##[endgroup]
+test (3.11)	Set up job	2026-11-04T15:05:22.6330300Z ##[group]GITHUB_TOKEN Permissions
+test (3.11)	Set up job	2026-11-04T15:05:22.6333023Z Contents: read
+test (3.11)	Set up job	2026-11-04T15:05:22.6334126Z Metadata: read
+test (3.11)	Set up job	2026-11-04T15:05:22.6335343Z ##[endgroup]
+test (3.11)	Set up job	2026-11-04T15:05:22.6338311Z Secret source: Actions
+test (3.11)	Set up job	2026-11-04T15:05:22.6340031Z Cache mode: write
+test (3.11)	Set up job	2026-11-04T15:05:22.6341214Z Prepare workflow directory
+test (3.11)	Set up job	2026-11-04T15:05:22.7027623Z Prepare all required actions
+test (3.11)	Set up job	2026-11-04T15:05:22.7102329Z Getting action download info
+test (3.11)	Set up job	2026-11-04T15:05:23.2254571Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+test (3.11)	Set up job	2026-11-04T15:05:23.3204593Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+test (3.11)	Set up job	2026-11-04T15:05:23.5146976Z Complete job name: test (3.11)
+test (3.11)	Run actions/checkout@v4	﻿2026-11-04T15:05:23.6052592Z ##[group]Run actions/checkout@v4
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6053541Z with:
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6054081Z   repository: alwaysgoodz/aut-bug-report-helper
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6058224Z   token: ***
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6058774Z   ssh-strict: true
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6059236Z   ssh-user: git
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6059815Z   persist-credentials: true
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6060324Z   clean: true
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6060786Z   sparse-checkout-cone-mode: true
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6061329Z   fetch-depth: 1
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6061771Z   fetch-tags: false
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6062230Z   show-progress: true
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6062690Z   lfs: false
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6063114Z   submodules: false
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6064502Z   set-safe-directory: true
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6065618Z   allow-unsafe-pr-checkout: false
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:23.6066976Z ##[endgroup]
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0024736Z Syncing repository: alwaysgoodz/aut-bug-report-helper
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0034574Z ##[group]Getting Git version info
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0045803Z Working directory is '/home/runner/work/aut-bug-report-helper/aut-bug-report-helper'
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0048288Z [command]/usr/bin/git version
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0049192Z git version 2.56.0
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0052124Z ##[endgroup]
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0074764Z Temporarily overriding HOME='/home/runner/work/_temp/a27b580b-e316-4b65-ae67-c4601f492bad' before making global git config changes
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0077787Z Adding repository directory to the temporary git global config as a safe directory
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0080202Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/aut-bug-report-helper/aut-bug-report-helper
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0083725Z Deleting the contents of '/home/runner/work/aut-bug-report-helper/aut-bug-report-helper'
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0089333Z ##[group]Initializing the repository
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0091025Z [command]/usr/bin/git init /home/runner/work/aut-bug-report-helper/aut-bug-report-helper
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0092944Z hint: Using 'master' as the name for the initial branch. This default branch name
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0095614Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0097562Z hint: to use in all of your new repositories, which will suppress this warning,
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0099063Z hint: call:
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0099919Z hint:
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0100993Z hint: 	git config --global init.defaultBranch <name>
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0102187Z hint:
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0103298Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0105564Z hint: 'development'. The just-created branch can be renamed via this command:
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0107253Z hint:
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0109233Z hint: 	git branch -m <name>
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0110264Z hint:
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0111729Z hint: Disable this message with "git config set advice.defaultBranchName false"
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0114210Z Initialized empty Git repository in /home/runner/work/aut-bug-report-helper/aut-bug-report-helper/.git/
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0119459Z [command]/usr/bin/git remote add origin https://github.com/alwaysgoodz/aut-bug-report-helper
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0124679Z ##[endgroup]
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0136885Z ##[group]Disabling automatic garbage collection
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0138842Z [command]/usr/bin/git config --local gc.auto 0
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0146797Z ##[endgroup]
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0148643Z ##[group]Setting up auth
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0151091Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0208879Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0954730Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.0960392Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.1186928Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.1236469Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.1527371Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.1567885Z ##[endgroup]
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.1570243Z ##[group]Fetching the repository
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.1582951Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7ec32f1ed070c7ca42c9b4951f1533c755a2cdd3:refs/remotes/pull/14/merge
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8357354Z From https://github.com/alwaysgoodz/aut-bug-report-helper
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8359994Z  * [new ref]         7ec32f1ed070c7ca42c9b4951f1533c755a2cdd3 -> pull/14/merge
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8366227Z ##[endgroup]
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8368714Z ##[group]Determining the checkout info
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8371576Z ##[endgroup]
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8374450Z [command]/usr/bin/git sparse-checkout disable
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8444531Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8501692Z ##[group]Checking out the ref
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8504797Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/14/merge
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8745551Z Note: switching to 'refs/remotes/pull/14/merge'.
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8747447Z 
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8748951Z You are in 'detached HEAD' state. You can look around, make experimental
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8752105Z changes and commit them, and you can discard any commits you make in this
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8755664Z state without impacting any branches by switching back to a branch.
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8757734Z 
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8759146Z If you want to create a new branch to retain commits you create, you may
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8762199Z do so (now or later) by using -c with the switch command. Example:
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8764612Z 
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8765858Z   git switch -c <new-branch-name>
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8767429Z 
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8768486Z Or undo this operation with:
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8769922Z 
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8770882Z   git switch -
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8772264Z 
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8773955Z Turn off this advice by setting config variable advice.detachedHead to false
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8776625Z 
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8779207Z HEAD is now at 7ec32f1 Merge 8a0f4bbc3bc28ee1925513b4d599a5e9dad54458 into b6ed3fb04fe78f2220059212b02bf291f2b76676
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8787734Z ##[endgroup]
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8827142Z [command]/usr/bin/git log -1 --format=%H
+test (3.11)	Run actions/checkout@v4	2026-11-04T15:05:24.8869326Z 7ec32f1ed070c7ca42c9b4951f1533c755a2cdd3
+test (3.11)	Run actions/setup-python@v5	﻿2026-11-04T15:05:24.9372707Z ##[group]Run actions/setup-python@v5
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:24.9374088Z with:
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:24.9375201Z   python-version: 3.11
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:24.9376277Z   check-latest: false
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:24.9386543Z   token: ***
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:24.9387554Z   update-environment: true
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:24.9388703Z   allow-prereleases: false
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:24.9389841Z   freethreaded: false
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:24.9391013Z ##[endgroup]
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:25.1117050Z ##[group]Installed versions
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:25.1237460Z (node:2074) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:25.1242350Z (Use `node --trace-deprecation ...` to show where the warning was created)
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:25.1269716Z Successfully set up CPython (3.11.18)
+test (3.11)	Run actions/setup-python@v5	2026-11-04T15:05:25.1273372Z ##[endgroup]
+test (3.11)	Acceptance and integration tests	﻿2026-11-04T15:05:25.1583050Z ##[group]Run python -m unittest discover -s tests -v
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.1585936Z ^[[36;1mpython -m unittest discover -s tests -v^[[0m
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.1646456Z shell: /usr/bin/bash -e {0}
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.1648278Z env:
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.1650121Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.1653213Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.1656558Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.1659368Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.1662207Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.1665196Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.1667599Z ##[endgroup]
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.6147361Z test_committed_browser_acceptance (test_browser_ci.BrowserCIGate.test_committed_browser_acceptance) ... skipped 'Browser CI bridge runs once in the GitHub Python 3.12 job; use npm run test:browser locally'
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.6263190Z test_all_supported_severities (test_creation.CreationTests.test_all_supported_severities) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.7207574Z test_cli_create_then_read_from_separate_process (test_creation.CreationTests.test_cli_create_then_read_from_separate_process) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.7661096Z test_cli_invalid_title_exits_nonzero_without_insert (test_creation.CreationTests.test_cli_invalid_title_exits_nonzero_without_insert) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8099224Z test_cli_unknown_id_has_explicit_error (test_creation.CreationTests.test_cli_unknown_id_has_explicit_error) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8144624Z test_empty_title_rejected_without_insert (test_creation.CreationTests.test_empty_title_rejected_without_insert) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8316764Z test_generated_metadata_is_unique_open_and_utc (test_creation.CreationTests.test_generated_metadata_is_unique_open_and_utc) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8365769Z test_invalid_severity_rejected_without_insert (test_creation.CreationTests.test_invalid_severity_rejected_without_insert) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8420069Z test_invalid_submission_preserves_existing_record (test_creation.CreationTests.test_invalid_submission_preserves_existing_record) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8460353Z test_missing_severity_rejected_without_insert (test_creation.CreationTests.test_missing_severity_rejected_without_insert) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8515343Z test_optional_fields_can_remain_blank (test_creation.CreationTests.test_optional_fields_can_remain_blank) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8576483Z test_persists_all_fields_across_new_connection (test_creation.CreationTests.test_persists_all_fields_across_new_connection) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8631342Z test_title_is_trimmed (test_creation.CreationTests.test_title_is_trimmed) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8689758Z test_unicode_multiline_and_sql_text_are_preserved_as_data (test_creation.CreationTests.test_unicode_multiline_and_sql_text_are_preserved_as_data) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8734243Z test_unknown_id_returns_no_record (test_creation.CreationTests.test_unknown_id_returns_no_record) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8779132Z test_whitespace_title_rejected_without_insert (test_creation.CreationTests.test_whitespace_title_rejected_without_insert) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8883150Z test_combined_filters_use_and (test_guidance_filters.FilterTests.test_combined_filters_use_and) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.8994560Z test_each_filter_empty_result_and_clear_preserve_data (test_guidance_filters.FilterTests.test_each_filter_empty_result_and_clear_preserve_data) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9096275Z test_invalid_filter_rejected_without_mutation (test_guidance_filters.FilterTests.test_invalid_filter_rejected_without_mutation) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9098757Z test_each_present_field_and_six_of_seven_rounding (test_guidance_filters.GuidanceTests.test_each_present_field_and_six_of_seven_rounding) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9101187Z test_empty_report_has_zero_and_all_seven_missing (test_guidance_filters.GuidanceTests.test_empty_report_has_zero_and_all_seven_missing) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9103974Z test_function_does_not_mutate_input_or_count_metadata (test_guidance_filters.GuidanceTests.test_function_does_not_mutate_input_or_count_metadata) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9106038Z test_invalid_severity_and_nontext_are_missing (test_guidance_filters.GuidanceTests.test_invalid_severity_and_nontext_are_missing) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9159820Z test_cannot_skip_in_progress (test_lifecycle.LifecycleTests.test_cannot_skip_in_progress) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9229531Z test_create_list_survives_reopen_and_newest_first (test_lifecycle.LifecycleTests.test_create_list_survives_reopen_and_newest_first) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9272745Z test_empty_list_and_counts (test_lifecycle.LifecycleTests.test_empty_list_and_counts) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9373304Z test_full_status_cycle_persists (test_lifecycle.LifecycleTests.test_full_status_cycle_persists) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9423378Z test_non_text_and_overlong_fields_are_rejected_before_insert (test_lifecycle.LifecycleTests.test_non_text_and_overlong_fields_are_rejected_before_insert) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9517680Z test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9598616Z test_stale_update_is_rejected_without_lost_update (test_lifecycle.LifecycleTests.test_stale_update_is_rejected_without_lost_update) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:25.9660070Z test_unknown_id_and_invalid_status_leave_existing_report_unchanged (test_lifecycle.LifecycleTests.test_unknown_id_and_invalid_status_leave_existing_report_unchanged) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.0328942Z test_all_pages_are_stable_without_duplicates_or_omissions (test_pagination.PaginationTests.test_all_pages_are_stable_without_duplicates_or_omissions) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.0390828Z test_empty_page_is_well_defined (test_pagination.PaginationTests.test_empty_page_is_well_defined) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1303076Z test_filtered_count_page_and_order_match_legacy_query (test_pagination.PaginationTests.test_filtered_count_page_and_order_match_legacy_query) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1376552Z test_invalid_pages_and_filters_are_rejected (test_pagination.PaginationTests.test_invalid_pages_and_filters_are_rejected) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1435640Z test_bom_and_nel_only_titles_cannot_be_persisted (test_pagination.WhitespaceContractTests.test_bom_and_nel_only_titles_cannot_be_persisted) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1440456Z test_every_shared_blank_character_has_identical_server_meaning (test_pagination.WhitespaceContractTests.test_every_shared_blank_character_has_identical_server_meaning) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1443182Z test_sqlite_transactions_are_available (test_runtime.RuntimeTest.test_sqlite_transactions_are_available) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1550722Z test_browser_create_redirect_reload_and_status_cycle (test_web.WebTests.test_browser_create_redirect_reload_and_status_cycle) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 303 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1566358Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/4c52ff86-dc82-4b1b-9b22-e788808f8d8a?created=1 HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1584256Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/4c52ff86-dc82-4b1b-9b22-e788808f8d8a?created=1 HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1612078Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/4c52ff86-dc82-4b1b-9b22-e788808f8d8a/status HTTP/1.1" 303 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1640231Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/4c52ff86-dc82-4b1b-9b22-e788808f8d8a/status HTTP/1.1" 303 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1663084Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/4c52ff86-dc82-4b1b-9b22-e788808f8d8a/status HTTP/1.1" 303 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1667573Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1692814Z test_detail_navigation_context_survives_status_redirect_and_conflict (test_web.WebTests.test_detail_navigation_context_survives_status_redirect_and_conflict) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/10611991-ba71-4bb0-bf00-a9941bcedc91?severity=high&status=Open&page=2 HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1716461Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/10611991-ba71-4bb0-bf00-a9941bcedc91/status?severity=high&status=Open&page=2 HTTP/1.1" 303 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1732506Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/10611991-ba71-4bb0-bf00-a9941bcedc91/status?severity=high&status=Open&page=2 HTTP/1.1" 409 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1735879Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1747562Z test_filters_have_clear_empty_state_and_reject_invalid_queries (test_web.WebTests.test_filters_have_clear_empty_state_and_reject_invalid_queries) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /?severity=critical&status=Resolved HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1755470Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /?severity=urgent HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1762620Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /?status=Closed HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1772170Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /?severity=low&severity=high HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1775631Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1783789Z test_foreign_origin_and_untrusted_host_are_rejected (test_web.WebTests.test_foreign_origin_and_untrusted_host_are_rejected) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 403 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1790839Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET / HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1795893Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1803505Z test_form_body_limits_media_type_and_duplicate_fields (test_web.WebTests.test_form_body_limits_media_type_and_duplicate_fields) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 415 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1813623Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 413 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1822364Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1824500Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1836065Z test_form_has_seven_visible_labels_and_empty_explicit_severity (test_web.WebTests.test_form_has_seven_visible_labels_and_empty_explicit_severity) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/new HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.1838615Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2116486Z test_full_valid_unicode_payload_fits_transport_and_preserves_all_fields (test_web.WebTests.test_full_valid_unicode_payload_fits_transport_and_preserves_all_fields) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 303 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2124272Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2145529Z test_incomplete_report_is_saved_with_precise_server_guidance_without_js (test_web.WebTests.test_incomplete_report_is_saved_with_precise_server_guidance_without_js) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 303 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2158794Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/a07318c4-b44a-4f61-b7f4-f942af30812b?created=1 HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2165392Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2173670Z test_invalid_form_retains_input_and_has_linked_inline_errors_without_insert (test_web.WebTests.test_invalid_form_retains_input_and_has_linked_inline_errors_without_insert) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 422 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2178227Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2200043Z test_invalid_navigation_context_is_rejected_before_status_mutation (test_web.WebTests.test_invalid_navigation_context_is_rejected_before_status_mutation) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/8cefa5d2-ca9a-4afa-a864-27c1134a2722?severity=urgent HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2209385Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/8cefa5d2-ca9a-4afa-a864-27c1134a2722/status?severity=urgent HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2220163Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/8cefa5d2-ca9a-4afa-a864-27c1134a2722?status=Closed HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2228355Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/8cefa5d2-ca9a-4afa-a864-27c1134a2722/status?status=Closed HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2239568Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/8cefa5d2-ca9a-4afa-a864-27c1134a2722?page=0 HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2249090Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/8cefa5d2-ca9a-4afa-a864-27c1134a2722/status?page=0 HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2259208Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/8cefa5d2-ca9a-4afa-a864-27c1134a2722?page=2&page=3 HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2269850Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/8cefa5d2-ca9a-4afa-a864-27c1134a2722/status?page=2&page=3 HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2294422Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/8cefa5d2-ca9a-4afa-a864-27c1134a2722/status?return_to=https%3A%2F%2Fevil.example HTTP/1.1" 303 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2297394Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2304327Z test_invalid_page_values_are_errors_and_out_of_range_is_clamped (test_web.WebTests.test_invalid_page_values_are_errors_and_out_of_range_is_clamped) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /?page=0 HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2311779Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /?page=-1 HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2320175Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /?page=word HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2328452Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /?page=1.5 HTTP/1.1" 400 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2342663Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /?page=99999 HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2346115Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2355556Z test_missing_wrong_and_non_ascii_csrf_rejected_without_write (test_web.WebTests.test_missing_wrong_and_non_ascii_csrf_rejected_without_write) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 403 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2362633Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 403 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2372986Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 403 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2378994Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2391233Z test_null_input_returns_validation_feedback_and_keeps_server_healthy (test_web.WebTests.test_null_input_returns_validation_feedback_and_keeps_server_healthy) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 422 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2400748Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /health HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2405808Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2946448Z test_paginated_http_navigation_preserves_filters_and_reaches_all_records (test_web.WebTests.test_paginated_http_navigation_preserves_filters_and_reaches_all_records) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /?severity=high&status=Open&page=1 HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2979004Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /?severity=high&status=Open&page=2 HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.2991689Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3031100Z test_report_markup_is_escaped_and_security_headers_present (test_web.WebTests.test_report_markup_is_escaped_and_security_headers_present) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/ddbe3e0f-e311-4fd1-8715-78db1766dc1a HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3033321Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3053652Z test_same_origin_post_succeeds (test_web.WebTests.test_same_origin_post_succeeds) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports HTTP/1.1" 303 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3066902Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3067984Z test_server_refuses_public_bind (test_web.WebTests.test_server_refuses_public_bind) ... ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3109443Z test_status_conflict_and_invalid_transition_do_not_overwrite (test_web.WebTests.test_status_conflict_and_invalid_transition_do_not_overwrite) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/47e7e39c-4425-40c3-8cdd-f250573b3d9d/status HTTP/1.1" 303 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3134990Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/47e7e39c-4425-40c3-8cdd-f250573b3d9d/status HTTP/1.1" 409 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3176258Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/47e7e39c-4425-40c3-8cdd-f250573b3d9d/status HTTP/1.1" 422 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3177477Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3217093Z test_status_success_has_explicit_persisted_feedback (test_web.WebTests.test_status_success_has_explicit_persisted_feedback) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "POST /reports/c0f91707-cfe9-466f-9e16-6870e6aa24be/status HTTP/1.1" 303 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3246215Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/c0f91707-cfe9-466f-9e16-6870e6aa24be?updated=1 HTTP/1.1" 200 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3295772Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3297587Z test_unknown_route_and_static_traversal_return_404 (test_web.WebTests.test_unknown_route_and_static_traversal_return_404) ... 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /reports/00000000-0000-0000-0000-000000000000 HTTP/1.1" 404 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3302802Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /static/../service.py HTTP/1.1" 404 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3303921Z 127.0.0.1 - - [04/Nov/2026 15:05:26] "GET /missing HTTP/1.1" 404 -
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3304735Z ok
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3501335Z 
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3516284Z ----------------------------------------------------------------------
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3535777Z Ran 58 tests in 0.737s
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3545694Z 
+test (3.11)	Acceptance and integration tests	2026-11-04T15:05:26.3555795Z OK (skipped=1)
+test (3.11)	Compile Python sources	﻿2026-11-04T15:05:26.3751081Z ##[group]Run python -m compileall -q bugreport tests
+test (3.11)	Compile Python sources	2026-11-04T15:05:26.3751524Z ^[[36;1mpython -m compileall -q bugreport tests^[[0m
+test (3.11)	Compile Python sources	2026-11-04T15:05:26.3772846Z shell: /usr/bin/bash -e {0}
+test (3.11)	Compile Python sources	2026-11-04T15:05:26.3773108Z env:
+test (3.11)	Compile Python sources	2026-11-04T15:05:26.3773388Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.18/x64
+test (3.11)	Compile Python sources	2026-11-04T15:05:26.3773871Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib/pkgconfig
+test (3.11)	Compile Python sources	2026-11-04T15:05:26.3774316Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+test (3.11)	Compile Python sources	2026-11-04T15:05:26.3774742Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+test (3.11)	Compile Python sources	2026-11-04T15:05:26.3775447Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.18/x64
+test (3.11)	Compile Python sources	2026-11-04T15:05:26.3775881Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.18/x64/lib
+test (3.11)	Compile Python sources	2026-11-04T15:05:26.3776215Z ##[endgroup]
+test (3.11)	Post Run actions/setup-python@v5	﻿2026-11-04T15:05:26.4326392Z Post job cleanup.
+test (3.11)	Post Run actions/setup-python@v5	2026-11-04T15:05:26.5679354Z (node:2156) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+test (3.11)	Post Run actions/setup-python@v5	2026-11-04T15:05:26.5681255Z (Use `node --trace-deprecation ...` to show where the warning was created)
+test (3.11)	Post Run actions/checkout@v4	﻿2026-11-04T15:05:26.6215839Z Post job cleanup.
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.7357373Z [command]/usr/bin/git version
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.7436130Z git version 2.56.0
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.7487570Z Temporarily overriding HOME='/home/runner/work/_temp/f17fe885-0c9c-4262-bf27-ecdd973976b4' before making global git config changes
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.7491652Z Adding repository directory to the temporary git global config as a safe directory
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.7495499Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/aut-bug-report-helper/aut-bug-report-helper
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.7610903Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.7646920Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.8413230Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.8485821Z http.https://github.com/.extraheader
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.8556026Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.8666760Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.9313175Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+test (3.11)	Post Run actions/checkout@v4	2026-11-04T15:05:26.9354255Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+test (3.11)	Complete job	﻿2026-11-04T15:05:27.0002291Z Cleaning up orphan processes
+test (3.11)	Complete job	2026-11-04T15:05:27.0394241Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

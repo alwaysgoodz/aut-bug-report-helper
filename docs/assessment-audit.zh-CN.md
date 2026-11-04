@@ -6,6 +6,8 @@
 
 后续 UI-03 已修复浏览器返回后的评分同步、详情/状态流程丢失筛选页码、空字符输入处理。当前本地 57 项功能检查和 16 项浏览器检查通过，见[最新证据](navigation-review/README.md)。以下 UI-02 的 53/15 数字保留对应 v0.3 的历史记录；协作与提交缺口仍需真实活动补齐。
 
+UI-03 实现提交 `8a0f4bbc3bc28ee1925513b4d599a5e9dad54458` 的[远端 CI](https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41854085423)通过：Python 3.11/3.12 和 16 项 Chromium 检查，0 unexpected/skipped/flaky。当前技术候选为 `a2-review-v0.4`；这不等于团队最终批准。
+
 ## 1. 本轮排查、修复和界面调整
 
 | 问题 | 复现与原因 | 当前处理及证据 |
