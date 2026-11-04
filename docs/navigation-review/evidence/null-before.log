@@ -1,0 +1,76 @@
+test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) ... 
+  test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='title') ... ERROR
+  test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='description') ... FAIL
+  test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='steps') ... FAIL
+  test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='expected') ... FAIL
+  test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='actual') ... FAIL
+  test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='environment') ... FAIL
+test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) ... FAIL
+
+======================================================================
+ERROR: test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='title')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\test_lifecycle.py", line 66, in test_null_characters_are_field_errors_without_inserting_any_report
+    self.store.create(**payload)
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\bugreport\service.py", line 89, in create
+    connection.execute("""INSERT INTO reports
+sqlite3.IntegrityError: CHECK constraint failed: length(trim(title)) > 0
+
+======================================================================
+FAIL: test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='description')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\test_lifecycle.py", line 65, in test_null_characters_are_field_errors_without_inserting_any_report
+    with self.assertRaises(ValidationError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValidationError not raised
+
+======================================================================
+FAIL: test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='steps')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\test_lifecycle.py", line 65, in test_null_characters_are_field_errors_without_inserting_any_report
+    with self.assertRaises(ValidationError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValidationError not raised
+
+======================================================================
+FAIL: test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='expected')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\test_lifecycle.py", line 65, in test_null_characters_are_field_errors_without_inserting_any_report
+    with self.assertRaises(ValidationError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValidationError not raised
+
+======================================================================
+FAIL: test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='actual')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\test_lifecycle.py", line 65, in test_null_characters_are_field_errors_without_inserting_any_report
+    with self.assertRaises(ValidationError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValidationError not raised
+
+======================================================================
+FAIL: test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='environment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\test_lifecycle.py", line 65, in test_null_characters_are_field_errors_without_inserting_any_report
+    with self.assertRaises(ValidationError) as caught:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValidationError not raised
+
+======================================================================
+FAIL: test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\test_lifecycle.py", line 68, in test_null_characters_are_field_errors_without_inserting_any_report
+    self.assertEqual(self.store.counts()["total"], 0)
+AssertionError: 5 != 0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.125s
+
+FAILED (failures=6, errors=1)

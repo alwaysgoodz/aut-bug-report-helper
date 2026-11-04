@@ -1,6 +1,6 @@
 # Assignment 2 technical review package
 
-This report describes historical candidate `a2-review-v0.1`. Subsequent responsive UI, pagination and validation changes are documented in the [v0.2 refinement supplement](../docs/optimization/README.md). Reconcile the report with the team's chosen final software version before submission; the original report has not been silently rewritten to claim later results.
+This report describes historical candidate `a2-review-v0.1`. Subsequent changes are documented in the [v0.2 supplement](../docs/optimization/README.md), [UI-02 fix evidence](../docs/ui-review/README.md) and [current A1/A2 gap audit](../docs/assessment-audit.zh-CN.md). Reconcile the report with the team's chosen final software version before submission; the original report has not been silently rewritten to claim later results.
 
 - [Group evaluation report PDF draft](assignment-2-report-draft.pdf)
 - [Editable report](assignment-2-report.md) and [structured source](../docs/a2/report-content.json)

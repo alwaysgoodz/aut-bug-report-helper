@@ -1,0 +1,27 @@
+test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) ... 
+  test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='title') ... ERROR
+test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) ... ERROR
+
+======================================================================
+ERROR: test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report) (field='title')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\test_lifecycle.py", line 65, in test_null_characters_are_field_errors_without_inserting_any_report
+    self.store.create(**payload)
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\bugreport\service.py", line 89, in create
+    connection.execute("""INSERT INTO reports
+sqlite3.IntegrityError: CHECK constraint failed: length(trim(title)) > 0
+
+======================================================================
+ERROR: test_null_characters_are_field_errors_without_inserting_any_report (test_lifecycle.LifecycleTests.test_null_characters_are_field_errors_without_inserting_any_report)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\test_lifecycle.py", line 66, in test_null_characters_are_field_errors_without_inserting_any_report
+    self.assertIn(field, caught.exception.errors)
+                         ^^^^^^^^^^^^^^^^
+AttributeError: '_AssertRaisesContext' object has no attribute 'exception'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.080s
+
+FAILED (errors=2)

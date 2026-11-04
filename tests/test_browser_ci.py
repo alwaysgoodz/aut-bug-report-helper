@@ -27,6 +27,6 @@ class BrowserCIGate(unittest.TestCase):
                        cwd=root, env=env, check=True, timeout=180)
         report = json.loads((root/"test-results/browser-results.json").read_text(encoding="utf-8"))
         print("CI_BROWSER_SUMMARY=" + json.dumps(report["stats"], sort_keys=True), flush=True)
-        self.assertEqual(report["stats"]["expected"], 12)
+        self.assertEqual(report["stats"]["expected"], 16)
         self.assertEqual(report["stats"]["unexpected"], 0)
         self.assertEqual(report["stats"]["skipped"], 0)

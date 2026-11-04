@@ -6,10 +6,24 @@ import secrets
 from urllib.parse import parse_qs, urlsplit
 
 from . import views
-from .service import FIELDS, ReportStore, StatusConflict, ValidationError
+from .service import FIELDS, LIMITS, SEVERITIES, STATUSES, ReportStore, StatusConflict, ValidationError
 
-MAX_BODY = 65536
+# A Unicode scalar can occupy four UTF-8 bytes, each percent-encoded as %XX.
+# Allow every field's valid maximum plus form names/CSRF overhead, still bounded.
+MAX_BODY = 12*sum(LIMITS.values()) + 4096
 STATIC = Path(__file__).with_name("static")
+
+
+def navigation_context(query):
+    parsed = parse_qs(query, keep_blank_values=True, max_num_fields=8)
+    if any(len(values) != 1 for values in parsed.values()):
+        raise ValueError("Duplicate navigation parameters")
+    params = {key: values[0] for key, values in parsed.items()}
+    severity, status = params.get("severity", ""), params.get("status", "")
+    page = int(params.get("page", "1"))
+    if (severity and severity not in SEVERITIES) or (status and status not in STATUSES) or page < 1:
+        raise ValueError("Invalid report filter or page")
+    return views.list_context(severity=severity, status=status, page=page), params
 
 
 class ReportServer(ThreadingHTTPServer):
@@ -70,27 +84,28 @@ class ReportHandler(BaseHTTPRequestHandler):
             self._send(200, (STATIC / url.path.rsplit("/", 1)[1]).read_bytes(), content_type=mime+"; charset=utf-8")
         elif url.path == "/":
             try:
-                query = parse_qs(url.query, keep_blank_values=True, max_num_fields=8)
-                if any(len(values) != 1 for values in query.values()):
-                    raise ValueError("Duplicate filters")
-                severity = query.get("severity", [""])[0]
-                status = query.get("status", [""])[0]
-                page = int(query.get("page", ["1"])[0])
-                listing = store.list_page(severity=severity, status=status, page=page)
+                context, _ = navigation_context(url.query)
+                listing = store.list_page(**context)
             except ValueError:
                 self._error(400, "Invalid report filter or page")
                 return
-            self._send(200, views.report_list(listing["reports"], store.counts(), severity=severity,
-                                              status=status, pagination=listing))
+            self._send(200, views.report_list(listing["reports"], store.counts(), severity=context.get("severity", ""),
+                                              status=context.get("status", ""), pagination=listing))
         elif url.path == "/reports/new":
             self._send(200, views.report_form(self.server.csrf_token, store.counts()["total"]))
         elif re.fullmatch(r"/reports/[0-9a-f-]{36}", url.path):
+            try:
+                context, params = navigation_context(url.query)
+            except ValueError:
+                self._error(400, "Invalid report filter or page")
+                return
             report = store.get(url.path.split("/")[2])
             if report is None:
                 self._error(404, "Report not found")
             else:
                 self._send(200, views.report_detail(report, self.server.csrf_token, store.counts()["total"],
-                                                    created=url.query == "created=1", updated=url.query == "updated=1"))
+                                                    created=params.get("created") == "1", updated=params.get("updated") == "1",
+                                                    context=context))
         else:
             self._error(404, "Page not found")
 
@@ -149,6 +164,11 @@ class ReportHandler(BaseHTTPRequestHandler):
         elif re.fullmatch(r"/reports/[0-9a-f-]{36}/status", path):
             report_id = path.split("/")[2]
             try:
+                context, _ = navigation_context(urlsplit(self.path).query)
+            except ValueError:
+                self._error(400, "Invalid report filter or page")
+                return
+            try:
                 if data.get("expected_status", "") not in ("Open", "In progress", "Resolved"):
                     raise ValueError("Reload the report before changing its status.")
                 store.update_status(report_id, data.get("status", ""), expected_status=data["expected_status"])
@@ -161,9 +181,10 @@ class ReportHandler(BaseHTTPRequestHandler):
                     self._error(404, "Report not found")
                     return
                 self._send(409 if isinstance(error, StatusConflict) else 422,
-                           views.report_detail(report, self.server.csrf_token, store.counts()["total"], error=str(error)))
+                           views.report_detail(report, self.server.csrf_token, store.counts()["total"], error=str(error),
+                                               context=context))
                 return
-            self._send(303, location=f"/reports/{report_id}?updated=1")
+            self._send(303, location=views.context_url(f"/reports/{report_id}", context, notice="updated"))
         else:
             self._error(404, "Page not found")
 

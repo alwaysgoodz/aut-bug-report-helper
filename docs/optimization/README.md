@@ -1,5 +1,7 @@
 # Current-system refinement evidence
 
+Historical v0.2 record. Later UI-02 fixes and the current requirement audit are in [UI-02 evidence](../ui-review/README.md) and [completion/gap audit](../assessment-audit.zh-CN.md). The measurements below stay bound to their original implementation.
+
 Tracked requirement: [UI-01 / Issue #11](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/11); [draft PR #12](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/12). This is an additional technical refinement after the historical A2 `a2-review-v0.1` candidate, not another claimed team iteration. The original report and results remain unchanged. Codex prepared these changes at the owner's request; real independent teammate review is still required.
 
 ## Decisions and observed behavior

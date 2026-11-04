@@ -56,3 +56,13 @@ class LifecycleTests(unittest.TestCase):
             with self.subTest(payload=str(payload)[:80]), self.assertRaises(ValidationError):
                 self.store.create(**payload)
         self.assertEqual(self.store.counts()["total"], 0)
+
+    def test_null_characters_are_field_errors_without_inserting_any_report(self):
+        for field in ("title", "description", "steps", "expected", "actual", "environment"):
+            payload = dict(title="Valid report", severity="low")
+            payload[field] = "\x00hidden text"
+            with self.subTest(field=field):
+                with self.assertRaises(ValidationError) as caught:
+                    self.store.create(**payload)
+                self.assertIn(field, caught.exception.errors)
+        self.assertEqual(self.store.counts()["total"], 0)

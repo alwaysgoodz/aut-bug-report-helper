@@ -196,10 +196,86 @@ test('Pagination retains filters, exposes every inserted report and resets when 
   const second = await page.locator('tbody tr').evaluateAll(rows => rows.map(row => row.dataset.reportId));
   expect(new Set([...first, ...second]).size).toBe(first.length + second.length);
   expect(inserted.every(id => first.includes(id) || second.includes(id))).toBe(true);
+  const returnPath = new URL(page.url()).pathname + new URL(page.url()).search;
+  await page.locator('.report-title').first().click();
+  await expect(page.locator('.back-link')).toHaveAttribute('href', returnPath);
+  await page.locator('#status').selectOption('In progress');
+  await page.getByRole('button', { name: 'Update status', exact: true }).click();
+  await expect(page.locator('.notice')).toContainText('Status updated to In progress');
+  await expect(page.locator('.back-link')).toHaveAttribute('href', returnPath);
+  await page.locator('.back-link').click();
+  await expect(page).toHaveURL(new RegExp('severity=high&status=Open&page=2$'));
+  await expect(page.locator('#filter-severity')).toHaveValue('high');
+  await expect(page.locator('#filter-status')).toHaveValue('Open');
   await page.getByRole('link', { name: 'Remove severity filter: high', exact: true }).click();
   await expect(page).toHaveURL(/\/?status=Open$/);
   await expect(page.locator('#filter-severity')).toHaveValue('');
   await expect(page.locator('.pagination')).toContainText('Page 1');
+});
+
+test('Browser back restores guidance and character count from restored form values', async ({ page }) => {
+  const title = 'Retained 🔁 report';
+  await page.goto('/reports/new');
+  await page.locator('#title').fill(title);
+  await page.locator('#steps').fill('Keep the steps after navigation');
+  await page.locator('#severity').selectOption('high');
+  await expect(page.locator('#completeness-score')).toHaveText('43%');
+  await page.getByRole('link', { name: 'Cancel', exact: true }).click();
+  await page.goBack();
+  await expect(page.locator('#title')).toHaveValue(title);
+  await expect(page.locator('#severity')).toHaveValue('high');
+  await expect(page.locator('#completeness-score')).toHaveText('43%');
+  await expect(page.locator('#completeness-count')).toHaveText('3 of 7 fields');
+  await expect(page.locator('#completeness-progress')).toHaveAttribute('value', '43');
+  await expect(page.locator('#title-count')).toHaveText(`${Array.from(title).length} / 160`);
+  await expect(page.locator('#missing-fields li:visible')).toHaveCount(4);
+});
+
+test('Unicode title uses server character limits without silently truncating supplementary characters', async ({ page }) => {
+  await page.goto('/reports/new');
+  const title = '🐛'.repeat(160);
+  await page.locator('#title').fill(title);
+  await expect(page.locator('#title')).toHaveValue(title);
+  await expect(page.locator('#title-count')).toHaveText('160 / 160');
+  await page.locator('#severity').selectOption('low');
+  await page.locator('#title').fill(title + 'x');
+  await expect(page.locator('#title-count')).toHaveClass(/over-limit/);
+  await page.getByRole('button', { name: 'Create report', exact: true }).click();
+  await expect(page.locator('#form-errors')).toBeFocused();
+  await expect(page.locator('#title')).toHaveValue(title + 'x');
+  await expect(page.locator('#title-count')).toHaveText('161 / 160');
+  await page.locator('#title').fill(title);
+  await page.getByRole('button', { name: 'Create report', exact: true }).click();
+  await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible();
+  await page.reload();
+  await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible();
+  await page.setViewportSize({ width: 320, height: 700 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test('Boundary layouts keep table headers inside columns and guidance fully reachable', async ({ page }) => {
+  await create(page, 'Boundary layout sample');
+  for (const width of [320, 390, 901, 1050, 1120, 1280, 1440, 1920]) {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto('/');
+    if (width > 900) {
+      const clipped = await page.locator('th').evaluateAll(headers => headers.filter(header => {
+        if (header.querySelector('.sr-only')) return false;
+        const range = document.createRange(); range.selectNodeContents(header);
+        const box = header.getBoundingClientRect();
+        return range.getBoundingClientRect().right > box.right - parseFloat(getComputedStyle(header).paddingRight) + 1;
+      }).map(header => header.textContent));
+      expect(clipped).toEqual([]);
+    }
+    await page.goto('/reports/new');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.locator('.editor-aside').evaluate(el => el.scrollHeight <= el.clientHeight + 1)).toBe(true);
+  }
+  await page.setViewportSize({ width: 1280, height: 600 });
+  await page.goto('/reports/new');
+  await page.locator('.guidance-details summary').click();
+  await page.locator('#missing-fields a[href="#environment"]').click();
+  await expect(page.locator('#environment')).toBeFocused();
 });
 
 test.describe('Native workflow', () => {
@@ -211,8 +287,23 @@ test.describe('Native workflow', () => {
     await page.getByRole('button', { name: 'Create report', exact: true }).click();
     await expect(page.getByRole('heading', { name: 'Native form acceptance', exact: true })).toBeVisible();
     await expect(page.locator('#completeness-score')).toHaveText('29%');
+    const detailPath = new URL(page.url()).pathname;
+    await page.goto(detailPath + '?severity=high&status=Open');
     await page.locator('#status').selectOption('In progress');
     await page.getByRole('button', { name: 'Update status', exact: true }).click();
     await expect(page.locator('.notice')).toContainText('Status updated to In progress');
+    await expect(page.locator('.back-link')).toHaveAttribute('href', '/?severity=high&status=Open');
+    await page.locator('.back-link').click();
+    await expect(page.locator('#filter-severity')).toHaveValue('high');
+    await expect(page.locator('#filter-status')).toHaveValue('Open');
+  });
+  test('Native fields preserve a valid 160-character Unicode title', async ({ page }) => {
+    const title = '🐛'.repeat(160);
+    await page.goto('/reports/new');
+    await page.locator('#title').fill(title);
+    await expect(page.locator('#title')).toHaveValue(title);
+    await page.locator('#severity').selectOption('low');
+    await page.getByRole('button', { name: 'Create report', exact: true }).click();
+    await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible();
   });
 });

@@ -1,0 +1,15 @@
+test_full_valid_unicode_payload_fits_transport_and_preserves_all_fields (test_web.WebTests.test_full_valid_unicode_payload_fits_transport_and_preserves_all_fields) ... 127.0.0.1 - - [04/Nov/2026 10:44:04] "POST /reports HTTP/1.1" 413 -
+FAIL
+
+======================================================================
+FAIL: test_full_valid_unicode_payload_fits_transport_and_preserves_all_fields (test_web.WebTests.test_full_valid_unicode_payload_fits_transport_and_preserves_all_fields)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tests\test_web.py", line 59, in test_full_valid_unicode_payload_fits_transport_and_preserves_all_fields
+    self.assertEqual(code, 303)
+AssertionError: 413 != 303
+
+----------------------------------------------------------------------
+Ran 1 test in 0.074s
+
+FAILED (failures=1)

@@ -1,0 +1,45 @@
+{
+  "observed_at": "2026-11-04T02:47:32.3645221Z",
+  "repository": "alwaysgoodz/aut-bug-report-helper",
+  "invitations": [],
+  "collaborators": [
+    {
+      "login": "alwaysgoodz",
+      "role_name": "admin"
+    }
+  ],
+  "pull_requests": [
+    {
+      "headRefOid": "03fb9c5e41f80026c0ec66c28a92b09ed6f1251e",
+      "isDraft": true,
+      "number": 7,
+      "reviews": [],
+      "state": "OPEN",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7"
+    },
+    {
+      "headRefOid": "cee24aaa908991a9ff38967bfc2a46f973493934",
+      "isDraft": true,
+      "number": 8,
+      "reviews": [],
+      "state": "OPEN",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/8"
+    },
+    {
+      "headRefOid": "c7d027629e39365357e67e6d8088eeed587443f7",
+      "isDraft": true,
+      "number": 10,
+      "reviews": [],
+      "state": "OPEN",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/10"
+    },
+    {
+      "headRefOid": "b6ed3fb04fe78f2220059212b02bf291f2b76676",
+      "isDraft": true,
+      "number": 12,
+      "reviews": [],
+      "state": "OPEN",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/12"
+    }
+  ]
+}
