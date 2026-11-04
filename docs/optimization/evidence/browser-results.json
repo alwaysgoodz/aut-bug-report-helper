@@ -1,0 +1,552 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\playwright.config.cjs",
+    "rootDir": "F:/COMP/Contemporary Methods in Software Engineering/bug-report-helper/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 180000,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "F:/COMP/Contemporary Methods in Software Engineering/bug-report-helper/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "F:/COMP/Contemporary Methods in Software Engineering/bug-report-helper/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 15000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\tests\\browser",
+        "snapshotDir": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\tests\\browser",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 15000,
+        "use": {
+          "baseURL": "http://127.0.0.1:8780",
+          "browserName": "chromium",
+          "channel": "chrome",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/browser-results.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "\"D:/anaconda/python.exe\" -m tools.e2e_server",
+      "url": "http://127.0.0.1:8780/health",
+      "reuseExistingServer": false,
+      "timeout": 15000,
+      "stdout": "pipe",
+      "stderr": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "workflow.spec.js",
+      "file": "workflow.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "C1: invalid submission retains input, inserts nothing and focuses linked summary",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 917,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Browser under test: 155.0.8059.86\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T02:03:36.176Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-72241df9135498e29d95",
+          "file": "workflow.spec.js",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "C2: create and reload a persisted report without duplicating it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 736,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T02:03:37.471Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-782327dda2a2dfc9a846",
+          "file": "workflow.spec.js",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "C3: status cycle and reopening persist through navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1308,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T02:03:38.221Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-b0af16d035316043c04d",
+          "file": "workflow.spec.js",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "BR-04: live guidance and saved score agree on zero, six and seven fields",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 782,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T02:03:39.543Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-43034990f6dc837a0f54",
+          "file": "workflow.spec.js",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "BR-05: AND filters, no matches and clearing leave stored reports intact",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1832,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T02:03:40.336Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-9b2fe3e6a75a7a7b431c",
+          "file": "workflow.spec.js",
+          "line": 75,
+          "column": 1
+        },
+        {
+          "title": "BR-02: the form can be completed and submitted with the keyboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1290,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T02:03:42.177Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-0bffa8f0bbbc482b4fc3",
+          "file": "workflow.spec.js",
+          "line": 97,
+          "column": 1
+        },
+        {
+          "title": "Responsive layout and escaped HTML remain usable on a narrow screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 785,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T02:03:43.479Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-238ce9fdeec0460b66f1",
+          "file": "workflow.spec.js",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "Shared Unicode whitespace gives consistent live validation and saved completeness",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 891,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T02:03:44.279Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-a98eb8d9cade368d4cef",
+          "file": "workflow.spec.js",
+          "line": 130,
+          "column": 1
+        },
+        {
+          "title": "Missing-information guidance links move focus to the actual form control",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 624,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T02:03:45.184Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-d43fd5421afa4d6ac83c",
+          "file": "workflow.spec.js",
+          "line": 146,
+          "column": 1
+        },
+        {
+          "title": "List, detail and grouped form fit phone, tablet and desktop with readable labels",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2406,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T02:03:45.817Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-e4fb58c689acdf256d6e",
+          "file": "workflow.spec.js",
+          "line": 155,
+          "column": 1
+        },
+        {
+          "title": "Pagination retains filters, exposes every inserted report and resets when a filter is removed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 15000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1639,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T02:03:48.233Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "93da89c2ff21c8134e9c-11887cbea7dde0b987f7",
+          "file": "workflow.spec.js",
+          "line": 182,
+          "column": 1
+        }
+      ],
+      "suites": [
+        {
+          "title": "Native workflow",
+          "file": "workflow.spec.js",
+          "line": 205,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Core creation, stored guidance and status confirmation work without JavaScript",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 15000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 757,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-04T02:03:49.883Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "93da89c2ff21c8134e9c-122f5c0387a7d2d21ad8",
+              "file": "workflow.spec.js",
+              "line": 207,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-04T02:03:35.299Z",
+    "duration": 16435.337,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -151,3 +151,32 @@ class WebTests(unittest.TestCase):
         self.assertIn('id="completeness-score">29%', body)
         self.assertIn('data-field="steps" >', body)
         self.assertIn("Information presence, not correctness", body)
+
+    def test_paginated_http_navigation_preserves_filters_and_reaches_all_records(self):
+        for index in range(30):
+            self.store.create(title=f"HTTP page {index:02d}", severity="high")
+        expected = self.store.list_reports(severity="high", status="Open")
+        observed = []
+        for number in range(1, (len(expected)+24)//25+1):
+            code, _, body = self.request(path=f"/?severity=high&status=Open&page={number}")
+            self.assertEqual(code, 200)
+            ids = re.findall(r'data-report-id="([^"]+)"', body)
+            self.assertLessEqual(len(ids), 25)
+            observed.extend(ids)
+            if number == 1:
+                self.assertIn("severity=high&amp;status=Open&amp;page=2", body)
+        self.assertEqual(observed, [report["id"] for report in expected])
+
+    def test_invalid_page_values_are_errors_and_out_of_range_is_clamped(self):
+        for value in ("0", "-1", "word", "1.5"):
+            with self.subTest(value=value):
+                self.assertEqual(self.request(path="/?page="+value)[0], 400)
+        self.assertEqual(self.request(path="/?page=99999")[0], 200)
+
+    def test_status_success_has_explicit_persisted_feedback(self):
+        report = self.store.create(title="Status feedback", severity="low")
+        code, headers, _ = self.request("POST", f"/reports/{report['id']}/status",
+                                      dict(_csrf=self.server.csrf_token, status="In progress", expected_status="Open"))
+        self.assertEqual(code, 303)
+        _, _, body = self.request(path=headers["Location"])
+        self.assertIn("Status updated to <strong>In progress</strong>", body)

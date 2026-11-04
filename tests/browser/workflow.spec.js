@@ -126,3 +126,93 @@ test('Responsive layout and escaped HTML remain usable on a narrow screen', asyn
   await expect(page.locator('#title')).toBeVisible();
   await expect(page.locator('#completeness-score')).toHaveText('0%');
 });
+
+test('Shared Unicode whitespace gives consistent live validation and saved completeness', async ({ page }) => {
+  await page.goto('/reports/new');
+  await page.locator('#severity').selectOption('high');
+  for (const value of ['\u0085', '\ufeff', '\u001c\u00a0\ufeff']) {
+    await page.locator('#title').fill(value);
+    await expect(page.locator('#completeness-score')).toHaveText('14%');
+  }
+  await page.getByRole('button', { name: 'Create report', exact: true }).click();
+  await expect(page.locator('#form-errors')).toBeFocused();
+  await expect(page.locator('#completeness-score')).toHaveText('14%');
+  await page.locator('#title').fill('\ufeffUnicode boundary report\u0085');
+  await page.getByRole('button', { name: 'Create report', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Unicode boundary report', exact: true })).toBeVisible();
+  await expect(page.locator('#completeness-score')).toHaveText('29%');
+});
+
+test('Missing-information guidance links move focus to the actual form control', async ({ page }) => {
+  await page.goto('/reports/new');
+  await page.locator('#missing-fields a[href="#steps"]').click();
+  await expect(page.locator('#steps')).toBeFocused();
+  await page.keyboard.type('Steps entered from the guidance link');
+  await expect(page.locator('#completeness-score')).toHaveText('14%');
+  await expect(page.locator('#missing-fields li[data-field="steps"]')).toBeHidden();
+});
+
+test('List, detail and grouped form fit phone, tablet and desktop with readable labels', async ({ page }) => {
+  await create(page, 'Responsive acceptance sample');
+  for (const width of [390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await page.goto('/');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    const row = page.locator('tbody tr').first();
+    await expect(row.locator('[data-label="Status"]')).toBeVisible();
+    await expect(row.locator('[data-label="Completeness"]')).toBeVisible();
+    expect(await row.locator('.badge').first().evaluate(el => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(12);
+    await row.locator('.report-title').click();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await expect(page.locator('#status')).toBeVisible();
+    await expect(page.locator('#completeness-score')).toBeVisible();
+    await page.goto('/reports/new');
+    await expect(page.getByRole('heading', { name: 'The issue', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Reproduce it', exact: true })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.locator('#title').evaluate(el => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(16);
+    if (width < 1050) {
+      await expect(page.locator('.guidance-details')).not.toHaveAttribute('open', '');
+      await page.locator('.guidance-details summary').click();
+      await expect(page.locator('#missing-fields li:visible')).toHaveCount(7);
+    }
+  }
+});
+
+test('Pagination retains filters, exposes every inserted report and resets when a filter is removed', async ({ page }) => {
+  await page.goto('/reports/new');
+  const token = await page.locator('input[name="_csrf"]').inputValue();
+  const inserted = [];
+  for (let index = 0; index < 30; index++) {
+    const response = await page.request.post('/reports', { form: { _csrf: token, title: `Pagination sample ${index}`, severity: 'high' } });
+    expect(response.ok()).toBe(true);
+    inserted.push(new URL(response.url()).pathname.split('/')[2]);
+  }
+  await page.goto('/?severity=high&status=Open');
+  await expect(page.locator('tbody tr')).toHaveCount(25);
+  const first = await page.locator('tbody tr').evaluateAll(rows => rows.map(row => row.dataset.reportId));
+  await page.getByRole('link', { name: 'Next →', exact: true }).click();
+  await expect(page).toHaveURL(/severity=high&status=Open&page=2/);
+  const second = await page.locator('tbody tr').evaluateAll(rows => rows.map(row => row.dataset.reportId));
+  expect(new Set([...first, ...second]).size).toBe(first.length + second.length);
+  expect(inserted.every(id => first.includes(id) || second.includes(id))).toBe(true);
+  await page.getByRole('link', { name: 'Remove severity filter: high', exact: true }).click();
+  await expect(page).toHaveURL(/\/?status=Open$/);
+  await expect(page.locator('#filter-severity')).toHaveValue('');
+  await expect(page.locator('.pagination')).toContainText('Page 1');
+});
+
+test.describe('Native workflow', () => {
+  test.use({ javaScriptEnabled: false });
+  test('Core creation, stored guidance and status confirmation work without JavaScript', async ({ page }) => {
+    await page.goto('/reports/new');
+    await page.locator('#title').fill('Native form acceptance');
+    await page.locator('#severity').selectOption('high');
+    await page.getByRole('button', { name: 'Create report', exact: true }).click();
+    await expect(page.getByRole('heading', { name: 'Native form acceptance', exact: true })).toBeVisible();
+    await expect(page.locator('#completeness-score')).toHaveText('29%');
+    await page.locator('#status').selectOption('In progress');
+    await page.getByRole('button', { name: 'Update status', exact: true }).click();
+    await expect(page.locator('.notice')).toContainText('Status updated to In progress');
+  });
+});

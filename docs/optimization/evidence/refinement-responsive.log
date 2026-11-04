@@ -1,0 +1,60 @@
+
+> aut-bug-report-helper-checks@0.1.0 test:browser
+> playwright test --grep List, detail
+
+[WebServer] Bug Report Helper: http://127.0.0.1:8780
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:13] "GET /health HTTP/1.1" 200 -
+
+Running 1 test using 1 worker
+
+(node:31888) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Browser under test: 155.0.8059.86
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "POST /reports HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /reports/57ffd7ff-0e45-464c-af22-ad8de1e65eb2?created=1 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /reports/57ffd7ff-0e45-464c-af22-ad8de1e65eb2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:15] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /reports/57ffd7ff-0e45-464c-af22-ad8de1e65eb2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /reports/57ffd7ff-0e45-464c-af22-ad8de1e65eb2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /reports/new HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [04/Nov/2026 10:03:16] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok 1 tests\browser\workflow.spec.js:155:1 › List, detail and grouped form fit phone, tablet and desktop with readable labels (2.1s)
+
+  1 passed (4.3s)

@@ -1,5 +1,5 @@
 """BR-04: deterministic information-presence guidance, not a quality predictor."""
-from .service import FIELDS, SEVERITIES
+from .service import FIELDS, SEVERITIES, has_text
 
 GUIDANCE = {
     "title": "Summarise one observable problem, for example: Login opens a blank page.",
@@ -16,7 +16,7 @@ def completeness(report) -> dict:
     missing = []
     for field in FIELDS:
         value = report.get(field, "")
-        present = isinstance(value, str) and bool(value.strip())
+        present = has_text(value)
         if field == "severity":
             present = isinstance(value, str) and value in SEVERITIES
         if not present:
