@@ -1,0 +1,14 @@
+{
+  "kind": "manual browser spot check using a synthetic local report",
+  "viewport": { "width": 320, "height": 700 },
+  "observed_at_submit": {
+    "fits": true,
+    "document_width": 305,
+    "viewport_width": 320,
+    "label": "Saving report…",
+    "disabled": true
+  },
+  "request": "Intercepted, delayed 350ms and deliberately aborted; not participant evidence.",
+  "browser": "Installed Chrome; the 15px difference is the desktop scrollbar.",
+  "limit": "One narrow-width spot check, supplementary to the complete browser regression."
+}

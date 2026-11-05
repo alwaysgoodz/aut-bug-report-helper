@@ -2,7 +2,7 @@
 
 Verified 2026-11-04 (Asia/Shanghai). Repository: [alwaysgoodz/aut-bug-report-helper](https://github.com/alwaysgoodz/aut-bug-report-helper), private. Owner must give the actual teammates and assessor access. A 404 to other viewers may mean missing permission.
 
-For the subsequent application and UI changes, see the [current refinement evidence index](optimization/README.md). This table preserves the original A1 workflow evidence.
+For the subsequent application and UI changes, see [UX-01 interaction-motion evidence](interaction-motion/README.md) and the [earlier refinement evidence index](optimization/README.md). This table preserves the original A1 workflow evidence.
 
 | Evidence | Link / identifier | Verified meaning and limits |
 | --- | --- | --- |
