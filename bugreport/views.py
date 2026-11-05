@@ -135,7 +135,7 @@ def completeness_card(values, *, live=False):
     suggestions = ''.join(f'<li data-field="{field}" {"hidden" if field not in assessment["missing"] else ""}><a class="guidance-link" href="#{"" if live else "detail-"}{field}"><strong>{LABELS[field]}</strong>{icon("arrow")}</a><span>{GUIDANCE[field]}</span></li>' for field in FIELDS)
     output = f'<output id="completeness-score" for="{" ".join(FIELDS)}" aria-live="polite">{assessment["score"]}%</output>' if live else f'<strong id="completeness-score">{assessment["score"]}%</strong>'
     return f'''<section class="panel completeness-card" aria-labelledby="completeness-heading"><p class="eyebrow">A LITTLE CONTEXT GOES A LONG WAY</p><h2 id="completeness-heading">Report completeness</h2><div class="score-line">{output}<span id="completeness-count">{assessment['completed']} of 7 fields</span></div>
-<progress id="completeness-progress" max="100" value="{assessment['score']}" aria-label="Report completeness"></progress><p class="score-disclaimer">Information presence, not correctness. A complete report may still need clarification.</p>
+<div class="completion-track"><progress id="completeness-progress" max="100" value="{assessment['score']}" aria-label="Report completeness"></progress></div><p class="score-disclaimer">Information presence, not correctness. A complete report may still need clarification.</p>
 <details class="guidance-details" open><summary><span>What to add</span><span id="missing-count">{len(assessment['missing'])} missing</span></summary><ul class="guidance-list" id="missing-fields">{suggestions}</ul><p id="guidance-complete" {"hidden" if assessment['missing'] else ""}>All seven fields are present. Check that your steps reproduce the problem.</p></details>
 {'<p class="muted-note">Updates as you type. Optional information will not block submission.</p>' if live else ''}</section>'''
 
@@ -172,7 +172,7 @@ def report_form(token, total, values=None, errors=None):
     content = f'''<a class="back-link" href="/">← Back to reports</a><div class="page-heading"><div><p class="eyebrow">CAPTURE AN ISSUE</p><h1>New report</h1><p class="subtitle">Give your team the details they need to reproduce it.</p></div></div>
 <div class="editor-layout form-page"><section class="panel form-panel"><div class="panel-heading"><h2>Describe the issue</h2><p>Only title and severity are required. You can still submit an incomplete report.</p></div>
 <form action="/reports" method="post" class="report-form" data-completeness data-blank-codepoints="{blanks}" novalidate><input type="hidden" name="_csrf" value="{e(token)}">{error_summary(errors)}{sections}
-<div class="form-actions"><a class="button secondary" href="/">Cancel</a><button type="submit" class="button primary">{icon('plus')}Create report</button></div></form></section>
+<div class="form-actions"><a class="button secondary" href="/">Cancel</a><button type="submit" class="button primary" data-busy-label="Saving report…">{icon('plus')}Create report</button></div></form></section>
 <aside class="editor-aside">{completeness_card(values, live=True)}<p class="privacy-note">Use synthetic examples. Keep passwords and personal information out of your report.</p></aside></div>'''
     return shell("New report", content, total, "new")
 
@@ -193,7 +193,7 @@ def report_detail(report, token, total, *, created=False, updated=False, error="
     content = f'''<a class="back-link" href="{e(back_path)}">← Back to {'filtered reports' if context.get('severity') or context.get('status') else 'reports'}</a><div class="page-heading"><div><p class="eyebrow">REPORT DETAILS</p><h1 class="detail-title">{e(report['title'])}</h1><div class="detail-badges">{badge(report['severity'], 'severity')}{badge(report['status'], 'status')}</div></div></div>{notice}
 <div class="editor-layout"><article class="panel detail-panel">{blocks}</article><aside class="editor-aside"><section class="panel status-card"><h2>Move the work forward</h2><p>Update the status when your team has made progress.</p>
 <form action="{e(status_path)}" method="post"><input type="hidden" name="_csrf" value="{e(token)}"><input type="hidden" name="expected_status" value="{e(report['status'])}">
-<label for="status">Status</label><p class="field-help" id="status-help">Choose a new status before updating.</p><select id="status" name="status" aria-describedby="status-help">{options}</select><button type="submit" class="button primary full-width">Update status{icon('arrow')}</button></form>
+<label for="status">Status</label><p class="field-help" id="status-help">Choose a new status before updating.</p><select id="status" name="status" aria-describedby="status-help">{options}</select><button type="submit" class="button primary full-width" data-busy-label="Updating status…">Update status{icon('arrow')}</button></form>
 <p class="muted-note">Open → In progress → Resolved.<br>Resolved reports can be reopened.</p></section>{completeness_card(report)}<section class="metadata"><h2>Report information</h2><dl><dt>Created</dt><dd>{date_label(report['created_at'])}</dd><dt>Reference</dt><dd class="reference">{e(report['id'])}</dd></dl></section></aside></div>'''
     return shell(report["title"], content, total)
 

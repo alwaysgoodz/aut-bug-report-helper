@@ -4,7 +4,7 @@ AUT Contemporary Methods in Software Engineering, Assignments 1 and 2. A small s
 
 ## Current implementation
 
-The preparation branch, `feat/team-study-preparation`, fixes Unicode title truncation, valid form-size rejection, crowded headers and clipped guidance. Follow-up fixes synchronise guidance after browser Back, preserve filtered page context through detail/status navigation and reject null input with field feedback. It retains the responsive dashboard, grouped form, mobile cards, 25-report pages and BR-01–05 functionality. Incomplete optional information remains savable. Completeness measures information presence, not factual quality. Team names, equal workload allocation, discussion drafts and the peer-study tool are ready in [team preparation](docs/team/work-allocation.zh-CN.md) and [study protocol](docs/peer-study/README.md). No real participant outcomes or completed contributions are inferred. See [current navigation/input evidence](docs/navigation-review/README.md), [earlier UI fixes](docs/ui-review/README.md) and [A1/A2 gap audit (Chinese)](docs/assessment-audit.zh-CN.md).
+The current branch, `feat/interaction-motion`, adds restrained page/feedback motion, smoothly retargeted completeness, clear saving/applying states, current-section focus and status-transition previews. Motion respects initial and live reduced-motion preferences; native forms work without JavaScript. See the [UX-01 checks and evidence](docs/interaction-motion/README.md). It retains the previous Unicode/input fixes, history restoration, filtered navigation, responsive dashboard, grouped form, mobile cards, 25-report pages and BR-01–05 functionality. Incomplete optional information remains savable. Completeness measures information presence, not factual quality. Team names, equal workload allocation, discussion drafts and the peer-study tool are ready in [team preparation](docs/team/work-allocation.zh-CN.md) and [study protocol](docs/peer-study/README.md). No real participant outcomes or completed contributions are inferred. See [navigation/input evidence](docs/navigation-review/README.md), [earlier UI fixes](docs/ui-review/README.md) and [A1/A2 gap audit (Chinese)](docs/assessment-audit.zh-CN.md).
 
 `main`, A1, I1 and the original I2 snapshot remain preserved pending independent teammate review; this is not yet a final reviewed submission.
 
@@ -15,7 +15,7 @@ Application and Python tests require Python 3.11 or 3.12 with SQLite (standard l
 ```powershell
 git clone https://github.com/alwaysgoodz/aut-bug-report-helper.git
 cd aut-bug-report-helper
-git switch feat/team-study-preparation
+git switch feat/interaction-motion
 python --version
 python -m unittest discover -s tests -v
 python -m compileall -q bugreport tests tools
@@ -23,7 +23,7 @@ python -m compileall -q bugreport tests tools
 
 On Windows, replace `python` with a verified Python executable if an alias opens Microsoft Store. To evaluate an open PR, check out its documented branch/commit before testing. `main` remains the scaffold until a teammate independently reviews the feature.
 
-For the complete preparation package use `git checkout team-study-ready-v0.1`. Software candidate `a2-review-v0.4` and earlier snapshots are preserved. Updated A1/A2 report drafts include the supplied names, intentionally blank IDs/accounts, planned 25% shares and explicit uncompleted human activities. A2 distinguishes current v0.4 application checks from historical I1/I2 and latency conditions. Final assessment submission requires real team approval.
+For the earlier complete preparation package use `git checkout team-study-ready-v0.1`; UX-01 is a subsequent interface change. Software candidate `a2-review-v0.4` and earlier snapshots are preserved. Updated A1/A2 report drafts include the supplied names, intentionally blank IDs/accounts, planned 25% shares and explicit uncompleted human activities. A2 distinguishes its v0.4 application checks from historical I1/I2 and latency conditions. Final assessment submission requires real team approval.
 
 ## CLI commands (same service as the browser)
 
@@ -64,9 +64,9 @@ python -m tools.measure_quality --output tmp/performance-recheck.json
 
 For a Windows Python alias problem, set `$env:BUGREPORT_PYTHON='D:/anaconda/python.exe'` before the browser commands (replace with your verified executable). If a browser download fails and Google Chrome is installed, set `$env:BUGREPORT_BROWSER_CHANNEL='chrome'`; record that browser version. Default CI uses Playwright's downloaded Chromium, not this fallback. The app itself never needs a browser download.
 
-The browser runner uses temporary databases on ports 8780 (application) and 8790 (test-only study tool), separate from your previews. Eighteen scenarios comprise 16 application regressions and two explicitly simulated study-pilot checks. Python discovery finds 73 tests: 72 functional checks (58 application/transport, 14 study-tool) pass locally and one CI-only bridge is skipped. HTML results are in `playwright-report`, raw JSON in `test-results/browser-results.json`. Simulated consent/reports are never copied into the real study directory.
+The browser runner uses temporary databases on ports 8780 (application) and 8790 (test-only study tool), separate from your previews. Twenty-two scenarios comprise 16 earlier application regressions, four UX-01 scenarios and two explicitly simulated study-pilot checks. Python discovery finds 73 tests: 72 functional checks (58 application/transport, 14 study-tool) pass locally and one CI-only bridge is skipped. HTML results are in `playwright-report`, raw JSON in `test-results/browser-results.json`. Simulated consent/reports are never copied into the real study directory.
 
-The existing Actions workflow runs Python 3.11 and 3.12. Its Python 3.12 job also invokes the eighteen browser checks through `tests/test_browser_ci.py`; the bridge is skipped in local unittest/3.11 runs. This preserves the shared workflow because the current OAuth token cannot modify workflow files. CI logs print browser version, individual results and `CI_BROWSER_SUMMARY`; snapshots are preserved in the evidence index. Node.js 22 or newer must be present on that Ubuntu runner. A separate browser job would be preferable when workflow-write permission is available.
+The existing Actions workflow runs Python 3.11 and 3.12. Its Python 3.12 job also invokes the 22 browser checks through `tests/test_browser_ci.py`; the bridge is skipped in local unittest/3.11 runs. This preserves the shared workflow because the current OAuth token cannot modify workflow files. CI logs print browser version, individual results and `CI_BROWSER_SUMMARY`; snapshots are preserved in the evidence index. Node.js 22 or newer must be present on that Ubuntu runner. A separate browser job would be preferable when workflow-write permission is available.
 
 The historical mutation experiment deliberately disables one error-focus statement, verifies C1 fails at the focus assertion, and restores the original bytes in `finally`. Its expected mutant failure is evidence, not a failing delivered build. The current performance helper measures 50 full-body requests rotating over 20 pages after five warmups on 500 synthetic reports, audits every ID and records source hashes. Each response contains 25 reports, so its latency is not directly comparable with the historical 500-row response. See the [refinement measurement plan](docs/optimization/plan.md), original [quality plan](docs/a2/quality-plan.md) and [process improvement plan](docs/a2/process-improvement-plan.md). Write rechecks to `tmp` to preserve archived evidence.
 
