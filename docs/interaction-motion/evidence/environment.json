@@ -1,0 +1,78 @@
+{
+  "observed_at": "2026-11-05T01:07:14.054768+00:00",
+  "software": {
+    "git_sha": "2e9eb1551633985c7e23fdb012b3a9e00e4df0a0",
+    "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+    "sqlite": "3.51.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "source_sha256": {
+      "bugreport/__init__.py": "87cc6755e2548684f81caf33d1c5d86e0711710fac90c728e5b7e77b383b054c",
+      "bugreport/__main__.py": "52da23ae9855a66ec97ca2cd1bc5ac8bc0a8a99531cbf9f688326cd5827123fe",
+      "bugreport/rules.py": "08f20f8864fb2a462cd9778944f4bc52b866fa6bbdfb1e0add3805671dfe1cea",
+      "bugreport/service.py": "ff6664fde9516a976f18f3a5712f47c181cc0514b4dc1b3810611a1e43b7af5b",
+      "bugreport/static/app.css": "b825c7a4d1bda60830127c7d764a2066876976a4251dd681b90b1e2b6a86e608",
+      "bugreport/static/app.js": "995a07d9da3ff2afbfd6c3da6791aebb1845326f70c8233500f2b13131907f96",
+      "bugreport/static/mark.svg": "4a8d77eae49e40eaa7c14a9f3cc0a89279fe27fa8191e0e82b13a8975d81da9f",
+      "bugreport/views.py": "2d6546bef3f890c272d1ee5a5b07df578cca0a84c660948903af44fda4623a7c",
+      "bugreport/web.py": "3db160a54792aa300fcdb8c8b16b4ef384dca3c116d6081f7f6b573210698b6c",
+      "tools/peer_study.py": "e5799fff297ce5c6e9975b3b3e188fc086e7877a6f001bb59d9ccd4492c51ded"
+    }
+  },
+  "browser": "Chrome 155.0.8059.86; installed channel; retries=0",
+  "node": "v22.22.1",
+  "application_git_blobs_match": {
+    "bugreport/__init__.py": true,
+    "bugreport/__main__.py": true,
+    "bugreport/rules.py": true,
+    "bugreport/service.py": true,
+    "bugreport/static/app.css": true,
+    "bugreport/static/app.js": true,
+    "bugreport/static/mark.svg": true,
+    "bugreport/views.py": true,
+    "bugreport/web.py": true,
+    "tools/peer_study.py": true
+  },
+  "real_study_software": {
+    "git_sha": "2e9eb1551633985c7e23fdb012b3a9e00e4df0a0",
+    "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+    "sqlite": "3.51.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "source_sha256": {
+      "bugreport/__init__.py": "87cc6755e2548684f81caf33d1c5d86e0711710fac90c728e5b7e77b383b054c",
+      "bugreport/__main__.py": "52da23ae9855a66ec97ca2cd1bc5ac8bc0a8a99531cbf9f688326cd5827123fe",
+      "bugreport/rules.py": "08f20f8864fb2a462cd9778944f4bc52b866fa6bbdfb1e0add3805671dfe1cea",
+      "bugreport/service.py": "ff6664fde9516a976f18f3a5712f47c181cc0514b4dc1b3810611a1e43b7af5b",
+      "bugreport/static/app.css": "b825c7a4d1bda60830127c7d764a2066876976a4251dd681b90b1e2b6a86e608",
+      "bugreport/static/app.js": "995a07d9da3ff2afbfd6c3da6791aebb1845326f70c8233500f2b13131907f96",
+      "bugreport/static/mark.svg": "4a8d77eae49e40eaa7c14a9f3cc0a89279fe27fa8191e0e82b13a8975d81da9f",
+      "bugreport/views.py": "2d6546bef3f890c272d1ee5a5b07df578cca0a84c660948903af44fda4623a7c",
+      "bugreport/web.py": "3db160a54792aa300fcdb8c8b16b4ef384dca3c116d6081f7f6b573210698b6c",
+      "tools/peer_study.py": "e5799fff297ce5c6e9975b3b3e188fc086e7877a6f001bb59d9ccd4492c51ded"
+    }
+  },
+  "real_study_summary": {
+    "test_only": false,
+    "consenting": 0,
+    "submitted": 0,
+    "reviewed": 0,
+    "complete_pairs": 0,
+    "human_study_complete": false,
+    "pairs": [],
+    "aggregate": {
+      "baseline": {
+        "n": 0,
+        "median_seconds": null,
+        "median_completeness": null,
+        "independent_successes": 0
+      },
+      "guided": {
+        "n": 0,
+        "median_seconds": null,
+        "median_completeness": null,
+        "independent_successes": 0
+      }
+    },
+    "limits": "Four-person convenience sample; descriptive paired results only. Incomplete/repeated/interrupted pairs excluded. Report format may reveal condition to reviewers."
+  },
+  "limits": "Technical preparation only; no actual consent or reports. Original study-ready tag and v0.4 PDFs retained."
+}

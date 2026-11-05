@@ -1,6 +1,6 @@
 # UX-01: interaction feedback and accessible motion
 
-The owner requested further usability optimisation and dynamic effects. [Issue #18](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/18) records the acceptance criteria for this follow-up. It was opened during implementation, not presented as an earlier team decision. The change is stacked on the named-team preparation branch and awaits independent review.
+The owner requested further usability optimisation and dynamic effects. [Issue #18](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/18) records the acceptance criteria for this follow-up. It was opened during implementation, not presented as an earlier team decision. [Draft PR #19](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/19) is stacked on the named-team preparation branch and awaits independent review. Tested implementation: [2e9eb1551633985c7e23fdb012b3a9e00e4df0a0](https://github.com/alwaysgoodz/aut-bug-report-helper/commit/2e9eb1551633985c7e23fdb012b3a9e00e4df0a0); fixed review package: `ux-motion-v0.1`.
 
 ## What changed and why
 
@@ -22,13 +22,16 @@ Reduced-motion preferences disable CSS animations/transitions and cancel JavaScr
 | Reduced motion | Phone viewport, initial reduced preference and live switch: zero running animations, accurate progress, working keyboard disclosure and no horizontal overflow. |
 | Full browser regression | [Log](evidence/browser.log), [raw JSON](evidence/browser-results.json): **22 pass**, 0 unexpected/skipped/flaky outcomes, no retry. Includes 16 earlier app scenarios, four UX-01 scenarios and two explicitly test-only study pilots. |
 | Python checks | [Log](evidence/python.log): **72 functional pass / 73 discovered**; local CI-only browser bridge skipped once. Includes 14 study-tool checks. |
+| Remote CI | [Run 41946179463](https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41946179463), [metadata](evidence/implementation-ci.json), [log](evidence/implementation-ci.log): Python 3.11/3.12 pass; the 3.12 bridge runs all 22 Chromium scenarios with 0 unexpected/skipped/flaky results. |
+| Source and real-study readiness | [Environment](evidence/environment.json): tested source hashes match committed Git blobs; the empty real cohort was restarted on implementation 2e9eb15 with matching source fingerprints, 0/4 participants and no fabricated results. |
 | Visual inspection | [Before](evidence/before.png), [desktop](evidence/desktop.png), [phone](evidence/phone.png): actual local browser screenshots. Desktop 1440×1000, phone 390×844; fields and score remain readable. Screenshots show settled states, not proof of animation timing. |
+| Narrow pending state | [Browser observation](evidence/narrow-pending.json): at 320px the saving label and disabled button fit without horizontal overflow. The synthetic request was deliberately aborted; no human report was collected. |
 | Static checks | `node --check bugreport/static/app.js`, `python -m compileall -q bugreport tests tools`, `git diff --check`. |
 
 Initial test-harness attempts read an in-progress focus colour too soon or tried to query a document while native navigation was pending. The final tests wait for the final colour and capture pending feedback synchronously at the real submit event, then release a held network response. Those attempts are not product failures counted as passes. Exploratory logs remain under ignored `tmp`; the table links the complete final regression.
 
 ## Version and assessment limits
 
-The earlier `team-study-ready-v0.1` tag preserves its original guided condition and the existing A1/A2 PDFs retain their stated v0.4 scope. This UI change affects the guided condition; do not combine outcomes collected on different sources. The real local cohort had no participants or trials and its server was paused before editing source. Restart the empty cohort on the committed UX version and retain its source fingerprint before recruitment. A non-empty dataset must retain its original source or use a separate cohort.
+The earlier `team-study-ready-v0.1` tag preserves its original guided condition and the existing A1/A2 PDFs retain their stated v0.4 scope. This UI change affects the guided condition; do not combine outcomes collected on different sources. The real local cohort had no participants or trials and its server was paused before editing source. It was restarted empty on committed implementation 2e9eb15, with its source fingerprint recorded before recruitment. A non-empty dataset must retain its original source or use a separate cohort.
 
 This remains preparation and technical verification, not human product-evaluation results, student contributions or a completed independent review. No improvements in task completion time or user satisfaction are claimed. Movement was checked in local Chrome and the CI Chromium target; other browser engines have not been verified.
