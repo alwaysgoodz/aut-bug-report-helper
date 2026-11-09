@@ -1,14 +1,14 @@
 {
-  "whitespace_words": 1269,
-  "conservative_tokens": 1325,
+  "whitespace_words": 1256,
+  "conservative_tokens": 1324,
   "includes": "All main headings, paragraphs, table captions/headers/cells, figure caption/labels, in-text citations and contribution statements",
   "excludes": "Cover page, reference list and supporting appendix; recurring page furniture",
   "limit": 1500,
   "by_section": {
-    "1. Project definition and boundaries": 202,
-    "2. Comparison and justified selection": 345,
-    "3. Iterations, design and risk": 452,
-    "4. Workflow trial and individual contributions": 270
+    "1. Project definition and scope": 167,
+    "2. Comparison and justified method selection": 386,
+    "3. Prioritised plan, design and risks": 452,
+    "4. Workflow trial and individual contributions": 251
   },
-  "reserve_under_conservative_count": 175
+  "reserve_under_conservative_count": 176
 }

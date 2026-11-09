@@ -1,0 +1,118 @@
+{
+  "verified_at": "2026-11-09T22:53:28.425860+08:00",
+  "assessment_code_reference": "03fb9c5e41f80026c0ec66c28a92b09ed6f1251e",
+  "local_environment": {
+    "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "checks": [
+    {
+      "name": "acceptance",
+      "command": [
+        "D:\\anaconda\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "compile",
+      "command": [
+        "D:\\anaconda\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "bugreport",
+        "tests"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/alwaysgoodz/aut-bug-report-helper",
+    "private": false,
+    "default_branch": "main"
+  },
+  "requirement": {
+    "number": 1,
+    "title": "BR-01: Create and persist a structured bug report",
+    "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/1",
+    "created_at": "2026-11-03T16:20:51Z",
+    "state": "open"
+  },
+  "pull_request": {
+    "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7",
+    "state": "open",
+    "draft": true,
+    "head_sha": "03fb9c5e41f80026c0ec66c28a92b09ed6f1251e",
+    "merged": false
+  },
+  "reviews": [
+    {
+      "author": "fadeout12",
+      "state": "APPROVED",
+      "body": "",
+      "submitted_at": "2026-11-06T06:11:38Z",
+      "commit_id": "03fb9c5e41f80026c0ec66c28a92b09ed6f1251e",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7#pullrequestreview-5796447154"
+    }
+  ],
+  "inline_review_comment_count": 0,
+  "discussion_comment_count": 0,
+  "ci": {
+    "id": 41675675123,
+    "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41675675123",
+    "head_sha": "03fb9c5e41f80026c0ec66c28a92b09ed6f1251e",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-03T16:35:00Z"
+  },
+  "ci_jobs": [
+    {
+      "name": "test (3.11)",
+      "conclusion": "success",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41675675123/job/126055506327"
+    },
+    {
+      "name": "test (3.12)",
+      "conclusion": "success",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41675675123/job/126055506531"
+    }
+  ],
+  "unauthenticated_access": [
+    {
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper",
+      "status": 200,
+      "final_url": "https://github.com/alwaysgoodz/aut-bug-report-helper"
+    },
+    {
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/1",
+      "status": 200,
+      "final_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/1"
+    },
+    {
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7",
+      "status": 200,
+      "final_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7"
+    },
+    {
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41675675123",
+      "status": 200,
+      "final_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41675675123"
+    },
+    {
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/blob/03fb9c5e41f80026c0ec66c28a92b09ed6f1251e/README.md",
+      "status": 200,
+      "final_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/blob/03fb9c5e41f80026c0ec66c28a92b09ed6f1251e/README.md"
+    }
+  ],
+  "limits": [
+    "Approval has an empty body; no substantive review finding or reviewer test is established.",
+    "Reviewer-to-member mapping and individual contributions require human confirmation.",
+    "This verifier is AI-assisted execution, not an independent teammate test."
+  ]
+}

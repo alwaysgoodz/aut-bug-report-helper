@@ -1,102 +1,110 @@
 {
   "title": "Structured Bug Report Helper",
-  "subtitle": "Collaborative methods, project plan and workflow trial",
+  "subtitle": "Project definition, method selection and collaborative workflow trial",
+  "verified_date": "9 November 2026",
+  "code_reference": "03fb9c5e41f80026c0ec66c28a92b09ed6f1251e",
+  "cover_notice": "Assessment draft: student IDs and GitHub accounts are intentionally blank. Individual tasks are allocated; completed contribution records and substantive review details remain to be confirmed.",
   "sections": [
     {
-      "heading": "1. Project definition and boundaries",
+      "heading": "1. Project definition and scope",
       "paragraphs": [
-        "Vague defect reports force developers to request clarification before debugging. This lecturer-approved project helps small student software teams supply consistent information. Bettenburg et al. (2008) identified a mismatch between developers' information needs and reporters' submissions; Soltani et al. (2020) provide further evidence for the value of reproduction information. These studies motivate the design; benefits for our team remain unmeasured.",
-        "Reporters need clear prompts; developers need reproducible descriptions; team leaders need visible progress; testers need expected and actual outcomes; the instructor needs credible process evidence. Iteration 1 covers creation, viewing and status updates for reports containing title, description, reproduction steps, expected behaviour, actual behaviour, environment and severity. Iteration 2 adds completeness scoring, missing-information guidance and filtering. AI diagnosis, automatic fixes, external tracker integration, mobile apps and advanced analytics are excluded.",
-        "Constraints are four members, limited availability, two short iterations and a local single-instance prototype using synthetic data. Requirements may change after feedback; shared storage changes can conflict; incomplete or misleading descriptions threaten quality. The plan therefore combines reprioritisation, controlled integration and acceptance evidence. The shared development repository does not imply a remotely shared application database. No existing application code is imported; Python's standard library supplies storage and tests."
+        "Incomplete bug reports create clarification work before debugging. Bettenburg et al. (2008) found mismatches between developers' information needs and reporters' submissions. Our helper prompts student teams for reproducible descriptions; reduced clarification is the intended value, to be evaluated rather than assumed. Topic approval was confirmed by the repository owner; no approval record is attached.",
+        "Reporters need understandable prompts, developers need reproduction details, testers need expected/actual outcomes, team leads need status visibility, and the lecturer needs traceable assessment evidence. Scope is seven fields (title, description, steps, expected behaviour, actual behaviour, environment, severity), local persistence, listing/status changes, completeness guidance and filtering. Authentication, public hosting, AI diagnosis, attachments and external tracker integration are excluded.",
+        "Four members, two short iterations and limited availability constrain delivery. Three engineering issues drive our choices: evolving guidance requirements, conflicting service/schema changes, and misleading or incomplete reports. The product is a single-instance local prototype; the shared repository coordinates development. No existing application code was imported; Python/SQLite and acknowledged research are reused."
       ]
     },
     {
-      "heading": "2. Comparison and justified selection",
+      "heading": "2. Comparison and justified method selection",
       "paragraphs": [
-        "Compare lifecycle organisation separately from collaboration practices: iterative-incremental development can support either planned or agile working (Larman & Basili, 2003). Table 1 assesses alternatives against this project's uncertainty, coordination cost and quality needs."
+        "We compare plan-driven development with iterative-incremental development using agile practices against the same criteria (Table 1). Iteration describes repeated development and delivery; agile adds feedback and adaptation, so the labels are not mutually exclusive (Larman & Basili, 2003)."
       ],
       "table": {
-        "caption": "Table 1. Development options in the project context",
+        "caption": "Table 1. Alternatives under the project constraints",
         "headers": [
-          "Option",
-          "Merits",
-          "Cost and contextual fit"
+          "Decision factor",
+          "Plan-driven approach",
+          "Iterative-incremental with agile practices"
         ],
         "rows": [
           [
-            "Plan-driven baseline",
-            "Up-front field definitions, responsibilities and verification plans improve predictability and traceability.",
-            "Freezing guidance before users try it risks rework. Useful for stable storage contracts; excessive detailed planning would consume scarce implementation time."
+            "Requirement change",
+            "Baseline fields and approve changes: predictable scope, but early guidance assumptions may cause rework.",
+            "Demonstrate reporting before guidance; reprioritise feedback between increments. Changes still consume fixed capacity."
           ],
           [
-            "Iterative-incremental lifecycle",
-            "An operational reporting increment exposes usability assumptions before guidance is added; feedback informs the next increment.",
-            "Repeated integration and regression testing cost time. Iteration alone does not guarantee collaboration, review or responsiveness."
+            "Coordination",
+            "Documented responsibilities and interfaces support handovers; sequential work can delay integration feedback.",
+            "Shared backlog, short branches and frequent integration expose conflicts early; require reviewer availability."
           ],
           [
-            "Agile practices within increments",
-            "Prioritised stories, frequent feedback, short branches and retrospectives make uncertainty and blockers visible.",
-            "Needs available stakeholders and disciplined decisions. Uncontrolled reprioritisation or ceremonial meetings could undermine the fixed scope."
+            "Quality assurance",
+            "Up-front verification and traceability suit stable, consequential requirements; late user validation can miss usability problems.",
+            "Acceptance checks and reviews accompany each increment; repeated regression costs time and does not guarantee useful feedback."
+          ],
+          [
+            "Delivery effort",
+            "Detailed baselines are useful for storage contracts; comprehensive documentation competes with the small implementation budget.",
+            "Small working slices permit early learning; full framework ceremonies would be disproportionate for four people."
           ]
         ]
       },
       "after": [
-        "We select two timeboxed increments with lightweight agile practices and explicit acceptance criteria. This preserves a feasible baseline while allowing feedback to change guidance rather than reopening every requirement. Boehm and Turner (2003) support balancing practices according to risk. Dybå and Dingsøyr's (2008) review reports limited, context-dependent evidence, largely concerning early XP adoption; it cannot establish that agile universally outperforms alternatives. Our choice follows the project's small size, low criticality and uncertain usability, rather than an assumed productivity advantage.",
-        "Code review and CI address specific integration and quality risks. McIntosh et al. (2014) associate review participation with quality in large open-source systems; this observational finding supports substantive discussion, without predicting our defect reduction. Elazhary et al. (2022) show that CI practices vary by context and can introduce feedback delays; our pipeline therefore stays small and reproducible.",
-        "For a distributed team, retain increments but add asynchronous decision records, explicit handovers and agreed review windows, drawing cautiously on Camara et al.'s (2024) large-scale review. For a regulated system, increase risk analysis, requirement-test traceability and formal approval evidence while retaining feedback cycles (Boehm & Turner, 2003). Neither context warrants choosing a method by label alone."
+        "We select two timeboxed increments, retaining a field contract and testable acceptance baseline while adapting guidance after demonstration. Boehm and Turner's (2003) risk framework supports this balance: small size, low criticality and uncertain usability favour feedback, while shared persistence needs deliberate design. Scope changes enter the backlog; only urgent defects interrupt an increment. We use prioritisation, reviews and retrospectives without claiming full Scrum adoption.",
+        "Research supports a conditional choice. Dybå and Dingsøyr's (2008) systematic review found limited empirical evidence, dominated by early XP studies; it cannot establish universal agile superiority. McIntosh et al. (2014) associate review participation with quality in large open-source systems, supporting substantive review rather than approval counts; causality and transfer to four students remain uncertain. Elazhary et al.'s (2022) three-company study shows CI implementation varies and can constrain feedback. Consequently, our pipeline checks acceptance and compilation on two Python versions; human review examines intent and omissions.",
+        "A distributed team would retain increments but add asynchronous decision records, explicit handovers and agreed review windows. Camara et al.'s (2024) distributed large-scale review supports tailoring, although its scale limits direct transfer. A regulated system would require stronger hazard analysis, requirement-test traceability and documented approvals; feedback cycles could remain, with more plan-driven assurance (Boehm & Turner, 2003)."
       ]
     },
     {
-      "heading": "3. Iterations, design and risk",
+      "heading": "3. Prioritised plan, design and risks",
       "paragraphs": [
-        "A/B/C/D map to the named members on the title page: A owns requirements and feedback, B browser interaction, C service/storage, and D testing/CI. Table 2 assigns author/reviewer pairs; estimates are person-hours. Dependencies follow the listed sequence."
+        "A/B/C/D map to the named members on the title page: requirements, interaction, service/storage and testing/CI respectively. Table 2 gives proposed author/reviewer pairs and person-hour estimates; BR-01 is the A1 trial reused in A2. Hours are team effort; owners do not work alone."
       ],
       "table": {
-        "caption": "Table 2. Prioritised backlog and acceptance criteria",
+        "caption": "Table 2. Backlog and testable acceptance criteria (E1)",
         "headers": [
           "Item / priority",
-          "Acceptance evidence",
-          "Iteration; hours; owner/reviewer"
+          "Acceptance criteria",
+          "Iteration; hours; author/reviewer"
         ],
         "rows": [
           [
             "BR-01 / Must",
-            "Persist seven fields, unique ID, UTC time and Open status. Reject blank title or invalid severity without inserts; fresh connection reads identical content.",
+            "Persist seven fields, unique ID, UTC timestamp and Open status. Fresh-process read matches. Blank title/invalid severity inserts nothing.",
             "I1; 4; C/D"
           ],
           [
             "BR-02 / Must",
-            "Browser create/list survives reload; invalid input retains form data with accessible errors; keyboard use succeeds; report text renders safely.",
+            "Browser create/list survives reload; details show all fields. Invalid input retains data with accessible errors; keyboard operation works; HTML text is escaped.",
             "I1; 6; B/C"
           ],
           [
             "BR-03 / Must",
-            "Persist Open/In progress/Resolved transitions and reopening; reject invalid status or unknown IDs without mutation.",
+            "Open/In progress/Resolved updates and reopening survive restart. Invalid status or unknown ID causes no mutation.",
             "I1; 4; C/B"
           ],
           [
             "BR-04 / Must",
-            "Score round(100n/7) for six nonblank text fields plus explicit severity: 6/7=86, 7/7=100. Identify missing fields; incomplete optional text remains savable.",
+            "Score round(100n/7) for six nonblank text fields plus valid severity: 6/7=86; 7/7=100. Identify missing fields; optional blanks remain savable.",
             "I2; 5; B/D"
           ],
           [
             "BR-05 / Should",
-            "Severity/status filters combine with AND; clearing restores all reports; empty results are explicit and data unchanged.",
+            "Severity/status filters combine with AND; Clear restores all; empty results are explicit; records remain unchanged.",
             "I2; 3; C/B"
           ],
           [
             "BR-06 / Must",
-            "Clean checkout passes applicable acceptance checks; record exploratory feedback, reproduction outcomes and exact release evidence.",
-            "I1 2h, I2 4h; D+A/C"
+            "Clean checkout passes applicable checks. Record demonstration feedback, reproduction outcomes and exact revision evidence.",
+            "I1 2h; I2 4h; D+A/C"
           ]
         ]
       },
       "after": [
-        "Assume two working days and 20 available person-hours per iteration, subject to team confirmation. I1 targets usable creation/list/status with 16 planned hours and four contingency hours. I2 targets evaluated guidance/filtering with 12 planned hours and eight contingency hours. Drop BR-05 first if capacity slips. A1 setup and the BR-01 trial occur in Week 1; proven work is reused in Assignment 2. Each increment ends with demonstration, reprioritisation and one retrospective improvement.",
-        "Figure 1 separates adapters, rules and persistence. Python/SQLite reduces setup for local use; parameterised transactions protect stored text. A pure scoring function supports isolated tests. Completeness measures information presence, not truth. No authentication or public hosting is assumed."
+        "Proposed capacity is 20 person-hours per two-day iteration: five hours each, subject to confirmation. I1 delivers create/list/status (16 hours plus four contingency); I2 delivers evaluated guidance/filtering (12 plus eight contingency). A1 setup/trial/report occur in Week 1; implementation continues in A2. Each increment ends with demonstration and one recorded retrospective action. Dependencies: BR-01 -> BR-02 -> BR-04; BR-03 precedes BR-05; BR-06 spans both.",
+        "Figure 1 shows the A1 reference and intended extensions. Shared service logic prevents CLI/browser validation drift. SQLite transactions and parameterised queries suit local persistence; explicit connection closure supports Windows cleanup. A pure scoring function is independently testable. Completeness measures presence, not correctness."
       ],
       "figure": {
-        "caption": "Figure 1. System overview: solid = implemented trial; dashed = planned",
+        "caption": "Figure 1. A1 reference: solid = implemented; dashed = planned A2 extension",
         "labels": [
           "Reporter / developer / QA",
           "Browser forms and list",
@@ -111,18 +119,48 @@
         ]
       },
       "end": [
-        "Key risks have explicit triggers: if Must estimates exceed capacity, A freezes scope and removes filtering; simultaneous schema edits trigger C's paired integration; a PR waiting one working day triggers D's backup reviewer. Misleading high scores trigger B's guidance revision. D checks persistence after restart; A verifies assessor access before submission.",
-        "Evaluation targets all applicable acceptance checks passing and no critical defects. In I2, four consenting peers compare matched synthetic tasks with and without guidance, alternating order. Record completion time, information completeness and independent reproduction without clarification. Report descriptive outcomes and convenience-sample limits; no results or causal improvement are claimed yet."
+        "If remaining Must effort exceeds capacity, A freezes additions and drops BR-05. Concurrent schema edits trigger paired integration led by C. A review waiting one working day triggers D to assign a backup non-author. A misleading high score triggers B to revise guidance; C checks restart persistence. These responses protect core functionality and review time.",
+        "Success requires all applicable acceptance checks passing and no critical unresolved defects. I2 plans four consenting peers using matched synthetic tasks with/without guidance in alternating order. Record time, field completeness and independent reproduction without clarification. Report descriptive outcomes and convenience-sample limitations; this evaluation has not run."
       ]
     },
     {
       "heading": "4. Workflow trial and individual contributions",
       "paragraphs": [
-        "The private repository contains six tracked requirements (E1). Issue #1 preceded branch feat/1-create-report and draft PR #7 (E2). The trial implements service/CLI creation, not the planned browser increment. Implementation 0eed2879192c3b6d4feb55484dbb040dd39c6560 passed 16 local tests and remote Python 3.11/3.12 acceptance and compile checks (E3). Tests cover persistence across processes, rejected inputs without inserts, metadata and Unicode/SQL-like text.",
-        "An initial missing-module failure established the absent feature. Execution then exposed Windows cleanup errors: a test helper completed SQLite transactions without closing connections. Explicit closure corrected the failure. The practical lesson is to review resource lifetime as well as transaction correctness and test across environments; green CI alone cannot establish usability.",
-        "The intended workflow is Issue, short branch, tested PR, substantive non-author review, author response and approved merge. Limit implementation work in progress to two items. Done requires acceptance checks, latest-SHA approval and updated evidence. GitHub returned HTTP 403 for private-repository branch protection, so approval remains a manual rule. PR #7 currently has no independent review and remains unmerged. Consequently, the collaborative trial is incomplete; a teammate must review and rerun a check before finalisation. Assessor access and the final reviewed submission SHA also remain pending.",
-        "Codex prepared research, code, tests and documents through the owner's account; this cannot establish student contributions. Planned workload is 25% each: Fengyi Zhan (requirements/research/evaluation), Kaile Shao (interaction/accessibility), jianqiao Fang (service/persistence), and xin Li (acceptance/CI). Each has five planned hours per iteration. Student IDs and accounts are blank by request. Actual decisions, results and activity links remain to be verified; the meeting scripts are drafts, and peer evaluation is prepared but not run."
-      ]
+        "Issue #1 preceded branch feat/1-create-report and PR #7 (E2). Assessed code reference 03fb9c5e41f80026c0ec66c28a92b09ed6f1251e passed 16 tests on both CI Python versions and compilation (E3). A fresh Windows snapshot recheck passed the same tests (E4). Checks cover separate-process persistence, rejected inputs without inserts, metadata and Unicode/SQL-like text.",
+        "The trial exposed Windows file-lock errors: a SQLite transaction context did not close test connections. Explicit closure resolved cleanup failures. The resulting review checklist checks resource lifetime as well as data correctness. This execution-driven correction illustrates feedback within a small increment; it was not a peer-discovered defect.",
+        "The workflow is Issue -> short branch -> tested PR -> non-author review -> response -> approved merge. Work in progress is limited to two implementations. Done requires acceptance evidence, latest-SHA approval and updated links. On 9 November, repository evidence was publicly accessible. PR #7 has fadeout12 approval on the assessed SHA, with an empty body and no comments; it remains draft/unmerged. Review rationale, reviewer tests and member attribution remain unverified (E5). Main is unprotected; review is a manual rule.",
+        "Codex assisted research, code, tests and drafting. Table 3 allocates individual work; members must execute it and link their own decisions/results (E6)."
+      ],
+      "table": {
+        "caption": "Table 3. Individual contribution status",
+        "headers": [
+          "Member",
+          "Allocated work (25% planned each)",
+          "Evidence to record (pending)"
+        ],
+        "rows": [
+          [
+            "Fengyi Zhan (A)",
+            "Scope/methods/backlog",
+            "Decision + activity link (E1)."
+          ],
+          [
+            "Kaile Shao (B)",
+            "Interaction/input review",
+            "Findings + check log (E2)."
+          ],
+          [
+            "jianqiao Fang (C)",
+            "Persistence/design review",
+            "Design/test record (E2)."
+          ],
+          [
+            "xin Li (D)",
+            "Tests/CI/release evidence",
+            "Independent run (E3/E4)."
+          ]
+        ]
+      }
     }
   ],
   "references": [
@@ -132,7 +170,64 @@
     "Dybå, T., & Dingsøyr, T. (2008). Empirical studies of agile software development: A systematic review. <i>Information and Software Technology, 50</i>(9–10), 833–859. https://doi.org/10.1016/j.infsof.2008.01.006",
     "Elazhary, O., Werner, C., Li, Z. S., Lowlind, D., Ernst, N. A., & Storey, M.-A. (2022). Uncovering the benefits and challenges of continuous integration practices. <i>IEEE Transactions on Software Engineering, 48</i>(7), 2570–2583. https://doi.org/10.1109/TSE.2021.3064953",
     "Larman, C., & Basili, V. R. (2003). Iterative and incremental development: A brief history. <i>Computer, 36</i>(6), 47–56. https://doi.org/10.1109/MC.2003.1204375",
-    "McIntosh, S., Kamei, Y., Adams, B., & Hassan, A. E. (2014). The impact of code review coverage and code review participation on software quality: A case study of the Qt, VTK, and ITK projects. In <i>Proceedings of the 11th Working Conference on Mining Software Repositories</i> (pp. 192–201). Association for Computing Machinery. https://doi.org/10.1145/2597073.2597076",
-    "Soltani, M., Hermans, F., & Bäck, T. (2020). The significance of bug report elements. <i>Empirical Software Engineering, 25</i>(6), 5255–5294. https://doi.org/10.1007/s10664-020-09882-z"
-  ]
+    "McIntosh, S., Kamei, Y., Adams, B., & Hassan, A. E. (2014). The impact of code review coverage and code review participation on software quality: A case study of the Qt, VTK, and ITK projects. In <i>Proceedings of the 11th Working Conference on Mining Software Repositories</i> (pp. 192–201). Association for Computing Machinery. https://doi.org/10.1145/2597073.2597076"
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "label": "Prioritised backlog",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/blob/docs/a1-assessment-refinement/submission/docs/a1-plan.md",
+      "status": "Six requirements, acceptance criteria, responsibilities, capacity and risk responses; original tracked Issues #1-6."
+    },
+    {
+      "id": "E2",
+      "label": "Tracked requirement: Issue #1",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/1",
+      "status": "Created before implementation; service/CLI scope and rejection/persistence criteria."
+    },
+    {
+      "id": "E2",
+      "label": "Reviewed change: PR #7",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7",
+      "status": "Open draft; head 03fb9c5e41f80026c0ec66c28a92b09ed6f1251e. Non-author approval exists; substantive review evidence is absent."
+    },
+    {
+      "id": "E3",
+      "label": "Assessed code reference",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/commit/03fb9c5e41f80026c0ec66c28a92b09ed6f1251e",
+      "status": "03fb9c5e41f80026c0ec66c28a92b09ed6f1251e; inspect this A1 snapshot rather than later A2 features."
+    },
+    {
+      "id": "E3",
+      "label": "CI run 41675675123",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41675675123",
+      "status": "Success on the assessed SHA: Python 3.11 and 3.12; 16 acceptance tests/job plus compilation."
+    },
+    {
+      "id": "E4",
+      "label": "Fresh snapshot check and verification",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/blob/docs/a1-assessment-refinement/submission/evidence/verification.json",
+      "status": "9 November recheck, command exit codes, environment, public URL access and live review metadata. Local tests log is adjacent."
+    },
+    {
+      "id": "E5",
+      "label": "Non-author approval record",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7#pullrequestreview-5796447154",
+      "status": "fadeout12 approved the assessed SHA on 6 November 2026. Empty body; no inline/discussion comments. Member mapping unconfirmed."
+    },
+    {
+      "id": "E6",
+      "label": "Individual activity ledger",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/blob/docs/a1-assessment-refinement/docs/contributions.md",
+      "status": "Individual work allocated at 25% planned each; execution results and genuine activity links still need recording."
+    },
+    {
+      "id": "E7",
+      "label": "A1 setup and test instructions",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/blob/docs/a1-assessment-refinement/submission/README.md",
+      "status": "Exact SHA checkout; no third-party application dependencies. Report regeneration and evidence verification instructions."
+    }
+  ],
+  "access_note": "The repository and sampled Issue/PR/CI/README pages returned HTTP 200 without authentication on 9 November 2026. Visibility may change; confirm access at submission. The assessed application reference is fixed above; later A2/UI branches are outside this A1 trial. The report is not submission-ready until verified individual contribution statements are completed and the team finalises the required title-page details. Public read access does not establish team write access.",
+  "assistance": "Codex assisted source discovery/appraisal, report drafting, diagram preparation, implementation, testing and repository setup. Existing application code was not imported. No four-student authorship, substantive peer discussion or user-study results are inferred from AI-assisted activity. Team members must verify the material and apply the course rules for acknowledging assistance."
 }

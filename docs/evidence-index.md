@@ -1,20 +1,23 @@
-# Evidence index
+# Assignment 1 evidence index
 
-Verified 2026-11-04 (Asia/Shanghai). Repository: [alwaysgoodz/aut-bug-report-helper](https://github.com/alwaysgoodz/aut-bug-report-helper), private. Owner must give the actual teammates and assessor access. A 404 to other viewers may mean missing permission.
+Verified 9 November 2026 (Asia/Shanghai). Assessed application reference: `03fb9c5e41f80026c0ec66c28a92b09ed6f1251e`. Documentation refinements do not change this approved application snapshot.
 
-For the subsequent application and UI changes, see [UX-01 interaction-motion evidence](interaction-motion/README.md) and the [earlier refinement evidence index](optimization/README.md). This table preserves the original A1 workflow evidence.
-
-| Evidence | Link / identifier | Verified meaning and limits |
+| ID | Evidence | Meaning / limits |
 | --- | --- | --- |
-| Prioritised backlog | [BR-01](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/1), [BR-02](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/2), [BR-03](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/3), [BR-04](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/4), [BR-05](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/5), [BR-06](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/6); [readable plan](backlog.md) | Actual Issues with criteria; roles are proposed, not confirmed members. |
-| Tracked trial requirement | [Issue #1](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/1) | Exists before feature implementation; BR-01 service/CLI slice. |
-| Change proposed for independent review | [Draft PR #7](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7) | Open, unmerged; independent reviews were empty at verification. This does not yet satisfy the assessed reviewed-change requirement. |
-| Exact implementation snapshot | [`0eed2879192c3b6d4feb55484dbb040dd39c6560`](https://github.com/alwaysgoodz/aut-bug-report-helper/commit/0eed2879192c3b6d4feb55484dbb040dd39c6560) | Tested implementation. Later documentation revisions do not change this snapshot. Not a final submission release. |
-| Remote implementation checks | [Actions run 41673631149](https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41673631149) | Actual success on that SHA: Ubuntu, Python 3.11 and 3.12; 16 test methods per job plus compile check. |
-| Preserved check results | [CI metadata](evidence/ci-implementation.json), [CI log](evidence/ci-implementation.log), [local green](evidence/local-green.txt), [missing-feature baseline](evidence/local-red.txt) | Logs corroborate scope, not user-value improvements or independent review. |
-| Trial reflection | [Trial record](trial-record.md) | Actual Windows cleanup failure and correction; later stakeholder evaluation is planned. |
-| Individual contributions | [Ledger](contributions.md) | Student identities and genuine member activities pending; AI assistance is disclosed. |
-| Repository controls | [Workflow](../.github/workflows/tests.yml), [CONTRIBUTING](../CONTRIBUTING.md) | Main protection API returned HTTP 403 requiring Pro or public visibility. Approval is a manual team rule, not an enabled protected-branch gate. |
-| Submission identity | Pending final independently reviewed SHA/tag | Select after team review and evidence completion. The implementation SHA enables review now. |
+| E1 | [Prioritised backlog](https://github.com/alwaysgoodz/aut-bug-report-helper/blob/docs/a1-assessment-refinement/submission/docs/a1-plan.md) | Six requirements, acceptance criteria, responsibilities, capacity and risk responses; original tracked Issues #1-6. |
+| E2 | [Tracked requirement: Issue #1](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/1) | Created before implementation; service/CLI scope and rejection/persistence criteria. |
+| E2 | [Reviewed change: PR #7](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7) | Open draft; head 03fb9c5e41f80026c0ec66c28a92b09ed6f1251e. Non-author approval exists; substantive review evidence is absent. |
+| E3 | [Assessed code reference](https://github.com/alwaysgoodz/aut-bug-report-helper/commit/03fb9c5e41f80026c0ec66c28a92b09ed6f1251e) | 03fb9c5e41f80026c0ec66c28a92b09ed6f1251e; inspect this A1 snapshot rather than later A2 features. |
+| E3 | [CI run 41675675123](https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41675675123) | Success on the assessed SHA: Python 3.11 and 3.12; 16 acceptance tests/job plus compilation. |
+| E4 | [Fresh snapshot check and verification](https://github.com/alwaysgoodz/aut-bug-report-helper/blob/docs/a1-assessment-refinement/submission/evidence/verification.json) | 9 November recheck, command exit codes, environment, public URL access and live review metadata. Local tests log is adjacent. |
+| E5 | [Non-author approval record](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7#pullrequestreview-5796447154) | fadeout12 approved the assessed SHA on 6 November 2026. Empty body; no inline/discussion comments. Member mapping unconfirmed. |
+| E6 | [Individual activity ledger](https://github.com/alwaysgoodz/aut-bug-report-helper/blob/docs/a1-assessment-refinement/docs/contributions.md) | Individual work allocated at 25% planned each; execution results and genuine activity links still need recording. |
+| E7 | [A1 setup and test instructions](https://github.com/alwaysgoodz/aut-bug-report-helper/blob/docs/a1-assessment-refinement/submission/README.md) | Exact SHA checkout; no third-party application dependencies. Report regeneration and evidence verification instructions. |
 
-To reproduce: clone, `git checkout 0eed2879192c3b6d4feb55484dbb040dd39c6560`, then `python -m unittest discover -s tests -v` and `python -m compileall -q bugreport tests`. Initial `main` is the scaffold, not this tested feature.
+The repository and sampled Issue/PR/CI/README pages returned HTTP 200 without authentication on 9 November 2026. Visibility may change; confirm access at submission. The assessed application reference is fixed above; later A2/UI branches are outside this A1 trial. The report is not submission-ready until verified individual contribution statements are completed and the team finalises the required title-page details. Public read access does not establish team write access.
+
+Local records: [verification](../submission/evidence/verification.json), [16-test recheck](../submission/evidence/a1-acceptance-recheck.log), [compile check](../submission/evidence/a1-compile-recheck.log), [historical trial reflection](trial-record.md), [historical missing-feature baseline](evidence/local-red.txt), [historical successful run](evidence/local-green.txt).
+
+The live records preserve an actual non-author approval, not proof of substantive review discussion or individual student effort. No messages or review statements have been posted on behalf of teammates.
+
+Codex assisted source discovery/appraisal, report drafting, diagram preparation, implementation, testing and repository setup. Existing application code was not imported. No four-student authorship, substantive peer discussion or user-study results are inferred from AI-assisted activity. Team members must verify the material and apply the course rules for acknowledging assistance.

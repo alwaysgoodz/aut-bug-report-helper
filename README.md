@@ -2,6 +2,10 @@
 
 AUT Contemporary Methods in Software Engineering, Assignments 1 and 2. A small student-team tool for clearer bug reports. Lecturer approval was confirmed by the repository owner.
 
+## Assignment 1 assessment package (updated 9 November 2026)
+
+Use the [revised A1 report, exact-version setup instructions and evidence index](submission/README.md). The assessed A1 application commit is `03fb9c5e41f80026c0ec66c28a92b09ed6f1251e`; it contains the service/CLI trial, and its 16 acceptance checks and compilation were rechecked successfully. This fixed reference separates A1 evidence from the later browser and A2 changes below. The repository is now public; Issue, PR, CI and fixed-version README access were verified without authentication. PR #7 has a non-author approval with an empty body; substantive review details, member attribution and four actual contribution statements remain unverified. The updated A1 package supersedes older access/review status descriptions in historical drafts.
+
 ## Current implementation
 
 The current branch, `feat/interaction-motion`, adds restrained page/feedback motion, smoothly retargeted completeness, clear saving/applying states, current-section focus and status-transition previews. Motion respects initial and live reduced-motion preferences; native forms work without JavaScript. See the [UX-01 checks and evidence](docs/interaction-motion/README.md). It retains the previous Unicode/input fixes, history restoration, filtered navigation, responsive dashboard, grouped form, mobile cards, 25-report pages and BR-01–05 functionality. Incomplete optional information remains savable. Completeness measures information presence, not factual quality. Team names, equal workload allocation, discussion drafts and the peer-study tool are ready in [team preparation](docs/team/work-allocation.zh-CN.md) and [study protocol](docs/peer-study/README.md). No real participant outcomes or completed contributions are inferred. See [navigation/input evidence](docs/navigation-review/README.md), [earlier UI fixes](docs/ui-review/README.md) and [A1/A2 gap audit (Chinese)](docs/assessment-audit.zh-CN.md).
@@ -72,7 +76,7 @@ The historical mutation experiment deliberately disables one error-focus stateme
 
 ## Collaboration and evidence
 
-See [CONTRIBUTING.md](CONTRIBUTING.md), [backlog](docs/backlog.md) and [evidence index](docs/evidence-index.md). Use Issues for requirements, short branches and pull requests with acceptance-test evidence. A non-author teammate must review before merging. Current access is private; the owner must invite the actual teammates and assessor through repository settings.
+See [CONTRIBUTING.md](CONTRIBUTING.md), [backlog](docs/backlog.md) and [evidence index](docs/evidence-index.md). Use Issues for requirements, short branches and pull requests with acceptance-test evidence. A non-author teammate must review before merging. Public read access was verified on 9 November 2026; actual teammates still need appropriate write access. The assessor can inspect the public evidence without an invitation while visibility remains public.
 
 The preparation uses stacked review proposals: [A1 PR #7](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7), [I1 PR #8](https://github.com/alwaysgoodz/aut-bug-report-helper/pull/8), then I2. [A2 traceability](docs/a2/traceability.md) connects requirements, code and checks. [A1 report materials](submission/README.md) remain an archived draft. Named members, real independent reviews, actual team retrospectives, the four-peer product study and assessor access still require the team. Passing CI does not establish those activities.
 

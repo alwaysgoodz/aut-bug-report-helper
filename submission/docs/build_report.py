@@ -29,7 +29,7 @@ QA = ROOT / "tmp/pdfs/report-render"
 OUT.mkdir(parents=True, exist_ok=True)
 QA.mkdir(parents=True, exist_ok=True)
 REPO = "https://github.com/alwaysgoodz/aut-bug-report-helper"
-SHA = "0eed2879192c3b6d4feb55484dbb040dd39c6560"
+SHA = DATA["code_reference"]
 
 for name, file in (("Body", "calibri.ttf"), ("Body-Bold", "calibrib.ttf"),
                    ("Body-Italic", "calibrii.ttf"), ("Body-BoldItalic", "calibriz.ttf")):
@@ -41,8 +41,8 @@ MUTED = colors.HexColor("#536171")
 ACCENT = colors.HexColor("#17646D")
 PALE = colors.HexColor("#F0F5F6")
 styles = getSampleStyleSheet()
-styles.add(ParagraphStyle("Main", fontName="Body", fontSize=11, leading=14,
-                          textColor=INK, spaceAfter=7, allowWidows=0, allowOrphans=0))
+styles.add(ParagraphStyle("Main", fontName="Body", fontSize=10.8, leading=13.8,
+                          textColor=INK, spaceAfter=6, allowWidows=0, allowOrphans=0))
 styles.add(ParagraphStyle("Section", parent=styles["Main"], fontName="Body-Bold",
                           fontSize=13.2, leading=17, spaceBefore=10, spaceAfter=8, keepWithNext=True))
 styles.add(ParagraphStyle("Cell", parent=styles["Main"], fontSize=9.5, leading=12,
@@ -74,8 +74,8 @@ def table(headers, rows, widths):
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
         ("LEFTPADDING", (0, 0), (-1, -1), 7),
         ("RIGHTPADDING", (0, 0), (-1, -1), 7),
-        ("TOPPADDING", (0, 0), (-1, -1), 6),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+        ("TOPPADDING", (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
         ("LINEBELOW", (0, 0), (-1, 0), .7, ACCENT),
         ("LINEBELOW", (0, 1), (-1, -1), .3, colors.HexColor("#D7E0E5")),
     ]))
@@ -83,7 +83,7 @@ def table(headers, rows, widths):
 
 
 def system_diagram():
-    d = Drawing(475, 180)
+    d = Drawing(475, 170)
     # Every visible label is present in the counted JSON figure labels.
     d.add(Rect(3, 3, 469, 147, rx=5, fillColor=None, strokeColor=colors.HexColor("#BCCAD2")))
     d.add(String(12, 12, "Local application boundary", fontName="Body-Italic", fontSize=9, fillColor=MUTED))
@@ -157,8 +157,9 @@ def markdown_report(count):
                              *[f'| {m["role"]} | {m["name"]} | {m["student_id"]} | {m["github"]} |' for m in TEAM]])
     parts = ["# "+DATA["title"], DATA["subtitle"],
              "AUT Contemporary Methods in Software Engineering — Assignment 1",
-             "**Working draft: names supplied; IDs/accounts blank by request. Equal shares are planned, not verified contributions. Independent review and assessor access remain pending.**",
+             "**"+DATA["cover_notice"]+"**",
              team_table,
+             f"Assessed application commit: `{SHA}`. Verified {DATA['verified_date']}.",
              f"Conservative main-text count: {count['conservative_tokens']} (limit 1,500).", ""]
     for section in DATA["sections"]:
         parts += ["## "+section["heading"], *section.get("paragraphs", [])]
@@ -176,19 +177,9 @@ def markdown_report(count):
 
 
 def appendix_markdown():
-    return f"""| ID | Evidence | Current status |
-| --- | --- | --- |
-| E1 | [Issues #1–6]({REPO}/issues), [Backlog]({REPO}/blob/feat/1-create-report/docs/backlog.md) | Prioritised requirements and acceptance criteria exist. |
-| E2 | [Issue #1]({REPO}/issues/1), [Draft PR #7]({REPO}/pull/7) | Implementation exists; independent review and approved merge pending. |
-| E3 | [Implementation]({REPO}/commit/{SHA}), [CI run]({REPO}/actions/runs/41673631149) | Implementation SHA: {SHA}; both Python jobs passed. |
-| E4 | [Trial record]({REPO}/blob/feat/1-create-report/docs/trial-record.md), [logs]({REPO}/tree/feat/1-create-report/docs/evidence) | Actual test evidence and corrective lesson; no user evaluation results. |
-| E5 | [Contribution ledger]({REPO}/blob/feat/team-study-preparation/docs/contributions.md) | Names supplied; IDs/accounts blank and actual activity links unverified. |
-| E6 | [Setup/test README]({REPO}/blob/feat/1-create-report/README.md), [workflow rules]({REPO}/blob/feat/1-create-report/CONTRIBUTING.md) | Reproducible feature instructions; manual review gate. |
-
-Repository access is private. Invite the real team and assessor and verify their access. The implementation SHA is a verified review snapshot, not a final submission release. Final release identity must follow independent approval and complete contribution records.
-
-Preparation assistance: Codex assisted with literature discovery, synthesis, report drafting, diagram, code, tests and repository setup. This acknowledgement describes actual assistance; the team must adapt it to the course's rules and verify all submitted material. No independent team review or user study is claimed by these generated materials.
-"""
+    rows = ["| ID | Evidence | Verified meaning / limit |", "| --- | --- | --- |"]
+    rows += [f"| {e['id']} | [{e['label']}]({e['url']}) | {e['status']} |" for e in DATA["evidence"]]
+    return "\n".join(rows)+"\n\n"+DATA["access_note"]+"\n\nPreparation assistance. "+DATA["assistance"]+"\n"
 
 
 def page_number(canvas, doc):
@@ -209,12 +200,13 @@ def build():
     story = [Spacer(1, 32*mm), para("ASSIGNMENT 1  ·  GROUP REPORT", "Caption"),
              Spacer(1, 7*mm), para(DATA["title"], "CoverTitle"), para(DATA["subtitle"], "CoverSub"),
              para("AUT · Contemporary Methods in Software Engineering", "Main"),
-             para("Prepared 4 November 2026 · Topic approval confirmed by the owner", "Small"),
+             para("Revised "+DATA["verified_date"]+" · Topic approval confirmed by the owner", "Small"),
              Spacer(1, 8*mm),
              table(["Role", "Name", "Student ID", "GitHub"], [[m["role"], m["name"], m["student_id"], m["github"]] for m in TEAM], [40,180,105,150]),
              Spacer(1, 10*mm),
              para(f"Main text: {count['conservative_tokens']} conservative tokens / {count['whitespace_words']} whitespace words; limit 1,500. Includes tables, diagram labels, citations and contribution statements.", "Small"),
-             para("Working draft. Names supplied; student IDs and GitHub accounts left blank by request. Workload is planned at 25% each; actual contributions, independent review, final reference and assessor access remain unverified.", "Main"),
+             para(DATA["cover_notice"], "Main"),
+             para("Assessed application commit: "+SHA, "Small"),
              para(REPO, "Small"), PageBreak()]
     for section in DATA["sections"]:
         story.append(para(section["heading"], "Section"))
@@ -222,7 +214,8 @@ def build():
         if "table" in section:
             t = section["table"]
             story += [para(t["caption"], "Caption"), table(t["headers"], t["rows"],
-                       [98, 186, 191] if section["heading"].startswith("2") else [86, 286, 103]), Spacer(1, 7)]
+                       [86, 186, 203] if section["heading"].startswith("2") else
+                       ([86, 286, 103] if section["heading"].startswith("3") else [110, 200, 165])), Spacer(1, 7)]
         story.extend(KeepTogether([para(p)]) for p in section.get("after", []))
         if "figure" in section:
             story.append(KeepTogether([para(section["figure"]["caption"], "Caption"), diagram]))
@@ -231,26 +224,17 @@ def build():
     story.extend(para(p, "Reference", rich=True) for p in DATA["references"])
     story += [PageBreak(), para("Appendix A. Supporting evidence index", "Section"),
               para("Supporting links only; assessed explanations and limitations are in the main text.", "Small")]
-    appendix = [
-        ("E1", "Backlog / requirements", REPO+"/issues", "Six actual Issues; detailed acceptance criteria and priorities."),
-        ("E2", "Tracked requirement", REPO+"/issues/1", "BR-01 recorded before implementation."),
-        ("E2", "Proposed change", REPO+"/pull/7", "Draft PR; independent review and merge pending."),
-        ("E3", "Implementation SHA", REPO+"/commit/"+SHA, SHA),
-        ("E3", "Remote checks", REPO+"/actions/runs/41673631149", "Passed: Python 3.11 and 3.12, 16 test methods per job plus compile check."),
-        ("E4", "Trial and logs", REPO+"/blob/feat/1-create-report/docs/trial-record.md", "Execution findings, correction and preserved evidence."),
-        ("E5", "Individual contributions", REPO+"/blob/feat/team-study-preparation/docs/contributions.md", "Names supplied; IDs/accounts blank; actual activity links unverified."),
-        ("E6", "Setup and tests", REPO+"/blob/feat/1-create-report/README.md", "Clone and check out the feature branch or exact SHA before running tests."),
-    ]
     rows = [[para("ID", "Cell"), para("Evidence link", "Cell"), para("Verified meaning / limit", "Cell")]]
-    for key, label, url, limit in appendix:
+    for evidence in DATA["evidence"]:
+        key, label, url, limit = (evidence[k] for k in ("id", "label", "url", "status"))
         rows.append([para(key, "Cell"), Paragraph(f'<link color="#17646D" href="{url}">{html.escape(label)}</link>', styles["Cell"]), para(limit, "Cell")])
     t = Table(rows, colWidths=[33, 155, 287], repeatRows=1, hAlign="LEFT")
     t.setStyle(TableStyle([("VALIGN", (0,0),(-1,-1),"TOP"), ("BACKGROUND",(0,0),(-1,0),PALE),
                            ("BOTTOMPADDING",(0,0),(-1,-1),9), ("TOPPADDING",(0,0),(-1,-1),6),
                            ("LINEBELOW",(0,0),(-1,-1),.3,colors.HexColor("#D7E0E5"))]))
     story += [t, Spacer(1, 12),
-              para("Access and submission identity. The repository is private. The owner must invite the actual teammates and assessor and verify access. The implementation SHA is a reproducible review snapshot; select the final submission commit or release after independent approval and completion of contributions.", "Small"),
-              para("Preparation assistance. Codex assisted with literature discovery, synthesis, report drafting, diagram, code, tests and repository setup. The team must adapt this acknowledgement to course requirements and verify submitted material. These generated materials do not establish four students' contributions or an independent review.", "Small")]
+              para("Access and submission identity. "+DATA["access_note"], "Small"),
+              para("Preparation assistance. "+DATA["assistance"], "Small")]
     pdf_path = OUT / "assignment-1-report-draft.pdf"
     doc = SimpleDocTemplate(str(pdf_path), pagesize=A4, rightMargin=20*mm, leftMargin=20*mm,
                             topMargin=23*mm, bottomMargin=20*mm,
