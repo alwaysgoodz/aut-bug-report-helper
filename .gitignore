@@ -10,3 +10,5 @@ test-results/
 playwright-report/
 study-data/
 study-export/
+dist/
+demo-data/

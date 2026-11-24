@@ -190,12 +190,20 @@ def report_detail(report, token, total, *, created=False, updated=False, error="
     blocks = ''.join(f'<section class="detail-field" id="detail-{field}" tabindex="-1"><h2>{LABELS[field]}</h2><p class="report-text {"not-provided" if not has_text(report[field]) else ""}">{e(report[field]) if has_text(report[field]) else "Not provided"}</p></section>' for field in ("description", "steps", "expected", "actual", "environment"))
     allowed = (report["status"], *TRANSITIONS[report["status"]])
     options = ''.join(f'<option value="{e(x)}">{e(x)}</option>' for x in allowed)
-    content = f'''<a class="back-link" href="{e(back_path)}">← Back to {'filtered reports' if context.get('severity') or context.get('status') else 'reports'}</a><div class="page-heading"><div><p class="eyebrow">REPORT DETAILS</p><h1 class="detail-title">{e(report['title'])}</h1><div class="detail-badges">{badge(report['severity'], 'severity')}{badge(report['status'], 'status')}</div></div></div>{notice}
+    content = f'''<a class="back-link" href="{e(back_path)}">← Back to {'filtered reports' if context.get('severity') or context.get('status') else 'reports'}</a><div class="page-heading"><div><p class="eyebrow">REPORT DETAILS</p><h1 class="detail-title">{e(report['title'])}</h1><div class="detail-badges">{badge(report['severity'], 'severity')}{badge(report['status'], 'status')}</div></div><div class="report-tools"><div><button type="button" id="copy-report" class="button secondary" data-export-url="/reports/{e(report['id'])}/export" hidden>Copy report</button><a class="button secondary" href="/reports/{e(report['id'])}/export" download>Download report</a></div><p id="copy-feedback" role="status" aria-live="polite"></p></div></div>{notice}
 <div class="editor-layout"><article class="panel detail-panel">{blocks}</article><aside class="editor-aside"><section class="panel status-card"><h2>Move the work forward</h2><p>Update the status when your team has made progress.</p>
 <form action="{e(status_path)}" method="post"><input type="hidden" name="_csrf" value="{e(token)}"><input type="hidden" name="expected_status" value="{e(report['status'])}">
 <label for="status">Status</label><p class="field-help" id="status-help">Choose a new status before updating.</p><select id="status" name="status" aria-describedby="status-help">{options}</select><button type="submit" class="button primary full-width" data-busy-label="Updating status…">Update status{icon('arrow')}</button></form>
 <p class="muted-note">Open → In progress → Resolved.<br>Resolved reports can be reopened.</p></section>{completeness_card(report)}<section class="metadata"><h2>Report information</h2><dl><dt>Created</dt><dd>{date_label(report['created_at'])}</dd><dt>Reference</dt><dd class="reference">{e(report['id'])}</dd></dl></section></aside></div>'''
     return shell(report["title"], content, total)
+
+
+def report_markdown(report):
+    """Plain UTF-8 attachment, never rendered as HTML by the application."""
+    assessment = completeness(report)
+    header = f"# Bug report\n\nReference: {report['id']}\nStatus: {report['status']}\nCreated: {report['created_at']}\nCompleteness: {assessment['score']}% (information presence, not correctness)\n"
+    fields = "".join(f"\n## {LABELS[field]}\n\n{report[field] if has_text(report[field]) else 'Not provided'}\n" for field in FIELDS)
+    return header + fields
 
 
 def error_page(status, message, total=0):

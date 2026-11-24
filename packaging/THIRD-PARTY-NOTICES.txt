@@ -1,0 +1,18 @@
+Bug Report Helper demonstration package
+
+The application is a course project assisted by Codex. Generated preparation is
+not evidence of completed individual student work or human evaluation results.
+
+Bundled runtime: unmodified CPython 3.13.17 Windows embeddable distribution,
+except python313._pth is configured to load the adjacent app directory.
+Official source: https://www.python.org/ftp/python/3.13.17/python-3.13.17-embed-amd64.zip
+SHA-256: 9e35319bffedab8b36ad44d8f377cb4f1733bcec257a0b6d04d94f01486ddb38
+Release: https://www.python.org/downloads/release/python-31317/
+Embedding: https://docs.python.org/3/using/windows.html#the-embeddable-package
+
+The complete Python license and bundled component notices are retained as
+runtime/LICENSE.txt. No pip, PyInstaller, Node.js or Playwright is required to
+run this portable application. Playwright is only a source development/test tool.
+
+All four initial Study Planner reports are fictional demonstration fixtures.
+No real participant data or local user databases are included in the ZIP.

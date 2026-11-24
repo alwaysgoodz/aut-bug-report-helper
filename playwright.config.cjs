@@ -1,6 +1,8 @@
 const { defineConfig } = require('@playwright/test');
 const python = process.env.BUGREPORT_PYTHON || 'python';
 if (!/^[\w .:/\\-]+$/.test(python)) throw new Error('BUGREPORT_PYTHON contains unsupported command characters');
+const portable = process.env.BUGREPORT_PORTABLE_ROOT;
+if (portable && !/^[\p{L}\p{N}_ .:/\\-]+$/u.test(portable)) throw new Error('BUGREPORT_PORTABLE_ROOT contains unsupported command characters');
 
 module.exports = defineConfig({
   testDir: './tests/browser',
@@ -20,7 +22,9 @@ module.exports = defineConfig({
     trace: 'retain-on-failure',
   },
   webServer: [{
-    command: `"${python}" -m tools.e2e_server`,
+    command: portable
+      ? `"${portable}/runtime/python.exe" -m tools.demo_launcher --data-dir "${portable}/demo-data" --port 8780 --no-browser`
+      : `"${python}" -m tools.e2e_server`,
     url: 'http://127.0.0.1:8780/health',
     reuseExistingServer: false,
     timeout: 15000,
