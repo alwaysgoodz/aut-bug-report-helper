@@ -28,7 +28,7 @@ def archive(directory, destination):
                 bundle.write(path, Path(directory.name) / path.relative_to(directory))
 
 
-def build(output, runtime_zip=None):
+def build(output, runtime_zip=None, evidence_dir=None):
     output = Path(output).resolve()
     output.mkdir(parents=True, exist_ok=True)
     cache = ROOT / "tmp/runtime-cache"
@@ -70,12 +70,38 @@ def build(output, runtime_zip=None):
         shutil.copy2(ROOT / "packaging/START-HERE.txt", package / "START-HERE.txt")
         shutil.copy2(ROOT / "packaging/THIRD-PARTY-NOTICES.txt", package / "THIRD-PARTY-NOTICES.txt")
         app_files = {p.relative_to(app).as_posix(): digest(p) for p in sorted(app.rglob("*")) if p.is_file()}
+        evidence_hashes = {}
+        tested_source = None
+        if evidence_dir:
+            evidence_dir = Path(evidence_dir).resolve()
+            tested = json.loads((evidence_dir / "tested-build.json").read_text(encoding="utf-8"))
+            if tested["app_sha256"] != app_files or tested["runtime_sha256"] != RUNTIME_SHA256:
+                raise ValueError("Delivery application/runtime differs from the tested build; rerun verification before packaging")
+            tested_source = tested["source_commit"]
+            selected_evidence = ("VALIDATION.txt", "tested-build.json", "dashboard.png", "guidance-86.png",
+                                 "report-detail.png", "phone.png", "guide.png", "python.log", "browser.log",
+                                 "browser-results.json", "portable-smoke.json", "offline-rehearsal.json",
+                                 "implementation-ci.json", "implementation-ci.log")
+            (package / "Evidence").mkdir()
+            for name in selected_evidence:
+                path = evidence_dir / name
+                if path.is_file():
+                    shutil.copy2(path, package / "Evidence" / name)
+                    evidence_hashes[name] = digest(path)
+        else:
+            (package / "Evidence").mkdir()
+            (package / "Evidence/VALIDATION.txt").write_text(
+                "Development build: archived verification was not attached.\n"
+                "Run source tests and verify the extracted runtime before presentation.\n"
+                "Use --evidence-dir with a matching tested-build.json to include delivery evidence.\n",
+                encoding="utf-8")
         dirty = subprocess.check_output(["git", "status", "--porcelain", "--", "bugreport", "tools/demo_launcher.py", "tools/seed_demo.py", "tools/build_demo.py", "packaging"], cwd=ROOT, text=True)
         if dirty:
             raise ValueError("Commit application/packaging changes before producing a versioned delivery")
         manifest = dict(package=PACKAGE_NAME, built_at=datetime.now(timezone.utc).isoformat(),
                         source_commit=revision, runtime_url=RUNTIME_URL, runtime_sha256=RUNTIME_SHA256,
                         runtime_version=RUNTIME_VERSION, app_sha256=app_files,
+                        tested_application_commit=tested_source, evidence_sha256=evidence_hashes,
                         excludes=["personal data", "real peer-study data", "credentials", "node_modules", "uncommitted A1 reports"],
                         data_policy="A fresh fictional demonstration database is created at first launch only")
         (package / "BUILD-INFO.json").write_text(json.dumps(manifest, indent=2)+"\n", encoding="utf-8")
@@ -121,5 +147,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "dist")
     parser.add_argument("--runtime-zip", type=Path)
+    parser.add_argument("--evidence-dir", type=Path, help="Add allowlisted verified evidence; app/runtime hashes must match")
     args = parser.parse_args()
-    build(args.output, args.runtime_zip)
+    build(args.output, args.runtime_zip, args.evidence_dir)

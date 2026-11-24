@@ -1,0 +1,150 @@
+
+> aut-bug-report-helper-checks@0.1.0 test:browser
+> playwright test
+
+[WebServer] 
+[WebServer] BUG REPORT HELPER | 1.0.0-demo | OFFLINE DEMO
+[WebServer] 
+[WebServer] Fictional Study Planner examples; not human evaluation results.
+[WebServer] Workspace: http://127.0.0.1:8780/
+[WebServer] Data: F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tmp\周四彩排 portable\BugReportHelper-Windows-x64-v1.0.0-demo\demo-data\demo-reports.db
+[WebServer] 
+[WebServer] Keep this window open. Press Ctrl+C to stop; your reports are retained.
+[WebServer] If the browser did not open, copy the workspace address above.
+[WebServer] 
+[WebServer] TEST-ONLY peer-study server: http://127.0.0.1:8790
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:19:59] "GET /health HTTP/1.1" 200 -
+
+Running 24 tests using 1 worker
+
+(node:14732) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\browser\interaction-motion.spec.js:19:1 › Live completeness stays exact while visual progress retargets during rapid edits (1.5s)
+  ok  2 tests\browser\interaction-motion.spec.js:45:1 › Slow save shows a stable busy state, then history restores labels and usable controls (1.2s)
+  ok  3 tests\browser\interaction-motion.spec.js:79:1 › Filter requests show applying feedback and browser Back restores the original action (1.0s)
+  ok  4 tests\browser\interaction-motion.spec.js:100:1 › Reduced motion works initially and on live preference changes without delaying feedback (581ms)
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /participant/P01 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "POST /consent/P01 HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /participant/P01 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "POST /start/P01 HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /trial/720f044a-7c86-455b-9d27-318367d2cf63 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:04] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /fixture/A HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /fixture.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /fixture.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /favicon.ico HTTP/1.1" 404 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "POST /submit/720f044a-7c86-455b-9d27-318367d2cf63 HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /participant/P01 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "POST /start/P01 HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /trial/b64d9523-ace5-451b-8b82-8b687be230ba HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "POST /submit/b64d9523-ace5-451b-8b82-8b687be230ba HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /participant/P01 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:05] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok  5 tests\browser\peer-study.spec.js:4:1 › TEST-ONLY study pilot captures two conditions and exposes a real seeded fixture (1.9s)
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /participant/P02 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "POST /consent/P02 HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /participant/P02 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "POST /start/P02 HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /trial/8f44cd55-b881-429b-8502-b35f1402bd6a HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:06] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "POST /submit/8f44cd55-b881-429b-8502-b35f1402bd6a HTTP/1.1" 422 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "POST /submit/8f44cd55-b881-429b-8502-b35f1402bd6a HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /participant/P02 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /review HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] ----------------------------------------
+[WebServer] Exception occurred during processing of request from ('127.0.0.1', 61608)
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] Traceback (most recent call last):
+[WebServer]   File "D:\anaconda\Lib\socketserver.py", line 692, in process_request_thread
+[WebServer]     self.finish_request(request, client_address)
+[WebServer]   File "D:\anaconda\Lib\socketserver.py", line 362, in finish_request
+[WebServer]     self.RequestHandlerClass(request, client_address, self)
+[WebServer]   File "D:\anaconda\Lib\socketserver.py", line 761, in __init__
+[WebServer]     self.handle()
+[WebServer]   File "D:\anaconda\Lib\http\server.py", line 436, in handle
+[WebServer]     self.handle_one_request()
+[WebServer]   File "D:\anaconda\Lib\http\server.py", line 424, in handle_one_request
+[WebServer]     method()
+[WebServer]   File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\tools\peer_study.py", line 306, in do_GET
+[WebServer]     return super().do_GET()
+[WebServer]            ^^^^^^^^^^^^^^^^
+[WebServer]   File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\bugreport\web.py", line 86, in do_GET
+[WebServer]     self._send(200, (STATIC / url.path.rsplit("/", 1)[1]).read_bytes(), content_type=mime+"; charset=utf-8")
+[WebServer]   File "F:\COMP\Contemporary Methods in Software Engineering\bug-report-helper\bugreport\web.py", line 62, in _send
+[WebServer]     self.wfile.write(data)
+[WebServer]   File "D:\anaconda\Lib\socketserver.py", line 840, in write
+[WebServer]     self._sock.sendall(b)
+[WebServer] ConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。
+[WebServer] ----------------------------------------
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /review/ae992d08e6d91e659994fbc5 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:07] "GET /static/mark.svg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:08] "POST /review/ae992d08e6d91e659994fbc5 HTTP/1.1" 303 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:08] "GET /review HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:08] "GET /static/app.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:08] "GET /static/app.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [24/Nov/2026 22:20:08] "GET /static/mark.svg HTTP/1.1" 200 -
+  ok  6 tests\browser\peer-study.spec.js:32:1 › TEST-ONLY guided validation retains inputs and reviewer masks explicit condition labels (2.2s)
+  ok  7 tests\browser\report-sharing.spec.js:4:1 › Saved report copies current content, handles clipboard rejection and still downloads (2.3s)
+  ok  8 tests\browser\report-sharing.spec.js:37:3 › Native report download › download works without JavaScript and copying is not falsely offered (1.4s)
+Browser under test: 157.0.8103.80
+  ok  9 tests\browser\workflow.spec.js:19:1 › C1: invalid submission retains input, inserts nothing and focuses linked summary (1.1s)
+  ok 10 tests\browser\workflow.spec.js:35:1 › C2: create and reload a persisted report without duplicating it (1.1s)
+  ok 11 tests\browser\workflow.spec.js:45:1 › C3: status cycle and reopening persist through navigation (2.6s)
+  ok 12 tests\browser\workflow.spec.js:56:1 › BR-04: live guidance and saved score agree on zero, six and seven fields (903ms)
+  ok 13 tests\browser\workflow.spec.js:75:1 › BR-05: AND filters, no matches and clearing leave stored reports intact (4.4s)
+  ok 14 tests\browser\workflow.spec.js:97:1 › BR-02: the form can be completed and submitted with the keyboard (1.3s)
+  ok 15 tests\browser\workflow.spec.js:119:1 › Responsive layout and escaped HTML remain usable on a narrow screen (963ms)
+  ok 16 tests\browser\workflow.spec.js:130:1 › Shared Unicode whitespace gives consistent live validation and saved completeness (1.5s)
+  ok 17 tests\browser\workflow.spec.js:146:1 › Missing-information guidance links move focus to the actual form control (1.1s)
+  ok 18 tests\browser\workflow.spec.js:155:1 › List, detail and grouped form fit phone, tablet and desktop with readable labels (3.8s)
+  ok 19 tests\browser\workflow.spec.js:182:1 › Pagination retains filters, exposes every inserted report and resets when a filter is removed (3.3s)
+  ok 20 tests\browser\workflow.spec.js:216:1 › Browser back restores guidance and character count from restored form values (1.1s)
+  ok 21 tests\browser\workflow.spec.js:234:1 › Unicode title uses server character limits without silently truncating supplementary characters (1.6s)
+  ok 22 tests\browser\workflow.spec.js:256:1 › Boundary layouts keep table headers inside columns and guidance fully reachable (3.4s)
+  ok 23 tests\browser\workflow.spec.js:283:3 › Native workflow › Core creation, stored guidance and status confirmation work without JavaScript (1.7s)
+  ok 24 tests\browser\workflow.spec.js:300:3 › Native workflow › Native fields preserve a valid 160-character Unicode title (985ms)
+
+  24 passed (48.4s)

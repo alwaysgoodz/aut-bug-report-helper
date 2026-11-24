@@ -6,6 +6,7 @@ BUG REPORT HELPER - Windows 64-bit offline demonstration
 3. 浏览器没打开时，复制启动窗口显示的 http://127.0.0.1:端口/ 地址。
 4. 双击 DEMO-GUIDE.html 查看演示顺序、四人讲解建议和故障处理。
 5. 结束时在启动窗口按 Ctrl+C。再次启动会保留已有演示报告。
+6. Evidence/ 保存验证摘要、日志和应急截图，可在断网时展示。
 
 免安装：内置 Windows x64 Python；无需 pip、Node.js、网络或管理员权限。
 演示数据：首次启动生成 4 条虚构 Study Planner 报告；不是同伴研究结果。

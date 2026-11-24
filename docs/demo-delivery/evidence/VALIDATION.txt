@@ -1,0 +1,28 @@
+BUG REPORT HELPER - VERIFIED DEMONSTRATION CANDIDATE
+
+Application tested: 8bf9edd4d477a5bf96ea243b0f02e2a541ae0cef
+Portable runtime: CPython 3.13.17 x64 / SQLite 3.50.4
+Local source checks: Python 3.12.7 / Windows 11 x64
+Local browser: Chrome 157.0.8103.80
+
+PASS: 81 functional checks (82 discovered; one local CI-only bridge skip).
+PASS: 24 browser scenarios, 0 unexpected/skipped/flaky, retries=0.
+Application browser scenarios used the actual extracted embedded runtime.
+Two peer-study pilots use separate TEST-ONLY source fixtures; no human evidence.
+PASS: Chinese/space path, minimal PATH, actual StartDemo.cmd launch.
+PASS: HTTP create/status/export, restart, duplicate startup and refused live reset.
+PASS: readable five-report backup before restoring four fictional examples.
+PASS: external page requests blocked; clipboard, 86->100 guidance and guide work.
+PASS: real desktop/phone screenshots visually checked.
+PASS: source CI on Python 3.11/3.12, including all 24 Chromium scenarios.
+CI: https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/45413726637
+
+Logs: python.log, browser.log, browser-results.json.
+Version proof: tested-build.json and ../BUILD-INFO.json.
+Portable smoke and offline limitations: portable-smoke.json, offline-rehearsal.json.
+Screenshots are saved fallbacks, not live demonstration results.
+
+One non-fatal cancelled static response is retained in the test-only pilot log.
+No claim of improved human task time, usability or completed member work is made.
+Tested locally with isolated bundled runtime, not yet on a second physical PC.
+Please rehearse once on the presentation computer before Thursday 26 November.

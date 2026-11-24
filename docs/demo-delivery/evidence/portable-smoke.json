@@ -1,0 +1,32 @@
+{
+  "package": "F:\\COMP\\Contemporary Methods in Software Engineering\\bug-report-helper\\tmp\\周四彩排 portable\\BugReportHelper-Windows-x64-v1.0.0-demo",
+  "source_commit": "8bf9edd4d477a5bf96ea243b0f02e2a541ae0cef",
+  "runtime_version": "3.13.17",
+  "reduced_path": "C:\\WINDOWS\\System32",
+  "checks": [
+    {
+      "check": "isolated embedded runtime self-check without installed Python in PATH",
+      "result": {
+        "version": "1.0.0-demo",
+        "python": "3.13.17",
+        "sqlite": "3.50.4",
+        "static_assets": true,
+        "sqlite_write": true,
+        "fictional_seed_count": 4
+      }
+    },
+    {
+      "check": "first seed, all assets, real HTTP create/status/UTF-8 export, duplicate startup and refused live reset",
+      "pass": true
+    },
+    {
+      "check": "restart preserves report and saved status",
+      "pass": true
+    },
+    {
+      "check": "offline reset creates a readable five-report backup before restoring four fictional examples",
+      "pass": true
+    }
+  ],
+  "limits": "Local Windows 11 x64. External requests blocked separately in browser rehearsal; not a physical second PC test."
+}
