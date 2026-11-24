@@ -45,7 +45,7 @@ class ReportHandler(BaseHTTPRequestHandler):
         super().setup()
         self.connection.settimeout(5)
 
-    def _send(self, status, body="", *, content_type="text/html; charset=utf-8", location=None):
+    def _send(self, status, body="", *, content_type="text/html; charset=utf-8", location=None, download=None):
         data = body.encode("utf-8") if isinstance(body, str) else body
         self.send_response(status)
         self.send_header("Content-Type", content_type)
@@ -56,6 +56,8 @@ class ReportHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'; form-action 'self'")
         if location:
             self.send_header("Location", location)
+        if download:
+            self.send_header("Content-Disposition", f'attachment; filename="{download}"')
         self.end_headers()
         self.wfile.write(data)
 
@@ -93,6 +95,13 @@ class ReportHandler(BaseHTTPRequestHandler):
                                               status=context.get("status", ""), pagination=listing))
         elif url.path == "/reports/new":
             self._send(200, views.report_form(self.server.csrf_token, store.counts()["total"]))
+        elif re.fullmatch(r"/reports/[0-9a-f-]{36}/export", url.path):
+            report = store.get(url.path.split("/")[2])
+            if report is None:
+                self._error(404, "Report not found")
+            else:
+                self._send(200, views.report_markdown(report), content_type="text/markdown; charset=utf-8",
+                           download=f"bug-report-{report['id']}.md")
         elif re.fullmatch(r"/reports/[0-9a-f-]{36}", url.path):
             try:
                 context, params = navigation_context(url.query)

@@ -136,3 +136,27 @@ if (statusSelect) {
   window.addEventListener("pageshow", refresh);
   refresh();
 }
+
+const copyReport = document.getElementById("copy-report");
+if (copyReport && navigator.clipboard?.writeText) {
+  copyReport.hidden = false;
+  const feedback = document.getElementById("copy-feedback");
+  copyReport.addEventListener("click", async () => {
+    copyReport.disabled = true;
+    copyReport.setAttribute("aria-busy", "true");
+    copyReport.textContent = "Copying…";
+    feedback.textContent = "";
+    try {
+      const response = await fetch(copyReport.dataset.exportUrl);
+      if (!response.ok) throw new Error(`Export returned ${response.status}`);
+      await navigator.clipboard.writeText(await response.text());
+      feedback.textContent = "Report copied. Ready to share.";
+    } catch (error) {
+      feedback.textContent = "Copy was unavailable. Use Download report to save a file.";
+    } finally {
+      copyReport.disabled = false;
+      copyReport.removeAttribute("aria-busy");
+      copyReport.textContent = "Copy report";
+    }
+  });
+}

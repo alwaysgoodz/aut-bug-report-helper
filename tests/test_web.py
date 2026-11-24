@@ -43,6 +43,28 @@ class WebTests(unittest.TestCase):
     def form_data(self, **values):
         return dict(_csrf=self.server.csrf_token, title="HTTP defect", severity="medium", **values)
 
+    def test_export_is_utf8_attachment_with_current_state_and_all_fields(self):
+        report = self.store.create(title="导出 <script>text</script>", severity="high", steps="1. Open\n2. Click")
+        self.store.update_status(report["id"], "In progress")
+        before = self.store.counts()["total"]
+        code, headers, body = self.request(path=f"/reports/{report['id']}/export")
+        self.assertEqual(code, 200)
+        self.assertEqual(headers["Content-Type"], "text/markdown; charset=utf-8")
+        self.assertEqual(headers["Content-Disposition"], f'attachment; filename="bug-report-{report["id"]}.md"')
+        self.assertEqual(headers["X-Content-Type-Options"], "nosniff")
+        self.assertIn("导出 <script>text</script>", body)
+        self.assertIn("Status: In progress", body)
+        for label in ("Title", "Description", "Steps to reproduce", "Expected behaviour", "Actual behaviour", "Environment", "Severity"):
+            self.assertIn(f"## {label}\n", body)
+        self.assertIn("Not provided", body)
+        self.assertEqual(self.store.counts()["total"], before)
+
+    def test_unknown_or_malformed_export_is_not_downloaded(self):
+        for path in ("/reports/00000000-0000-0000-0000-000000000000/export", "/reports/not-an-id/export"):
+            code, headers, _ = self.request(path=path)
+            self.assertEqual(code, 404)
+            self.assertNotIn("Content-Disposition", headers)
+
     def test_form_has_seven_visible_labels_and_empty_explicit_severity(self):
         code, _, body = self.request(path="/reports/new")
         self.assertEqual(code, 200)

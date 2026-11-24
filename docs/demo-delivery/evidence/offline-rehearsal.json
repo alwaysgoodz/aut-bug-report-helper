@@ -1,0 +1,17 @@
+{
+  "browser": "157.0.8103.80",
+  "source_commit": "8bf9edd4d477a5bf96ea243b0f02e2a541ae0cef",
+  "external_requests_blocked": true,
+  "external_requests_attempted": [],
+  "page_errors": [],
+  "local_requests": 17,
+  "checks": [
+    "real StartDemo.cmd launched package",
+    "four fictional fixtures",
+    "86 to 100 percent and saved state",
+    "clipboard success",
+    "phone layout",
+    "offline local guide"
+  ],
+  "limits": "External browser requests blocked; Windows itself was not disconnected. Executed locally, not on a second physical PC."
+}
