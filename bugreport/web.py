@@ -3,6 +3,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import re
 import secrets
+from time import monotonic
 from urllib.parse import parse_qs, urlsplit
 
 from . import views
@@ -64,6 +65,31 @@ class ReportHandler(BaseHTTPRequestHandler):
 
     def _error(self, status, message):
         self._send(status, views.error_page(status, message))
+
+    def _reject_post(self, status, message):
+        self._error(status, message)
+        # Closing a TCP socket with unread request bytes can reset it before the
+        # browser receives the error page. Drain only a bounded, framed body.
+        if "Transfer-Encoding" in self.headers:
+            return
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+        except ValueError:
+            return
+        remaining = min(length, MAX_BODY + 1)
+        deadline = monotonic() + .25
+        while remaining > 0:
+            timeout = deadline - monotonic()
+            if timeout <= 0:
+                break
+            self.connection.settimeout(timeout)
+            try:
+                chunk = self.rfile.read1(min(remaining, 16384))
+            except (TimeoutError, ConnectionError):
+                break
+            if not chunk:
+                break
+            remaining -= len(chunk)
 
     def _valid_host(self):
         port = self.server.server_address[1]
@@ -128,10 +154,10 @@ class ReportHandler(BaseHTTPRequestHandler):
             return
         origin = self.headers.get("Origin")
         if origin is not None and origin != "http://" + self.headers["Host"]:
-            self._error(403, "Request origin is not allowed")
+            self._reject_post(403, "Request origin is not allowed")
             return
         if self.headers.get("Content-Type", "").split(";", 1)[0] != "application/x-www-form-urlencoded":
-            self._error(415, "Use a form submission")
+            self._reject_post(415, "Use a form submission")
             return
         if "Transfer-Encoding" in self.headers:
             self._error(400, "Unsupported request encoding")
@@ -145,7 +171,7 @@ class ReportHandler(BaseHTTPRequestHandler):
             self._error(400, "Invalid content length")
             return
         if length > MAX_BODY:
-            self._error(413, "Report submission is too large")
+            self._reject_post(413, "Report submission is too large")
             return
         try:
             raw = self.rfile.read(length)
