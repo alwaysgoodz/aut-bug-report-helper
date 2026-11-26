@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 from urllib.parse import urlencode
 
-from bugreport.service import ReportStore
+from bugreport.service import FIELDS, ReportStore, report_revision
 from bugreport.web import MAX_BODY, ReportServer
 
 
@@ -42,6 +42,39 @@ class WebTests(unittest.TestCase):
 
     def form_data(self, **values):
         return dict(_csrf=self.server.csrf_token, title="HTTP defect", severity="medium", **values)
+
+    def test_edit_rejects_invalid_input_and_stale_revision_without_losing_draft(self):
+        report = self.store.create(title="Legacy editable report", severity="high", steps="\nOpen\nClick")
+        path = f"/reports/{report['id']}/edit?severity=high&status=Open&page=2"
+        original = {field: report[field] for field in FIELDS}
+        form = dict(original, _csrf=self.server.csrf_token, _revision=report_revision(report))
+        status, _, page = self.request(path=path)
+        self.assertEqual(status, 200)
+        self.assertIn(form["_revision"], page)
+        status, _, page = self.request("POST", path, dict(form, title=" ", environment="Local draft"))
+        self.assertEqual(status, 422)
+        self.assertIn('value="Local draft"', page)
+        self.assertEqual(self.store.get(report["id"]), report)
+        incomplete = {key: value for key, value in form.items() if key != "steps"}
+        self.assertEqual(self.request("POST", path, incomplete)[0], 400)
+        self.store.update_status(report["id"], "In progress")
+        status, headers, _ = self.request("POST", path, dict(form, actual="Saved in first tab", steps="\r\nOpen\r\nClick"))
+        self.assertEqual(status, 303)
+        self.assertTrue(headers["Location"].endswith("?edited=1&severity=high&status=Open&page=2"))
+        current = self.store.get(report["id"])
+        self.assertEqual(current["steps"], report["steps"])
+        self.assertEqual(current["created_at"], report["created_at"])
+        self.assertEqual(current["status"], "In progress")
+        status, _, page = self.request("POST", path, dict(form, environment="Draft from second tab"))
+        self.assertEqual(status, 409)
+        self.assertIn("Replace saved fields", page)
+        self.assertIn('value="Draft from second tab"', page)
+        self.assertEqual(self.store.get(report["id"]), current)
+        latest_revision = re.search(r'name="_revision" value="([0-9a-f]{64})"', page).group(1)
+        merged = dict(form, _revision=latest_revision, environment="Draft from second tab", actual=current["actual"])
+        self.assertEqual(self.request("POST", path, merged)[0], 303)
+        self.assertEqual(self.store.get(report["id"])["environment"], "Draft from second tab")
+        self.assertEqual(self.store.get(report["id"])["actual"], "Saved in first tab")
 
     def test_export_is_utf8_attachment_with_current_state_and_all_fields(self):
         report = self.store.create(title="导出 <script>text</script>", severity="high", steps="1. Open\n2. Click")

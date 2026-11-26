@@ -8,6 +8,10 @@ BUG REPORT HELPER - Windows 64-bit offline demonstration
 5. 结束时在启动窗口按 Ctrl+C。再次启动会保留已有演示报告。
 6. Evidence/ 保存验证摘要、日志和应急截图，可在断网时展示。
 
+从 1.0.0 升级：关闭旧启动窗口，再把旧包 demo-data 中的
+demo-reports.db 复制到新包的 demo-data 文件夹后启动。保留旧包作为备份。
+在已保存报告点击 Edit report 或缺失字段旁的 Add 链接即可补填。
+
 免安装：内置 Windows x64 Python；无需 pip、Node.js、网络或管理员权限。
 演示数据：首次启动生成 4 条虚构 Study Planner 报告；不是同伴研究结果。
 运行数据：demo-data/demo-reports.db。不要把真实个人信息写入演示。

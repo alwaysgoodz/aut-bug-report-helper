@@ -130,9 +130,9 @@ def error_summary(errors):
     return f'<div class="error-summary" id="form-errors" role="alert" tabindex="-1"><h2>There is a problem with your report</h2><ul>{links}</ul></div>'
 
 
-def completeness_card(values, *, live=False):
+def completeness_card(values, *, live=False, edit_path=None):
     assessment = completeness(values)
-    suggestions = ''.join(f'<li data-field="{field}" {"hidden" if field not in assessment["missing"] else ""}><a class="guidance-link" href="#{"" if live else "detail-"}{field}"><strong>{LABELS[field]}</strong>{icon("arrow")}</a><span>{GUIDANCE[field]}</span></li>' for field in FIELDS)
+    suggestions = ''.join(f'<li data-field="{field}" {"hidden" if field not in assessment["missing"] else ""}><a class="guidance-link" href="{e((edit_path or "") + "#" + field)}"><strong>{LABELS[field]}</strong>{icon("arrow")}</a><span>{GUIDANCE[field]}</span></li>' for field in FIELDS)
     output = f'<output id="completeness-score" for="{" ".join(FIELDS)}" aria-live="polite">{assessment["score"]}%</output>' if live else f'<strong id="completeness-score">{assessment["score"]}%</strong>'
     return f'''<section class="panel completeness-card" aria-labelledby="completeness-heading"><p class="eyebrow">A LITTLE CONTEXT GOES A LONG WAY</p><h2 id="completeness-heading">Report completeness</h2><div class="score-line">{output}<span id="completeness-count">{assessment['completed']} of 7 fields</span></div>
 <div class="completion-track"><progress id="completeness-progress" max="100" value="{assessment['score']}" aria-label="Report completeness"></progress></div><p class="score-disclaimer">Information presence, not correctness. A complete report may still need clarification.</p>
@@ -140,7 +140,8 @@ def completeness_card(values, *, live=False):
 {'<p class="muted-note">Updates as you type. Optional information will not block submission.</p>' if live else ''}</section>'''
 
 
-def report_form(token, total, values=None, errors=None):
+def report_form(token, total, values=None, errors=None, *, edit_path=None, detail_path="/",
+                revision="", conflict=False):
     values, errors = values or {}, errors or {}
     controls = {}
     for field in FIELDS:
@@ -160,7 +161,7 @@ def report_form(token, total, values=None, errors=None):
             # Unicode. Keep the code-point limit authoritative at the server.
             control = f'<input {attrs} type="text" data-character-limit="{LIMITS[field]}" value="{e(value)}">'
         else:
-            control = f'<textarea {attrs} rows="{4 if field == "steps" else 3}" data-character-limit="{LIMITS[field]}">{e(value)}</textarea>'
+            control = f'<textarea {attrs} rows="{4 if field == "steps" else 3}" data-character-limit="{LIMITS[field]}">\n{e(value)}</textarea>'
         inline_error = f'<p class="field-error" id="{error_id}">{e(errors[field])}</p>' if field in errors else ''
         counter = f'<span class="field-count {"over-limit" if len(value) > LIMITS[field] else ""}" id="title-count" aria-hidden="true">{len(value)} / {LIMITS[field]}</span>' if field == "title" else ''
         controls[field] = f'<div class="field field-{field}"><label for="{field}">{LABELS[field]}<span class="field-option {"is-required" if required else ""}">{"Required" if required else "Optional"}</span></label><p class="field-help" id="{help_id}">{HELP[field]}</p>{control}{counter}{inline_error}</div>'
@@ -169,32 +170,48 @@ def report_form(token, total, values=None, errors=None):
               ("03", "Add context", "Capture where it happened and its impact.", ("environment", "severity")))
     sections = ''.join(f'<section class="form-section" aria-labelledby="group-{number}"><div class="section-heading"><span class="section-number" aria-hidden="true">{number}</span><div><h3 id="group-{number}">{title}</h3><p>{hint}</p></div></div><div class="field-grid">{"".join(controls[field] for field in fields)}</div></section>' for number, title, hint, fields in groups)
     blanks = " ".join(str(point) for point in BLANK_CODEPOINTS)
-    content = f'''<a class="back-link" href="/">← Back to reports</a><div class="page-heading"><div><p class="eyebrow">CAPTURE AN ISSUE</p><h1>New report</h1><p class="subtitle">Give your team the details they need to reproduce it.</p></div></div>
-<div class="editor-layout form-page"><section class="panel form-panel"><div class="panel-heading"><h2>Describe the issue</h2><p>Only title and severity are required. You can still submit an incomplete report.</p></div>
-<form action="/reports" method="post" class="report-form" data-completeness data-blank-codepoints="{blanks}" novalidate><input type="hidden" name="_csrf" value="{e(token)}">{error_summary(errors)}{sections}
-<div class="form-actions"><a class="button secondary" href="/">Cancel</a><button type="submit" class="button primary" data-busy-label="Saving report…">{icon('plus')}Create report</button></div></form></section>
+    editing = edit_path is not None
+    title = "Edit report" if editing else "New report"
+    subtitle = "Correct or add details. Completeness updates while you edit." if editing else "Give your team the details they need to reproduce it."
+    back_label = "report" if editing else "reports"
+    revision_input = f'<input type="hidden" name="_revision" value="{e(revision)}">' if editing else ''
+    conflict_notice = (f'<div class="error-summary" role="alert" tabindex="-1" id="edit-conflict"><h2>This report was edited in another tab or window</h2>'
+                       f'<p>Your entries are still here. <a href="{e(detail_path)}" target="_blank" rel="noopener">Review the current report in a new tab</a>. '
+                       'When ready, choose Replace saved fields to save the values shown here.</p></div>') if conflict else ''
+    submit_label = "Replace saved fields" if conflict else "Save changes" if editing else "Create report"
+    content = f'''<a class="back-link" href="{e(detail_path)}">← Back to {back_label}</a><div class="page-heading"><div>{'<p class="eyebrow">CAPTURE AN ISSUE</p>' if not editing else ''}<h1>{title}</h1><p class="subtitle">{subtitle}</p></div></div>
+<div class="editor-layout form-page"><section class="panel form-panel"><div class="panel-heading"><h2>Describe the issue</h2><p>Only title and severity are required. You can add the remaining details later.</p></div>
+<form action="{e(edit_path or "/reports")}" method="post" class="report-form" {'data-edit-report' if editing else ''} data-completeness data-blank-codepoints="{blanks}" novalidate><input type="hidden" name="_csrf" value="{e(token)}">{revision_input}{conflict_notice}{error_summary(errors)}{sections}
+<div class="form-actions"><a class="button secondary" href="{e(detail_path)}">Cancel</a><button type="submit" class="button primary" data-busy-label="Saving report…">{icon('check' if editing else 'plus')}{submit_label}</button></div></form></section>
 <aside class="editor-aside">{completeness_card(values, live=True)}<p class="privacy-note">Use synthetic examples. Keep passwords and personal information out of your report.</p></aside></div>'''
-    return shell("New report", content, total, "new")
+    return shell(title, content, total, "reports" if editing else "new")
 
 
-def report_detail(report, token, total, *, created=False, updated=False, error="", context=None):
+def report_detail(report, token, total, *, created=False, updated=False, edited=False, error="", context=None):
     context = context or {}
     back_path = list_url(**context)
     detail_path = context_url(f"/reports/{report['id']}", context)
     status_path = context_url(f"/reports/{report['id']}/status", context)
-    notice = '<div class="notice" role="status">Report created. Your team now has a place to start.</div>' if created else ''
+    edit_path = context_url(f"/reports/{report['id']}/edit", context)
+    notice = '<div class="notice" role="status">Report created. You can edit it or add details at any time.</div>' if created else ''
+    if edited:
+        notice += f'<div class="notice" role="status">{icon("check")}Changes saved. Completeness updated.</div>'
     if updated:
         notice += f'<div class="notice" role="status">{icon("check")}Status updated to <strong>{e(report["status"])}</strong>.</div>'
     if error:
         notice += f'<div class="error-summary" id="form-errors" tabindex="-1" role="alert">{e(error)} <a href="{e(detail_path)}">Reload report</a></div>'
-    blocks = ''.join(f'<section class="detail-field" id="detail-{field}" tabindex="-1"><h2>{LABELS[field]}</h2><p class="report-text {"not-provided" if not has_text(report[field]) else ""}">{e(report[field]) if has_text(report[field]) else "Not provided"}</p></section>' for field in ("description", "steps", "expected", "actual", "environment"))
+    blocks = []
+    for field in ("description", "steps", "expected", "actual", "environment"):
+        body = (f'<p class="report-text">{e(report[field])}</p>' if has_text(report[field]) else
+                f'<a class="missing-field-action" href="{e(edit_path)}#{field}">Add {LABELS[field].lower()} {icon("arrow")}</a>')
+        blocks.append(f'<section class="detail-field" id="detail-{field}" tabindex="-1"><h2>{LABELS[field]}</h2>{body}</section>')
     allowed = (report["status"], *TRANSITIONS[report["status"]])
     options = ''.join(f'<option value="{e(x)}">{e(x)}</option>' for x in allowed)
-    content = f'''<a class="back-link" href="{e(back_path)}">← Back to {'filtered reports' if context.get('severity') or context.get('status') else 'reports'}</a><div class="page-heading"><div><p class="eyebrow">REPORT DETAILS</p><h1 class="detail-title">{e(report['title'])}</h1><div class="detail-badges">{badge(report['severity'], 'severity')}{badge(report['status'], 'status')}</div></div><div class="report-tools"><div><button type="button" id="copy-report" class="button secondary" data-export-url="/reports/{e(report['id'])}/export" hidden>Copy report</button><a class="button secondary" href="/reports/{e(report['id'])}/export" download>Download report</a></div><p id="copy-feedback" role="status" aria-live="polite"></p></div></div>{notice}
-<div class="editor-layout"><article class="panel detail-panel">{blocks}</article><aside class="editor-aside"><section class="panel status-card"><h2>Move the work forward</h2><p>Update the status when your team has made progress.</p>
+    content = f'''<a class="back-link" href="{e(back_path)}">← Back to {'filtered reports' if context.get('severity') or context.get('status') else 'reports'}</a><div class="page-heading"><div><p class="eyebrow">REPORT DETAILS</p><h1 class="detail-title">{e(report['title'])}</h1><div class="detail-badges">{badge(report['severity'], 'severity')}{badge(report['status'], 'status')}</div></div><div class="report-tools"><div><a class="button primary" href="{e(edit_path)}">Edit report</a><button type="button" id="copy-report" class="button secondary" data-export-url="/reports/{e(report['id'])}/export" hidden>Copy report</button><a class="button secondary" href="/reports/{e(report['id'])}/export" download>Download report</a></div><p id="copy-feedback" role="status" aria-live="polite"></p></div></div>{notice}
+<div class="editor-layout"><article class="panel detail-panel">{"".join(blocks)}</article><aside class="editor-aside"><section class="panel status-card"><h2>Move the work forward</h2><p>Update the status when your team has made progress.</p>
 <form action="{e(status_path)}" method="post"><input type="hidden" name="_csrf" value="{e(token)}"><input type="hidden" name="expected_status" value="{e(report['status'])}">
 <label for="status">Status</label><p class="field-help" id="status-help">Choose a new status before updating.</p><select id="status" name="status" aria-describedby="status-help">{options}</select><button type="submit" class="button primary full-width" data-busy-label="Updating status…">Update status{icon('arrow')}</button></form>
-<p class="muted-note">Open → In progress → Resolved.<br>Resolved reports can be reopened.</p></section>{completeness_card(report)}<section class="metadata"><h2>Report information</h2><dl><dt>Created</dt><dd>{date_label(report['created_at'])}</dd><dt>Reference</dt><dd class="reference">{e(report['id'])}</dd></dl></section></aside></div>'''
+<p class="muted-note">Open → In progress → Resolved.<br>Resolved reports can be reopened.</p></section>{completeness_card(report, edit_path=edit_path)}<section class="metadata"><h2>Report information</h2><dl><dt>Created</dt><dd>{date_label(report['created_at'])}</dd><dt>Reference</dt><dd class="reference">{e(report['id'])}</dd></dl></section></aside></div>'''
     return shell(report["title"], content, total)
 
 

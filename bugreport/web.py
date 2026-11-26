@@ -6,7 +6,8 @@ import secrets
 from urllib.parse import parse_qs, urlsplit
 
 from . import views
-from .service import FIELDS, LIMITS, SEVERITIES, STATUSES, ReportStore, StatusConflict, ValidationError
+from .service import (FIELDS, LIMITS, SEVERITIES, STATUSES, EditConflict, ReportStore,
+                      StatusConflict, ValidationError, report_revision)
 
 # A Unicode scalar can occupy four UTF-8 bytes, each percent-encoded as %XX.
 # Allow every field's valid maximum plus form names/CSRF overhead, still bounded.
@@ -95,6 +96,8 @@ class ReportHandler(BaseHTTPRequestHandler):
                                               status=context.get("status", ""), pagination=listing))
         elif url.path == "/reports/new":
             self._send(200, views.report_form(self.server.csrf_token, store.counts()["total"]))
+        elif re.fullmatch(r"/reports/[0-9a-f-]{36}/edit", url.path):
+            self._edit_report(url)
         elif re.fullmatch(r"/reports/[0-9a-f-]{36}/export", url.path):
             report = store.get(url.path.split("/")[2])
             if report is None:
@@ -114,6 +117,7 @@ class ReportHandler(BaseHTTPRequestHandler):
             else:
                 self._send(200, views.report_detail(report, self.server.csrf_token, store.counts()["total"],
                                                     created=params.get("created") == "1", updated=params.get("updated") == "1",
+                                                    edited=params.get("edited") == "1",
                                                     context=context))
         else:
             self._error(404, "Page not found")
@@ -160,7 +164,8 @@ class ReportHandler(BaseHTTPRequestHandler):
         if not secrets.compare_digest(data.get("_csrf", "").encode("utf-8"), self.server.csrf_token.encode("ascii")):
             self._error(403, "This form has expired. Reload the page and try again.")
             return
-        path = urlsplit(self.path).path
+        url = urlsplit(self.path)
+        path = url.path
         store = self.server.store
         if path == "/reports":
             values = {field: data.get(field, "") for field in FIELDS}
@@ -170,6 +175,8 @@ class ReportHandler(BaseHTTPRequestHandler):
                 self._send(422, views.report_form(self.server.csrf_token, store.counts()["total"], values, error.errors))
                 return
             self._send(303, location=f"/reports/{report['id']}?created=1")
+        elif re.fullmatch(r"/reports/[0-9a-f-]{36}/edit", path):
+            self._edit_report(url, data)
         elif re.fullmatch(r"/reports/[0-9a-f-]{36}/status", path):
             report_id = path.split("/")[2]
             try:
@@ -196,6 +203,51 @@ class ReportHandler(BaseHTTPRequestHandler):
             self._send(303, location=views.context_url(f"/reports/{report_id}", context, notice="updated"))
         else:
             self._error(404, "Page not found")
+
+    def _edit_report(self, url, data=None):
+        try:
+            context, _ = navigation_context(url.query)
+        except ValueError:
+            self._error(400, "Invalid report filter or page")
+            return
+        store = self.server.store
+        report_id = url.path.split("/")[2]
+        report = store.get(report_id)
+        if report is None:
+            self._error(404, "Report not found")
+            return
+        detail_path = views.context_url(f"/reports/{report_id}", context)
+        edit_path = views.context_url(url.path, context)
+        revision = report_revision(report)
+        values = report
+        errors = None
+        conflict = False
+        status = 200
+        if data is not None:
+            revision = data.get("_revision", "")
+            if not re.fullmatch(r"[0-9a-f]{64}", revision) or any(field not in data for field in FIELDS):
+                self._error(400, "Incomplete edit form. Open Edit report and try again.")
+                return
+            values = {field: data[field] for field in FIELDS}
+            try:
+                store.update_report(report_id, values, revision=revision)
+            except ValidationError as error:
+                status, errors = 422, error.errors
+            except EditConflict:
+                latest = store.get(report_id)
+                if latest is None:
+                    self._error(404, "Report not found")
+                    return
+                status, conflict, revision = 409, True, report_revision(latest)
+            except KeyError:
+                self._error(404, "Report not found")
+                return
+            else:
+                self._send(303, location=views.context_url(f"/reports/{report_id}", context, notice="edited"))
+                return
+        self._send(status, views.report_form(self.server.csrf_token, store.counts()["total"], values, errors,
+                                            edit_path=edit_path, detail_path=detail_path, revision=revision,
+                                            conflict=conflict))
 
 
 def serve(database, port=8765):

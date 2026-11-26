@@ -1,6 +1,8 @@
 """BR-01 creation service; persistence uses only the Python standard library."""
 import sqlite3
 from datetime import datetime, timezone
+from hashlib import sha256
+import json
 from pathlib import Path
 from uuid import uuid4
 
@@ -36,6 +38,34 @@ class StatusConflict(ValueError):
     """The displayed report state is stale; no update has been applied."""
 
 
+class EditConflict(ValueError):
+    """Another edit changed the saved fields while the form was open."""
+
+
+def report_revision(report):
+    fields = json.dumps([report[field] for field in FIELDS], ensure_ascii=True)
+    return sha256(fields.encode("ascii")).hexdigest()
+
+
+def validate_fields(payload):
+    errors = {}
+    for field, value in payload.items():
+        if not isinstance(value, str):
+            errors[field] = "Enter text."
+        elif "\x00" in value:
+            errors[field] = "Remove null characters from this field."
+        elif len(value) > LIMITS[field]:
+            errors[field] = f"Use {LIMITS[field]} characters or fewer."
+    title, severity = payload["title"], payload["severity"]
+    if isinstance(title, str) and not has_text(title):
+        errors["title"] = "Enter a title that contains more than whitespace."
+    if not isinstance(severity, str) or severity not in SEVERITIES:
+        errors["severity"] = "Choose low, medium, high or critical severity."
+    if errors:
+        raise ValidationError(errors)
+    return {**payload, "title": title.strip(TEXT_BLANK)}
+
+
 class ReportStore:
     """A file-backed store. Each operation closes its connection deterministically."""
 
@@ -66,33 +96,35 @@ class ReportStore:
     def create(self, *, title: str, severity: str = "", description: str = "",
                steps: str = "", expected: str = "", actual: str = "",
                environment: str = "") -> dict:
-        payload = dict(title=title, severity=severity, description=description, steps=steps,
-                       expected=expected, actual=actual, environment=environment)
-        errors = {}
-        for field, value in payload.items():
-            if not isinstance(value, str):
-                errors[field] = "Enter text."
-            elif "\x00" in value:
-                errors[field] = "Remove null characters from this field."
-            elif len(value) > LIMITS[field]:
-                errors[field] = f"Use {LIMITS[field]} characters or fewer."
-        if isinstance(title, str) and not has_text(title):
-            errors["title"] = "Enter a title that contains more than whitespace."
-        if not isinstance(severity, str) or severity not in SEVERITIES:
-            errors["severity"] = "Choose low, medium, high or critical severity."
-        if errors:
-            raise ValidationError(errors)
-        title = title.strip(TEXT_BLANK)
-        report = dict(id=str(uuid4()), title=title, description=description, steps=steps,
-                      expected=expected, actual=actual, environment=environment,
-                      severity=severity, status="Open",
-                      created_at=datetime.now(timezone.utc).isoformat())
+        payload = validate_fields(dict(title=title, severity=severity, description=description, steps=steps,
+                                       expected=expected, actual=actual, environment=environment))
+        report = dict(id=str(uuid4()), **payload, status="Open", created_at=datetime.now(timezone.utc).isoformat())
         with self._connect() as connection:
             connection.execute("""INSERT INTO reports
                 (id, title, description, steps, expected, actual, environment, severity, status, created_at)
                 VALUES (:id, :title, :description, :steps, :expected, :actual, :environment,
                         :severity, :status, :created_at)""", report)
         return report
+
+    def update_report(self, report_id: str, values: dict, *, revision: str) -> dict:
+        """Update the seven fields in place while checking the editor's snapshot."""
+        payload = validate_fields({field: values[field] for field in FIELDS})
+        with self._connect() as connection:
+            connection.row_factory = sqlite3.Row
+            connection.execute("BEGIN IMMEDIATE")
+            report = connection.execute("SELECT * FROM reports WHERE id = ?", (report_id,)).fetchone()
+            if report is None:
+                raise KeyError(report_id)
+            if report_revision(report) != revision:
+                raise EditConflict
+            for field in ("description", "steps", "expected", "actual"):
+                if payload[field].replace("\r\n", "\n") == report[field].replace("\r\n", "\n"):
+                    payload[field] = report[field]
+            connection.execute("""UPDATE reports
+                SET title=:title, description=:description, steps=:steps, expected=:expected,
+                    actual=:actual, environment=:environment, severity=:severity
+                WHERE id=:id""", dict(payload, id=report_id))
+        return {**dict(report), **payload}
 
     def get(self, report_id: str) -> dict | None:
         with self._connect() as connection:

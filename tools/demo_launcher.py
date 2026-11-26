@@ -20,7 +20,7 @@ from bugreport.service import ReportStore
 from bugreport.web import ReportServer, STATIC
 from tools.seed_demo import seed_database
 
-VERSION = "1.0.0-demo"
+VERSION = "1.0.1-demo"
 
 
 class WorkspaceBusy(RuntimeError):

@@ -1,6 +1,6 @@
 "use strict";
 
-const summary = document.getElementById("form-errors");
+const summary = document.getElementById("form-errors") || document.getElementById("edit-conflict");
 if (summary) summary.focus();
 
 const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -110,6 +110,27 @@ if (reportForm) {
     setTimeout(update, 0);
   });
   update();
+
+  if (reportForm.hasAttribute("data-edit-report")) {
+    const target = fields.find((field) => location.hash === `#${field.id}`);
+    if (!summary && target) target.focus();
+
+    const initial = fields.map((field) => field.value);
+    const warn = (event) => {
+      event.preventDefault();
+      event.returnValue = true;
+    };
+    const syncWarning = () => {
+      const unsaved = Boolean(summary) || fields.some((field, index) => field.value !== initial[index]);
+      if (unsaved) window.addEventListener("beforeunload", warn);
+      else window.removeEventListener("beforeunload", warn);
+    };
+    reportForm.addEventListener("input", syncWarning);
+    reportForm.addEventListener("change", syncWarning);
+    reportForm.addEventListener("submit", () => window.removeEventListener("beforeunload", warn));
+    window.addEventListener("pageshow", syncWarning);
+    syncWarning();
+  }
 }
 
 const guidance = document.querySelector(".form-page .guidance-details");

@@ -198,7 +198,7 @@ textarea { resize: vertical; }
 .notice { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; background: var(--teal-soft); border: 1px solid #b2d1c5; color: var(--teal); padding: 16px 21px; border-radius: 9px; margin-bottom: 25px; font-size: 14px; }
 .detail-title { font-size: 32px; overflow-wrap: anywhere; }
 .page-heading > div:first-child { min-width: 0; }
-.report-tools { flex: 0 0 auto; max-width: 100%; }
+.report-tools { flex: 0 1 auto; max-width: 100%; }
 .report-tools > div { display: flex; gap: 8px; flex-wrap: wrap; }
 #copy-feedback { min-height: 1.6em; max-width: 320px; margin: 8px 0 0; color: var(--teal); font-size: 12px; }
 @media (max-width: 1049px) {
@@ -210,7 +210,9 @@ textarea { resize: vertical; }
 .detail-field:last-child { border: 0; }
 .detail-field h2 { font-size: 14px; color: var(--muted); }
 .report-text { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 16px; line-height: 1.85; margin-top: 11px; margin-bottom: 0; }
-.not-provided { color: var(--muted); font-style: italic; font-size: 14px; }
+.missing-field-action { display: inline-flex; align-items: center; min-height: 44px; gap: 7px; font-size: 14px; }
+.missing-field-action svg { width: 15px; height: 15px; }
+.report-form[data-edit-report] .form-actions { flex-wrap: wrap; }
 .status-card { padding: 25px; margin-bottom: 20px; }
 .status-card p { color: var(--muted); font-size: 13px; line-height: 1.8; }
 .status-card label { margin-top: 22px; }

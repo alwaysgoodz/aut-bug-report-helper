@@ -10,11 +10,13 @@ import tempfile
 import urllib.request
 import zipfile
 
+from tools.demo_launcher import VERSION
+
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME_URL = "https://www.python.org/ftp/python/3.13.17/python-3.13.17-embed-amd64.zip"
 RUNTIME_SHA256 = "9e35319bffedab8b36ad44d8f377cb4f1733bcec257a0b6d04d94f01486ddb38"
 RUNTIME_VERSION = "3.13.17"
-PACKAGE_NAME = "BugReportHelper-Windows-x64-v1.0.0-demo"
+PACKAGE_NAME = f"BugReportHelper-Windows-x64-v{VERSION}"
 
 
 def digest(path):
