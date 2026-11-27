@@ -1,0 +1,32 @@
+{
+  "package": "BugReportHelper-Windows-x64-v1.0.1-demo",
+  "built_at": "2026-11-26T02:20:34.416746+00:00",
+  "source_commit": "b7c88822898d53975ce1f789272fac9646ed6647",
+  "runtime_url": "https://www.python.org/ftp/python/3.13.17/python-3.13.17-embed-amd64.zip",
+  "runtime_sha256": "9e35319bffedab8b36ad44d8f377cb4f1733bcec257a0b6d04d94f01486ddb38",
+  "runtime_version": "3.13.17",
+  "app_sha256": {
+    "bugreport/__init__.py": "87cc6755e2548684f81caf33d1c5d86e0711710fac90c728e5b7e77b383b054c",
+    "bugreport/__main__.py": "52da23ae9855a66ec97ca2cd1bc5ac8bc0a8a99531cbf9f688326cd5827123fe",
+    "bugreport/rules.py": "08f20f8864fb2a462cd9778944f4bc52b866fa6bbdfb1e0add3805671dfe1cea",
+    "bugreport/service.py": "2bfe73e090a6b5185d84ba857c643bbd276cf097e9064f950f851628cdfc0940",
+    "bugreport/static/app.css": "64957af62535d67917604c27edecf619a4f9c56b781343c2d02090c040dfddbb",
+    "bugreport/static/app.js": "99ce969d313a7f6c485dcb57b2bf2361257483069f81a99cdaa4bb4eb52e2ad2",
+    "bugreport/static/mark.svg": "4a8d77eae49e40eaa7c14a9f3cc0a89279fe27fa8191e0e82b13a8975d81da9f",
+    "bugreport/views.py": "5d52640555f8b31acb3d783423a698fa6a50a9bc8876eea602b67a035a5effd6",
+    "bugreport/web.py": "2d873ab386e71e547fd0d926a05aeacb479d4bcc53ec0adc756cb6dc1b7d1f4a",
+    "tools/__init__.py": "c0ffca3b22002654e30b19ec4a44a571d67ec311b7d467aed00c9c238ea12c0f",
+    "tools/demo_launcher.py": "b75a84059f2bd2eb0aabf27d48d24dfad188cc45ada268639e83e7b70461b768",
+    "tools/seed_demo.py": "ea2c042c3d2f78180f28461edb45b92deaa8d4ccae9856caef47274ec0e2a2fb"
+  },
+  "tested_application_commit": null,
+  "evidence_sha256": {},
+  "excludes": [
+    "personal data",
+    "real peer-study data",
+    "credentials",
+    "node_modules",
+    "uncommitted A1 reports"
+  ],
+  "data_policy": "A fresh fictional demonstration database is created at first launch only"
+}

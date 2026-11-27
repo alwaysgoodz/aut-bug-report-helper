@@ -1,0 +1,12 @@
+# Individual contribution evidence worksheet
+
+Assignment 1's submitted report identifies the workstreams below. GitHub links establish repository outcomes. A member should use their own dated activity or verified account mapping when turning a row into a first-person A2 statement. The recorded approvals have sparse bodies and the course also accepts substantive technical and process work evidenced outside Git.
+
+| Member | A1 workstream carried into A2 | A2 project evidence to check against personal records |
+| --- | --- | --- |
+| Fengyi Zhan | Requirements and methods. Preserve the seven-field contract and revise guidance as feedback becomes available. | [Backlog](../backlog.md), [PI-01 criteria](process-improvement-plan.md), [quality plan](quality-plan.md). Identify the requirement or process decision you personally verified or presented. |
+| Kaile Shao | Input behaviour. Allow optional blanks and preserve entered input when required-field validation rejects a save. | [BR-02 issue](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/2), [I1 browser acceptance](evidence/i1-browser.json), [saved-report editing tests](../../tests/browser/report-editing.spec.js). Identify the interaction decision or verification you personally carried out. |
+| Jianqiao Fang | Persistence. Close SQLite connections explicitly and verify storage behaviour across processes. | [BR-03 issue](https://github.com/alwaysgoodz/aut-bug-report-helper/issues/3), [lifecycle tests](../../tests/test_lifecycle.py), [edit/migration evidence](evidence/final/portable-smoke.json). Identify the storage, integrity or review decision you personally made and its outcome. |
+| Xin Li | Acceptance and exact-version evidence. Tie tests and CI to the assessed revision. | [I1 CI](https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41677785458), [I2 CI](https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/41680263474), [demo implementation CI](https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/45741766481). Identify the test, CI or release check you personally carried out and attach the result. |
+
+For each activity, give the date, actual work, decision and rationale, observed result and link. Add the part of the completed demonstration you personally delivered if you can support it. Use your own words and include relevant AI assistance as directed by Canvas. [Statement template](individual-statements/template.md).

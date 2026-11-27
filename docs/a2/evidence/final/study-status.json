@@ -1,0 +1,24 @@
+{
+  "test_only": false,
+  "consenting": 0,
+  "submitted": 0,
+  "reviewed": 0,
+  "complete_pairs": 0,
+  "human_study_complete": false,
+  "pairs": [],
+  "aggregate": {
+    "baseline": {
+      "n": 0,
+      "median_seconds": null,
+      "median_completeness": null,
+      "independent_successes": 0
+    },
+    "guided": {
+      "n": 0,
+      "median_seconds": null,
+      "median_completeness": null,
+      "independent_successes": 0
+    }
+  },
+  "limits": "Four-person convenience sample; descriptive paired results only. Incomplete/repeated/interrupted pairs excluded. Report format may reveal condition to reviewers."
+}

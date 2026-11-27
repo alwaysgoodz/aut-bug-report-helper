@@ -1,0 +1,24 @@
+{
+  "checks": [
+    "Batch launch from Chinese/space path; occupied port fallback, duplicate startup and live reset refusal",
+    "Invalid form retains steps, same report advances 43 → 57 → 86 → 100, still editable at 100",
+    "Status cycle, combined filters, list context restoration and seven-field Markdown export",
+    "Guide matches walkthrough; restart retains report; reset creates backup and restores four examples"
+  ],
+  "observedScores": [
+    "43%",
+    "43%",
+    "57%",
+    "57%",
+    "86%",
+    "100%",
+    "100%",
+    "100%"
+  ],
+  "externalRequests": [],
+  "pageErrors": [],
+  "clipboard": "Write captured in-browser; native clipboard also covered by original package test.",
+  "browser": "157.0.8103.80",
+  "projectorViewport": "1093 × 768",
+  "version": "1.0.1-demo"
+}

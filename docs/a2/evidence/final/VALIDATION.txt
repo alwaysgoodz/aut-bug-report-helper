@@ -1,0 +1,23 @@
+Bug Report Helper 1.0.1 Windows x64 demo
+Tested application b7c88822898d53975ce1f789272fac9646ed6647
+
+Local Python: 82 functional checks passed, 1 CI-only check skipped.
+Extracted Windows package: 25 browser scenarios passed. Two use test-only study fixtures.
+GitHub CI: https://github.com/alwaysgoodz/aut-bug-report-helper/actions/runs/45741766481
+
+Portable rehearsal imported a copy of the 1.0.0 demo database. It filled an existing
+report from 57% to 71% and edited a 100% report down to 86%. The report identity,
+original fields and report count were verified. Save and reload worked without
+JavaScript and without external page requests. The original database hash stayed
+the same. An earlier Windows connection abort on rejected requests was diagnosed
+during regression. The full suite passed after draining bounded rejected bodies.
+
+Final rehearsal, 26 November 2026
+The guide now follows one report at 43%, 57%, 86% and 100%.
+The actual StartDemo.cmd was tested with the default port occupied. The browser
+walkthrough confirmed input retention, editable completed reports, status cycle,
+filters, Markdown export, restart persistence and backed-up reset. Tested with
+external page requests blocked and a 1093 x 768 viewport in local Chrome.
+The clipboard operation used a browser test capture in this final run. The
+previous native-clipboard checks and remote CI apply to the identical app code.
+See offline-rehearsal.json and the accompanying screenshots.

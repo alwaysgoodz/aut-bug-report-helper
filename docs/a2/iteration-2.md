@@ -1,5 +1,7 @@
 # Iteration 2: completeness, filtering and repeatable browser acceptance
 
+> 27 November evidence check: PR #10 shows an approval with an empty body on the I2 evidence head. The final evidence index records this event and links the measured implementation separately. [Evidence index](evidence-index.md).
+
 Date: 4 November 2026 (Asia/Shanghai). Second AI-assisted implementation increment in the preparation session. No claim of actual four-person, two-day work or completed human retrospective.
 
 ## Goal, requirements and responsibilities

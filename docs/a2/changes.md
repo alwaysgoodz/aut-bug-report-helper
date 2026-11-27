@@ -1,5 +1,7 @@
 # Significant decisions and changes from A1
 
+> 27 November update: the submitted A1 plan already uses two working days per iteration. Later refinements introduced 25-row pagination, same-report editing, Markdown export and the offline Windows launcher. The editing and Windows transport changes are verified at b7c8882. The final evidence index records approval events that appeared after the original notes. [Evidence index](evidence-index.md).
+
 | Decision | Reason and effect | Evidence |
 | --- | --- | --- |
 | Proposed calendar: two two-working-day iterations plus a final preparation day in Week 2 | A2 explicitly requires both iterations in Week 2; A1's tentative five days each would not fit. Capacity remains a proposed 20 person-hours per iteration, subject to actual members. Preparation increments in this session are not that calendar history. | Supplied A2 brief; backlog schedule correction |

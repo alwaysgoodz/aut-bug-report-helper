@@ -1,16 +1,14 @@
-# Assignment 2 technical review package
+# Assignment 2 submission
 
-This updated draft covers the supplied names and planned 25% allocations, current v0.4 application behavior/checks and explicitly historical I1/I2/process/performance evidence. [Study tools](../docs/peer-study/README.md) are prepared, with no real participant results. Discussion drafts and individual allocations are not completed human activity. IDs/accounts are intentionally blank.
+Use [A2 submission release v1.0.1](https://github.com/alwaysgoodz/aut-bug-report-helper/releases/tag/a2-submission-v1.0.1) for the fixed source and the validated portable Windows demo. The [root README](../README.md) contains setup and test commands.
 
-- [Group evaluation report PDF draft](assignment-2-report-draft.pdf)
-- [Editable report](assignment-2-report.md) and [structured source](../docs/a2/report-content.json)
-- [Evidence index](../docs/a2/evidence-index.md), [traceability](../docs/a2/traceability.md), [word count](../docs/a2/word-count.json)
-- [I1 record](../docs/a2/iteration-1.md), [I2 record](../docs/a2/iteration-2.md), [decisions/changes](../docs/a2/changes.md)
-- [Ten-minute demo runbook](../docs/a2/demo-runbook.md), [individual statement template](../docs/a2/individual-statements/template.md)
-- [Chinese handoff and marking alignment](../docs/a2/handoff.zh-CN.md)
+- [Group evaluation report text](assignment-2-report.md)
+- [Evidence index and snapshots](../docs/a2/evidence-index.md)
+- [Requirements traceability](../docs/a2/traceability.md)
+- [Demonstration guide](../packaging/DEMO-GUIDE.html)
+- [Individual contribution evidence worksheet](../docs/a2/contribution-evidence.md)
+- [Main-text word count](../docs/a2/word-count.json)
 
-The report contains 1,921 whitespace words / 2,081 conservative tokens, including tables and citations, under the 2,500-word cap. Supporting appendices and separate individual statements are excluded under the supplied brief. Recount after genuine team material is added.
+The PDF submitted through Canvas has the required title-page identifiers. The older PDF draft in this directory is a historical working document. The latest report binds the two original iteration records to their own commits and checks, and uses the demonstrated 1.0.1 increment for release verification. Historical statements about absent approvals describe earlier audit dates. The final evidence index includes the updated GitHub review snapshot.
 
-The fixed `team-study-ready-v0.1` tag packages preparation; historical application tags remain preserved. It preserves runnable software, names and planned allocations; real independent approval, student/account details, actual contributions, team meetings and product evaluation remain pending. Generated preparation does not establish those activities.
-
-The application has no third-party Python runtime dependency. Optional PDF regeneration uses Windows Calibri, `reportlab` and `PyMuPDF`: `python -m tools.build_a2_report`. Inspect every newly rendered page under `tmp/a2-report-render` before delivering a changed PDF.
+[Canvas A2 brief](https://canvas.aut.ac.nz/courses/23715/assignments/197930). The current marking weights are 20 lifecycle, 20 collaboration and improvement, 15 working increment and quality, 15 comparative evaluation, and 30 communication and reproducibility. The group main-text limit is 2,500 words, including tables and citations.

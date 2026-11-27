@@ -1,127 +1,104 @@
 # Collaborative Development and Evidence-Based Evaluation
 
-Structured Bug Report Helper · Assignment 2
+Structured Bug Report Helper · ENSE701 Assignment 2
 
-**Preparation draft. Names supplied; IDs/accounts blank by request. Planned equal shares do not establish completed contributions, meetings or peer evaluation.**
+[Fixed source and demo](https://github.com/alwaysgoodz/aut-bug-report-helper/releases/tag/a2-submission-v1.0.1) · [Evidence index](../docs/a2/evidence-index.md)
 
-| Role | Name | Student ID | GitHub |
-| --- | --- | --- | --- |
-| A | Fengyi Zhan |  |  |
-| B | Kaile Shao |  |  |
-| C | jianqiao Fang |  |  |
-| D | xin Li |  |  |
+## 1. Scope and decisions carried forward from Assignment 1
 
-## 1. Increment scope and changes
+Structured Bug Report Helper gives student developers and testers one place to capture the evidence needed to reproduce a defect and follow it through resolution. Assignment 1 (A1, §§2–4) fixed the seven-field contract, selected two short increments and trialled persistent creation at 03fb9c5 (E1). A2 kept that contract: title and severity are required, the five narrative fields can be completed later, and reports start Open. Research identifies reproduction steps as valuable to developers (Soltani et al., 2020). The equal-weight percentage therefore serves as a prompt for missing information. Its value as a measure of factual accuracy or reproducibility was outside the verified outcomes. The A1 submission also documented explicit SQLite connection closure after a Windows file-lock failure. A2 retained that resource-lifetime check and added browser and Windows transport checks. Canvas displayed the A1 grade when reviewed. No written feedback was available in the inspected view.
 
-The increment continues Assignment 1's lecturer-approved structured bug-report project. Seven-field creation, persistent list/detail views, guarded status changes/reopening, live completeness guidance and AND filters remain core. Later technical refinements add 25-report pages, responsive layouts, filtered detail return and history-state synchronisation. Completeness measures information presence, not correctness or independent reproducibility (Soltani et al., 2020). AI diagnosis, automatic fixes, external tracker integration, mobile applications and advanced analytics remain excluded.
+The core scope remained creation, viewing, persistent status, guidance and combined filters. Later revisions introduced 25-row pages, context-preserving navigation, editing in place, Markdown sharing and an offline Windows launcher. Editing addressed a practical gap: users could see exactly what was missing yet had no way to repair the same saved report. It preserves the report reference and status, and detects stale edits. The rejected-body handling change addressed an intermittent Windows connection abort that could hide validation feedback (E5). Authentication, remote storage and external tracker integration remain outside the local prototype.
 
-Three changes require explanation. An earlier A1 draft assumed five days per iteration; A2 places both in Week 2, so the current plan uses two working days each plus a final preparation day. The proposed capacity remains 20 team person-hours per iteration, awaiting member confirmation. Process measures are added because the original four-peer product study cannot evaluate a development-workflow change. Playwright is introduced as a locked test-only dependency; Python/SQLite application execution still needs no third-party package.
+## 2. Iteration outcomes and traceability
 
-The two technical increments and experiments below were produced in one AI-assisted preparation session. They are not evidence of completed four-person Week 2 collaboration. The supplied members are Fengyi Zhan, Kaile Shao, jianqiao Fang and xin Li; IDs/accounts remain blank by request. Equal 25% workloads, discussion drafts and a local peer-study tool are prepared. Actual activities, independent reviews, meetings, individual statements and peer outcomes remain unverified.
+A1 allocated 20 team person-hours to each two-day iteration, including contingency. Table 1 uses its planned owners. The archived technical snapshots were prepared in one AI-assisted session on 4 November (NZ and China local dates). Actual Week 2 person-hours, review discussions and sprint dates could not be established from those records. Issues, source commits, test cases and approvals are linked independently in E1–E3.
 
-## 2. Lifecycle application and iteration outcomes
+Table 1. Iteration goals, planned ownership and acceptance evidence
 
-The repository preserves the A1 baseline and separate I1/I2 branches. Existing Issues #1–6 supply priorities and acceptance criteria; PI-01 (#9) records the process change after I1. Stacked draft PRs #7, #8 and #10 connect requirements to proposed changes. They remain unmerged pending non-author approval. Planned roles are Fengyi Zhan requirements/evaluation, Kaile Shao interaction, jianqiao Fang service/storage and xin Li acceptance/CI, each with equal target hours. Activity links must substantiate eventual contributions.
-
-Table 1. Technical increment goals, acceptance and outcomes
-
-| Increment | Selected work and acceptance | Observed outcome |
+| Iteration and planned owners | Selected acceptance criteria | Observed outcome |
 | --- | --- | --- |
-| I1 | BR-02/03: create/list safely, retain invalid inputs, persist status cycle/reopening, reject stale or invalid updates. | 34 Python/HTTP checks pass; ad-hoc browser C1/C2/C3 pass. Missing-focus mutation escapes automated checks. Snapshot cee24aaa908991a9ff38967bfc2a46f973493934; PR #8. |
-| I2 | BR-04/05 and PI-01: exact missing-field guidance, 0/86/100 score boundaries, AND/clear filters, repeatable browser checks and targeted fault detection. | 43 functional Python/HTTP checks and seven browser checks pass. Same focus mutation is detected, original restored, full suite passes. Snapshot f36dfc792c4467c0726598cce401629f7a9e7fe5; PR #10. |
+| I1 • BR-02 and BR-03, with BR-06 checks. Kaile Shao: browser. Jianqiao Fang: persistence. Xin Li and Fengyi Zhan: verification. | Retain valid input after rejection, focus linked errors, save seven fields, survive a reload without duplication and persist status changes including reopening. | 34 Python/HTTP checks passed at cee24aa. C1–C3 passed in an ad-hoc browser exercise. Disabling error focus exposed a gap in the automated checks (E2). |
+| I2 • BR-04, BR-05, BR-06 and PI-01. Kaile Shao: guidance. Jianqiao Fang: filters. Xin Li and Fengyi Zhan: verification and evaluation. | Update missing-field guidance live and after save, verify scoring boundaries, combine filters with AND, and execute C1–C3 automatically in CI. | 43 functional and seven browser checks passed at f36dfc7. The same focus mutation failed the intended browser assertion. The suite passed after restoration (E3). |
 
-Each increment records goal, selected requirements, proposed responsibilities, outcomes, decisions and a technical retrospective. Those records distinguish preparation observations from the real team discussions still required. The inherited Definition of Done requires acceptance evidence, latest-revision independent approval and updated documentation; therefore implemented functionality is not labelled fully Done solely because tests pass.
+PR #7 records a non-author approval on the A1 submission SHA. PRs #8 and #10 record approvals on the I1 head and the I2 evidence head respectively. Both A2 approvals have empty bodies. They establish recorded review events and exact revisions, with limited evidence of review depth, author response or who did the work. The PR chain preserves related changes. It remained open, and the edited demo version has CI but no recorded independent approval (E1–E3, E5).
 
-The browser adapter, validation/service, pure completeness rules and SQLite store remain separate. Parameterised queries preserve report text as data; explicit connection closure carries forward A1's Windows lesson. Status updates compare the displayed previous state before writing, so stale pages receive a conflict rather than silently overwriting another change. The repository supports development collaboration, while the product remains one local instance rather than a shared remote database.
+## 3. Software quality and reproduction
 
-## 3. Quality results and reproducibility
+The fixed A2 release packages Demo 1.0.1. It uses the same application and test files as b7c8882, the implementation that passed GitHub Actions run 45741766481. GitHub Actions ran the Python 3.11 and 3.12 jobs. The 3.12 job used Node 24.22.3 and Chromium 156.0.8078.4 and reported 25 expected, zero unexpected, zero skipped and zero flaky browser cases. Two browser cases and 14 Python checks exercise the study-tool fixtures. The 82 functional Python checks also cover the application, transport and launcher (E5). The local rerun on Windows also passed all 25 cases. The log preserves one aborted static-file response during the run, with no failed test.
 
-Functional checks cover creation/rejection, separate-process persistence, field limits, status/conflicts, missing information and non-mutating filters. Browser checks execute JavaScript, keyboard submission, responsive layouts and safe rendering. Historical I2 passed 43 functional and seven browser checks. The later v0.4 application implementation 8a0f4bb passes 57 functional and 16 browser checks, including supplementary Unicode, maximum valid encoded reports, history restoration, filtered navigation and null rejection. Local discovery includes one skipped CI-only bridge; remote Python 3.12 executes it. Study-tool simulations are separate verification, not participant evidence.
+Table 2. Quality scenarios and observed results
 
-Local checks used Windows 11, Python 3.12.7, SQLite 3.51.0, Node 22.22.1 and installed Chrome 155.0.8059.86 after a browser-download failure. Remote v0.4 run 41854085423 passed Python 3.11/3.12 and all 16 Chromium 156.0.8078.4 cases, with zero unexpected, skipped or flaky browser outcomes. These recorded environments provide limited diversity, not a full compatibility matrix. Earlier I1/I2 logs remain bound to their historical commits.
-
-Table 2. Quality scenarios and measured results
-
-| Scenario and procedure | Result | Interpretation boundary |
+| Scenario and conditions | Observed result | Interpretation |
 | --- | --- | --- |
-| Current security/integrity: stored markup, CSRF, Origin/Host, bounded/encoded input, stale writes, null rejection and validated navigation context. | Selected HTTP assertions pass; browser displays injected markup as text, not an image. Rejected writes preserve stored records. | Regression checks within the local threat model; no penetration-test or production-security claim. |
-| Historical I2 performance: 500 synthetic reports, one loopback client, five warm-ups, 50 full-body requests. Predeclared nearest-rank p95 <250 ms. | Median 51.57 ms; p95 77.88 ms; maximum 80.20 ms. Each response 430,353 bytes; all HTTP 200. Target met. | One machine, sequential requests and warm cache. No cold-start, concurrent-user or public-network conclusion. |
+| Acceptance and data integrity. Temporary SQLite files, service/HTTP tests and isolated browser contexts. | Invalid inputs and stale status/body edits leave saved data intact. A valid edit preserves identity and status. Stored markup renders as text. Keyboard, narrow screens, no-JavaScript editing and Markdown export are covered. | Selected functional and local integrity properties. Browser evidence is concentrated in Chromium-family environments. |
+| Historical I2 performance. One loopback client, 500 synthetic reports, 5 warm-ups and 50 measured GETs of the full list. | Median 51.57 ms; nearest-rank p95 77.88 ms; max 80.20 ms. Every full response was 430,353 bytes. Predeclared p95 <250 ms was met. | Only the original f36dfc7 workload supports this result. |
+| Demo-version performance. Same request counts and loopback protocol, rotating over 20 pages of 25 reports from a fresh synthetic database. | Median 9.89 ms; p95 32.09 ms; max 33.11 ms. A separate page traversal found 500 unique IDs. The paginated scenario's <250 ms target was met. | Each request renders 25 records. Different response work prevents a direct percentage speedup or a claim about whole-list latency. |
 
-The historical latency helper used clean f36dfc7, a temporary database and an ephemeral server, preserving raw timings, environment and source hashes without user-data changes. Reproduce that workload at its exact commit. Later 25-row pagination changes response work, preventing a direct speedup claim; no fresh v0.4 latency is claimed. README and evidence indexes reproduce current checks and preserve the earlier process comparison. The final assessed reference still requires team approval and assessor access.
+Both runs used Windows 11, Python 3.12.7, SQLite 3.51.0 and a single Intel x64 machine. The harness includes connection, server rendering and full-body reads, and stores raw latencies, page sizes, environment and source hashes (E4). To reproduce, run the benchmark in the fixed checkout using the README. The measurements cover sequential requests and warm local storage. Concurrent users, cold starts, remote access and other hardware could change the result. OFFSET pagination has no cross-request snapshot guarantee when new reports arrive.
 
-Token/origin choices follow OWASP Foundation (n.d.), but loopback binding is not authentication. Python's server documentation discourages production use (Python Software Foundation, n.d.). The prototype has no accounts, remote database, body editing or attachments; Chromium-family coverage is limited. The prepared four-peer tool supplies matched fixtures, counterbalanced order, timing and independent semantic/reproduction review. Real participants have not used it, so technical checks and historical latency do not demonstrate student usefulness.
+The application requires only Python and SQLite at runtime. The source-package checks use locked Playwright 1.64.1, and the portable Windows release bundles CPython 3.13.17. The server binds to loopback and uses request checks, HTML escaping and guarded writes. The standard-library server is for local prototyping (Python Software Foundation, n.d.). The software has no user identity model or public deployment validation.
 
-## 4. Process improvement and critical interpretation
+## 4. Process improvement and its limits
 
-I1 exposed a specific feedback gap: Python/HTTP tests inspect responses but do not execute client-side focus behaviour. Temporarily disabling the error-summary focus statement left all 34 automated checks green, while an ad-hoc browser observation found the summary visible but unfocused. The statement was restored immediately. This controlled mutation was an experiment, not a delivered defect or a teammate's review finding.
+I1's technical retrospective found a concrete detection gap: its automated Python/HTTP suite could verify the response and persistence, but client-side focus remained outside the executed layer. With the error-summary focus line disabled, all 34 tests stayed green while a browser check observed that focus stayed away from the linked errors. The technical decision recorded in PI-01 was to keep the lower-layer tests and add committed Playwright assertions to CI for the same three browser scenarios. This follows the course emphasis on selecting test levels for specific risks and comparing like-for-like observations (Auckland University of Technology [AUT], 2026a, 2026b).
 
-Before I2, the improvement plan fixed three common scenarios: C1 invalid submission retains inputs, inserts nothing and focuses linked errors; C2 creation survives reload without duplication; C3 saved state completes Open/In progress/Resolved/Open. I2 committed these browser assertions and enabled them in CI, retaining faster service/HTTP checks. New guidance, filtering, keyboard and narrow-screen cases extend the suite but are excluded from the shared-scenario comparison.
+Table 3. Matched process measures fixed before Iteration 2
 
-Table 3. PI-01 observations across the two increments
-
-| Measure | I1 | I2 |
+| Measure or workload | I1 | I2 |
 | --- | --- | --- |
-| Common C1/C2/C3 pass observations | 3/3 through an ad-hoc MCP browser exercise | 3/3 through committed browser tests; also executed remotely |
-| Common scenarios in committed browser regression/CI | 0/3 | 3/3 |
-| Identical missing-focus mutation detected by automated checks | 0/1; 34 Python/HTTP checks still pass | 1/1; C1 fails at toBeFocused; original bytes restored |
-| Unmodified I2 browser suite after restoration | Not applicable | 7/7 pass locally and remotely; zero skipped or flaky cases |
+| C1 invalid form: retained input and focused errors. C2 create and reload: one saved record. C3 status cycle: every transition persisted. | 3/3 observed by an ad-hoc browser exercise. 0/3 in committed browser CI. | 3/3 observed by committed assertions and enabled in CI. |
+| Same controlled missing-focus regression, with the original source restored after each experiment. | 0/1 automatically detected by the Python/HTTP checks. Browser observation detected the failure. | 1/1 automatically detected at the C1 focus assertion. The unmodified browser suite then passed. |
+| Other work and feedback cost. | 34 Python checks. No browser installation in CI. | 43 functional Python checks and seven browser cases. Only C1–C3 enter the shared-scenario comparison. |
 
-This supports a narrow conclusion: the new executable checks detect the chosen client-side regression and make the common scenarios repeatable in CI. It does not establish a general mutation score, fewer escaped defects, improved teamwork or faster delivery. Inozemtseva and Holmes (2014) show why coverage should not be a stand-alone effectiveness target. Just et al. (2014) support studying mutation detection while documenting limits; their broader real-fault evidence does not make one intentionally selected mutant representative.
+A1 separated product measures (completion time, completeness and independent reproduction) from workflow controls (substantive review, latest-revision approval and a one-working-day review target). The proposed four-peer study remained unrun, so this report has no usability effects or independent reproduction rates. PR #8 and #10 approvals arrived about 61 hours after opening. Opening time is only a proxy for review-ready time, and the records contain no substantive response or agreed working-day intervals. The process comparison uses scenario repeatability and mutation detection because these directly answer whether the browser regression would be caught on the next push. The new measures were documented after I1 and before I2, alongside the preserved product protocol (E3, E6).
 
-A1's planned completion time, completeness and independent reproduction assess the product. We retain that study but add executable-scenario coverage and targeted detection for the process question; the change is recorded prospectively. Raw durations are descriptive: I1's ad-hoc exercise took 1.081 seconds, I2's local browser suite 12.382 seconds and remote browser suite 8.414 seconds. Different test counts, startup, machines and browser versions prevent treating these as a productivity or speed improvement.
+The technical I2 retrospective retained both layers. It also separated JSON from HTML reports after the reporter cleared a JSON file, and verified that the fault was detected by the intended assertion after an initial test selector matched nothing. The hosted I1 Python 3.12 acceptance step lasted about one second. I2's step took about 33 seconds and included browser setup and added coverage. These are descriptive step times under different workloads. The result establishes repeatability for three workflows and automatic detection of one chosen fault. A single targeted mutation offers limited evidence about real fault distributions (Just et al., 2014), review throughput or team productivity. The archived retrospectives are technical records. No contemporaneous four-person meeting minutes were available (E2–E3).
 
-The experiment also exposed evidence-tooling problems. An anchored test filter matched no test; a JSON result placed inside the HTML reporter's directory was cleared. The helper now verifies the intended assertion fails, writes JSON separately and restores original bytes in finally. The first harness error is preserved rather than counted as detection. Next, the team should test several independently chosen client-side faults and discuss CI cost against risks; a genuine retrospective and a comparable human workload record are still required.
+In another cycle, retain the three browser checks, assign a named independent reviewer and backup per change, and record review-ready time, first substantive review and author response. Evaluate a small set of browser faults selected before writing new checks and record browser setup separately. If consenting participants are available, run the original matched and counterbalanced product tasks with an independent reproduction assessor.
 
-## 5. Comparative evaluation of approaches and tools
+## 5. Comparative evaluation and recommendation
 
-The original selection remains defensible as a small iterative lifecycle with selected agile practices and explicit baselines. I1 produced the core workflow and the observed testing gap; I2 added guidance/filtering and a measured checking improvement. A plan-driven alternative could have specified the browser-focus oracle earlier and reduced this gap; the experience therefore supports stronger up-front acceptance design, not abandoning planning. Conversely, freezing all guidance before evaluating an increment would constrain adaptation without evidence that its wording helps users.
+A1's iterative-incremental choice remains appropriate for this short, low-risk prototype. Iteration provided a runnable reporting core before guidance was layered onto it, and I1's concrete test gap changed the I2 definition of acceptance. Larman and Basili (2003) describe an established pattern of learning from increments. The repository shows this mechanism in the technical work, while the available record gives limited evidence about the team's use of agile feedback. A formal up-front baseline offered clear value for the seven-field contract, legal state transitions and data preservation. Freezing the full interaction early would have made it harder to address the missing edit path once guidance exposed that need. This mix follows Boehm and Turner's (2003) risk-based tailoring.
 
-Boehm and Turner (2003) support tailoring practices to risk rather than selecting a universal method. Dybå and Dingsøyr (2008) identify context and evidence-quality limits in early agile research. Here, two technical increments show feasibility and adaptation, but absent stakeholder feedback and human collaboration prevent claims that agile improved team performance. The practical choice is to keep a stable scope, short changes and explicit acceptance contracts while revising a specific checking practice when evidence warrants it.
+Table 4. Methods and tools under this project's constraints
 
-Table 4. Practices and credible alternatives
-
-| Decision | Evidence and merit | Alternative and trade-off |
+| Decision | Observed trade-off | Credible alternative and when it fits |
 | --- | --- | --- |
-| Executable browser checks alongside Python/HTTP | The same focus fault escapes the lower-layer suite and is caught in the browser. Native forms still work without JavaScript. | HTTP-only checks are faster and simpler but miss DOM behaviour. Selenium WebDriver is credible where existing language/grid expertise matters; no Selenium experiment was run. |
-| GitHub CI and tracked PR proposals | Runs bind results to exact commits; local/remote browsers both execute acceptance. OAuth lacks workflow-write scope, so the existing Python 3.12 job invokes the browser gate. | A separate browser job would separate feedback and dependencies; the present bridge couples them. Manual-only checks avoid setup cost but cannot provide the same repeatable gate. |
-| Local Python/SQLite prototype | No runtime package/service setup; temporary test databases isolate experiments. Stale writes are rejected explicitly. | A framework and hosted database would better support authentication or remote users, at additional setup/operational cost. Those requirements are outside this increment. |
+| Requirements and review | Issue-linked changes, fixed SHAs and executable checks made scope and outcomes traceable. Stacked PRs made later changes dependent on several unmerged bases. Empty approvals provide little reasoning. | Use smaller PRs against one integration branch and require a recorded check and author response. Formal change control makes sense when requirements must be audited or signed off. |
+| Test layers and browser tool | Python/HTTP checks quickly test validation and persistence. Playwright contributes DOM focus, navigation and export evidence with actionability waits, but introduces Node and browser binaries (Microsoft, n.d.). | A short manual walkthrough can explore unfamiliar issues. Selenium WebDriver with explicit wait conditions is credible where a team already maintains WebDriver infrastructure (Selenium, n.d.). No browser-tool speed comparison was run. |
+| Hosted CI | GitHub Actions preserves a shared result per SHA. The 3.12 test bridge enabled required browser execution within the existing permissions and couples two test layers in one job. | A dedicated browser job would isolate setup and failures. A controlled internal runner is appropriate where source, test data or device access must remain within institutional infrastructure. |
 
-Playwright's documentation describes executable CI checks and reports (Microsoft, n.d.); Selenium documents WebDriver as another browser-automation approach (Selenium, n.d.). Tool availability is not proof of superior outcomes. Elazhary et al. (2022) show CI implementation depends on context and can constrain feedback; the actual download failure, reporter collision and workflow-scope restriction illustrate our maintenance cost. Tests do not replace thoughtful review: McIntosh et al.'s (2014) observational study links review participation with quality, whereas these unreviewed draft PRs demonstrate only a review opportunity.
+Bacchelli and Bird (2013) found that code review can support understanding and knowledge transfer. Here, empty approvals cannot demonstrate either benefit. Hilton et al. (2016) document both cost and benefit in large open-source CI datasets. That evidence supports investing in repeatable checks, while the prototype's own step timings and mutation result provide the narrower evidence for keeping this browser gate. For a distributed team, written decisions, review windows and asynchronous handover would matter more. For a regulated deployment, retain short delivery increments, add a formal baseline, independent acceptance sign-off, controlled build evidence and a different hosting and access model. Within the remaining collaboration gap, the strongest next check is a non-author reproduction from the fixed release, with the exact command, result and review rationale recorded on the change.
 
-For a distributed team, preserve increments but add asynchronous decisions, explicit handovers and review windows; Camara et al.'s (2024) large-scale review informs these adaptations without justifying a scaled framework for four students. A regulated context would require formal risk, approval and requirement-test records and a different deployment assurance level. Those conditions favour more planning/verification around increments; neither our single-user latency nor targeted mutation result transfers directly.
+## 6. Demonstration and attribution
 
-## 6. Demonstration and remaining team work
-
-The prepared ten-minute runbook demonstrates incomplete/complete creation, invalid-input recovery, persistence, status/reopening, filters, actual CI and the before/after mutation evidence, followed by five minutes of questions. Proposed speaking slots require each member to explain a substantive requirement, design, testing or evaluation decision after performing real work. Individual statement templates request linked decisions and outcomes rather than commit totals.
-
-The software is runnable and its technical observations are reproducible. Before assessed submission, real members must review the latest changes, conduct and record their own iteration discussions, complete the peer evaluation or justify its omission, complete student/account details and authentic individual statements, verify assessor permissions and select the approved submission reference. The technical review tag is a fixed preparation candidate, not an assertion that these collaborative obligations have been met.
+The team confirmed completion of the group demonstration. The preserved rehearsal shows a single report moving from 43% through 57% and 86% to 100%, then status changes, filtering, export and restart persistence (E5). It documents rehearsal conditions and supports reproducibility. The available record contains no live recording, lecturer comments or verified speaker-by-speaker contributions. The A1 report records assigned workstreams. A2 statements must pair each member's actual work and decision with dated evidence (E7).
 
 ## References
 
+Auckland University of Technology. (2026a). *Session 7: Testing, inspection and continuous integration* [Course materials]. Canvas. https://canvas.aut.ac.nz/courses/23715/modules/items/1134770
+
+Auckland University of Technology. (2026b). *Session 9: Software analytics and process improvement* [Course materials]. Canvas. https://canvas.aut.ac.nz/courses/23715/modules/items/1134773
+
+Bacchelli, A., & Bird, C. (2013). Expectations, outcomes, and challenges of modern code review. In *2013 35th International Conference on Software Engineering (ICSE)* (pp. 712–721). IEEE. https://doi.org/10.1109/ICSE.2013.6606617
+
 Boehm, B., & Turner, R. (2003). Using risk to balance agile and plan-driven methods. *Computer, 36*(6), 57–66. https://doi.org/10.1109/MC.2003.1204376
 
-Camara, R., Marinho, M., & Moura, H. (2024). Agile tailoring in distributed large-scale environments using agile frameworks: A systematic literature review. *CLEI Electronic Journal, 27*(1), Article 8. https://doi.org/10.19153/cleiej.27.1.8
-
-Dybå, T., & Dingsøyr, T. (2008). Empirical studies of agile software development: A systematic review. *Information and Software Technology, 50*(9–10), 833–859. https://doi.org/10.1016/j.infsof.2008.01.006
-
-Elazhary, O., Werner, C., Li, Z. S., Lowlind, D., Ernst, N. A., & Storey, M.-A. (2022). Uncovering the benefits and challenges of continuous integration practices. *IEEE Transactions on Software Engineering, 48*(7), 2570–2583. https://doi.org/10.1109/TSE.2021.3064953
-
-Inozemtseva, L., & Holmes, R. (2014). Coverage is not strongly correlated with test suite effectiveness. In *Proceedings of the 36th International Conference on Software Engineering* (pp. 435–445). Association for Computing Machinery. https://doi.org/10.1145/2568225.2568271
+Hilton, M., Tunnell, T., Huang, K., Marinov, D., & Dig, D. (2016). Usage, costs, and benefits of continuous integration in open-source projects. In *Proceedings of the 31st IEEE/ACM International Conference on Automated Software Engineering* (pp. 426–437). Association for Computing Machinery. https://doi.org/10.1145/2970276.2970358
 
 Just, R., Jalali, D., Inozemtseva, L., Ernst, M. D., Holmes, R., & Fraser, G. (2014). Are mutants a valid substitute for real faults in software testing? In *Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering* (pp. 654–665). Association for Computing Machinery. https://doi.org/10.1145/2635868.2635929
 
-McIntosh, S., Kamei, Y., Adams, B., & Hassan, A. E. (2014). The impact of code review coverage and code review participation on software quality: A case study of the Qt, VTK, and ITK projects. In *Proceedings of the 11th Working Conference on Mining Software Repositories* (pp. 192–201). Association for Computing Machinery. https://doi.org/10.1145/2597073.2597076
+Larman, C., & Basili, V. R. (2003). Iterative and incremental development: A brief history. *Computer, 36*(6), 47–56. https://doi.org/10.1109/MC.2003.1204375
 
-Microsoft. (n.d.). *Setting up CI.* Playwright. Retrieved November 4, 2026, from https://playwright.dev/docs/ci-intro
+Microsoft. (n.d.). *Auto-waiting*. Playwright. https://playwright.dev/docs/actionability
 
-OWASP Foundation. (n.d.). *Cross-site request forgery prevention cheat sheet.* OWASP Cheat Sheet Series. Retrieved November 4, 2026, from https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html
+Python Software Foundation. (n.d.). *http.server: HTTP servers*. Python 3.12 documentation. https://docs.python.org/3.12/library/http.server.html
 
-Python Software Foundation. (n.d.). *http.server: HTTP servers.* Python 3.12 documentation. Retrieved November 4, 2026, from https://docs.python.org/3.12/library/http.server.html
-
-Selenium. (n.d.). *WebDriver.* Retrieved November 4, 2026, from https://www.selenium.dev/documentation/webdriver/
+Selenium. (n.d.). *Waiting strategies*. https://www.selenium.dev/documentation/webdriver/waits/
 
 Soltani, M., Hermans, F., & Bäck, T. (2020). The significance of bug report elements. *Empirical Software Engineering, 25*(6), 5255–5294. https://doi.org/10.1007/s10664-020-09882-z
 
-## Supporting evidence
+## AI assistance
 
-See [evidence index](../docs/a2/evidence-index.md), [demo runbook](../docs/a2/demo-runbook.md) and [individual statement template](../docs/a2/individual-statements/template.md).
+OpenAI Codex was used to assist with the implementation and test artefacts, repository preparation, source review, and drafting and formatting this report. The report links the underlying evidence and identifies observations from AI-assisted technical work. The submitters are responsible for checking the report, verifying any account-to-member attribution, and completing their own contribution statements.

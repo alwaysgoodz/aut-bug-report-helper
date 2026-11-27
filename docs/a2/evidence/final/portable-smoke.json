@@ -1,0 +1,14 @@
+{
+  "runtime": "1.0.1-demo",
+  "browser": "157.0.8103.80",
+  "legacyDatabase": "copied from v1.0.0 demo",
+  "sameReport": true,
+  "priorContentPreserved": true,
+  "score": "57% → 71%",
+  "completeReportEditable": "100% → 86%",
+  "reloadPersists": true,
+  "reportCountUnchanged": 4,
+  "noJavaScript": true,
+  "externalRequests": [],
+  "originalDatabaseUnchanged": true
+}

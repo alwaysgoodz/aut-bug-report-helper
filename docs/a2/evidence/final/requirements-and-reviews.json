@@ -1,0 +1,349 @@
+{
+  "audit_date": "2026-11-27",
+  "pull_requests": [
+    {
+      "baseRefName": "main",
+      "comments": [],
+      "createdAt": "2026-11-03T16:23:23Z",
+      "headRefOid": "03fb9c5e41f80026c0ec66c28a92b09ed6f1251e",
+      "isDraft": true,
+      "number": 7,
+      "reviews": [
+        {
+          "id": "PRR_kwDOVhnaPs8AAAABWX7Dsg",
+          "author": {
+            "login": "fadeout12"
+          },
+          "authorAssociation": "NONE",
+          "body": "",
+          "submittedAt": "2026-11-06T06:11:38Z",
+          "includesCreatedEdit": false,
+          "reactionGroups": [],
+          "state": "APPROVED",
+          "commit": {
+            "oid": "03fb9c5e41f80026c0ec66c28a92b09ed6f1251e"
+          }
+        }
+      ],
+      "state": "OPEN",
+      "title": "BR-01: Create persistent structured reports with acceptance checks",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/7"
+    },
+    {
+      "baseRefName": "feat/1-create-report",
+      "comments": [],
+      "createdAt": "2026-11-03T16:47:28Z",
+      "headRefOid": "cee24aaa908991a9ff38967bfc2a46f973493934",
+      "isDraft": true,
+      "number": 8,
+      "reviews": [
+        {
+          "id": "PRR_kwDOVhnaPs8AAAABWX6khA",
+          "author": {
+            "login": "fadeout12"
+          },
+          "authorAssociation": "NONE",
+          "body": "",
+          "submittedAt": "2026-11-06T06:10:46Z",
+          "includesCreatedEdit": false,
+          "reactionGroups": [],
+          "state": "APPROVED",
+          "commit": {
+            "oid": "cee24aaa908991a9ff38967bfc2a46f973493934"
+          }
+        }
+      ],
+      "state": "OPEN",
+      "title": "A2 I1: Browser report workflow, persistent lifecycle and acceptance evidence",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/8"
+    },
+    {
+      "baseRefName": "feat/a2-iteration-1",
+      "comments": [],
+      "createdAt": "2026-11-03T17:02:52Z",
+      "headRefOid": "c7d027629e39365357e67e6d8088eeed587443f7",
+      "isDraft": true,
+      "number": 10,
+      "reviews": [
+        {
+          "id": "PRR_kwDOVhnaPs8AAAABWX6XEQ",
+          "author": {
+            "login": "fadeout12"
+          },
+          "authorAssociation": "NONE",
+          "body": "",
+          "submittedAt": "2026-11-06T06:10:19Z",
+          "includesCreatedEdit": false,
+          "reactionGroups": [],
+          "state": "APPROVED",
+          "commit": {
+            "oid": "c7d027629e39365357e67e6d8088eeed587443f7"
+          }
+        }
+      ],
+      "state": "OPEN",
+      "title": "A2 I2: Completeness, filtering and measured browser-regression improvement",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/10"
+    },
+    {
+      "baseRefName": "feat/a2-iteration-2",
+      "comments": [],
+      "createdAt": "2026-11-04T02:05:28Z",
+      "headRefOid": "b6ed3fb04fe78f2220059212b02bf291f2b76676",
+      "isDraft": true,
+      "number": 12,
+      "reviews": [
+        {
+          "id": "PRR_kwDOVhnaPs8AAAABWX6KNQ",
+          "author": {
+            "login": "fadeout12"
+          },
+          "authorAssociation": "NONE",
+          "body": "",
+          "submittedAt": "2026-11-06T06:09:56Z",
+          "includesCreatedEdit": false,
+          "reactionGroups": [],
+          "state": "APPROVED",
+          "commit": {
+            "oid": "b6ed3fb04fe78f2220059212b02bf291f2b76676"
+          }
+        }
+      ],
+      "state": "OPEN",
+      "title": "Refine responsive report workflow and paginated browsing",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/12"
+    },
+    {
+      "baseRefName": "feat/ui-quality-refinement",
+      "comments": [],
+      "createdAt": "2026-11-04T04:12:11Z",
+      "headRefOid": "38587def483de4b4e5d6e23f74f030799d001044",
+      "isDraft": true,
+      "number": 14,
+      "reviews": [
+        {
+          "id": "PRR_kwDOVhnaPs8AAAABWX51Ig",
+          "author": {
+            "login": "fadeout12"
+          },
+          "authorAssociation": "NONE",
+          "body": "",
+          "submittedAt": "2026-11-06T06:09:21Z",
+          "includesCreatedEdit": false,
+          "reactionGroups": [],
+          "state": "APPROVED",
+          "commit": {
+            "oid": "38587def483de4b4e5d6e23f74f030799d001044"
+          }
+        }
+      ],
+      "state": "OPEN",
+      "title": "Fix report input, responsive layout and navigation; audit assessment gaps",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/14"
+    },
+    {
+      "baseRefName": "fix/ui-defects-and-assessment-audit",
+      "comments": [],
+      "createdAt": "2026-11-04T16:25:40Z",
+      "headRefOid": "65a0bb95806494d87396b33a7a462744f9166b77",
+      "isDraft": true,
+      "number": 17,
+      "reviews": [
+        {
+          "id": "PRR_kwDOVhnaPs8AAAABWX5P3Q",
+          "author": {
+            "login": "fadeout12"
+          },
+          "authorAssociation": "NONE",
+          "body": "",
+          "submittedAt": "2026-11-06T06:08:17Z",
+          "includesCreatedEdit": false,
+          "reactionGroups": [],
+          "state": "APPROVED",
+          "commit": {
+            "oid": "65a0bb95806494d87396b33a7a462744f9166b77"
+          }
+        }
+      ],
+      "state": "OPEN",
+      "title": "Prepare equal team allocation, discussion drafts and real peer-study tooling",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/17"
+    },
+    {
+      "baseRefName": "feat/team-study-preparation",
+      "comments": [],
+      "createdAt": "2026-11-05T01:06:35Z",
+      "headRefOid": "acf29e3d2d1e5dd6c3a944007e8ad040fae82d63",
+      "isDraft": true,
+      "number": 19,
+      "reviews": [
+        {
+          "id": "PRR_kwDOVhnaPs8AAAABWX3G4Q",
+          "author": {
+            "login": "fadeout12"
+          },
+          "authorAssociation": "NONE",
+          "body": "good",
+          "submittedAt": "2026-11-06T06:04:22Z",
+          "includesCreatedEdit": false,
+          "reactionGroups": [],
+          "state": "COMMENTED",
+          "commit": {
+            "oid": "acf29e3d2d1e5dd6c3a944007e8ad040fae82d63"
+          }
+        },
+        {
+          "id": "PRR_kwDOVhnaPs8AAAABWX41UQ",
+          "author": {
+            "login": "fadeout12"
+          },
+          "authorAssociation": "NONE",
+          "body": "",
+          "submittedAt": "2026-11-06T06:07:29Z",
+          "includesCreatedEdit": false,
+          "reactionGroups": [],
+          "state": "APPROVED",
+          "commit": {
+            "oid": "acf29e3d2d1e5dd6c3a944007e8ad040fae82d63"
+          }
+        },
+        {
+          "id": "PRR_kwDOVhnaPs8AAAABWYNkSA",
+          "author": {
+            "login": "1219859689fjq"
+          },
+          "authorAssociation": "NONE",
+          "body": "",
+          "submittedAt": "2026-11-06T06:52:12Z",
+          "includesCreatedEdit": false,
+          "reactionGroups": [],
+          "state": "APPROVED",
+          "commit": {
+            "oid": "acf29e3d2d1e5dd6c3a944007e8ad040fae82d63"
+          }
+        }
+      ],
+      "state": "OPEN",
+      "title": "Improve submission feedback and add accessible interaction motion",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/19"
+    },
+    {
+      "baseRefName": "docs/a1-assessment-refinement",
+      "comments": [],
+      "createdAt": "2026-11-24T14:24:55Z",
+      "headRefOid": "24581cefc73cb3e135bb3f7bb78e174699e25d4a",
+      "isDraft": true,
+      "number": 21,
+      "reviews": [],
+      "state": "OPEN",
+      "title": "Prepare offline Windows demo package and report sharing",
+      "url": "https://github.com/alwaysgoodz/aut-bug-report-helper/pull/21"
+    }
+  ],
+  "issues": [
+    {
+      "body": "The owner needs a reliable Windows 64-bit demonstration on Thursday, 26 November 2026. This tracks the current delivery follow-up; it is not a backdated team requirement.\n\nAcceptance:\n- Extract-and-run offline package with a pinned official runtime; no installation, pip, Node.js or network needed for the presentation.\n- Separate fictional demo database, first-run seed, persistent restart, exclusive launch, occupied-port recovery and confirmed backup-before-reset.\n- Clear report-copy feedback and native UTF-8 Markdown download, including clipboard rejection and no-JavaScript fallback.\n- Verify the extracted runtime from a Chinese/space path, native StartDemo.cmd, minimal PATH, persisted state and readable backup.\n- Preserve application regression, keyboard, responsive, reduced-motion and test-only study checks. Include true logs, version hashes and offline contingency screenshots.\n- A bilingual guide with four suggested presentation segments. No fabricated member activity or human evaluation outcomes.\n- Preserve existing uncommitted A1 report edits; exclude user databases, study data and credentials from the ZIP.\n",
+      "created_at": "2026-11-24T14:24:52Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/20",
+      "number": 20,
+      "state": "open",
+      "title": "DEMO-01: prepare reliable offline Windows demonstration package"
+    },
+    {
+      "body": "The owner requested further usability improvements and dynamic effects. The existing local, server-rendered workspace keeps its teal design system and dependency-free runtime.\n\nAcceptance criteria:\n\n- Brief transform/opacity entrances and hover/pressed feedback preserve layout, keyboard focus and native navigation.\n- The semantic seven-field completeness score updates immediately; a visual progress fill smoothly retargets during rapid edits. Missing-field links and native progress remain usable without JavaScript.\n- Native create, status and filter submissions show explicit pending text, a loading indicator and disabled submit controls. Returning through browser history restores the action and form guidance.\n- Selecting a status previews the pending transition and requires explicit save; selecting the current value keeps Update disabled.\n- Reduced motion disables CSS and JavaScript motion, including live preference changes; static progress and pending feedback remain clear.\n- Existing app and test-only study flows pass, with responsive/keyboard/no-JavaScript checks. Record the new source for the still-empty real study; preserve the old study-ready tag. No human evaluation result is inferred.\n\nThis is a follow-up UI refinement, not a new completed student contribution or a replacement for independent review.\n",
+      "created_at": "2026-11-05T01:04:32Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/18",
+      "number": 18,
+      "state": "open",
+      "title": "UX-01: improve interaction feedback and add accessible motion"
+    },
+    {
+      "body": "## Scope and source\n\nContinue BR-06 (#6) using supplied team names Fengyi Zhan, Kaile Shao, jianqiao Fang and xin Li. The owner requests equal allocation and generated discussion content, explicitly chooses a prepared evaluation tool with real peers arranged later, and leaves IDs/GitHub accounts blank.\n\n## Acceptance\n\n- Central names, planned 25%/10h each, 5h per iteration; meaningful technical/process/review tasks and four individual drafts. No generated activity is attributed as completed student contribution.\n- Two complete discussion drafts, proposed speaking points/decisions/actions, with actual date/attendance/ratification blank.\n- Local consent/timing/recording/reviewer/export tool, two runnable matched defects, four counterbalanced sequences, test-only data separation and an empty real cohort. Actual outcomes require real participation.\n- Explicit independent reproduction and semantic element coding; missing/interrupted/repeated pairs excluded, source/environment retained, no general causal claim.\n- Update A1/A2 names/plan, align A2 current v0.4 and historical evidence, recount within 1,500/2,500, render/inspect both PDFs.\n- Tests, CI, reproducible instructions and evidence index. Draft review remains pending; this is preparation, not a fabricated extra iteration or study.\n",
+      "created_at": "2026-11-04T16:20:05Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/16",
+      "number": 16,
+      "state": "open",
+      "title": "TEAM-01: Equal allocation, discussion drafts and real peer-study preparation"
+    },
+    {
+      "body": "## Observed behavior\n\nBrowser Back restores text/severity but leaves completeness at 0%. A report opened from filtered page 2 returns to the unfiltered first page; status redirects also discard the list context. Null characters can trigger an unhandled SQLite title constraint or persist into optional text.\n\n## Acceptance\n\n- Recompute live guidance, progress and code-point counter after browser-restored form values are available.\n- Carry only validated severity/status/page context through list→detail→status update/conflict→Back to reports, with native links/forms and no arbitrary return URL.\n- Reject invalid/duplicate navigation parameters before status mutation.\n- Reject null characters as field validation, retain other inputs and leave the server healthy with no insert.\n- Preserve prior fixed tags and design system; add focused regressions and archive actual results. This is technical follow-up, not a claimed extra human team iteration.\n",
+      "created_at": "2026-11-04T14:58:30Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/15",
+      "number": 15,
+      "state": "open",
+      "title": "UI-03: Restore history guidance and preserve filtered detail navigation"
+    },
+    {
+      "body": "## Observed defects\n\n- At 901px and 1120px, the Completeness header exceeds its column's content width.\n- Native maxlength counts UTF-16 units while Python validates Unicode code points: 100 emoji are silently reduced to 80 in the title field, although the service permits 160. The live counter follows the wrong unit.\n- A report with all text fields at valid Unicode limits is rejected with HTTP 413 before field validation because the 64KB transport bound is smaller than valid form-urlencoded input.\n- Long guidance creates a nested scroll region and clipped prompts on the desktop form.\n\n## Acceptance\n\nPreserve 160 supplementary Unicode characters in title with and without JS; show code-point counts; reject 161 at the server while retaining input. Allow a maximal valid Unicode form within an explicit finite transport bound. Keep meaningful table headers within columns at breakpoint widths. Make guidance reachable without nested clipping, maintain keyboard order, and polish the existing teal UI. Preserve earlier report/release evidence and provide a requirement-by-requirement audit of A1/A2 gaps without fabricating human activity.\n\nFocused regression tests are added before fixes; their observed failures and the corrected checks will be archived.\n",
+      "created_at": "2026-11-04T02:44:20Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/13",
+      "number": 13,
+      "state": "open",
+      "title": "UI-02: Fix Unicode input limits, clipped guidance and breakpoint layout"
+    },
+    {
+      "body": "Audit found 9px headers / 10px badges, horizontal mobile browsing, unbounded list rendering and Python/JS whitespace disagreement. Refine the existing teal UI and preserve the seven-field reporting scope.\n\nAcceptance: 25 reports per browser page, accurate filtered totals, stable ordering, no omissions/duplicates, filters retained in next/previous links, filter removal returns to page one. Mobile cards expose severity/status/completeness/date without document overflow. Improve typography, grouped forms and actionable guidance; retain keyboard order and no-JavaScript workflow. Unicode-only blank fields produce consistent live/server scores and cannot create blank titles. Confirm status updates and disable unchanged-value submission progressively.\n\nRun focused and existing Python/HTTP/browser checks, desktop/tablet/mobile screenshots, selected contrast checks and the prospective bounded workload in docs/optimization/plan.md. Preserve evidence and versions. AI-assisted technical refinement does not constitute independent team review.\n",
+      "created_at": "2026-11-04T01:54:58Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/11",
+      "number": 11,
+      "state": "open",
+      "title": "UI-01: Responsive report workflow, bounded browsing and scoring consistency"
+    },
+    {
+      "body": "## Problem observed in I1\n\nThe 34 Python/HTTP tests pass even when the error-summary focus statement is deliberately disabled. An actual browser exercise reveals the failed criterion. The controlled mutation was restored. Evidence: `docs/a2/evidence/i1-focus-mutant.json` and the corresponding test log.\n\n## Proposed I2 change and acceptance\n\nCommit executable browser regression checks for the fixed common C1/C2/C3 scenarios and enable them in CI. Repeat the identical disabled-focus mutation: the new automated C1 assertion must fail while the delivered implementation passes after restoration. Record commands, exact SHAs, conditions and raw results. Add guidance/filter checks separately; compare only the shared scenarios/mutation across increments. Do not infer productivity gains from raw durations or test counts.\n\n## Responsibility and evidence\n\nProposed role D (test/CI), independent reviewer B; actual members unassigned. This is AI-assisted preparation, not evidence of completed human collaboration. The A1 four-peer product study remains pending; the process measures change is justified in `docs/a2/process-improvement-plan.md`.\n",
+      "created_at": "2026-11-03T16:47:30Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/9",
+      "number": 9,
+      "state": "open",
+      "title": "PI-01: Detect client-side regressions with browser acceptance in CI"
+    },
+    {
+      "body": "## Priority, iteration and responsibility\n\nMust; I1 2h + I2 4h. Proposed owners D (checks) and A (feedback), reviewer C.\n\n## Acceptance criteria\n\nClean checkout passes acceptance checks. I1 includes persistence/status verification; I2 includes all applicable stories. Conduct a counterbalanced exploratory comparison with four consenting peers using matched synthetic defects; record completion time, information presence and reproduction without clarification. Record actual results and limitations; link the exact tested release SHA, independent reviews and member activities. No invented outcomes.\n\n## Evidence and completion\n\nSee docs/backlog.md. Link implementation PR and acceptance results here. Done requires a non-author teammate's substantive review and approval. This issue was prepared with Codex assistance; proposed responsibilities are not evidence of student contributions.",
+      "created_at": "2026-11-03T16:21:02Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/6",
+      "number": 6,
+      "state": "open",
+      "title": "BR-06: Acceptance evaluation and release evidence"
+    },
+    {
+      "body": "## Priority, iteration and responsibility\n\nShould; I2; 3 person-hours. Proposed owner C, reviewer B.\n\n## Acceptance criteria\n\nDepends on BR-03. Severity/status combine with AND. Clear restores every report; no matches shows an empty state. Filtering does not mutate saved records.\n\n## Evidence and completion\n\nSee docs/backlog.md. Link implementation PR and acceptance results here. Done requires a non-author teammate's substantive review and approval. This issue was prepared with Codex assistance; proposed responsibilities are not evidence of student contributions.",
+      "created_at": "2026-11-03T16:21:00Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/5",
+      "number": 5,
+      "state": "open",
+      "title": "BR-05: Filter reports by severity and status"
+    },
+    {
+      "body": "## Priority, iteration and responsibility\n\nMust; I2; 5 person-hours. Proposed owner B, reviewer D.\n\n## Acceptance criteria\n\nDepends on BR-02. Score round(100*n/7) for six nonblank trimmed text fields and explicit valid severity, with no preselected severity. Six of seven = 86; seven = 100. Show exact missing fields and guidance before save. Optional content remains nonblocking; invalid title/severity blocks persistence. Label completeness rather than quality.\n\n## Evidence and completion\n\nSee docs/backlog.md. Link implementation PR and acceptance results here. Done requires a non-author teammate's substantive review and approval. This issue was prepared with Codex assistance; proposed responsibilities are not evidence of student contributions.\n\nRequirements check: the source brief defines seven fields (title, description, steps, expected, actual, environment, severity); the initial prose count was corrected before review. Generated ID, status and timestamp are metadata, not completeness fields.",
+      "created_at": "2026-11-03T16:20:57Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/4",
+      "number": 4,
+      "state": "open",
+      "title": "BR-04: Completeness score and missing-information guidance"
+    },
+    {
+      "body": "## Priority, iteration and responsibility\n\nMust; I1; 4 person-hours. Proposed owner C, reviewer B.\n\n## Acceptance criteria\n\nDepends on BR-01/02. Support Open -> In progress -> Resolved and Resolved -> Open. Restart preserves state. Invalid status or unknown ID gives explicit error without changing other data.\n\n## Evidence and completion\n\nSee docs/backlog.md. Link implementation PR and acceptance results here. Done requires a non-author teammate's substantive review and approval. This issue was prepared with Codex assistance; proposed responsibilities are not evidence of student contributions.",
+      "created_at": "2026-11-03T16:20:55Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/3",
+      "number": 3,
+      "state": "open",
+      "title": "BR-03: Persist report status changes"
+    },
+    {
+      "body": "## Priority, iteration and responsibility\n\nMust; I1; 6 person-hours. Proposed owner B, reviewer C.\n\n## Acceptance criteria\n\nDepends on BR-01. Show all seven fields; a valid submission appears once after reload. Invalid title gives accessible error without losing form text. Empty list has an explicit message. Render report text safely. Keyboard-only create/list acceptance check succeeds.\n\n## Evidence and completion\n\nSee docs/backlog.md. Link implementation PR and acceptance results here. Done requires a non-author teammate's substantive review and approval. This issue was prepared with Codex assistance; proposed responsibilities are not evidence of student contributions.\n\nRequirements check: the source brief defines seven fields (title, description, steps, expected, actual, environment, severity); the initial prose count was corrected before review. Generated ID, status and timestamp are metadata, not completeness fields.",
+      "created_at": "2026-11-03T16:20:53Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/2",
+      "number": 2,
+      "state": "open",
+      "title": "BR-02: Browser creation form and report list"
+    },
+    {
+      "body": "## Priority, iteration and responsibility\n\nMust; I1; 4 person-hours. Proposed owner C, independent reviewer D (members unassigned).\n\n## Acceptance criteria\n\nGiven a valid title and low/medium/high/critical severity, creating a report stores all seven fields and produces a unique ID, Open status and UTC timestamp. A fresh connection returns identical content. Trim the title. Reject empty/whitespace title or invalid severity without inserting a row. Other text fields may remain blank. A1 trials the service and CLI; browser integration is BR-02.\n\n## Evidence and completion\n\nSee docs/backlog.md. Link implementation PR and acceptance results here. Done requires a non-author teammate's substantive review and approval. This issue was prepared with Codex assistance; proposed responsibilities are not evidence of student contributions.\n\nRequirements check: the source brief defines seven fields (title, description, steps, expected, actual, environment, severity); the initial prose count was corrected before review. Generated ID, status and timestamp are metadata, not completeness fields.",
+      "created_at": "2026-11-03T16:20:51Z",
+      "html_url": "https://github.com/alwaysgoodz/aut-bug-report-helper/issues/1",
+      "number": 1,
+      "state": "open",
+      "title": "BR-01: Create and persist a structured bug report"
+    }
+  ]
+}

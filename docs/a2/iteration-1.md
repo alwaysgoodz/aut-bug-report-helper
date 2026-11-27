@@ -1,5 +1,7 @@
 # Iteration 1: core browser increment
 
+> 27 November evidence check: PR #8 shows an approval with an empty body on the I1 revision. The A1 submission had already planned two working days per iteration. The entry below preserves the technical record written before the approval; see the final evidence index for the limits of the collaboration evidence. [Evidence index](evidence-index.md).
+
 Date: 4 November 2026 (Asia/Shanghai). This is one AI-assisted implementation increment in the preparation session, not evidence that four students completed a five-day collaborative iteration. Named responsibilities, non-author review and a real team retrospective remain pending.
 
 ## Goal and selection
